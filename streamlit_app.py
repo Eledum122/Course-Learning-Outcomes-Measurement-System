@@ -12,8 +12,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 # استيراد النماذج والوظائف الموجودة
-from models.database import Database
-from models.user import User, UserRole
+from models.database import Database, User, UserRole
 from translations import get_translation as t
 
 # إعداد الصفحة

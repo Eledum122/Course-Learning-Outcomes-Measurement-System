@@ -41,6 +41,7 @@ test_data/
 *.tmp
 *.bak
 *.cache
+nul
 
 # Build
 build/
