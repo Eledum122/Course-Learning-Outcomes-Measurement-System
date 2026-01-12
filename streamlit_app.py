@@ -86,25 +86,65 @@ st.markdown("""
     .role-admin {
         background-color: #ff4b4b;
         color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
+        padding: 5px 15px;
+        border-radius: 20px;
         font-weight: 600;
+        font-size: 14px;
     }
 
-    .role-coordinator {
+    .role-program_coordinator {
         background-color: #ffa500;
         color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
+        padding: 5px 15px;
+        border-radius: 20px;
         font-weight: 600;
+        font-size: 14px;
     }
 
-    .role-instructor {
+    .role-course_coordinator {
         background-color: #4CAF50;
         color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
+        padding: 5px 15px;
+        border-radius: 20px;
         font-weight: 600;
+        font-size: 14px;
+    }
+
+    .role-section_instructor {
+        background-color: #2196F3;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* تحسين القائمة الجانبية */
+    [data-testid="stSidebar"] {
+        background-color: #f8f9fa;
+    }
+
+    /* تحسين أزرار الراديو في القائمة */
+    [data-testid="stSidebar"] .row-widget.stRadio > div {
+        gap: 8px;
+    }
+
+    [data-testid="stSidebar"] .row-widget.stRadio > div label {
+        background-color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    [data-testid="stSidebar"] .row-widget.stRadio > div label:hover {
+        border-color: #1f77b4;
+        background-color: #e3f2fd;
+    }
+
+    [data-testid="stSidebar"] .row-widget.stRadio > div label[data-baseweb="radio"] > div:first-child {
+        display: none;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -219,10 +259,10 @@ def main_app():
     # Sidebar - القائمة الجانبية
     with st.sidebar:
         st.markdown(f"""
-        <div class="{'rtl' if is_rtl else 'ltr'}">
-            <h2>👤 {t('welcome', lang)}</h2>
-            <h3>{user.full_name}</h3>
-            <p class="role-{user.role.value.lower()}">{t(user.role.value.lower(), lang)}</p>
+        <div class="{'rtl' if is_rtl else 'ltr'}" style="text-align: center;">
+            <h3>👤 {t('welcome', lang)}</h3>
+            <p style="font-size: 16px; font-weight: 600;">{user.full_name}</p>
+            <p class="role-{user.role.value.lower()}" style="display: inline-block;">{t(user.role.value.lower(), lang)}</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -230,6 +270,7 @@ def main_app():
 
         # القوائم حسب الصلاحيات
         st.markdown(f"### 📋 {t('main_menu', lang)}")
+        st.markdown("")  # مسافة صغيرة
 
         menu_items = []
 
@@ -269,21 +310,25 @@ def main_app():
             "",
             options=[item[1] for item in menu_items],
             format_func=lambda x: next((f"{item[0]} {item[2]}" for item in menu_items if item[1] == x), x),
-            key='menu_selection'
+            key='menu_selection',
+            label_visibility="collapsed"
         )
 
         st.markdown("---")
 
         # زر تغيير اللغة
-        if st.button(f"🌐 {t('change_language', lang)}"):
-            st.session_state.language = 'en' if lang == 'ar' else 'ar'
-            st.rerun()
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button(f"🌐 {t('change_language', lang)}", use_container_width=True):
+                st.session_state.language = 'en' if lang == 'ar' else 'ar'
+                st.rerun()
 
         # زر تسجيل الخروج
-        if st.button(f"🚪 {t('logout', lang)}", use_container_width=True):
-            st.session_state.authenticated = False
-            st.session_state.user = None
-            st.rerun()
+        with col2:
+            if st.button(f"🚪 {t('logout', lang)}", use_container_width=True, type='primary'):
+                st.session_state.authenticated = False
+                st.session_state.user = None
+                st.rerun()
 
     # المحتوى الرئيسي
     st.markdown(f"<div class='{'rtl' if is_rtl else 'ltr'}'>", unsafe_allow_html=True)

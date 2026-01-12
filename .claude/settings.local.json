@@ -68,7 +68,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(del CHANGELOG.md)"
+      "Bash(del CHANGELOG.md)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(git stash pop:*)"
     ]
   }
 }
