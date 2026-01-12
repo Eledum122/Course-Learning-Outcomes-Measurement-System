@@ -129,20 +129,23 @@ st.markdown("""
     [data-testid="stSidebar"] .row-widget.stRadio > div {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 3px;
+        overflow-y: visible;
+        max-height: none;
     }
 
     [data-testid="stSidebar"] .row-widget.stRadio > div label {
         background-color: white;
-        padding: 12px 15px;
+        padding: 8px 12px;
         border-radius: 8px;
         border: 2px solid #e0e0e0;
         transition: all 0.2s;
         cursor: pointer;
         display: flex;
         align-items: center;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
+        min-height: 40px;
     }
 
     [data-testid="stSidebar"] .row-widget.stRadio > div label:hover {

@@ -71,7 +71,10 @@
       "Bash(del CHANGELOG.md)",
       "Bash(git pull:*)",
       "Bash(git stash:*)",
-      "Bash(git stash pop:*)"
+      "Bash(git stash pop:*)",
+      "Bash(tasklist:*)",
+      "Bash(start streamlit run streamlit_app.py)",
+      "Bash(git restore:*)"
     ]
   }
 }
