@@ -1764,6 +1764,74 @@ Buttons:
         'ar': 'الدرجة يجب أن تكون أكبر من صفر',
         'en': 'Mark must be positive'
     },
+
+    # ═══════════════════════════════════════════════════════════════
+    # Courses Management - Additional Translations
+    # ═══════════════════════════════════════════════════════════════
+    'filter_by_program': {
+        'ar': 'تصفية حسب البرنامج',
+        'en': 'Filter by Program'
+    },
+    'no_programs_found': {
+        'ar': 'لم يتم العثور على برامج',
+        'en': 'No programs found'
+    },
+    'add_program_first': {
+        'ar': 'يرجى إضافة برنامج أولاً من صفحة إدارة البرامج',
+        'en': 'Please add a program first from Programs Management page'
+    },
+    'edit_delete_course': {
+        'ar': 'تعديل/حذف مقرر',
+        'en': 'Edit/Delete Course'
+    },
+    'no_courses_available': {
+        'ar': 'لا توجد مقررات متاحة',
+        'en': 'No courses available'
+    },
+    'edit_course': {
+        'ar': 'تعديل مقرر',
+        'en': 'Edit Course'
+    },
+    'course_updated_successfully': {
+        'ar': 'تم تحديث المقرر بنجاح',
+        'en': 'Course updated successfully'
+    },
+    'course_update_failed': {
+        'ar': 'فشل تحديث المقرر',
+        'en': 'Failed to update course'
+    },
+    'confirm_delete_course': {
+        'ar': 'هل أنت متأكد من حذف هذا المقرر؟',
+        'en': 'Are you sure you want to delete this course?'
+    },
+    'course_deleted_successfully': {
+        'ar': 'تم حذف المقرر بنجاح',
+        'en': 'Course deleted successfully'
+    },
+    'course_delete_failed': {
+        'ar': 'فشل حذف المقرر',
+        'en': 'Failed to delete course'
+    },
+    'add_course': {
+        'ar': 'إضافة مقرر',
+        'en': 'Add Course'
+    },
+    'course_added_successfully': {
+        'ar': 'تم إضافة المقرر بنجاح',
+        'en': 'Course added successfully'
+    },
+    'course_code_exists': {
+        'ar': 'رمز المقرر موجود بالفعل',
+        'en': 'Course code already exists'
+    },
+    'required': {
+        'ar': 'إلزامي',
+        'en': 'Required'
+    },
+    'select_coordinator': {
+        'ar': 'اختر منسق المقرر',
+        'en': 'Select Course Coordinator'
+    },
 }
 
 

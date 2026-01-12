@@ -604,3 +604,227 @@ class Database:
         if len(programs) < original_count:
             return self.save_programs(programs)
         return False
+
+    # ═══════════════════════════════════════════════════════════════
+    # إدارة المقررات / Courses Management
+    # ═══════════════════════════════════════════════════════════════
+
+    def load_courses(self) -> List[Dict]:
+        """تحميل جميع المقررات من الملف"""
+        courses_file = self.base_path / "courses.json"
+        try:
+            with open(courses_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return data.get('courses', [])
+        except FileNotFoundError:
+            return []
+        except json.JSONDecodeError:
+            return []
+
+    def save_courses(self, courses_list: List[Dict]) -> bool:
+        """
+        حفظ قائمة المقررات إلى الملف
+
+        Args:
+            courses_list: قائمة المقررات
+
+        Returns:
+            True إذا نجح الحفظ، False إذا فشل
+        """
+        courses_file = self.base_path / "courses.json"
+        try:
+            with open(courses_file, 'w', encoding='utf-8') as f:
+                json.dump({'courses': courses_list}, f, ensure_ascii=False, indent=2)
+            return True
+        except Exception as e:
+            print(f"Error saving courses: {e}")
+            return False
+
+    def get_all_courses(self) -> List[Dict]:
+        """الحصول على جميع المقررات"""
+        return self.load_courses()
+
+    def get_course_by_code(self, course_code: str) -> Optional[Dict]:
+        """
+        الحصول على مقرر من خلال الرمز
+
+        Args:
+            course_code: رمز المقرر
+
+        Returns:
+            بيانات المقرر أو None
+        """
+        courses = self.load_courses()
+        for course in courses:
+            if course.get('course_code') == course_code:
+                return course
+        return None
+
+    def get_courses_by_program(self, program_id: str) -> List[Dict]:
+        """
+        الحصول على المقررات الخاصة ببرنامج معين
+
+        Args:
+            program_id: معرف البرنامج
+
+        Returns:
+            قائمة المقررات
+        """
+        courses = self.load_courses()
+        return [c for c in courses if c.get('program_id') == program_id]
+
+    def add_course(self, course_code: str, course_title_ar: str, course_title_en: str,
+                  program_id: str, credit_hours: int = 3,
+                  theory_hours: int = 3, practical_hours: int = 0,
+                  course_level: str = "", prerequisites: str = "",
+                  course_type: str = "", description_ar: str = "",
+                  description_en: str = "", coordinator_id: str = "") -> bool:
+        """
+        إضافة مقرر جديد
+
+        Args:
+            course_code: رمز المقرر
+            course_title_ar: عنوان المقرر بالعربية
+            course_title_en: عنوان المقرر بالإنجليزية
+            program_id: معرف البرنامج
+            credit_hours: الساعات المعتمدة
+            theory_hours: الساعات النظرية
+            practical_hours: الساعات العملية
+            course_level: مستوى المقرر
+            prerequisites: المتطلبات السابقة
+            course_type: نوع المقرر
+            description_ar: الوصف بالعربية
+            description_en: الوصف بالإنجليزية
+            coordinator_id: معرف منسق المقرر
+
+        Returns:
+            True إذا نجحت الإضافة، False إذا فشلت
+        """
+        from datetime import datetime
+
+        # التحقق من عدم وجود رمز المقرر
+        if self.get_course_by_code(course_code):
+            return False
+
+        courses = self.load_courses()
+
+        # إنشاء معرف فريد
+        course_id = f"course_{len(courses) + 1:03d}"
+
+        # إنشاء المقرر الجديد
+        new_course = {
+            "course_id": course_id,
+            "course_code": course_code,
+            "course_title_ar": course_title_ar,
+            "course_title_en": course_title_en,
+            "program_id": program_id,
+            "credit_hours": credit_hours,
+            "theory_hours": theory_hours,
+            "practical_hours": practical_hours,
+            "total_hours": theory_hours + practical_hours,
+            "course_level": course_level,
+            "prerequisites": prerequisites,
+            "course_type": course_type,
+            "description_ar": description_ar,
+            "description_en": description_en,
+            "coordinator_id": coordinator_id,
+            "created_date": datetime.now().isoformat(),
+            "is_active": True,
+            "clos": [],
+            "topics": [],
+            "assessment_activities": [],
+            "sections": [],
+            "metadata": {}
+        }
+
+        courses.append(new_course)
+        return self.save_courses(courses)
+
+    def update_course(self, course_id: str, course_title_ar: str = None,
+                     course_title_en: str = None, program_id: str = None,
+                     credit_hours: int = None, theory_hours: int = None,
+                     practical_hours: int = None, course_level: str = None,
+                     prerequisites: str = None, course_type: str = None,
+                     description_ar: str = None, description_en: str = None,
+                     coordinator_id: str = None, is_active: bool = None) -> bool:
+        """
+        تحديث بيانات مقرر
+
+        Args:
+            course_id: معرف المقرر
+            course_title_ar: عنوان المقرر بالعربية (اختياري)
+            course_title_en: عنوان المقرر بالإنجليزية (اختياري)
+            program_id: معرف البرنامج (اختياري)
+            credit_hours: الساعات المعتمدة (اختياري)
+            theory_hours: الساعات النظرية (اختياري)
+            practical_hours: الساعات العملية (اختياري)
+            course_level: مستوى المقرر (اختياري)
+            prerequisites: المتطلبات السابقة (اختياري)
+            course_type: نوع المقرر (اختياري)
+            description_ar: الوصف بالعربية (اختياري)
+            description_en: الوصف بالإنجليزية (اختياري)
+            coordinator_id: معرف المنسق (اختياري)
+            is_active: حالة التفعيل (اختياري)
+
+        Returns:
+            True إذا نجح التحديث، False إذا فشل
+        """
+        courses = self.load_courses()
+        course_found = False
+
+        for course in courses:
+            if course.get('course_id') == course_id:
+                course_found = True
+                if course_title_ar is not None:
+                    course['course_title_ar'] = course_title_ar
+                if course_title_en is not None:
+                    course['course_title_en'] = course_title_en
+                if program_id is not None:
+                    course['program_id'] = program_id
+                if credit_hours is not None:
+                    course['credit_hours'] = credit_hours
+                if theory_hours is not None:
+                    course['theory_hours'] = theory_hours
+                if practical_hours is not None:
+                    course['practical_hours'] = practical_hours
+                if theory_hours is not None or practical_hours is not None:
+                    course['total_hours'] = course.get('theory_hours', 0) + course.get('practical_hours', 0)
+                if course_level is not None:
+                    course['course_level'] = course_level
+                if prerequisites is not None:
+                    course['prerequisites'] = prerequisites
+                if course_type is not None:
+                    course['course_type'] = course_type
+                if description_ar is not None:
+                    course['description_ar'] = description_ar
+                if description_en is not None:
+                    course['description_en'] = description_en
+                if coordinator_id is not None:
+                    course['coordinator_id'] = coordinator_id
+                if is_active is not None:
+                    course['is_active'] = is_active
+                break
+
+        if course_found:
+            return self.save_courses(courses)
+        return False
+
+    def delete_course(self, course_id: str) -> bool:
+        """
+        حذف مقرر
+
+        Args:
+            course_id: معرف المقرر
+
+        Returns:
+            True إذا نجح الحذف، False إذا فشل
+        """
+        courses = self.load_courses()
+        original_count = len(courses)
+
+        # حذف المقرر من القائمة
+        courses = [c for c in courses if c.get('course_id') != course_id]
+
+        if len(courses) < original_count:
+            return self.save_courses(courses)
+        return False
