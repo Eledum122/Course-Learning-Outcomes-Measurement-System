@@ -247,3 +247,159 @@ class Database:
             user_objects.append(user)
 
         return user_objects
+
+    def save_users(self, users_list: List[Dict]) -> bool:
+        """
+        حفظ قائمة المستخدمين إلى الملف
+
+        Args:
+            users_list: قائمة المستخدمين
+
+        Returns:
+            True إذا نجح الحفظ، False إذا فشل
+        """
+        try:
+            with open(self.users_file, 'w', encoding='utf-8') as f:
+                json.dump({'users': users_list}, f, ensure_ascii=False, indent=2)
+            return True
+        except Exception as e:
+            print(f"Error saving users: {e}")
+            return False
+
+    def add_user(self, username: str, password: str, full_name: str,
+                 email: str, roles: List[str], employee_id: str = "") -> bool:
+        """
+        إضافة مستخدم جديد
+
+        Args:
+            username: اسم المستخدم
+            password: كلمة المرور
+            full_name: الاسم الكامل
+            email: البريد الإلكتروني
+            roles: قائمة الأدوار
+            employee_id: الرقم الوظيفي
+
+        Returns:
+            True إذا نجحت الإضافة، False إذا فشلت
+        """
+        import hashlib
+        from datetime import datetime
+
+        # التحقق من عدم وجود اسم المستخدم
+        if self.get_user_by_username(username):
+            return False
+
+        users = self.load_users()
+
+        # إنشاء معرف فريد
+        user_id = f"user_{len(users) + 1:03d}"
+
+        # تشفير كلمة المرور
+        password_hash = hashlib.sha256(password.encode()).hexdigest()
+
+        # إنشاء المستخدم الجديد
+        new_user = {
+            "user_id": user_id,
+            "username": username,
+            "password_hash": password_hash,
+            "full_name": full_name,
+            "email": email,
+            "roles": roles,
+            "employee_id": employee_id,
+            "faculty_id": "",
+            "assigned_programs": [],
+            "assigned_courses": [],
+            "assigned_sections": {},
+            "created_date": datetime.now().isoformat(),
+            "last_login": None,
+            "is_active": True,
+            "metadata": {}
+        }
+
+        users.append(new_user)
+        return self.save_users(users)
+
+    def update_user(self, user_id: str, full_name: str = None, email: str = None,
+                    roles: List[str] = None, employee_id: str = None,
+                    is_active: bool = None) -> bool:
+        """
+        تحديث بيانات مستخدم
+
+        Args:
+            user_id: معرف المستخدم
+            full_name: الاسم الكامل (اختياري)
+            email: البريد الإلكتروني (اختياري)
+            roles: قائمة الأدوار (اختياري)
+            employee_id: الرقم الوظيفي (اختياري)
+            is_active: حالة التفعيل (اختياري)
+
+        Returns:
+            True إذا نجح التحديث، False إذا فشل
+        """
+        users = self.load_users()
+        user_found = False
+
+        for user in users:
+            if user.get('user_id') == user_id:
+                user_found = True
+                if full_name is not None:
+                    user['full_name'] = full_name
+                if email is not None:
+                    user['email'] = email
+                if roles is not None:
+                    user['roles'] = roles
+                if employee_id is not None:
+                    user['employee_id'] = employee_id
+                if is_active is not None:
+                    user['is_active'] = is_active
+                break
+
+        if user_found:
+            return self.save_users(users)
+        return False
+
+    def delete_user(self, user_id: str) -> bool:
+        """
+        حذف مستخدم
+
+        Args:
+            user_id: معرف المستخدم
+
+        Returns:
+            True إذا نجح الحذف، False إذا فشل
+        """
+        users = self.load_users()
+        original_count = len(users)
+
+        # حذف المستخدم من القائمة
+        users = [u for u in users if u.get('user_id') != user_id]
+
+        if len(users) < original_count:
+            return self.save_users(users)
+        return False
+
+    def change_password(self, user_id: str, new_password: str) -> bool:
+        """
+        تغيير كلمة مرور المستخدم
+
+        Args:
+            user_id: معرف المستخدم
+            new_password: كلمة المرور الجديدة
+
+        Returns:
+            True إذا نجح التغيير، False إذا فشل
+        """
+        import hashlib
+
+        users = self.load_users()
+        user_found = False
+
+        for user in users:
+            if user.get('user_id') == user_id:
+                user_found = True
+                user['password_hash'] = hashlib.sha256(new_password.encode()).hexdigest()
+                break
+
+        if user_found:
+            return self.save_users(users)
+        return False

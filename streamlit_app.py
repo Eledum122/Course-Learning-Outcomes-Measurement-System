@@ -14,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 # استيراد النماذج والوظائف الموجودة
 from models.database import Database, User, UserRole
 from translations import t
+from pages.users_management import show_users_management
 
 # إعداد الصفحة
 st.set_page_config(
@@ -289,8 +290,7 @@ def main_app():
     if selected_page == 'dashboard':
         show_dashboard(user, lang)
     elif selected_page == 'users':
-        st.title(f"👥 {t('users_management', lang)}")
-        st.info(f"🚧 {t('under_development', lang)}")
+        show_users_management(st.session_state.db, user, lang)
     elif selected_page == 'programs':
         st.title(f"🏛️ {t('programs_management', lang)}")
         st.info(f"🚧 {t('under_development', lang)}")

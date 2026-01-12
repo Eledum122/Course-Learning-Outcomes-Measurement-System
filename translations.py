@@ -207,6 +207,142 @@ TRANSLATIONS = {
         'ar': 'استخدم القائمة الجانبية للتنقل بين الصفحات المختلفة. يمكنك إدارة المقررات والبرامج الأكاديمية وقياس مخرجات التعلم بكل سهولة.',
         'en': 'Use the sidebar to navigate between different pages. You can manage courses, academic programs, and measure learning outcomes easily.'
     },
+    'no_permission': {
+        'ar': 'ليس لديك صلاحية للوصول إلى هذه الصفحة',
+        'en': 'You do not have permission to access this page'
+    },
+    'users_list': {
+        'ar': 'قائمة المستخدمين',
+        'en': 'Users List'
+    },
+    'add_user': {
+        'ar': 'إضافة مستخدم',
+        'en': 'Add User'
+    },
+    'no_users_found': {
+        'ar': 'لا يوجد مستخدمين',
+        'en': 'No users found'
+    },
+    'user_id': {
+        'ar': 'معرف المستخدم',
+        'en': 'User ID'
+    },
+    'employee_id': {
+        'ar': 'الرقم الوظيفي',
+        'en': 'Employee ID'
+    },
+    'status': {
+        'ar': 'الحالة',
+        'en': 'Status'
+    },
+    'active': {
+        'ar': 'نشط',
+        'en': 'Active'
+    },
+    'inactive': {
+        'ar': 'غير نشط',
+        'en': 'Inactive'
+    },
+    'edit_delete_user': {
+        'ar': 'تعديل/حذف مستخدم',
+        'en': 'Edit/Delete User'
+    },
+    'select_user': {
+        'ar': 'اختر مستخدم',
+        'en': 'Select User'
+    },
+    'edit_user': {
+        'ar': 'تعديل مستخدم',
+        'en': 'Edit User'
+    },
+    'save_changes': {
+        'ar': 'حفظ التغييرات',
+        'en': 'Save Changes'
+    },
+    'select_at_least_one_role': {
+        'ar': 'يرجى اختيار دور واحد على الأقل',
+        'en': 'Please select at least one role'
+    },
+    'user_updated_successfully': {
+        'ar': 'تم تحديث المستخدم بنجاح',
+        'en': 'User updated successfully'
+    },
+    'failed_to_update_user': {
+        'ar': 'فشل تحديث المستخدم',
+        'en': 'Failed to update user'
+    },
+    'confirm_delete': {
+        'ar': 'تأكيد الحذف',
+        'en': 'Confirm Delete'
+    },
+    'confirm_delete_user_message': {
+        'ar': 'هل أنت متأكد من حذف المستخدم',
+        'en': 'Are you sure you want to delete user'
+    },
+    'yes_delete': {
+        'ar': 'نعم، احذف',
+        'en': 'Yes, Delete'
+    },
+    'user_deleted_successfully': {
+        'ar': 'تم حذف المستخدم بنجاح',
+        'en': 'User deleted successfully'
+    },
+    'failed_to_delete_user': {
+        'ar': 'فشل حذف المستخدم',
+        'en': 'Failed to delete user'
+    },
+    'add_new_user': {
+        'ar': 'إضافة مستخدم جديد',
+        'en': 'Add New User'
+    },
+    'enter_username': {
+        'ar': 'أدخل اسم المستخدم',
+        'en': 'Enter username'
+    },
+    'enter_full_name': {
+        'ar': 'أدخل الاسم الكامل',
+        'en': 'Enter full name'
+    },
+    'enter_email': {
+        'ar': 'أدخل البريد الإلكتروني',
+        'en': 'Enter email'
+    },
+    'confirm_password': {
+        'ar': 'تأكيد كلمة المرور',
+        'en': 'Confirm Password'
+    },
+    'enter_password_again': {
+        'ar': 'أدخل كلمة المرور مرة أخرى',
+        'en': 'Enter password again'
+    },
+    'enter_employee_id': {
+        'ar': 'أدخل الرقم الوظيفي',
+        'en': 'Enter employee ID'
+    },
+    'select_roles': {
+        'ar': 'اختر الأدوار',
+        'en': 'Select Roles'
+    },
+    'required_fields': {
+        'ar': 'الحقول المطلوبة',
+        'en': 'Required fields'
+    },
+    'please_fill_required_fields': {
+        'ar': 'يرجى ملء جميع الحقول المطلوبة',
+        'en': 'Please fill all required fields'
+    },
+    'passwords_do_not_match': {
+        'ar': 'كلمات المرور غير متطابقة',
+        'en': 'Passwords do not match'
+    },
+    'user_added_successfully': {
+        'ar': 'تم إضافة المستخدم بنجاح',
+        'en': 'User added successfully'
+    },
+    'username_already_exists': {
+        'ar': 'اسم المستخدم موجود بالفعل',
+        'en': 'Username already exists'
+    },
     
     # ═══════════════════════════════════════════════════════════════
     # تسجيل الدخول / Login
