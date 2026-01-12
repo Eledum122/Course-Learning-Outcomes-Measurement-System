@@ -60,7 +60,14 @@
       "Bash(\".venv\\\\Scripts\\\\python.exe\" -c \"from models.user import User; from managers.access_control import AccessControl; print\\(''Import successful''\\)\")",
       "Bash(findstr:*)",
       "Bash(du:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(netstat:*)",
+      "Bash(ping:*)",
+      "Bash(cmd /c \"del nul\")",
+      "Bash(git rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
