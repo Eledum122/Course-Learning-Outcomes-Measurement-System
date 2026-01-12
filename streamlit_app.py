@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 # استيراد النماذج والوظائف الموجودة
 from models.database import Database, User, UserRole
-from translations import get_translation as t
+from translations import t
 
 # إعداد الصفحة
 st.set_page_config(
