@@ -2262,5 +2262,59 @@
     "status": "success",
     "details": {},
     "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-12T14:40:21.988913",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-12T14:40:29.451641",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-12T17:55:09.299767",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-12T18:07:35.120932",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-12T18:47:55.567008",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-12T18:48:00.554504",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
   }
 ]
