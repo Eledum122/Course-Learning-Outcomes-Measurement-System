@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from models.database import Database, User, UserRole
 from translations import t
 from pages.users_management import show_users_management
+from pages.programs_management import show_programs_management
 
 # إعداد الصفحة
 st.set_page_config(
@@ -292,8 +293,7 @@ def main_app():
     elif selected_page == 'users':
         show_users_management(st.session_state.db, user, lang)
     elif selected_page == 'programs':
-        st.title(f"🏛️ {t('programs_management', lang)}")
-        st.info(f"🚧 {t('under_development', lang)}")
+        show_programs_management(st.session_state.db, user, lang)
     elif selected_page == 'courses' or selected_page == 'my_courses':
         st.title(f"📚 {t('courses_management', lang)}")
         st.info(f"🚧 {t('under_development', lang)}")

@@ -495,6 +495,10 @@ TRANSLATIONS = {
         'ar': 'إدارة البرامج الأكاديمية',
         'en': 'Academic Programs Management'
     },
+    'programs_list': {
+        'ar': 'قائمة البرامج',
+        'en': 'Programs List'
+    },
     'new_program': {
         'ar': 'برنامج جديد',
         'en': 'New Program'

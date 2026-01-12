@@ -403,3 +403,204 @@ class Database:
         if user_found:
             return self.save_users(users)
         return False
+
+    # ═══════════════════════════════════════════════════════════════
+    # إدارة البرامج الأكاديمية / Programs Management
+    # ═══════════════════════════════════════════════════════════════
+
+    def load_programs(self) -> List[Dict]:
+        """تحميل جميع البرامج من الملف"""
+        programs_file = self.base_path / "programs.json"
+        try:
+            with open(programs_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return data.get('programs', [])
+        except FileNotFoundError:
+            return []
+        except json.JSONDecodeError:
+            return []
+
+    def save_programs(self, programs_list: List[Dict]) -> bool:
+        """
+        حفظ قائمة البرامج إلى الملف
+
+        Args:
+            programs_list: قائمة البرامج
+
+        Returns:
+            True إذا نجح الحفظ، False إذا فشل
+        """
+        programs_file = self.base_path / "programs.json"
+        try:
+            with open(programs_file, 'w', encoding='utf-8') as f:
+                json.dump({'programs': programs_list}, f, ensure_ascii=False, indent=2)
+            return True
+        except Exception as e:
+            print(f"Error saving programs: {e}")
+            return False
+
+    def get_all_programs(self) -> List[Dict]:
+        """الحصول على جميع البرامج"""
+        return self.load_programs()
+
+    def get_program_by_code(self, program_code: str) -> Optional[Dict]:
+        """
+        الحصول على برنامج من خلال الرمز
+
+        Args:
+            program_code: رمز البرنامج
+
+        Returns:
+            بيانات البرنامج أو None
+        """
+        programs = self.load_programs()
+        for program in programs:
+            if program.get('program_code') == program_code:
+                return program
+        return None
+
+    def add_program(self, program_code: str, program_name_ar: str, program_name_en: str,
+                   university_ar: str = "", university_en: str = "",
+                   college_ar: str = "", college_en: str = "",
+                   department_ar: str = "", department_en: str = "",
+                   description_ar: str = "", description_en: str = "",
+                   coordinator_id: str = "") -> bool:
+        """
+        إضافة برنامج جديد
+
+        Args:
+            program_code: رمز البرنامج
+            program_name_ar: اسم البرنامج بالعربية
+            program_name_en: اسم البرنامج بالإنجليزية
+            university_ar: الجامعة بالعربية
+            university_en: الجامعة بالإنجليزية
+            college_ar: الكلية بالعربية
+            college_en: الكلية بالإنجليزية
+            department_ar: القسم بالعربية
+            department_en: القسم بالإنجليزية
+            description_ar: الوصف بالعربية
+            description_en: الوصف بالإنجليزية
+            coordinator_id: معرف منسق البرنامج
+
+        Returns:
+            True إذا نجحت الإضافة، False إذا فشلت
+        """
+        from datetime import datetime
+
+        # التحقق من عدم وجود رمز البرنامج
+        if self.get_program_by_code(program_code):
+            return False
+
+        programs = self.load_programs()
+
+        # إنشاء معرف فريد
+        program_id = f"prog_{len(programs) + 1:03d}"
+
+        # إنشاء البرنامج الجديد
+        new_program = {
+            "program_id": program_id,
+            "program_code": program_code,
+            "program_name_ar": program_name_ar,
+            "program_name_en": program_name_en,
+            "university_ar": university_ar,
+            "university_en": university_en,
+            "college_ar": college_ar,
+            "college_en": college_en,
+            "department_ar": department_ar,
+            "department_en": department_en,
+            "description_ar": description_ar,
+            "description_en": description_en,
+            "coordinator_id": coordinator_id,
+            "created_date": datetime.now().isoformat(),
+            "is_active": True,
+            "plos": [],
+            "courses": [],
+            "metadata": {}
+        }
+
+        programs.append(new_program)
+        return self.save_programs(programs)
+
+    def update_program(self, program_id: str, program_name_ar: str = None,
+                      program_name_en: str = None, university_ar: str = None,
+                      university_en: str = None, college_ar: str = None,
+                      college_en: str = None, department_ar: str = None,
+                      department_en: str = None, description_ar: str = None,
+                      description_en: str = None, coordinator_id: str = None,
+                      is_active: bool = None) -> bool:
+        """
+        تحديث بيانات برنامج
+
+        Args:
+            program_id: معرف البرنامج
+            program_name_ar: اسم البرنامج بالعربية (اختياري)
+            program_name_en: اسم البرنامج بالإنجليزية (اختياري)
+            university_ar: الجامعة بالعربية (اختياري)
+            university_en: الجامعة بالإنجليزية (اختياري)
+            college_ar: الكلية بالعربية (اختياري)
+            college_en: الكلية بالإنجليزية (اختياري)
+            department_ar: القسم بالعربية (اختياري)
+            department_en: القسم بالإنجليزية (اختياري)
+            description_ar: الوصف بالعربية (اختياري)
+            description_en: الوصف بالإنجليزية (اختياري)
+            coordinator_id: معرف المنسق (اختياري)
+            is_active: حالة التفعيل (اختياري)
+
+        Returns:
+            True إذا نجح التحديث، False إذا فشل
+        """
+        programs = self.load_programs()
+        program_found = False
+
+        for program in programs:
+            if program.get('program_id') == program_id:
+                program_found = True
+                if program_name_ar is not None:
+                    program['program_name_ar'] = program_name_ar
+                if program_name_en is not None:
+                    program['program_name_en'] = program_name_en
+                if university_ar is not None:
+                    program['university_ar'] = university_ar
+                if university_en is not None:
+                    program['university_en'] = university_en
+                if college_ar is not None:
+                    program['college_ar'] = college_ar
+                if college_en is not None:
+                    program['college_en'] = college_en
+                if department_ar is not None:
+                    program['department_ar'] = department_ar
+                if department_en is not None:
+                    program['department_en'] = department_en
+                if description_ar is not None:
+                    program['description_ar'] = description_ar
+                if description_en is not None:
+                    program['description_en'] = description_en
+                if coordinator_id is not None:
+                    program['coordinator_id'] = coordinator_id
+                if is_active is not None:
+                    program['is_active'] = is_active
+                break
+
+        if program_found:
+            return self.save_programs(programs)
+        return False
+
+    def delete_program(self, program_id: str) -> bool:
+        """
+        حذف برنامج
+
+        Args:
+            program_id: معرف البرنامج
+
+        Returns:
+            True إذا نجح الحذف، False إذا فشل
+        """
+        programs = self.load_programs()
+        original_count = len(programs)
+
+        # حذف البرنامج من القائمة
+        programs = [p for p in programs if p.get('program_id') != program_id]
+
+        if len(programs) < original_count:
+            return self.save_programs(programs)
+        return False
