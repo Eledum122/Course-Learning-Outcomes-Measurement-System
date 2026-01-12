@@ -32,8 +32,8 @@ test_data/
 # Logs
 *.log
 
-# Database
-*.db
+# Database (keep clos_system.db for deployment)
+# *.db
 *.sqlite
 *.sqlite3
 
@@ -46,3 +46,11 @@ test_data/
 build/
 dist/
 *.egg-info/
+
+# Streamlit secrets (IMPORTANT: Don't commit secrets!)
+.streamlit/secrets.toml
+
+# Old desktop version files
+main.py
+dialogs/
+requirements_old.txt
