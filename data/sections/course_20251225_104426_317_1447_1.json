@@ -1,0 +1,88 @@
+{
+  "section_id": "course_20251225_104426_317_1447_1",
+  "course_id": "course_20251225_104426",
+  "section_number": "317",
+  "academic_year": "1447",
+  "semester": "First",
+  "course_coordinator": "58265 - Dalia Al najar (أستاذ مشارك / Associate Professor)",
+  "section_instructor": "58265 - Dalia Al najar (أستاذ مشارك / Associate Professor)",
+  "beneficiary_department": "Department of Statistics",
+  "beneficiary_faculty": "Faculty of Science",
+  "gender_section": "Female",
+  "clo_target_levels": {
+    "K1": 60.0,
+    "K2": 60.0,
+    "S3": 60.0,
+    "S4": 60.0,
+    "S5": 60.0,
+    "S7": 65.0,
+    "V2": 65.0
+  },
+  "students": [
+    {
+      "student_id": "45100062",
+      "name": "Rana Mosa Ali",
+      "status": "Regular",
+      "seq": 1,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 2.0,
+          "K2": 1.0,
+          "S3": 4.0,
+          "S5": 1.0
+        },
+        "Final exam": {
+          "K1": 1.0,
+          "K2": 2.0,
+          "S3": 10.0,
+          "S4": 9.0,
+          "S5": 5.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 1.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 6.0,
+          "S5": 1.0
+        },
+        "Assignments": {
+          "S3": 1.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 3.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 1.0
+        }
+      },
+      "clo_marks": {
+        "K1": 4.0,
+        "K2": 4.0,
+        "S3": 20.0,
+        "S4": 17.0,
+        "S5": 11.0,
+        "S7": 5.0,
+        "V2": 4.0
+      },
+      "total_mark": 65.0,
+      "passed": true
+    }
+  ],
+  "statistics": {},
+  "section_data_completed": true,
+  "students_data_completed": true,
+  "grades_data_completed": true,
+  "created_date": "2026-01-01T21:05:47.366322",
+  "modified_date": "2026-01-10T21:42:42.601913",
+  "created_by": "",
+  "specifications_table_verified": true
+}

@@ -1,0 +1,2266 @@
+[
+  {
+    "timestamp": "2026-01-07T01:55:06.199725",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T01:56:10.254064",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T01:59:16.021683",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:00:28.127102",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:00:28.127102",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:00:28.130550",
+    "action": "login",
+    "user_id": "test_001",
+    "username": "test_user",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:02:17.773357",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:02:37.756475",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:15:42.134784",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:16:41.482333",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:17:14.400447",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:23:27.413122",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T02:31:36.257562",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T18:26:51.614376",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T18:27:22.320720",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T18:48:27.723895",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T18:48:59.028094",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T18:52:37.822042",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T19:04:53.377437",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T19:12:33.035814",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T19:21:30.812301",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T19:25:07.707547",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T19:26:26.438017",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T20:08:09.653636",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T20:37:30.445278",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T20:46:24.332126",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T20:46:41.425028",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T20:58:00.039481",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:06:36.437058",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:09:19.116511",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:10:21.521142",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:25:47.751768",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:31:07.242188",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:47:48.663028",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:50:12.471267",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T21:54:12.525184",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:04:17.122435",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:06:42.273465",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:13:31.058903",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:16:22.352422",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:17:51.362537",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:21:13.812351",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:22:15.396795",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:24:29.424842",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:25:27.477476",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:27:11.988210",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:29:01.854805",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:30:15.307058",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:38:24.558737",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:39:09.118773",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:42:18.754193",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:45:50.450056",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:49:52.094147",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:54:18.386419",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:56:37.150781",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T22:58:30.888695",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-07T23:00:34.418844",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T09:35:27.069630",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T09:36:53.084259",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T09:43:09.250363",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T10:21:50.367890",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T10:24:43.805375",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T10:43:03.810734",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T10:47:43.861107",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T10:58:41.985307",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:01:18.214408",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:17:14.444225",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:17:41.135395",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "E200845",
+      "roles": [
+        "program_manager"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:18:07.309353",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "A58060",
+      "roles": [
+        "program_manager"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:18:49.644102",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:19:14.146563",
+    "action": "login",
+    "user_id": "user_002",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T11:20:13.750095",
+    "action": "logout",
+    "user_id": "user_002",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:01:36.395669",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:02:35.219140",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "H58227",
+      "roles": [
+        "course_instructor"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:15:52.777320",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:16:45.872243",
+    "action": "login",
+    "user_id": "user_004",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:19:45.237448",
+    "action": "logout",
+    "user_id": "user_004",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:24:50.258244",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:26:14.982646",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:26:46.381737",
+    "action": "login",
+    "user_id": "user_002",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:28:21.853946",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:28:40.041578",
+    "action": "delete_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "deleted_username": "E200845"
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:28:58.130761",
+    "action": "delete_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "deleted_username": "A58060"
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:29:04.755377",
+    "action": "delete_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "deleted_username": "H58227"
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:36:48.348000",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:37:10.508810",
+    "action": "login",
+    "user_id": "user_002",
+    "username": "O14334",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:38:26.259726",
+    "action": "logout",
+    "user_id": "user_002",
+    "username": "O14334",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:38:40.440116",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:39:39.973235",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:39:58.558890",
+    "action": "login",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:42:53.426926",
+    "action": "logout",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:47:36.115237",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:47:56.126824",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T18:48:09.746510",
+    "action": "login",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:01:37.658092",
+    "action": "login",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:04:10.574123",
+    "action": "logout",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:07:22.029949",
+    "action": "login",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:08:06.297084",
+    "action": "logout",
+    "user_id": "user_003",
+    "username": "A58060",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:08:25.143320",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:18:58.304959",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:19:18.021452",
+    "action": "login",
+    "user_id": "user_004",
+    "username": "M58400",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:20:02.137331",
+    "action": "logout",
+    "user_id": "user_004",
+    "username": "M58400",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:20:20.138590",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:22:16.382881",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:22:41.885176",
+    "action": "login",
+    "user_id": "user_004",
+    "username": "M58400",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:28:48.628478",
+    "action": "logout",
+    "user_id": "user_004",
+    "username": "M58400",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:29:15.493026",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:31:30.392045",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "H58450",
+      "roles": [
+        "course_coordinator"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:33:42.067142",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:34:00.751782",
+    "action": "login",
+    "user_id": "user_005",
+    "username": "H58450",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:39:25.811239",
+    "action": "login",
+    "user_id": "user_005",
+    "username": "H58450",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:39:40.505720",
+    "action": "logout",
+    "user_id": "user_005",
+    "username": "H58450",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:39:56.045682",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T19:40:19.954603",
+    "action": "delete_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "deleted_username": "H58450"
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T20:14:45.409168",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T20:20:52.931599",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T20:25:18.951006",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T20:26:49.793455",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T20:29:42.213541",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-08T20:31:34.453135",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T10:12:08.733186",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T10:18:29.090607",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T10:23:38.765716",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T10:29:58.363364",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T10:49:02.561068",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:04:12.515951",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:05:12.431961",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:10:10.965908",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:30:01.329199",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:30:46.471469",
+    "action": "logout",
+    "user_id": "user_005",
+    "username": "N58550",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:31:15.446288",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:35:40.963216",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:35:59.080603",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T11:36:46.620483",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:21:23.950811",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:27:37.655898",
+    "action": "delete_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "deleted_username": "A58060"
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:34:15.660873",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:38:47.307122",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:42:26.204822",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:44:35.628442",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T16:51:21.433902",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:04:35.884247",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:04:48.940991",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:06:17.561410",
+    "action": "delete_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "deleted_username": "O14334"
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:08:58.100902",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:25:07.499976",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:38:59.450529",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:39:13.524959",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:41:51.469619",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:52:52.194873",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:54:21.691597",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:54:46.703590",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T17:56:43.076209",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T18:18:33.396099",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T18:26:50.053068",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T18:27:18.757092",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T18:30:35.241376",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-09T18:51:04.076003",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:04:26.953678",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:07:34.214795",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:14:05.136964",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:22:16.441308",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:29:47.389205",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:32:44.394047",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:37:49.629532",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:42:25.860950",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:49:30.955534",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T10:51:31.826847",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T11:57:03.233614",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:00:23.575045",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:10:20.818537",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:11:22.853608",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:29:37.995347",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:32:18.409512",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:39:06.046477",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T12:50:59.794717",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:43:03.400432",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:44:58.741293",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:45:26.488343",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:45:40.346908",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:47:46.507657",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:51:14.886230",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T16:53:16.197662",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:10:40.566150",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:12:00.588930",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:15:50.479806",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:16:05.337895",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:16:39.055322",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:18:28.824035",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:22:50.649865",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:27:21.586858",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:30:44.763617",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:31:53.081737",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:32:10.034557",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:33:34.686741",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:34:45.450725",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:45:13.733659",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:52:20.181685",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:53:23.755871",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:53:57.868720",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:56:55.981158",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T17:57:53.119499",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T18:04:56.432381",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T18:19:25.024725",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T18:38:07.935382",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T18:43:15.476312",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T20:54:11.173252",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T20:59:33.910169",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:03:56.623025",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:05:59.930592",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:17:45.651714",
+    "action": "logout",
+    "user_id": "user_008",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:19:10.387263",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:22:10.301730",
+    "action": "logout",
+    "user_id": "user_008",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:31:13.715960",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:37:57.458361",
+    "action": "logout",
+    "user_id": "user_008",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:39:34.841626",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:45:43.719198",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "D58265",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:49:30.189459",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:55:50.910161",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:57:32.758509",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "D58265",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:58:36.540966",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-10T21:59:22.519837",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "D58265",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T09:56:12.961760",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:09:22.488911",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:25:13.073594",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:26:33.026815",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:33:48.035368",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:39:02.431665",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:41:01.838028",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T10:47:29.994926",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T11:03:36.692093",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T12:49:20.298469",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T12:56:22.991376",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T13:21:23.161103",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T13:28:43.153379",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T13:33:34.497664",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T14:11:44.512573",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T16:40:49.962347",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T19:16:06.156425",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T19:24:46.455760",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T19:31:03.345162",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T19:35:36.353460",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T19:38:57.482599",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T20:35:09.068634",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T20:39:50.148267",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T20:40:40.707331",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T21:02:51.429491",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-11T21:04:00.822139",
+    "action": "logout",
+    "user_id": "user_008",
+    "username": "E200845",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  }
+]

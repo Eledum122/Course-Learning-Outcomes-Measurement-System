@@ -1,0 +1,347 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                   تحديث نظام البرامج الأكاديمية                             ║
+║              Academic Programs System Update - 2026-01-07                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 ملخص التحديث - UPDATE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+تم إضافة نظام كامل لإدارة البرامج الأكاديمية يشمل:
+✅ نموذج البرنامج الأكاديمي
+✅ مدير البرامج الأكاديمية
+✅ واجهة إدارة البرامج (GUI)
+✅ الربط مع نظام المستخدمين والصلاحيات
+✅ الترجمات العربية والإنجليزية
+✅ قائمة في النافذة الرئيسية (Admin)
+
+A complete Academic Programs management system has been added including:
+✅ Academic Program Model
+✅ Academic Program Manager
+✅ Programs Management Interface (GUI)
+✅ Integration with Users & Permissions System
+✅ Arabic and English Translations
+✅ Admin Menu in Main Window
+
+═══════════════════════════════════════════════════════════════════════════════
+📁 الملفات الجديدة - NEW FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. models/academic_program.py
+   - نموذج البرنامج الأكاديمي الكامل
+   - Complete Academic Program Model
+   - يحتوي على: الجامعة، الكلية، القسم، البرنامج، المنسق
+   - Contains: University, College, Department, Program, Coordinator
+
+2. managers/academic_program_manager.py
+   - مدير البرامج الأكاديمية
+   - Academic Programs Manager
+   - وظائف: إنشاء، تحديث، حذف، بحث، تصفية البرامج
+   - Functions: Create, Update, Delete, Search, Filter programs
+
+3. dialogs/academic_programs_dialog.py
+   - واجهة إدارة البرامج (850+ سطر)
+   - Programs Management Interface (850+ lines)
+   - جدول تفاعلي، بحث، إحصائيات، CRUD كامل
+   - Interactive table, search, statistics, full CRUD
+
+4. test_academic_programs.py
+   - سكريبت اختبار شامل للنظام
+   - Comprehensive system test script
+
+5. ACADEMIC_PROGRAMS_GUIDE.md
+   - دليل كامل بالعربية والإنجليزية (800+ سطر)
+   - Complete bilingual guide (800+ lines)
+
+═══════════════════════════════════════════════════════════════════════════════
+🔧 الملفات المُحدَّثة - UPDATED FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. views/main_window.py
+   - إضافة قائمة "إدارة البرامج الأكاديمية" في قائمة Admin
+   - Added "Academic Programs" menu in Admin menu
+   - اختصار لوحة مفاتيح: Ctrl+P
+   - Keyboard shortcut: Ctrl+P
+   - الدالة: show_academic_programs() (السطر 1396-1409)
+
+2. managers/access_control.py
+   - إضافة دالة get_user_by_id() (السطر 148-150)
+   - Added get_user_by_id() function
+   - للتوافق مع نظام البرامج
+   - For compatibility with programs system
+
+3. translations.py
+   - إضافة 30+ ترجمة جديدة (السطر 251-373)
+   - Added 30+ new translations (lines 251-373)
+   - جميع نصوص واجهة البرامج الأكاديمية
+   - All Academic Programs interface texts
+
+═══════════════════════════════════════════════════════════════════════════════
+🎯 الميزات الرئيسية - KEY FEATURES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. التنظيم الهرمي - Hierarchical Organization
+   ┌─────────────────────────────────────────┐
+   │ جامعة تبوك                             │
+   │ University of Tabuk                    │
+   ├─────────────────────────────────────────┤
+   │ ↓ كلية العلوم                          │
+   │   College of Science                   │
+   ├─────────────────────────────────────────┤
+   │   ↓ قسم الإحصاء                        │
+   │     Department of Statistics           │
+   ├─────────────────────────────────────────┤
+   │     ↓ بكالوريوس الإحصاء                │
+   │       Bachelor of Statistics           │
+   │       👤 المنسق: د. أحمد محمد          │
+   └─────────────────────────────────────────┘
+
+2. معلومات البرنامج - Program Information
+   ✓ اسم بالعربي والإنجليزي - Bilingual name
+   ✓ رمز البرنامج - Program code
+   ✓ وصف مفصل - Detailed description
+   ✓ منسق محدد - Specific coordinator
+   ✓ حالة نشط/معطل - Active/Inactive status
+
+3. إدارة كاملة - Complete Management
+   ✓ إضافة برامج جديدة - Add new programs
+   ✓ تعديل البرامج - Edit programs
+   ✓ حذف البرامج - Delete programs
+   ✓ البحث والتصفية - Search & filter
+   ✓ عرض الإحصائيات - View statistics
+
+4. الربط مع المستخدمين - User Integration
+   ✓ اختيار المنسق من قائمة المستخدمين
+   ✓ فقط المستخدمين بصلاحية program_manager
+   ✓ Only users with program_manager role
+   ✓ ربط تلقائي مع الصلاحيات
+
+═══════════════════════════════════════════════════════════════════════════════
+🚀 كيفية الاستخدام - HOW TO USE
+═══════════════════════════════════════════════════════════════════════════════
+
+الخطوة 1: تشغيل البرنامج
+Step 1: Run Application
+───────────────────────
+• استخدم START_WITH_VENV.bat (إذا كنت تستخدم .venv)
+• Use START_WITH_VENV.bat (if using .venv)
+• أو START_HERE.bat (بدون بيئة افتراضية)
+• Or START_HERE.bat (without venv)
+
+الخطوة 2: تسجيل الدخول كمدير
+Step 2: Login as Admin
+───────────────────────
+Username: admin
+Password: admin123
+
+الخطوة 3: إضافة منسق برنامج
+Step 3: Add Program Coordinator
+───────────────────────
+1. اختر قائمة "الإدارة" → "إدارة المستخدمين"
+   Select "Admin" menu → "User Management"
+
+2. أضف مستخدم جديد أو عدّل موجود
+   Add new user or edit existing
+
+3. اختر دور "منسق البرنامج" (program_manager)
+   Select "Program Coordinator" role
+
+4. احفظ المستخدم
+   Save user
+
+الخطوة 4: إنشاء برنامج أكاديمي
+Step 4: Create Academic Program
+───────────────────────
+1. اختر قائمة "الإدارة" → "إدارة البرامج الأكاديمية"
+   Select "Admin" → "Academic Programs"
+   أو اضغط Ctrl+P
+
+2. اضغط "➕ برنامج جديد"
+   Click "➕ New Program"
+
+3. املأ المعلومات:
+   Fill information:
+   - اسم البرنامج (عربي) * - Program Name (Arabic) *
+   - اسم البرنامج (إنجليزي) * - Program Name (English) *
+   - الكلية - College
+   - القسم - Department
+   - منسق البرنامج * - Program Coordinator *
+
+4. اضغط "✓ حفظ"
+   Click "✓ Save"
+
+═══════════════════════════════════════════════════════════════════════════════
+🔐 الصلاحيات - PERMISSIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+الأدوار المتاحة - Available Roles:
+───────────────────────
+
+1. 🛡️ admin (مدير النظام)
+   ✓ إدارة البرامج الأكاديمية
+   ✓ إدارة المستخدمين
+   ✓ جميع الصلاحيات
+
+2. 🎓 program_manager (منسق البرنامج)
+   ✓ إدارة برنامجه الأكاديمي
+   ✓ إدارة مقررات البرنامج (قريباً)
+   ✓ عرض تقارير البرنامج (قريباً)
+
+3. 📚 course_coordinator (منسق المقرر)
+   ✓ إدارة المقرر
+   ✓ إدارة الشعب
+
+4. 👨‍🏫 course_instructor (مدرس الشعبة)
+   ✓ إدخال الدرجات
+   ✓ عرض تقارير الشعبة
+
+═══════════════════════════════════════════════════════════════════════════════
+💾 تخزين البيانات - DATA STORAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+مجلد البيانات - Data Directory:
+data/academic_programs/
+
+ملف البرامج - Programs File:
+data/academic_programs/programs.json
+
+مثال على التخزين - Storage Example:
+{
+  "prog_abc123def456": {
+    "program_id": "prog_abc123def456",
+    "university_ar": "جامعة تبوك",
+    "university_en": "University of Tabuk",
+    "college_ar": "كلية العلوم",
+    "college_en": "College of Science",
+    "department_ar": "قسم الإحصاء",
+    "department_en": "Department of Statistics",
+    "program_name_ar": "بكالوريوس الإحصاء",
+    "program_name_en": "Bachelor of Statistics",
+    "coordinator_id": "user_12345",
+    "is_active": true,
+    "created_date": "2026-01-07T14:30:00",
+    "last_modified": "2026-01-07T14:30:00"
+  }
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+🧪 الاختبار - TESTING
+═══════════════════════════════════════════════════════════════════════════════
+
+تشغيل الاختبارات - Run Tests:
+.venv\Scripts\python.exe test_academic_programs.py
+
+الاختبارات تشمل - Tests Include:
+✓ إنشاء نموذج برنامج
+✓ حفظ وتحميل البرامج
+✓ الربط مع نظام المستخدمين
+✓ البحث والتصفية
+✓ واجهة المستخدم (GUI)
+
+═══════════════════════════════════════════════════════════════════════════════
+📊 الإحصائيات - STATISTICS
+═══════════════════════════════════════════════════════════════════════════════
+
+أسطر الكود الجديدة - New Lines of Code:
+───────────────────────
+• academic_program.py:         170 سطر
+• academic_program_manager.py: 240 سطر
+• academic_programs_dialog.py: 850 سطر
+• test_academic_programs.py:   120 سطر
+• translations.py:               30 سطر (إضافات)
+• access_control.py:              3 سطر (إضافات)
+• main_window.py:                14 سطر (إضافات)
+───────────────────────
+الإجمالي - Total:           ~1,427 سطر كود جديد!
+
+═══════════════════════════════════════════════════════════════════════════════
+🔮 التحديثات القادمة - UPCOMING UPDATES
+═══════════════════════════════════════════════════════════════════════════════
+
+المرحلة التالية - Next Phase:
+
+1. ربط المقررات بالبرامج
+   Link Courses to Programs
+   • إضافة program_id في نموذج Course
+   • تصفية المقررات حسب البرنامج
+
+2. صلاحيات منسق البرنامج
+   Program Coordinator Permissions
+   • عرض فقط مقررات برنامجه
+   • إدارة منسقي المقررات
+   • الموافقة على النتائج
+
+3. تقارير البرامج
+   Program Reports
+   • تقرير شامل لكل برنامج
+   • إحصائيات التقييم
+   • مخرجات التعلم للبرنامج
+
+4. استيراد/تصدير
+   Import/Export
+   • استيراد برامج من Excel
+   • تصدير قائمة البرامج
+   • قوالب جاهزة
+
+═══════════════════════════════════════════════════════════════════════════════
+📚 المراجع - REFERENCES
+═══════════════════════════════════════════════════════════════════════════════
+
+للمزيد من المعلومات، راجع:
+For more information, see:
+
+1. ACADEMIC_PROGRAMS_GUIDE.md
+   - دليل كامل مفصل (800+ سطر)
+   - Complete detailed guide (800+ lines)
+
+2. models/academic_program.py
+   - توثيق النموذج
+   - Model documentation
+
+3. managers/academic_program_manager.py
+   - توثيق المدير
+   - Manager documentation
+
+4. dialogs/academic_programs_dialog.py
+   - توثيق الواجهة
+   - Interface documentation
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ ملخص الإنجازات - ACHIEVEMENTS SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ نظام كامل للبرامج الأكاديمية
+  Complete Academic Programs System
+
+✓ واجهة مستخدم احترافية ثنائية اللغة
+  Professional Bilingual User Interface
+
+✓ ربط كامل مع نظام المستخدمين والصلاحيات
+  Full Integration with Users & Permissions System
+
+✓ تخزين وإدارة متقدمة للبيانات
+  Advanced Data Storage & Management
+
+✓ بحث وتصفية قوية
+  Powerful Search & Filtering
+
+✓ إحصائيات ومعلومات شاملة
+  Comprehensive Statistics & Information
+
+✓ اختبارات شاملة
+  Comprehensive Testing
+
+✓ توثيق كامل بالعربية والإنجليزية
+  Complete Arabic & English Documentation
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 النظام جاهز للاستخدام! - System Ready to Use!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+تم التطوير بواسطة - Developed by: Hussein Youssef Abdelazim
+التاريخ - Date: 2026-01-07
+الإصدار - Version: 1.1
+
+═══════════════════════════════════════════════════════════════════════════════

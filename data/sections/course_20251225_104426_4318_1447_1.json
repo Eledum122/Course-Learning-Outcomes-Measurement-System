@@ -1,0 +1,1043 @@
+{
+  "section_id": "course_20251225_104426_4318_1447_1",
+  "course_id": "course_20251225_104426",
+  "section_number": "4318",
+  "academic_year": "1447",
+  "semester": "First",
+  "course_coordinator": "58265 - Dalia Al najar (أستاذ مشارك / Associate Professor)",
+  "section_instructor": "58227 - Hussein Eledum (أستاذ / Professor)",
+  "beneficiary_department": "",
+  "beneficiary_faculty": "",
+  "gender_section": "Male",
+  "clo_target_levels": {
+    "K1": 60.0,
+    "K2": 60.0,
+    "S3": 60.0,
+    "S4": 60.0,
+    "S5": 60.0,
+    "S7": 65.0,
+    "V2": 65.0
+  },
+  "students": [
+    {
+      "student_id": "421002649",
+      "name": "خالد  بن  شباب  بن  وصيص الوطيباني المطيري",
+      "status": "Regular",
+      "seq": 1,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 4.0,
+          "K2": 3.0,
+          "S3": 6.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 6.0,
+          "S3": 10.0,
+          "S4": 9.0,
+          "S5": 6.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 7.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 1.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 1.0,
+          "S5": 2.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 8.0,
+        "K2": 10.0,
+        "S3": 26.0,
+        "S4": 17.0,
+        "S5": 13.0,
+        "S7": 4.0,
+        "V2": 7.0
+      },
+      "total_mark": 85.0,
+      "passed": true
+    },
+    {
+      "student_id": "421005812",
+      "name": "عبدالمجيد  بن  صالح  بن  ظاهر الصريبطي البلوي",
+      "status": "Regular",
+      "seq": 2,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 6.0,
+          "K2": 3.0,
+          "S3": 9.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 5.0,
+          "S3": 9.0,
+          "S4": 10.0,
+          "S5": 7.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 7.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 1.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 2.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 9.0,
+        "S3": 28.0,
+        "S4": 19.0,
+        "S5": 14.0,
+        "S7": 4.0,
+        "V2": 7.0
+      },
+      "total_mark": 91.0,
+      "passed": true
+    },
+    {
+      "student_id": "421007457",
+      "name": "عبدالله  بن  رحيل  بن  عيد الوابصي البلوي",
+      "status": "Regular",
+      "seq": 3,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 3.0,
+          "K2": 3.0,
+          "S3": 9.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 1.0,
+          "K2": 5.0,
+          "S3": 8.0,
+          "S4": 5.0,
+          "S5": 4.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 6.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 2.0,
+          "S4": 1.0,
+          "S5": 2.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 5.0
+        }
+      },
+      "clo_marks": {
+        "K1": 5.0,
+        "K2": 9.0,
+        "S3": 25.0,
+        "S4": 12.0,
+        "S5": 11.0,
+        "S7": 5.0,
+        "V2": 8.0
+      },
+      "total_mark": 75.0,
+      "passed": true
+    },
+    {
+      "student_id": "431002801",
+      "name": "فيصل   بن خالد   بن نشمي الحربي",
+      "status": "Prohibited",
+      "seq": 4,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 0.0,
+          "K2": 1.0,
+          "S3": 0.0,
+          "S5": 0.0
+        },
+        "Final exam": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0
+        },
+        "Quizzes": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S3": 0.0
+        },
+        "Lab final exam": {
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0
+        },
+        "Assignments": {
+          "S3": 0.0,
+          "S5": 0.0,
+          "S7": 0.0
+        },
+        "Lab activities": {
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0,
+          "S7": 0.0,
+          "V2": 0.0
+        },
+        "Oral Presentation": {
+          "V2": 0.0
+        }
+      },
+      "clo_marks": {
+        "K2": 1.0
+      },
+      "total_mark": 1.0,
+      "passed": false
+    },
+    {
+      "student_id": "431004227",
+      "name": "خالد   بن حمدي   بن حسن الذيابي الرشيدي",
+      "status": "Regular",
+      "seq": 5,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 4.0,
+          "K2": 1.0,
+          "S3": 4.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 2.0,
+          "K2": 4.0,
+          "S3": 5.0,
+          "S4": 7.0,
+          "S5": 4.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 0.0,
+          "S3": 1.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 2.0,
+          "S5": 0.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 7.0,
+        "K2": 5.0,
+        "S3": 17.0,
+        "S4": 11.0,
+        "S5": 10.0,
+        "S7": 5.0,
+        "V2": 7.0
+      },
+      "total_mark": 62.0,
+      "passed": true
+    },
+    {
+      "student_id": "431004569",
+      "name": "فايز   بن محمد   بن سليمان العطيات العطوي",
+      "status": "Regular",
+      "seq": 6,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 3.0,
+          "K2": 1.0,
+          "S3": 5.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 1.0,
+          "K2": 4.0,
+          "S3": 4.0,
+          "S4": 4.0,
+          "S5": 2.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 2.0
+        },
+        "Lab final exam": {
+          "S3": 0.0,
+          "S4": 5.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 5.0,
+        "K2": 6.0,
+        "S3": 17.0,
+        "S4": 11.0,
+        "S5": 10.0,
+        "S7": 5.0,
+        "V2": 7.0
+      },
+      "total_mark": 61.0,
+      "passed": true
+    },
+    {
+      "student_id": "431004861",
+      "name": "حمد  بن  عبيدالله  بن  عليان الرفاعي الجهني",
+      "status": "Regular",
+      "seq": 7,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 4.0,
+          "K2": 3.0,
+          "S3": 3.0,
+          "S5": 1.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 3.0,
+          "S3": 9.0,
+          "S4": 6.0,
+          "S5": 3.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 7.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 5.0
+        }
+      },
+      "clo_marks": {
+        "K1": 8.0,
+        "K2": 7.0,
+        "S3": 22.0,
+        "S4": 15.0,
+        "S5": 10.0,
+        "S7": 5.0,
+        "V2": 8.0
+      },
+      "total_mark": 75.0,
+      "passed": true
+    },
+    {
+      "student_id": "431005230",
+      "name": "نواف  بن  فالح  بن  علي الفحيماني الحويطي",
+      "status": "Regular",
+      "seq": 8,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 5.0,
+          "K2": 2.0,
+          "S3": 4.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 1.0,
+          "K2": 2.0,
+          "S3": 6.0,
+          "S4": 6.0,
+          "S5": 3.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 5.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 7.0,
+        "K2": 5.0,
+        "S3": 20.0,
+        "S4": 13.0,
+        "S5": 11.0,
+        "S7": 5.0,
+        "V2": 5.0
+      },
+      "total_mark": 66.0,
+      "passed": true
+    },
+    {
+      "student_id": "431005267",
+      "name": "سلطان   بن مفضي   بن عبيد البديوني العنزي",
+      "status": "Regular",
+      "seq": 9,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 6.0,
+          "K2": 3.0,
+          "S3": 6.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 6.0,
+          "S3": 11.0,
+          "S4": 11.0,
+          "S5": 7.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 0.0,
+          "S4": 5.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 1.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 25.0,
+        "S4": 18.0,
+        "S5": 15.0,
+        "S7": 5.0,
+        "V2": 7.0
+      },
+      "total_mark": 90.0,
+      "passed": true
+    },
+    {
+      "student_id": "431005486",
+      "name": "عبدالاله   بن محمد   بن طالب الطويلعي العنزي",
+      "status": "Regular",
+      "seq": 10,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 3.0,
+          "K2": 2.0,
+          "S3": 7.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 2.0,
+          "K2": 4.0,
+          "S3": 9.0,
+          "S4": 6.0,
+          "S5": 6.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 2.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 3.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 6.0,
+        "K2": 7.0,
+        "S3": 25.0,
+        "S4": 11.0,
+        "S5": 14.0,
+        "S7": 5.0,
+        "V2": 7.0
+      },
+      "total_mark": 75.0,
+      "passed": true
+    },
+    {
+      "student_id": "431007103",
+      "name": "فارس  بن  سلمان  بن  يحي المالكي",
+      "status": "Regular",
+      "seq": 11,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 5.0,
+          "K2": 3.0,
+          "S3": 9.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 6.0,
+          "S3": 11.0,
+          "S4": 13.0,
+          "S5": 6.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 7.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 5.0
+        }
+      },
+      "clo_marks": {
+        "K1": 9.0,
+        "K2": 10.0,
+        "S3": 30.0,
+        "S4": 22.0,
+        "S5": 14.0,
+        "S7": 5.0,
+        "V2": 8.0
+      },
+      "total_mark": 98.0,
+      "passed": true
+    },
+    {
+      "student_id": "431007440",
+      "name": "عامر  بن  عبدالله  بن  حضيري الخمشي العنزي",
+      "status": "Regular",
+      "seq": 12,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 6.0,
+          "K2": 3.0,
+          "S3": 7.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 2.0,
+          "K2": 2.0,
+          "S3": 7.0,
+          "S4": 6.0,
+          "S5": 5.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 7.0,
+          "S5": 1.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 2.0,
+          "S4": 1.0,
+          "S5": 0.0,
+          "S7": 2.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 0.0
+        }
+      },
+      "clo_marks": {
+        "K1": 9.0,
+        "K2": 6.0,
+        "S3": 22.0,
+        "S4": 14.0,
+        "S5": 9.0,
+        "S7": 4.0,
+        "V2": 3.0
+      },
+      "total_mark": 67.0,
+      "passed": true
+    },
+    {
+      "student_id": "431010538",
+      "name": "فادي   بن ماجد   بن لافي عيد",
+      "status": "Regular",
+      "seq": 13,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 4.0,
+          "K2": 1.0,
+          "S3": 4.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 2.0,
+          "K2": 3.0,
+          "S3": 3.0,
+          "S4": 4.0,
+          "S5": 3.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 0.0,
+          "S4": 5.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 1.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 3.0,
+          "S4": 2.0,
+          "S5": 2.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 5.0
+        }
+      },
+      "clo_marks": {
+        "K1": 7.0,
+        "K2": 5.0,
+        "S3": 14.0,
+        "S4": 11.0,
+        "S5": 10.0,
+        "S7": 5.0,
+        "V2": 8.0
+      },
+      "total_mark": 60.0,
+      "passed": true
+    },
+    {
+      "student_id": "451003201",
+      "name": "تركي   بن سليم   بن سويلم المحينه العطوي",
+      "status": "Regular",
+      "seq": 14,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 3.0,
+          "K2": 3.0,
+          "S3": 2.0,
+          "S5": 1.0
+        },
+        "Final exam": {
+          "K1": 2.0,
+          "K2": 2.0,
+          "S3": 4.0,
+          "S4": 5.0,
+          "S5": 3.0
+        },
+        "Quizzes": {
+          "K1": 0.0,
+          "K2": 1.0,
+          "S3": 2.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 6.0,
+          "S5": 1.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 5.0,
+        "K2": 6.0,
+        "S3": 15.0,
+        "S4": 13.0,
+        "S5": 9.0,
+        "S7": 5.0,
+        "V2": 7.0
+      },
+      "total_mark": 60.0,
+      "passed": true
+    },
+    {
+      "student_id": "451004634",
+      "name": "عبدالعزيز   بن سلمان   بن عطاالله بطيحان العرادي",
+      "status": "Dropped",
+      "seq": 15,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S3": 0.0,
+          "S5": 0.0
+        },
+        "Final exam": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0
+        },
+        "Quizzes": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S3": 0.0
+        },
+        "Lab final exam": {
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0
+        },
+        "Assignments": {
+          "S3": 0.0,
+          "S5": 0.0,
+          "S7": 0.0
+        },
+        "Lab activities": {
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0,
+          "S7": 0.0,
+          "V2": 0.0
+        },
+        "Oral Presentation": {
+          "V2": 0.0
+        }
+      },
+      "clo_marks": {},
+      "total_mark": 0.0,
+      "passed": false
+    },
+    {
+      "student_id": "451007307",
+      "name": "مسلوب  بن بن هواش  بن بن مسلوب المرعظي العنزي",
+      "status": "Regular",
+      "seq": 16,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 0.0,
+          "S5": 1.0
+        },
+        "Final exam": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 5.0,
+          "S4": 2.0,
+          "S5": 3.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 2.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 3.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0,
+          "S7": 3.0,
+          "V2": 3.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 3.0,
+        "K2": 3.0,
+        "S3": 14.0,
+        "S4": 7.0,
+        "S5": 10.0,
+        "S7": 5.0,
+        "V2": 7.0
+      },
+      "total_mark": 49.0,
+      "passed": false
+    },
+    {
+      "student_id": "451007419",
+      "name": "عادل  بن بن نائف  بن بن عبد الله العدواني العنزي",
+      "status": "Regular",
+      "seq": 17,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S3": 1.0,
+          "S5": 1.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 4.0,
+          "S3": 4.0,
+          "S4": 2.0,
+          "S5": 3.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 2.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 6.0,
+          "S5": 1.0
+        },
+        "Assignments": {
+          "S3": 2.0,
+          "S5": 1.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 2.0,
+          "S4": 1.0,
+          "S5": 2.0,
+          "S7": 3.0,
+          "V2": 2.0
+        },
+        "Oral Presentation": {
+          "V2": 0.0
+        }
+      },
+      "clo_marks": {
+        "K1": 4.0,
+        "K2": 5.0,
+        "S3": 12.0,
+        "S4": 9.0,
+        "S5": 8.0,
+        "S7": 5.0,
+        "V2": 2.0
+      },
+      "total_mark": 45.0,
+      "passed": false
+    },
+    {
+      "student_id": "461004214",
+      "name": "محمد  بن فهد  بن بن صالح البلوي",
+      "status": "Regular",
+      "seq": 18,
+      "activity_marks": {
+        "Mid Exam": {
+          "K1": 4.0,
+          "K2": 3.0,
+          "S3": 9.0,
+          "S5": 2.0
+        },
+        "Final exam": {
+          "K1": 3.0,
+          "K2": 6.0,
+          "S3": 5.0,
+          "S4": 4.0,
+          "S5": 2.0
+        },
+        "Quizzes": {
+          "K1": 1.0,
+          "K2": 1.0,
+          "S3": 3.0
+        },
+        "Lab final exam": {
+          "S3": 1.0,
+          "S4": 7.0,
+          "S5": 2.0
+        },
+        "Assignments": {
+          "S3": 1.0,
+          "S5": 0.0,
+          "S7": 2.0
+        },
+        "Lab activities": {
+          "S3": 2.0,
+          "S4": 1.0,
+          "S5": 2.0,
+          "S7": 3.0,
+          "V2": 2.0
+        },
+        "Oral Presentation": {
+          "V2": 4.0
+        }
+      },
+      "clo_marks": {
+        "K1": 8.0,
+        "K2": 10.0,
+        "S3": 21.0,
+        "S4": 12.0,
+        "S5": 8.0,
+        "S7": 5.0,
+        "V2": 6.0
+      },
+      "total_mark": 70.0,
+      "passed": true
+    }
+  ],
+  "statistics": {},
+  "section_data_completed": true,
+  "students_data_completed": true,
+  "grades_data_completed": true,
+  "created_date": "2025-12-28T09:37:28.876293",
+  "modified_date": "2026-01-10T21:42:42.601913",
+  "created_by": "",
+  "specifications_table_verified": true
+}

@@ -1,0 +1,32 @@
+{
+  "section_id": "course_20260103_165155_5551_1447_1",
+  "course_id": "course_20260103_165155",
+  "section_number": "5551",
+  "academic_year": "1447",
+  "semester": "First",
+  "course_coordinator": "58227 - Hussein Eledum (أستاذ / Professor)",
+  "section_instructor": "14355 - Randa Alharbi (أستاذ مشارك / Associate Professor)",
+  "beneficiary_department": "",
+  "beneficiary_faculty": "",
+  "gender_section": "Male",
+  "clo_target_levels": {
+    "K1": 70.0,
+    "K2": 70.0,
+    "S3": 70.0,
+    "S4": 70.0,
+    "S5": 70.0,
+    "S6": 70.0,
+    "S7": 70.0,
+    "V1": 70.0,
+    "V2": 70.0
+  },
+  "students": [],
+  "statistics": {},
+  "section_data_completed": true,
+  "students_data_completed": false,
+  "grades_data_completed": false,
+  "created_date": "2026-01-09T11:06:47.349794",
+  "modified_date": "2026-01-09T11:09:14.983880",
+  "created_by": "",
+  "specifications_table_verified": true
+}

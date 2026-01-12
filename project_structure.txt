@@ -1,0 +1,13 @@
+./README.md
+./config.py
+./dialogs/__init__.py
+./main.py
+./managers/__init__.py
+./managers/access_control.py
+./models/__init__.py
+./models/user.py
+./translations.py
+./utils/__init__.py
+./views/__init__.py
+./views/login_dialog.py
+./views/main_window.py

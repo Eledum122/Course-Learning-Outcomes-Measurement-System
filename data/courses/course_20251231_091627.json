@@ -1,0 +1,453 @@
+{
+  "course_id": "course_20251231_091627",
+  "created_date": "2025-12-31T09:16:27.976224",
+  "modified_date": "2026-01-10T10:02:25.784908",
+  "created_by": "admin",
+  "info": {
+    "course_title": "Introduction To Biostatistics",
+    "course_code": "STAT1251",
+    "sections": "",
+    "program": "Bachelor of Statistics",
+    "academic_year": "2025-12-31",
+    "semester": "First",
+    "course_instructor": "",
+    "course_coordinator": "",
+    "version": "1",
+    "department": "Department of Statistics",
+    "faculty": "Faculty of Science",
+    "taught_outside_department": false,
+    "other_departments": "Biochemistry|Biology|Medicine|Pharmasy",
+    "other_departments_faculty": "Science|Science|Medicine|Pharmasy",
+    "date": "2025-12-31",
+    "total_mark": 100.0,
+    "passing_percentage": 60.0,
+    "is_approved": false,
+    "approved_by": "",
+    "approved_date": ""
+  },
+  "clos": [
+    {
+      "code": "K1",
+      "category": "Knowledge",
+      "description": "Describe basic biostatistics concepts and modeling approaches used in the  biological field",
+      "aligned_plos": "K1",
+      "mark": 23.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "K2",
+      "category": "Knowledge",
+      "description": "Recognize the statistical pakages environment,  along with data entry and preparation.",
+      "aligned_plos": "K2",
+      "mark": 7.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S1",
+      "category": "Skills",
+      "description": "Calculate statistical measures for categorical and numeric Biological data as well as confidence intervals for means",
+      "aligned_plos": "S1",
+      "mark": 18.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S2",
+      "category": "Skills",
+      "description": "Examine ,measures of  associations and correlation used in  biostatistics as well as liner regression  analysis.",
+      "aligned_plos": "S2",
+      "mark": 6.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S3",
+      "category": "Skills",
+      "description": "Apply the conditional  probability and probability distributions  that are used in biostatistics",
+      "aligned_plos": "S3",
+      "mark": 8.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S4",
+      "category": "Skills",
+      "description": "Argue the statistical packages outputs for statistical techniques",
+      "aligned_plos": "S4",
+      "mark": 13.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S5",
+      "category": "Skills",
+      "description": "Investigate different types  of probability and nonprobability samples",
+      "aligned_plos": "S5",
+      "mark": 18.0,
+      "criterion_for_success": 65.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "V2",
+      "category": "Values",
+      "description": "Collaborate effectively as  an individual or in a team  on issues related to biostatistics and \nundertake lifelong learning.",
+      "aligned_plos": "V2",
+      "mark": 7.0,
+      "criterion_for_success": 70.0,
+      "target_level": 60.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    }
+  ],
+  "topics": [
+    {
+      "number": 1,
+      "title": "Introduction to Statistics:",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Midterm exam": 3.0,
+        "Final Exam": 4.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 2,
+      "title": "Exploring Data with Tables and Graphs",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Midterm exam": 4.0,
+        "Quizzes": 3.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 3,
+      "title": "Describing, Exploring, and Comparing Data",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Midterm exam": 5.0,
+        "Final Exam": 2.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 4,
+      "title": "Measures of Variation",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Midterm exam": 2.0,
+        "Final Exam": 1.0,
+        "Quizzes": 4.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 5,
+      "title": "Correlation",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Midterm exam": 3.0,
+        "Final Exam": 4.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 6,
+      "title": "Regression",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Midterm exam": 3.0,
+        "Final Exam": 4.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 7,
+      "title": "Probability",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "V2": 2.0
+      },
+      "activities_distribution": {
+        "Final Exam": 2.0,
+        "Quizzes": 3.0,
+        "Oral presentation": 2.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 8,
+      "title": "Risks and Odds, Rates of Mortality, Fertility, and Morbidity",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "V2": 3.0
+      },
+      "activities_distribution": {
+        "Final Exam": 4.0,
+        "Oral presentation": 3.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 9,
+      "title": "Discrete Probability Distributions",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "V2": 2.0
+      },
+      "activities_distribution": {
+        "Final Exam": 4.0,
+        "Final lab Exam": 3.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 10,
+      "title": "Normal Probability Distributions",
+      "contact_hours": 4.0,
+      "mark": 7.0,
+      "final_mark": 7.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Final Exam": 6.0,
+        "Final lab Exam": 1.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 11,
+      "title": "Sampling Distributions and Estimators and Assessing Normality",
+      "contact_hours": 4.0,
+      "mark": 6.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Final lab Exam": 6.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 12,
+      "title": "Estimating Parameters and Determining Sample Sizes",
+      "contact_hours": 4.0,
+      "mark": 6.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Final Exam": 2.0,
+        "Lab activities": 4.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 13,
+      "title": "Estimating a Population Mean",
+      "contact_hours": 4.0,
+      "mark": 6.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Final Exam": 3.0,
+        "Lab activities": 3.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 14,
+      "title": "Hypothesis Testing",
+      "contact_hours": 4.0,
+      "mark": 6.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Final Exam": 2.0,
+        "Lab activities": 4.0
+      },
+      "specifications_table": {}
+    },
+    {
+      "number": 15,
+      "title": "Testing a Claim About a Mean",
+      "contact_hours": 4.0,
+      "mark": 6.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {
+        "Final Exam": 2.0,
+        "Lab activities": 4.0
+      },
+      "specifications_table": {}
+    }
+  ],
+  "activities": [
+    {
+      "name": "Quizzes",
+      "mark": 10.0,
+      "percentage": 10.0,
+      "timing": "Week 4 & 6",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "K2",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "name": "Midterm exam",
+      "mark": 20.0,
+      "percentage": 20.0,
+      "timing": "Week 8",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "K2",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "name": "Final Exam",
+      "mark": 40.0,
+      "percentage": 40.0,
+      "timing": "Week 17",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "K2",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "name": "Final lab Exam",
+      "mark": 10.0,
+      "percentage": 10.0,
+      "timing": "Week 15",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K2",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "name": "Lab activities",
+      "mark": 15.0,
+      "percentage": 15.0,
+      "timing": "Week 3 & 8& 13",
+      "topic_distribution": {},
+      "measures_clos": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "V2"
+      ]
+    },
+    {
+      "name": "Oral presentation",
+      "mark": 5.0,
+      "percentage": 5.0,
+      "timing": "During semester",
+      "topic_distribution": {},
+      "measures_clos": [
+        "V2"
+      ]
+    }
+  ],
+  "table_of_specifications": {
+    "specifications": {}
+  },
+  "semester_clo_targets": {},
+  "semester_data": {},
+  "stage_1_completed": false,
+  "stage_1_approved": false,
+  "stage_2_completed": false,
+  "stage_2_approved": false,
+  "stage_3_completed": false,
+  "metadata": {}
+}

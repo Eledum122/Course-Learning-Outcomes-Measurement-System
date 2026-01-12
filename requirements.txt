@@ -1,0 +1,21 @@
+# CLOs Measurement System Requirements
+
+# GUI and Date Picker
+tkcalendar==1.6.1
+
+# PDF Generation
+reportlab==4.0.7
+
+# Excel Support
+openpyxl==3.1.2
+xlsxwriter==3.1.9
+
+# Image Processing (for reports)
+Pillow==10.1.0
+
+# Arabic Text Support
+arabic-reshaper>=3.0.0
+python-bidi>=0.6.0
+
+# Data Handling
+python-dateutil==2.8.2

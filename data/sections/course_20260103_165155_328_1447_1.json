@@ -1,0 +1,377 @@
+{
+  "section_id": "course_20260103_165155_328_1447_1",
+  "course_id": "course_20260103_165155",
+  "section_number": "328",
+  "academic_year": "1447",
+  "semester": "First",
+  "course_coordinator": "58227 - Hussein Eledum (أستاذ / Professor)",
+  "section_instructor": "58191 - Manahil Ahmed (أستاذ مساعد / Assistant Professor)",
+  "beneficiary_department": "",
+  "beneficiary_faculty": "",
+  "gender_section": "Female",
+  "clo_target_levels": {
+    "K1": 70.0,
+    "K2": 70.0,
+    "S3": 70.0,
+    "S4": 70.0,
+    "S5": 70.0,
+    "S6": 70.0,
+    "S7": 70.0,
+    "V1": 70.0,
+    "V2": 70.0
+  },
+  "students": [
+    {
+      "student_id": "421003996",
+      "name": "رنا بنت عبدالله بن علي مدوح هزازي",
+      "status": "Regular",
+      "seq": 1,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 9.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 14.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 96.0,
+      "passed": true
+    },
+    {
+      "student_id": "431004361",
+      "name": "شهد بنت سعود بن علي محمد الهرفي البلوي",
+      "status": "Regular",
+      "seq": 2,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 13.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "431007341",
+      "name": "غاده بنت عبدالعزيز بن عبدالرحمن الفارس",
+      "status": "Regular",
+      "seq": 3,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 13.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "441002327",
+      "name": "فجر بنت سعد بن مطلق سعد البعيجي السبيعي",
+      "status": "Regular",
+      "seq": 4,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 13.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "441003100",
+      "name": "دينا بنت طلال بن سالم القحم البلوي",
+      "status": "Regular",
+      "seq": 5,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 13.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "441004740",
+      "name": "مريم بنت سليمان بن عياد الطقيقى الحويطى",
+      "status": "Regular",
+      "seq": 6,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 13.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "441006724",
+      "name": "أثير بنت ثامر بن عذوي منصور الفقيري العنزي",
+      "status": "Regular",
+      "seq": 7,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 8.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 13.0,
+        "S5": 14.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 94.0,
+      "passed": true
+    },
+    {
+      "student_id": "441007513",
+      "name": "رائدة بنت ربيع بن سويلم الشامان",
+      "status": "Regular",
+      "seq": 8,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 10.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 9.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 12.0,
+        "S4": 14.0,
+        "S5": 15.0,
+        "S6": 12.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 96.0,
+      "passed": true
+    }
+  ],
+  "statistics": {},
+  "section_data_completed": true,
+  "students_data_completed": true,
+  "grades_data_completed": true,
+  "created_date": "2026-01-03T19:13:38.747536",
+  "modified_date": "2026-01-09T11:09:14.987218",
+  "created_by": "",
+  "specifications_table_verified": true
+}

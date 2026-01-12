@@ -1,0 +1,145 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    CLOs Measurement System - دليل التثبيت                    ║
+║                        Setup Guide - دليل الإعداد                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📋 المحتويات - Contents:
+  1. تثبيت المكتبات - Installing Libraries
+  2. تشغيل البرنامج - Running the Application
+  3. حل المشاكل - Troubleshooting
+
+════════════════════════════════════════════════════════════════════════════════
+
+1️⃣ تثبيت المكتبات - INSTALLING LIBRARIES
+
+إذا كنت تستخدم البيئة الافتراضية (.venv):
+If you're using a virtual environment (.venv):
+
+   A. تفعيل البيئة الافتراضية - Activate Virtual Environment:
+      في PowerShell:
+      .venv\Scripts\Activate.ps1
+
+      في Command Prompt:
+      .venv\Scripts\activate.bat
+
+   B. تثبيت المكتبات - Install Libraries:
+      .venv\Scripts\python.exe -m pip install -r requirements.txt
+
+إذا كنت تستخدم Python العام (بدون بيئة افتراضية):
+If you're using global Python (without virtual environment):
+
+   python -m pip install -r requirements.txt
+
+════════════════════════════════════════════════════════════════════════════════
+
+2️⃣ تشغيل البرنامج - RUNNING THE APPLICATION
+
+⭐ الطريقة الموصى بها - RECOMMENDED METHOD:
+
+   إذا كنت تستخدم البيئة الافتراضية (.venv):
+   If using virtual environment:
+
+      اضغط مرتين على - Double-click:
+      START_WITH_VENV.bat
+
+   إذا كنت لا تستخدم البيئة الافتراضية:
+   If NOT using virtual environment:
+
+      اضغط مرتين على - Double-click:
+      START_HERE.bat
+
+📌 طرق بديلة - Alternative Methods:
+
+   في VSCode Terminal (مع البيئة الافتراضية):
+   In VSCode Terminal (with venv active):
+
+      python main.py
+
+   في PowerShell (مع البيئة الافتراضية):
+   In PowerShell (with venv):
+
+      .venv\Scripts\python.exe main.py
+
+   في PowerShell (بدون بيئة افتراضية):
+   In PowerShell (without venv):
+
+      python main.py
+
+════════════════════════════════════════════════════════════════════════════════
+
+3️⃣ حل المشاكل - TROUBLESHOOTING
+
+❌ المشكلة: ModuleNotFoundError: No module named 'tkcalendar'
+   (أو أي مكتبة أخرى)
+
+   ✅ الحل - Solution:
+
+      1. تأكد من تفعيل البيئة الافتراضية إذا كنت تستخدمها
+         Make sure virtual environment is activated if you're using it
+
+      2. أعد تثبيت المكتبات - Reinstall libraries:
+
+         مع البيئة الافتراضية - With venv:
+         .venv\Scripts\python.exe -m pip install -r requirements.txt
+
+         بدون بيئة افتراضية - Without venv:
+         python -m pip install -r requirements.txt
+
+      3. إذا استمرت المشكلة - If problem persists:
+
+         .venv\Scripts\python.exe -m pip install tkcalendar --force-reinstall
+
+════════════════════════════════════════════════════════════════════════════════
+
+❌ المشكلة: Error opening user management: 'bg_light'
+
+   ✅ الحل - Solution:
+      تم إصلاحه! الألوان المفقودة تمت إضافتها إلى config.py
+      Fixed! Missing colors have been added to config.py
+
+════════════════════════════════════════════════════════════════════════════════
+
+❌ المشكلة: 'str' object has no attribute 'strftime'
+
+   ✅ الحل - Solution:
+      تم إصلاحه! تنسيق التواريخ تم تحديثه في admin_user_management_dialog.py
+      Fixed! Date formatting has been updated in admin_user_management_dialog.py
+
+════════════════════════════════════════════════════════════════════════════════
+
+❌ المشكلة: نافذة الدخول لا تظهر - Login window doesn't appear
+
+   ✅ الحل - Solution:
+
+      1. استخدم START_WITH_VENV.bat (إذا كان لديك .venv)
+         أو START_HERE.bat (بدون .venv)
+
+      2. تأكد من تثبيت جميع المكتبات المطلوبة
+         Make sure all required libraries are installed
+
+      3. شغل التشخيص - Run diagnostics:
+         .venv\Scripts\python.exe diagnose.py
+
+════════════════════════════════════════════════════════════════════════════════
+
+📧 للدعم - For Support:
+   إذا استمرت المشاكل، يرجى التحقق من:
+   If problems persist, please check:
+
+   1. إصدار Python (يجب أن يكون 3.8 أو أحدث)
+      Python version (should be 3.8 or newer)
+
+   2. جميع الملفات موجودة في المجلد الصحيح
+      All files are in the correct directory
+
+   3. لا توجد أخطاء في ملف config.py
+      No errors in config.py file
+
+════════════════════════════════════════════════════════════════════════════════
+
+✅ معلومات تسجيل الدخول - LOGIN CREDENTIALS:
+
+   اسم المستخدم - Username: admin
+   كلمة المرور - Password:   admin123
+
+════════════════════════════════════════════════════════════════════════════════

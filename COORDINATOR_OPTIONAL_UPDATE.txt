@@ -1,0 +1,276 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              تحديث: المنسق اختياري عند إنشاء البرنامج                        ║
+║         Update: Coordinator Optional When Creating Program                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+التاريخ - Date: 2026-01-07
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ التعديلات المُطبقة - APPLIED CHANGES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. تعديل نموذج البرنامج الأكاديمي
+   Modified Academic Program Model
+   ────────────────────────────────────
+   📁 File: models/academic_program.py
+
+   التغيير - Change:
+   ✓ coordinator_id أصبح اختيارياً (قيمة افتراضية: "")
+   ✓ coordinator_id is now optional (default: "")
+
+   الكود - Code:
+   ```python
+   def __init__(
+       self,
+       program_name_ar: str,
+       program_name_en: str,
+       coordinator_id: str = "",  # اختياري الآن!
+       ...
+   )
+   ```
+
+2. تحديث واجهة إدارة البرامج
+   Updated Programs Management Interface
+   ─────────────────────────────────────
+   📁 File: dialogs/academic_programs_dialog.py
+
+   التغييرات - Changes:
+
+   ✅ أ) إضافة خيار "بدون منسق" في القائمة المنسدلة
+      Added "No Coordinator" option in dropdown
+
+      الكود - Code (Line 640-642):
+      ```python
+      no_coordinator_text = "-- بدون منسق --" if self.language == 'ar' else "-- No Coordinator --"
+      coordinator_names = [no_coordinator_text] + [u.full_name for u in coordinators]
+      self.coordinator_ids = [""] + [u.user_id for u in coordinators]
+      ```
+
+   ✅ ب) اختيار "بدون منسق" افتراضياً
+      "No Coordinator" selected by default
+
+      الكود - Code (Line 653):
+      ```python
+      coordinator_combo.current(0)  # اختيار "بدون منسق" افتراضياً
+      ```
+
+   ✅ ج) إزالة التحقق الإجباري من المنسق
+      Removed mandatory coordinator validation
+
+      قبل - Before (Lines 731-736):
+      ```python
+      if coordinator_idx < 0:
+          messagebox.showerror(...)  # خطأ!
+          return
+      ```
+
+      بعد - After (Lines 730-734):
+      ```python
+      if coordinator_idx < 0 or coordinator_idx >= len(self.coordinator_ids):
+          coordinator_id = ""  # بدون منسق - مسموح!
+      else:
+          coordinator_id = self.coordinator_ids[coordinator_idx]
+      ```
+
+   ✅ د) تحديث منطق ملء البيانات للتعديل
+      Updated data filling logic for editing
+
+      الكود - Code (Lines 707-714):
+      ```python
+      if self.program.coordinator_id:
+          if self.program.coordinator_id in self.coordinator_ids:
+              idx = self.coordinator_ids.index(self.program.coordinator_id)
+              self.fields['coordinator'].current(idx)
+          else:
+              self.fields['coordinator'].current(0)  # "بدون منسق"
+      else:
+          self.fields['coordinator'].current(0)  # "بدون منسق"
+      ```
+
+3. تحديث نموذج عضو هيئة التدريس
+   Updated Faculty Member Model
+   ────────────────────────────────
+   📁 File: models/faculty_member.py
+
+   التحديثات - Updates:
+   ✓ إضافة حقول القسم والكلية (عربي/إنجليزي)
+     Added department and college fields (AR/EN)
+
+   ✓ إضافة البريد الإلكتروني والهاتف ورقم المكتب
+     Added email, phone, and office number
+
+   ✓ إضافة معرف فريد (faculty_id) يُنشأ تلقائياً
+     Added unique ID (faculty_id) generated automatically
+
+   ✓ إضافة ربط مع نظام المستخدمين (user_id)
+     Added link to user system (user_id)
+
+═══════════════════════════════════════════════════════════════════════════════
+🎯 كيف يعمل النظام الآن - HOW THE SYSTEM WORKS NOW
+═══════════════════════════════════════════════════════════════════════════════
+
+المسار الجديد - New Workflow:
+────────────────────────────
+
+الخطوة 1️⃣: إنشاء البرامج الأكاديمية
+Step 1: Create Academic Programs
+┌────────────────────────────────────────┐
+│ 🎓 إدارة البرامج الأكاديمية          │
+│                                        │
+│ ➕ برنامج جديد → New Program          │
+│                                        │
+│ ✏️ املأ المعلومات:                    │
+│   • الكلية (مطلوب)                    │
+│   • القسم (مطلوب)                     │
+│   • اسم البرنامج (مطلوب)             │
+│   • المنسق: [-- بدون منسق --] ✓      │
+│                                        │
+│ ✅ حفظ                                 │
+└────────────────────────────────────────┘
+
+الخطوة 2️⃣: إضافة أعضاء هيئة التدريس (قريباً)
+Step 2: Add Faculty Members (Coming Soon)
+┌────────────────────────────────────────┐
+│ 👥 إدارة أعضاء هيئة التدريس          │
+│                                        │
+│ ➕ عضو جديد → New Member              │
+│                                        │
+│ ✏️ املأ المعلومات:                    │
+│   • الاسم                             │
+│   • الرقم الوظيفي                    │
+│   • القسم (يجب أن يطابق برنامج)      │
+│   • البريد الإلكتروني                │
+│   • الدرجة العلمية                    │
+│                                        │
+│ ✅ حفظ                                 │
+└────────────────────────────────────────┘
+
+الخطوة 3️⃣: تعيين المنسق من أعضاء القسم
+Step 3: Assign Coordinator from Department Faculty
+┌────────────────────────────────────────┐
+│ 🎓 تعديل البرنامج → Edit Program     │
+│                                        │
+│ 📋 المنسق: [اختر من القائمة]         │
+│   ┌──────────────────────────┐        │
+│   │ -- بدون منسق --          │        │
+│   │ د. أحمد محمد (إحصاء)    │ ← ✓    │
+│   │ د. فاطمة علي (إحصاء)    │        │
+│   │ د. محمد سعيد (رياضيات)  │        │
+│   └──────────────────────────┘        │
+│                                        │
+│ ✅ حفظ                                 │
+└────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+📊 أمثلة عملية - PRACTICAL EXAMPLES
+═══════════════════════════════════════════════════════════════════════════════
+
+مثال 1️⃣: إنشاء برنامج جديد بدون منسق
+Example 1: Creating New Program Without Coordinator
+─────────────────────────────────────────────────
+
+✓ الجامعة: جامعة تبوك
+✓ الكلية: كلية العلوم
+✓ القسم: قسم الإحصاء
+✓ البرنامج: بكالوريوس الإحصاء
+✓ المنسق: [-- بدون منسق --]
+
+النتيجة - Result:
+✅ البرنامج يُحفظ بنجاح بدون منسق
+✅ يمكن تعيين منسق لاحقاً
+
+مثال 2️⃣: إضافة منسق لاحقاً
+Example 2: Adding Coordinator Later
+────────────────────────────────────
+
+1. افتح تعديل البرنامج
+2. اختر المنسق من القائمة المنسدلة
+3. احفظ
+
+النتيجة - Result:
+✅ البرنامج الآن لديه منسق محدد
+
+مثال 3️⃣: إزالة المنسق من برنامج
+Example 3: Removing Coordinator from Program
+─────────────────────────────────────────────
+
+1. افتح تعديل البرنامج
+2. اختر [-- بدون منسق --]
+3. احفظ
+
+النتيجة - Result:
+✅ تم إزالة المنسق من البرنامج
+
+═══════════════════════════════════════════════════════════════════════════════
+🧪 الاختبار - TESTING
+═══════════════════════════════════════════════════════════════════════════════
+
+لاختبار التعديلات - To Test Changes:
+───────────────────────────────────────
+
+1. شغّل البرنامج:
+   Run the application:
+   START_WITH_VENV.bat
+
+2. سجّل دخول كمدير:
+   Login as admin:
+   Username: admin
+   Password: admin123
+
+3. افتح إدارة البرامج:
+   Open Programs Management:
+   قائمة "الإدارة" → "إدارة البرامج الأكاديمية"
+   Or: Ctrl+P
+
+4. اضغط "➕ برنامج جديد":
+   Click "➕ New Program"
+
+5. تحقق من:
+   Verify:
+   ✓ القائمة المنسدلة للمنسق تحتوي على "-- بدون منسق --"
+   ✓ "-- بدون منسق --" محدد افتراضياً
+   ✓ يمكن الحفظ بدون اختيار منسق
+   ✓ لا تظهر رسالة خطأ
+
+═══════════════════════════════════════════════════════════════════════════════
+📝 الملاحظات المهمة - IMPORTANT NOTES
+═══════════════════════════════════════════════════════════════════════════════
+
+⚠️ الخطوات التالية المخططة:
+   Next Steps Planned:
+
+   1. إنشاء مدير أعضاء هيئة التدريس
+      Create Faculty Members Manager
+      → managers/faculty_manager.py
+
+   2. إنشاء واجهة إدارة أعضاء هيئة التدريس
+      Create Faculty Management Interface
+      → dialogs/faculty_management_dialog.py
+
+   3. تحديث واجهة البرامج لعرض أعضاء القسم فقط
+      Update Programs interface to show department faculty only
+
+   4. إضافة قائمة "إدارة أعضاء هيئة التدريس" في Admin
+      Add "Faculty Management" menu in Admin
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ الحالة - STATUS
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ تم: المنسق أصبح اختيارياً
+  Done: Coordinator is now optional
+
+✓ تم: يمكن إنشاء برنامج بدون منسق
+  Done: Can create program without coordinator
+
+✓ تم: خيار "بدون منسق" متاح في القائمة
+  Done: "No Coordinator" option available
+
+⏳ قيد التطوير: نظام إدارة أعضاء هيئة التدريس
+   In Progress: Faculty Management System
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 التعديلات جاهزة للاختبار! - Changes Ready for Testing!
+
+═══════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,56 @@
+{
+  "course_id": "course_20260108_200923",
+  "created_date": "2026-01-08T20:09:23.995714",
+  "modified_date": "2026-01-10T10:02:25.797357",
+  "created_by": "admin",
+  "info": {
+    "course_title": "Mathematical Function",
+    "course_code": "STAT1250",
+    "sections": "",
+    "program": "BSc in Mathematics",
+    "academic_year": "2026-01-08",
+    "semester": "First",
+    "course_instructor": "",
+    "course_coordinator": "",
+    "version": "1",
+    "department": "Department of Mathematics",
+    "faculty": "Faculty of Science",
+    "taught_outside_department": false,
+    "other_departments": "",
+    "other_departments_faculty": "",
+    "date": "2026-01-08",
+    "total_mark": 100.0,
+    "passing_percentage": 60.0,
+    "is_approved": false,
+    "approved_by": "",
+    "approved_date": ""
+  },
+  "clos": [],
+  "topics": [],
+  "activities": [],
+  "table_of_specifications": {
+    "specifications": {}
+  },
+  "semester_clo_targets": {
+    "1447": {
+      "Second": {}
+    }
+  },
+  "semester_data": {
+    "1447_Second": {
+      "academic_year": "1447",
+      "semester": "Second",
+      "course_coordinator": "58550 - Nasir Ghazi (أستاذ مشارك / Associate Professor)",
+      "instructors": [
+        "58500 - Ali Salim (محاضر / Lecturer)"
+      ],
+      "clo_target_levels": {}
+    }
+  },
+  "stage_1_completed": false,
+  "stage_1_approved": false,
+  "stage_2_completed": false,
+  "stage_2_approved": false,
+  "stage_3_completed": false,
+  "metadata": {}
+}

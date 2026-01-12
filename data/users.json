@@ -1,0 +1,136 @@
+{
+  "users": [
+    {
+      "user_id": "admin_001",
+      "username": "admin",
+      "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "full_name": "System Administrator",
+      "email": "admin@tabuk.edu.sa",
+      "roles": [
+        "admin"
+      ],
+      "employee_id": "",
+      "faculty_id": "",
+      "assigned_programs": [],
+      "assigned_courses": [],
+      "assigned_sections": {},
+      "created_date": "2025-12-23T10:06:14.564683",
+      "last_login": "2026-01-11T21:02:51.426054",
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_004",
+      "username": "M58400",
+      "password_hash": "84f6eab091636bed037214d0288d59d81adba9557846ebc2db31428c114c36af",
+      "full_name": "Mohammed Naeem",
+      "email": "",
+      "roles": [
+        "program_coordinator",
+        "section_instructor"
+      ],
+      "employee_id": "58400",
+      "faculty_id": "fac_bb87648a6154",
+      "assigned_programs": [
+        "prog_03a6861c3ccc"
+      ],
+      "assigned_courses": [],
+      "assigned_sections": {
+        "course_20260108_192028": [
+          "1455"
+        ]
+      },
+      "created_date": "2026-01-08T19:17:56.142836",
+      "last_login": "2026-01-08T19:22:41.883489",
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_005",
+      "username": "N58550",
+      "password_hash": "3a7cd8e7d17a650ccae1640818bfc6557cca18d7100c5cf232fa3b77eb8030fc",
+      "full_name": "Nasir Ghazi",
+      "email": "sfds",
+      "roles": [
+        "course_coordinator"
+      ],
+      "employee_id": "58550",
+      "faculty_id": "fac_19d6971246a0",
+      "assigned_programs": [],
+      "assigned_courses": [
+        "course_20260108_200923"
+      ],
+      "assigned_sections": {},
+      "created_date": "2026-01-09T10:24:13.043551",
+      "last_login": "2026-01-09T11:36:13.445959",
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_006",
+      "username": "R14355",
+      "password_hash": "14c54254817808ad489319c0b309979ecb69ae4baa1ead20c08cc89a20650223",
+      "full_name": "Randa Alharbi",
+      "email": "",
+      "roles": [
+        "section_instructor"
+      ],
+      "employee_id": "14355",
+      "faculty_id": "fac_15a241164e6d",
+      "assigned_programs": [],
+      "assigned_courses": [],
+      "assigned_sections": {
+        "course_20260103_165155": [
+          "5551"
+        ]
+      },
+      "created_date": "2026-01-09T11:06:47.349794",
+      "last_login": null,
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_007",
+      "username": "D58265",
+      "password_hash": "347d1a49ac16c819575359dea4a51e13d1ac73997427d82f79537b5f28e9c744",
+      "full_name": "Dalia Al najar",
+      "email": "datia@ut.edu.sa",
+      "roles": [
+        "course_coordinator"
+      ],
+      "employee_id": "58265",
+      "faculty_id": "fac_0a1c7905b557",
+      "assigned_programs": [],
+      "assigned_courses": [
+        "course_20251225_104426"
+      ],
+      "assigned_sections": {},
+      "created_date": "2026-01-10T21:42:40.995702",
+      "last_login": "2026-01-10T21:58:49.219154",
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_008",
+      "username": "E200845",
+      "password_hash": "3d648f5ca6c7074a6dc1b0cc5e5a35dd2e186568c95e4184ccdb3b340664275d",
+      "full_name": "Ehab Ahmed",
+      "email": "Ehab@yahoo.com",
+      "roles": [
+        "program_coordinator"
+      ],
+      "employee_id": "200845",
+      "faculty_id": "fac_dc23cd05bf82",
+      "assigned_programs": [
+        "prog_c7e5e159d724"
+      ],
+      "assigned_courses": [],
+      "assigned_sections": {},
+      "created_date": "2026-01-09T16:26:43.153031",
+      "last_login": "2026-01-11T21:03:24.292941",
+      "is_active": true,
+      "metadata": {}
+    }
+  ],
+  "last_updated": "2026-01-11T21:03:24.292941"
+}

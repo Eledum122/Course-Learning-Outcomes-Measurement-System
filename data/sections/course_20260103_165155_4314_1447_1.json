@@ -1,0 +1,205 @@
+{
+  "section_id": "course_20260103_165155_4314_1447_1",
+  "course_id": "course_20260103_165155",
+  "section_number": "4341",
+  "academic_year": "1447",
+  "semester": "First",
+  "course_coordinator": "58227 - Hussein Eledum (أستاذ / Professor)",
+  "section_instructor": "14339 - Murwan Alhilali (أستاذ مشارك / Associate Professor)",
+  "beneficiary_department": "",
+  "beneficiary_faculty": "",
+  "gender_section": "Male",
+  "clo_target_levels": {
+    "K1": 70.0,
+    "K2": 70.0,
+    "S3": 70.0,
+    "S4": 70.0,
+    "S5": 70.0,
+    "S6": 70.0,
+    "S7": 70.0,
+    "V1": 70.0,
+    "V2": 70.0
+  },
+  "students": [
+    {
+      "student_id": "431002801",
+      "name": "فيصل بن خالد بن نشمي الحربي",
+      "status": "Regular",
+      "seq": 1,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 13.0,
+          "S5": 9.0,
+          "S6": 10.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 0.0,
+          "S7": 2.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 5.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 15.0,
+        "S4": 5.0,
+        "S5": 15.0,
+        "S6": 10.0,
+        "S7": 4.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 85.0,
+      "passed": true
+    },
+    {
+      "student_id": "431007103",
+      "name": "فارس بن سلمان بن يحي المالكي",
+      "status": "Regular",
+      "seq": 2,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 13.0,
+          "S5": 9.0,
+          "S6": 10.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 7.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 15.0,
+        "S4": 12.0,
+        "S5": 15.0,
+        "S6": 10.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "441003626",
+      "name": "مرضي بن سليم بن سالم الزمهري الحويطي",
+      "status": "Regular",
+      "seq": 3,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 13.0,
+          "S5": 9.0,
+          "S6": 10.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 7.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 15.0,
+        "S4": 12.0,
+        "S5": 15.0,
+        "S6": 10.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    },
+    {
+      "student_id": "441005216",
+      "name": "مهند بن حميدان بن حسين العرياني القرني",
+      "status": "Regular",
+      "seq": 1,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 13.0,
+          "S5": 9.0,
+          "S6": 10.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 7.0,
+          "S5": 6.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 10.0,
+        "K2": 10.0,
+        "S3": 15.0,
+        "S4": 12.0,
+        "S5": 15.0,
+        "S6": 10.0,
+        "S7": 7.0,
+        "V1": 8.0,
+        "V2": 8.0
+      },
+      "total_mark": 95.0,
+      "passed": true
+    }
+  ],
+  "statistics": {},
+  "section_data_completed": true,
+  "students_data_completed": true,
+  "grades_data_completed": true,
+  "created_date": "2026-01-03T19:15:47.499717",
+  "modified_date": "2026-01-09T11:09:14.983880",
+  "created_by": "",
+  "specifications_table_verified": true
+}

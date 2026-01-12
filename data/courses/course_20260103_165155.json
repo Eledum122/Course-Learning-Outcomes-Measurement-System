@@ -1,0 +1,582 @@
+{
+  "course_id": "course_20260103_165155",
+  "created_date": "2026-01-03T16:51:55.158259",
+  "modified_date": "2026-01-10T10:02:25.804401",
+  "created_by": "admin",
+  "info": {
+    "course_title": "Project",
+    "course_code": "STAT1498",
+    "sections": "",
+    "program": "Bachelor of Statistics",
+    "academic_year": "2026-01-03",
+    "semester": "First",
+    "course_instructor": "",
+    "course_coordinator": "",
+    "version": "1",
+    "department": "Department of Statistics",
+    "faculty": "Faculty of Science",
+    "taught_outside_department": false,
+    "other_departments": "",
+    "other_departments_faculty": "",
+    "date": "2026-01-03",
+    "total_mark": 100.0,
+    "passing_percentage": 60.0,
+    "is_approved": false,
+    "approved_by": "",
+    "approved_date": ""
+  },
+  "clos": [
+    {
+      "code": "K1",
+      "category": "Knowledge",
+      "description": "Describe the fundamental theories and concepts of research methods",
+      "aligned_plos": "K1",
+      "mark": 10.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "K2",
+      "category": "Knowledge",
+      "description": "Discuss the utilization of statistical packages in different applications of research.",
+      "aligned_plos": "K2",
+      "mark": 10.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S3",
+      "category": "Skills",
+      "description": "Apply fundamental statistical theories and techniques in conducting different types of research",
+      "aligned_plos": "S3",
+      "mark": 15.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S4",
+      "category": "Skills",
+      "description": "Analyze real-life data sets using statistical packages",
+      "aligned_plos": "S4",
+      "mark": 15.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S5",
+      "category": "Skills",
+      "description": "Interpret the analysis results of research problems and testing of hypothesis",
+      "aligned_plos": "S5",
+      "mark": 15.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S6",
+      "category": "Skills",
+      "description": "Formulate research problems and hypothesis according to different types of research and study designs",
+      "aligned_plos": "S6",
+      "mark": 12.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S7",
+      "category": "Skills",
+      "description": "Communicate comprehensive statistical research methods ideas, both orally and in writing.",
+      "aligned_plos": "S7",
+      "mark": 7.0,
+      "criterion_for_success": 70.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "V1",
+      "category": "Values",
+      "description": "Demonstrate self-reliance as a responsible citizen, adhere to academic ethics and maintain analytical integrityin research methods.",
+      "aligned_plos": "V1",
+      "mark": 8.0,
+      "criterion_for_success": 75.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "V2",
+      "category": "Values",
+      "description": "Collaborate effectively as an individual or in a team on research related issues and undertake lifelong learning.",
+      "aligned_plos": "V2",
+      "mark": 8.0,
+      "criterion_for_success": 75.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    }
+  ],
+  "topics": [
+    {
+      "number": 1,
+      "title": "Overview of Research and its Methodologies_1",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 5.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K1": 3.0,
+        "S3": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 5.0
+      },
+      "specifications_table": {
+        "K1|Weekly assessments": 3.0,
+        "S3|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 2,
+      "title": "Overview of Research and its Methodologies_2",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 5.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K1": 3.0,
+        "S6": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 5.0
+      },
+      "specifications_table": {
+        "K1|Weekly assessments": 3.0,
+        "S6|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 3,
+      "title": "Selecting and defining a research problem_1",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 5.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K1": 3.0,
+        "S6": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 5.0
+      },
+      "specifications_table": {
+        "K1|Weekly assessments": 3.0,
+        "S6|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 4,
+      "title": "Selecting and defining a research problem_2",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "S3": 2.0,
+        "S6": 2.0,
+        "S5": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 6.0
+      },
+      "specifications_table": {
+        "S3|Weekly assessments": 2.0,
+        "S5|Weekly assessments": 2.0,
+        "S6|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 5,
+      "title": "Selecting and defining a research problem_3",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "S3": 2.0,
+        "S6": 2.0,
+        "S5": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 6.0
+      },
+      "specifications_table": {
+        "S3|Weekly assessments": 2.0,
+        "S5|Weekly assessments": 2.0,
+        "S6|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 6,
+      "title": "Literature review_1",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K2": 2.0,
+        "S3": 3.0,
+        "S7": 1.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 6.0
+      },
+      "specifications_table": {
+        "K2|Weekly assessments": 2.0,
+        "S3|Weekly assessments": 3.0,
+        "S7|Weekly assessments": 1.0
+      }
+    },
+    {
+      "number": 7,
+      "title": "Literature review_2",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 5.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K2": 2.0,
+        "S3": 2.0,
+        "S7": 1.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 5.0
+      },
+      "specifications_table": {
+        "K2|Weekly assessments": 2.0,
+        "S3|Weekly assessments": 2.0,
+        "S7|Weekly assessments": 1.0
+      }
+    },
+    {
+      "number": 8,
+      "title": "Literature review_3",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 5.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K2": 5.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 5.0
+      },
+      "specifications_table": {
+        "K2|Weekly assessments": 5.0
+      }
+    },
+    {
+      "number": 9,
+      "title": "Hypothesis_1",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K1": 1.0,
+        "S3": 1.0,
+        "S6": 2.0,
+        "S5": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 6.0
+      },
+      "specifications_table": {
+        "K1|Weekly assessments": 1.0,
+        "S3|Weekly assessments": 1.0,
+        "S5|Weekly assessments": 2.0,
+        "S6|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 10,
+      "title": "Hypothesis_2",
+      "contact_hours": 3.0,
+      "mark": 7.0,
+      "final_mark": 6.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "K2": 1.0,
+        "S3": 1.0,
+        "V1": 2.0,
+        "S6": 1.0,
+        "S5": 1.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 6.0
+      },
+      "specifications_table": {
+        "K2|Weekly assessments": 1.0,
+        "S3|Weekly assessments": 1.0,
+        "S5|Weekly assessments": 1.0,
+        "S6|Weekly assessments": 1.0,
+        "V1|Weekly assessments": 2.0
+      }
+    },
+    {
+      "number": 11,
+      "title": "Hypothesis_3",
+      "contact_hours": 3.0,
+      "mark": 6.0,
+      "final_mark": 5.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "V1": 1.0,
+        "V2": 1.0,
+        "S6": 1.0,
+        "S5": 2.0
+      },
+      "activities_distribution": {
+        "Weekly assessments": 5.0
+      },
+      "specifications_table": {
+        "S5|Weekly assessments": 2.0,
+        "S6|Weekly assessments": 1.0,
+        "V1|Weekly assessments": 1.0,
+        "V2|Weekly assessments": 1.0
+      }
+    },
+    {
+      "number": 12,
+      "title": "Research approach_1",
+      "contact_hours": 3.0,
+      "mark": 6.0,
+      "final_mark": 10.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "S4": 5.0,
+        "V1": 1.0,
+        "V2": 2.0,
+        "S7": 2.0
+      },
+      "activities_distribution": {
+        "Oral Presentation or Poster": 5.0,
+        "Final Report": 5.0
+      },
+      "specifications_table": {
+        "S4|Final Report": 5.0,
+        "S7|Oral Presentation or Poster": 2.0,
+        "V1|Oral Presentation or Poster": 1.0,
+        "V2|Oral Presentation or Poster": 2.0
+      }
+    },
+    {
+      "number": 13,
+      "title": "Research approach_2",
+      "contact_hours": 3.0,
+      "mark": 6.0,
+      "final_mark": 10.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "S4": 5.0,
+        "V1": 1.0,
+        "V2": 2.0,
+        "S7": 2.0
+      },
+      "activities_distribution": {
+        "Oral Presentation or Poster": 5.0,
+        "Final Report": 5.0
+      },
+      "specifications_table": {
+        "S4|Oral Presentation or Poster": 1.0,
+        "S4|Final Report": 4.0,
+        "S7|Oral Presentation or Poster": 2.0,
+        "V1|Oral Presentation or Poster": 1.0,
+        "V2|Oral Presentation or Poster": 1.0,
+        "V2|Final Report": 1.0
+      }
+    },
+    {
+      "number": 14,
+      "title": "Conducting the research_1",
+      "contact_hours": 3.0,
+      "mark": 6.0,
+      "final_mark": 10.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "S4": 3.0,
+        "V1": 1.0,
+        "V2": 2.0,
+        "S7": 1.0,
+        "S5": 3.0
+      },
+      "activities_distribution": {
+        "Oral Presentation or Poster": 5.0,
+        "Final Report": 5.0
+      },
+      "specifications_table": {
+        "S4|Oral Presentation or Poster": 2.0,
+        "S4|Final Report": 1.0,
+        "S5|Final Report": 3.0,
+        "S7|Oral Presentation or Poster": 1.0,
+        "V1|Oral Presentation or Poster": 1.0,
+        "V2|Oral Presentation or Poster": 1.0,
+        "V2|Final Report": 1.0
+      }
+    },
+    {
+      "number": 15,
+      "title": "Conducting the research_2",
+      "contact_hours": 3.0,
+      "mark": 6.0,
+      "final_mark": 10.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {
+        "S3": 2.0,
+        "S4": 2.0,
+        "V1": 2.0,
+        "V2": 1.0,
+        "S5": 3.0
+      },
+      "activities_distribution": {
+        "Oral Presentation or Poster": 5.0,
+        "Final Report": 5.0
+      },
+      "specifications_table": {
+        "S4|Oral Presentation or Poster": 2.0,
+        "S5|Final Report": 3.0,
+        "V1|Oral Presentation or Poster": 2.0,
+        "V2|Oral Presentation or Poster": 1.0,
+        "S3|Final Report": 2.0
+      }
+    }
+  ],
+  "activities": [
+    {
+      "name": "Weekly assessments",
+      "mark": 60.0,
+      "percentage": 60.0,
+      "timing": "During trimester",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "K2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "V1",
+        "V2"
+      ]
+    },
+    {
+      "name": "Oral Presentation or Poster",
+      "mark": 20.0,
+      "percentage": 20.0,
+      "timing": "15th week",
+      "topic_distribution": {},
+      "measures_clos": [
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "V1",
+        "V2"
+      ]
+    },
+    {
+      "name": "Final Report",
+      "mark": 20.0,
+      "percentage": 20.0,
+      "timing": "At the end of semester",
+      "topic_distribution": {},
+      "measures_clos": [
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "V1",
+        "V2"
+      ]
+    }
+  ],
+  "table_of_specifications": {
+    "specifications": {}
+  },
+  "semester_clo_targets": {
+    "1447": {
+      "First": {
+        "K1": 70.0,
+        "K2": 70.0,
+        "S3": 70.0,
+        "S4": 70.0,
+        "S5": 70.0,
+        "S6": 70.0,
+        "S7": 70.0,
+        "V1": 70.0,
+        "V2": 70.0
+      }
+    }
+  },
+  "semester_data": {
+    "1447_First": {
+      "academic_year": "1447",
+      "semester": "First",
+      "course_coordinator": "58227 - Hussein Eledum (أستاذ / Professor)",
+      "instructors": [
+        "13793 - Afaf Alrashidi (أستاذ مشارك / Associate Professor)",
+        "13933 - Zahrah Althubiati (أستاذ مساعد / Assistant Professor)",
+        "14334 - Olayan Albulowi (أستاذ مشارك / Associate Professor)",
+        "14339 - Murwan Alhilali (أستاذ مشارك / Associate Professor)",
+        "14355 - Randa Alharbi (أستاذ مشارك / Associate Professor)",
+        "58191 - Manahil Ahmed (أستاذ مساعد / Assistant Professor)",
+        "58227 - Hussein Eledum (أستاذ / Professor)"
+      ],
+      "clo_target_levels": {
+        "K1": 70.0,
+        "K2": 70.0,
+        "S3": 70.0,
+        "S4": 70.0,
+        "S5": 70.0,
+        "S6": 70.0,
+        "S7": 70.0,
+        "V1": 70.0,
+        "V2": 70.0
+      }
+    }
+  },
+  "stage_1_completed": false,
+  "stage_1_approved": false,
+  "stage_2_completed": false,
+  "stage_2_approved": false,
+  "stage_3_completed": false,
+  "metadata": {}
+}

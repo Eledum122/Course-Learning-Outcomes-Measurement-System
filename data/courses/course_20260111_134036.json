@@ -1,0 +1,284 @@
+{
+  "course_id": "course_20260111_134036",
+  "created_date": "2026-01-11T13:40:36.357333",
+  "modified_date": "2026-01-11T19:40:06.627659",
+  "created_by": "admin",
+  "info": {
+    "course_title": "Statistical Computing ‎",
+    "course_code": "STAT1501‎",
+    "sections": "",
+    "program": "Master of Science in Applied Statistics",
+    "academic_year": "2026-01-11",
+    "semester": "First",
+    "course_instructor": "",
+    "course_coordinator": "",
+    "version": "1",
+    "department": "Department of Statistics",
+    "faculty": "Faculty of Science",
+    "taught_outside_department": false,
+    "other_departments": "",
+    "other_departments_faculty": "",
+    "date": "2026-01-11",
+    "total_mark": 100.0,
+    "passing_percentage": 60.0,
+    "is_approved": false,
+    "approved_by": "",
+    "approved_date": ""
+  },
+  "clos": [
+    {
+      "code": "K1",
+      "category": "Knowledge",
+      "description": "Recognize deeply the basic and fundamental theories and applications of R programming",
+      "aligned_plos": "K1",
+      "mark": 15.0,
+      "criterion_for_success": 60.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S1",
+      "category": "Skills",
+      "description": "Apply different algorithms and techniques used in classifying and analyzing data",
+      "aligned_plos": "S1",
+      "mark": 25.0,
+      "criterion_for_success": 60.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S2",
+      "category": "Skills",
+      "description": "Develop technical advanced skills, procedures and functions in the R programing language",
+      "aligned_plos": "S2",
+      "mark": 25.0,
+      "criterion_for_success": 60.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "S4",
+      "category": "Skills",
+      "description": "Use the R programming language to optimize quantitative data analysis procedures",
+      "aligned_plos": "S4",
+      "mark": 25.0,
+      "criterion_for_success": 60.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    },
+    {
+      "code": "V1",
+      "category": "Values",
+      "description": "Demonstrate integrity and professional and academic values when dealing with various community issues related to the field of statistics.",
+      "aligned_plos": "V1",
+      "mark": 10.0,
+      "criterion_for_success": 60.0,
+      "target_level": 70.0,
+      "actual_level": 0.0,
+      "achievement_status": ""
+    }
+  ],
+  "topics": [
+    {
+      "number": 1,
+      "title": "Basics of R",
+      "contact_hours": 4.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 2,
+      "title": "Reading Data into R",
+      "contact_hours": 4.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 3,
+      "title": "Statistical Graphics",
+      "contact_hours": 12.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 4,
+      "title": "Group Manipulation",
+      "contact_hours": 12.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 5,
+      "title": "Manipulating Strings",
+      "contact_hours": 8.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 6,
+      "title": "Basic Statistics",
+      "contact_hours": 8.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 7,
+      "title": "Reproducibility, Reports and Slide Shows with knitr",
+      "contact_hours": 8.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    },
+    {
+      "number": 8,
+      "title": "Building R Packages",
+      "contact_hours": 4.0,
+      "mark": 0.0,
+      "final_mark": 0.0,
+      "remark": "",
+      "clo_distribution": {},
+      "clo_marks_distribution": {},
+      "activities_distribution": {},
+      "specifications_table": {}
+    }
+  ],
+  "activities": [
+    {
+      "name": "Participation",
+      "mark": 5.0,
+      "percentage": 5.0,
+      "timing": "During trimester",
+      "topic_distribution": {},
+      "measures_clos": [
+        "V1"
+      ]
+    },
+    {
+      "name": "Assignments",
+      "mark": 5.0,
+      "percentage": 5.0,
+      "timing": "4th ,10th week",
+      "topic_distribution": {},
+      "measures_clos": [
+        "S1",
+        "S2",
+        "S4",
+        "V1"
+      ]
+    },
+    {
+      "name": "Quizzes",
+      "mark": 5.0,
+      "percentage": 5.0,
+      "timing": "5th week",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "S1",
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "name": "Midterm Exam",
+      "mark": 20.0,
+      "percentage": 20.0,
+      "timing": "6th week",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "S1",
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "name": "Lab activities",
+      "mark": 15.0,
+      "percentage": 15.0,
+      "timing": "During trimester",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "S1",
+        "S2",
+        "S4",
+        "V1"
+      ]
+    },
+    {
+      "name": "Lab final exam",
+      "mark": 10.0,
+      "percentage": 10.0,
+      "timing": "16th week",
+      "topic_distribution": {},
+      "measures_clos": [
+        "S1",
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "name": "Final Exam",
+      "mark": 40.0,
+      "percentage": 40.0,
+      "timing": "At the end of semester",
+      "topic_distribution": {},
+      "measures_clos": [
+        "K1",
+        "S1",
+        "S2",
+        "S4"
+      ]
+    }
+  ],
+  "table_of_specifications": {
+    "specifications": {}
+  },
+  "semester_clo_targets": {},
+  "semester_data": {},
+  "stage_1_completed": false,
+  "stage_1_approved": false,
+  "stage_2_completed": false,
+  "stage_2_approved": false,
+  "stage_3_completed": false,
+  "metadata": {}
+}
