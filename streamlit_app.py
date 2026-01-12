@@ -379,70 +379,119 @@ def main_app():
 def show_dashboard(user: User, lang: str):
     """عرض لوحة المعلومات"""
     is_rtl = lang == 'ar'
+    db = st.session_state.db
 
     st.title(f"🏠 {t('dashboard', lang)}")
+
+    # جمع الإحصائيات
+    programs_count = len(db.get_all_programs())
+    courses_count = len(db.get_all_courses())
+    users_count = len(db.get_all_users())
+
+    # حساب البرامج النشطة
+    active_programs = len([p for p in db.get_all_programs() if p.get('is_active', True)])
+
+    # حساب المقررات النشطة
+    active_courses = len([c for c in db.get_all_courses() if c.get('is_active', True)])
 
     # بطاقات الإحصائيات
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.markdown("""
+        st.markdown(f"""
         <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
             <h2 style="color: white;">📚</h2>
-            <h3 style="color: white;">0</h3>
-            <p style="color: white; font-size: 16px;">المقررات</p>
+            <h3 style="color: white;">{courses_count}</h3>
+            <p style="color: white; font-size: 16px;">{t('courses', lang) if lang == 'ar' else 'Courses'}</p>
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown("""
+        st.markdown(f"""
         <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
-            <h2 style="color: white;">👥</h2>
-            <h3 style="color: white;">0</h3>
-            <p style="color: white; font-size: 16px;">الطلاب</p>
+            <h2 style="color: white;">🏛️</h2>
+            <h3 style="color: white;">{programs_count}</h3>
+            <p style="color: white; font-size: 16px;">{t('programs', lang) if lang == 'ar' else 'Programs'}</p>
         </div>
         """, unsafe_allow_html=True)
 
     with col3:
-        st.markdown("""
+        st.markdown(f"""
         <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-            <h2 style="color: white;">📊</h2>
-            <h3 style="color: white;">0</h3>
-            <p style="color: white; font-size: 16px;">التقارير</p>
+            <h2 style="color: white;">👥</h2>
+            <h3 style="color: white;">{users_count}</h3>
+            <p style="color: white; font-size: 16px;">{t('users', lang)}</p>
         </div>
         """, unsafe_allow_html=True)
 
     with col4:
-        st.markdown("""
+        # حساب نسبة الإنجاز (المقررات النشطة / إجمالي المقررات)
+        completion_rate = int((active_courses / courses_count * 100)) if courses_count > 0 else 0
+        st.markdown(f"""
         <div class="card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white;">
             <h2 style="color: white;">✅</h2>
-            <h3 style="color: white;">0%</h3>
-            <p style="color: white; font-size: 16px;">الإنجاز</p>
+            <h3 style="color: white;">{completion_rate}%</h3>
+            <p style="color: white; font-size: 16px;">{t('active_courses', lang) if lang == 'ar' else 'Active'}</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # معلومات المستخدم
-    st.markdown(f"""
-    <div class="card {'rtl' if is_rtl else 'ltr'}">
-        <h2>📋 {t('user_info', lang)}</h2>
-        <p><strong>{t('full_name', lang)}:</strong> {user.full_name}</p>
-        <p><strong>{t('username', lang)}:</strong> {user.username}</p>
-        <p><strong>{t('email', lang)}:</strong> {user.email}</p>
-        <p><strong>{t('role', lang)}:</strong> {t(user.role.value.lower(), lang)}</p>
-        <p><strong>{t('department', lang)}:</strong> {user.department or t('not_specified', lang)}</p>
-    </div>
-    """, unsafe_allow_html=True)
+    # تفاصيل إضافية
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown(f"""
+        <div class="card {'rtl' if is_rtl else 'ltr'}">
+            <h3>📋 {t('user_info', lang)}</h3>
+            <p><strong>{t('full_name', lang)}:</strong> {user.full_name}</p>
+            <p><strong>{t('username', lang)}:</strong> {user.username}</p>
+            <p><strong>{t('email', lang)}:</strong> {user.email}</p>
+            <p><strong>{t('role', lang)}:</strong> {t(user.role.value.lower(), lang)}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown(f"""
+        <div class="card {'rtl' if is_rtl else 'ltr'}">
+            <h3>📊 {t('quick_stats', lang)}</h3>
+            <p><strong>{t('active_programs', lang)}:</strong> {active_programs} / {programs_count}</p>
+            <p><strong>{t('active_courses', lang)}:</strong> {active_courses} / {courses_count}</p>
+            <p><strong>{t('total_users', lang)}:</strong> {users_count}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # رسالة ترحيب
-    st.info(f"""
-    👋 **{t('welcome_message', lang)}**
+    # عرض آخر البرامج والمقررات
+    if user.role in [UserRole.ADMIN, UserRole.PROGRAM_COORDINATOR]:
+        st.subheader(f"📌 {t('recent_activity', lang)}")
 
-    {t('dashboard_info', lang)}
-    """)
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown(f"**{t('recent_programs', lang)}**")
+            programs = db.get_all_programs()
+            if programs:
+                # عرض آخر 3 برامج
+                for program in programs[-3:]:
+                    program_name = program.get('program_name_ar' if lang == 'ar' else 'program_name_en', '')
+                    status = '🟢' if program.get('is_active', True) else '🔴'
+                    st.write(f"{status} {program.get('program_code', '')} - {program_name}")
+            else:
+                st.info(t('no_programs_yet', lang))
+
+        with col2:
+            st.markdown(f"**{t('recent_courses', lang)}**")
+            courses = db.get_all_courses()
+            if courses:
+                # عرض آخر 3 مقررات
+                for course in courses[-3:]:
+                    course_name = course.get('course_title_ar' if lang == 'ar' else 'course_title_en', '')
+                    status = '🟢' if course.get('is_active', True) else '🔴'
+                    st.write(f"{status} {course.get('course_code', '')} - {course_name}")
+            else:
+                st.info(t('no_courses_yet', lang))
 
 # البرنامج الرئيسي
 def main():

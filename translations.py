@@ -1832,6 +1832,50 @@ Buttons:
         'ar': 'اختر منسق المقرر',
         'en': 'Select Course Coordinator'
     },
+
+    # ═══════════════════════════════════════════════════════════════
+    # Dashboard - Additional Translations
+    # ═══════════════════════════════════════════════════════════════
+    'courses': {
+        'ar': 'المقررات',
+        'en': 'Courses'
+    },
+    'programs': {
+        'ar': 'البرامج',
+        'en': 'Programs'
+    },
+    'quick_stats': {
+        'ar': 'إحصائيات سريعة',
+        'en': 'Quick Statistics'
+    },
+    'active_programs': {
+        'ar': 'البرامج النشطة',
+        'en': 'Active Programs'
+    },
+    'active_courses': {
+        'ar': 'المقررات النشطة',
+        'en': 'Active Courses'
+    },
+    'total_users': {
+        'ar': 'إجمالي المستخدمين',
+        'en': 'Total Users'
+    },
+    'recent_activity': {
+        'ar': 'النشاط الأخير',
+        'en': 'Recent Activity'
+    },
+    'recent_programs': {
+        'ar': 'البرامج الأخيرة',
+        'en': 'Recent Programs'
+    },
+    'no_programs_yet': {
+        'ar': 'لا توجد برامج بعد',
+        'en': 'No programs yet'
+    },
+    'no_courses_yet': {
+        'ar': 'لا توجد مقررات بعد',
+        'en': 'No courses yet'
+    },
 }
 
 
