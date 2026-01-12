@@ -127,24 +127,40 @@ st.markdown("""
 
     /* تحسين أزرار الراديو في القائمة */
     [data-testid="stSidebar"] .row-widget.stRadio > div {
-        gap: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 
     [data-testid="stSidebar"] .row-widget.stRadio > div label {
         background-color: white;
-        padding: 10px 15px;
+        padding: 12px 15px;
         border-radius: 8px;
-        border: 2px solid transparent;
+        border: 2px solid #e0e0e0;
         transition: all 0.2s;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        font-weight: 500;
     }
 
     [data-testid="stSidebar"] .row-widget.stRadio > div label:hover {
         border-color: #1f77b4;
         background-color: #e3f2fd;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    [data-testid="stSidebar"] .row-widget.stRadio > div label[data-baseweb="radio"] > div:first-child {
+    /* العنصر المحدد */
+    [data-testid="stSidebar"] .row-widget.stRadio > div label[data-selected="true"] {
+        background-color: #1f77b4;
+        color: white;
+        border-color: #1f77b4;
+        font-weight: 600;
+    }
+
+    /* إخفاء دائرة الراديو */
+    [data-testid="stSidebar"] .row-widget.stRadio > div label > div:first-child {
         display: none;
     }
 </style>
