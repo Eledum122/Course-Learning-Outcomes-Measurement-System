@@ -43,6 +43,9 @@ test_data/
 *.cache
 nul
 
+# Database backups
+data/backups/
+
 # Build
 build/
 dist/

@@ -15,7 +15,7 @@
       "assigned_courses": [],
       "assigned_sections": {},
       "created_date": "2025-12-23T10:06:14.564683",
-      "last_login": "2026-01-12T18:47:55.563548",
+      "last_login": "2026-01-18T20:39:50.712130",
       "is_active": true,
       "metadata": {}
     },
@@ -85,52 +85,33 @@
         ]
       },
       "created_date": "2026-01-09T11:06:47.349794",
-      "last_login": null,
+      "last_login": "2026-01-16T20:18:38.992708",
       "is_active": true,
       "metadata": {}
     },
     {
       "user_id": "user_007",
-      "username": "D58265",
-      "password_hash": "347d1a49ac16c819575359dea4a51e13d1ac73997427d82f79537b5f28e9c744",
-      "full_name": "Dalia Al najar",
-      "email": "datia@ut.edu.sa",
+      "username": "H58227",
+      "password_hash": "7909813da9d08b0d1df2709b50278854360566b0f74ce03aae5f1b638c3601ca",
+      "full_name": "Hussein Eledum",
+      "email": "haladem@ut.edu.sa",
       "roles": [
-        "course_coordinator"
+        "section_instructor"
       ],
-      "employee_id": "58265",
-      "faculty_id": "fac_0a1c7905b557",
+      "employee_id": "58227",
+      "faculty_id": "fac_c11e4cb7972d",
       "assigned_programs": [],
-      "assigned_courses": [
-        "course_20251225_104426"
-      ],
-      "assigned_sections": {},
-      "created_date": "2026-01-10T21:42:40.995702",
-      "last_login": "2026-01-10T21:58:49.219154",
-      "is_active": true,
-      "metadata": {}
-    },
-    {
-      "user_id": "user_008",
-      "username": "E200845",
-      "password_hash": "3d648f5ca6c7074a6dc1b0cc5e5a35dd2e186568c95e4184ccdb3b340664275d",
-      "full_name": "Ehab Ahmed",
-      "email": "Ehab@yahoo.com",
-      "roles": [
-        "program_coordinator"
-      ],
-      "employee_id": "200845",
-      "faculty_id": "fac_dc23cd05bf82",
-      "assigned_programs": [
-        "prog_c7e5e159d724"
-      ],
       "assigned_courses": [],
-      "assigned_sections": {},
-      "created_date": "2026-01-09T16:26:43.153031",
-      "last_login": "2026-01-11T21:03:24.292941",
+      "assigned_sections": {
+        "course_20260103_165155": [
+          "420"
+        ]
+      },
+      "created_date": "2026-01-16T21:00:35.336978",
+      "last_login": "2026-01-17T17:35:39.680007",
       "is_active": true,
       "metadata": {}
     }
   ],
-  "last_updated": "2026-01-12T18:47:55.563548"
+  "last_updated": "2026-01-19T07:21:16.694588"
 }

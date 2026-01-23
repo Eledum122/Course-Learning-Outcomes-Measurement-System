@@ -74,7 +74,10 @@
       "Bash(git stash pop:*)",
       "Bash(tasklist:*)",
       "Bash(start streamlit run streamlit_app.py)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(del \"d:\\\\Dropbox\\\\CLOs_Measurement_System_03\\\\pages\\\\users_management.py\")",
+      "Bash(start /B streamlit run:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }

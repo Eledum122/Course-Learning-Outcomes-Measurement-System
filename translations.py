@@ -1876,6 +1876,214 @@ Buttons:
         'ar': 'لا توجد مقررات بعد',
         'en': 'No courses yet'
     },
+
+    # ═══════════════════════════════════════════════════════════════
+    # Settings Page
+    # ═══════════════════════════════════════════════════════════════
+    'system_information': {
+        'ar': 'معلومات النظام',
+        'en': 'System Information'
+    },
+    'system_name': {
+        'ar': 'اسم النظام',
+        'en': 'System Name'
+    },
+    'system_version': {
+        'ar': 'إصدار النظام',
+        'en': 'System Version'
+    },
+    'developer': {
+        'ar': 'المطور',
+        'en': 'Developer'
+    },
+    'development_year': {
+        'ar': 'سنة التطوير',
+        'en': 'Development Year'
+    },
+    'technology_stack': {
+        'ar': 'التقنيات المستخدمة',
+        'en': 'Technology Stack'
+    },
+    'database_type': {
+        'ar': 'نوع قاعدة البيانات',
+        'en': 'Database Type'
+    },
+    'user_profile': {
+        'ar': 'الملف الشخصي',
+        'en': 'User Profile'
+    },
+    'current_user': {
+        'ar': 'المستخدم الحالي',
+        'en': 'Current User'
+    },
+    'user_role': {
+        'ar': 'الدور الوظيفي',
+        'en': 'User Role'
+    },
+    'employee_id': {
+        'ar': 'الرقم الوظيفي',
+        'en': 'Employee ID'
+    },
+    'email_address': {
+        'ar': 'البريد الإلكتروني',
+        'en': 'Email Address'
+    },
+    'update_email': {
+        'ar': 'تحديث البريد الإلكتروني',
+        'en': 'Update Email'
+    },
+    'new_email': {
+        'ar': 'البريد الإلكتروني الجديد',
+        'en': 'New Email'
+    },
+    'email_updated_successfully': {
+        'ar': 'تم تحديث البريد الإلكتروني بنجاح',
+        'en': 'Email updated successfully'
+    },
+    'email_update_failed': {
+        'ar': 'فشل تحديث البريد الإلكتروني',
+        'en': 'Failed to update email'
+    },
+    'change_password': {
+        'ar': 'تغيير كلمة المرور',
+        'en': 'Change Password'
+    },
+    'current_password': {
+        'ar': 'كلمة المرور الحالية',
+        'en': 'Current Password'
+    },
+    'new_password': {
+        'ar': 'كلمة المرور الجديدة',
+        'en': 'New Password'
+    },
+    'confirm_new_password': {
+        'ar': 'تأكيد كلمة المرور الجديدة',
+        'en': 'Confirm New Password'
+    },
+    'password_changed_successfully': {
+        'ar': 'تم تغيير كلمة المرور بنجاح',
+        'en': 'Password changed successfully'
+    },
+    'password_change_failed': {
+        'ar': 'فشل تغيير كلمة المرور',
+        'en': 'Failed to change password'
+    },
+    'current_password_incorrect': {
+        'ar': 'كلمة المرور الحالية غير صحيحة',
+        'en': 'Current password is incorrect'
+    },
+    'passwords_not_match': {
+        'ar': 'كلمات المرور غير متطابقة',
+        'en': 'Passwords do not match'
+    },
+    'password_too_short': {
+        'ar': 'كلمة المرور قصيرة جداً (يجب أن تكون 6 أحرف على الأقل)',
+        'en': 'Password is too short (minimum 6 characters)'
+    },
+    'system_statistics': {
+        'ar': 'إحصائيات النظام',
+        'en': 'System Statistics'
+    },
+    'total_programs': {
+        'ar': 'إجمالي البرامج',
+        'en': 'Total Programs'
+    },
+    'total_courses': {
+        'ar': 'إجمالي المقررات',
+        'en': 'Total Courses'
+    },
+    'database_management': {
+        'ar': 'إدارة قاعدة البيانات',
+        'en': 'Database Management'
+    },
+    'backup_database': {
+        'ar': 'نسخ احتياطي لقاعدة البيانات',
+        'en': 'Backup Database'
+    },
+    'restore_database': {
+        'ar': 'استعادة قاعدة البيانات',
+        'en': 'Restore Database'
+    },
+    'backup_created_successfully': {
+        'ar': 'تم إنشاء النسخة الاحتياطية بنجاح',
+        'en': 'Backup created successfully'
+    },
+    'backup_failed': {
+        'ar': 'فشل إنشاء النسخة الاحتياطية',
+        'en': 'Failed to create backup'
+    },
+    'admin_only_feature': {
+        'ar': 'هذه الميزة متاحة للمدير فقط',
+        'en': 'This feature is only available for administrators'
+    },
+    'about_system': {
+        'ar': 'حول النظام',
+        'en': 'About System'
+    },
+    'system_description': {
+        'ar': 'نظام متكامل لقياس وتقييم مخرجات التعلم للمقررات الدراسية في البرامج الأكاديمية',
+        'en': 'Integrated system for measuring and evaluating course learning outcomes in academic programs'
+    },
+    'system_features': {
+        'ar': 'مميزات النظام',
+        'en': 'System Features'
+    },
+    'feature_users_management': {
+        'ar': 'إدارة المستخدمين والصلاحيات',
+        'en': 'User and permissions management'
+    },
+    'feature_programs_management': {
+        'ar': 'إدارة البرامج الأكاديمية',
+        'en': 'Academic programs management'
+    },
+    'feature_courses_management': {
+        'ar': 'إدارة المقررات الدراسية',
+        'en': 'Courses management'
+    },
+    'feature_clos_management': {
+        'ar': 'إدارة مخرجات التعلم',
+        'en': 'Learning outcomes management'
+    },
+    'feature_reports': {
+        'ar': 'التقارير والإحصائيات',
+        'en': 'Reports and statistics'
+    },
+    'feature_bilingual': {
+        'ar': 'دعم اللغتين العربية والإنجليزية',
+        'en': 'Bilingual support (Arabic & English)'
+    },
+    'last_login': {
+        'ar': 'آخر تسجيل دخول',
+        'en': 'Last Login'
+    },
+    'never': {
+        'ar': 'لم يسجل دخول بعد',
+        'en': 'Never logged in'
+    },
+    'account_created': {
+        'ar': 'تاريخ إنشاء الحساب',
+        'en': 'Account Created'
+    },
+    'permissions': {
+        'ar': 'الصلاحيات',
+        'en': 'Permissions'
+    },
+    'please_login_again': {
+        'ar': 'يرجى تسجيل الدخول مرة أخرى بكلمة المرور الجديدة',
+        'en': 'Please login again with your new password'
+    },
+    'users_by_role': {
+        'ar': 'المستخدمون حسب الدور',
+        'en': 'Users by Role'
+    },
+    'courses_by_program': {
+        'ar': 'المقررات حسب البرنامج',
+        'en': 'Courses by Program'
+    },
+    'database_info': {
+        'ar': 'معلومات قاعدة البيانات',
+        'en': 'Database Information'
+    },
 }
 
 

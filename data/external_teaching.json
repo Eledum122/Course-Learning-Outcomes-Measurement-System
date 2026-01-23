@@ -1,0 +1,27 @@
+{
+  "external_assignments": [
+    {
+      "assignment_id": "ext_20260119192201",
+      "course_id": "course_stat1101",
+      "course_code": "STAT1101",
+      "source_program_id": "prog_005",
+      "source_college_ar": "كلية العلوم",
+      "source_college_en": "Faculty of Science",
+      "source_department_ar": "قسم الاحصاء",
+      "source_department_en": "Department of Statistics",
+      "target_college_ar": "كلية التطبيقية",
+      "target_college_en": "Applied College",
+      "target_department_ar": "العام",
+      "target_department_en": "General",
+      "academic_year": "1447",
+      "semester": "Second / الثاني",
+      "expected_students": 150,
+      "num_sections": 5,
+      "notes": "",
+      "is_active": true,
+      "created_date": "2026-01-19T19:22:01.304739",
+      "last_updated": "2026-01-19T19:22:01.304739"
+    }
+  ],
+  "last_updated": "2026-01-19T19:22:01.304739"
+}

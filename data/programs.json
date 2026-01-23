@@ -1,0 +1,192 @@
+{
+  "programs": [
+    {
+      "program_id": "prog_cs_001",
+      "program_code": "CS-BS",
+      "program_name_ar": "بكالوريوس علوم الحاسب",
+      "program_name_en": "Bachelor of Computer Science",
+      "university_ar": "جامعة تبوك",
+      "university_en": "University of Tabuk",
+      "college_ar": "كلية الحاسبات وتقنية المعلومات",
+      "college_en": "College of Computers and Information Technology",
+      "department_ar": "قسم علوم الحاسب",
+      "department_en": "Computer Science Department",
+      "description_ar": "برنامج بكالوريوس علوم الحاسب يهدف إلى تزويد الطلاب بالمعارف والمهارات الأساسية في مجالات البرمجة، قواعد البيانات، الشبكات، وأمن المعلومات",
+      "description_en": "Bachelor of Computer Science program aims to provide students with fundamental knowledge and skills in programming, databases, networks, and information security",
+      "coordinator_id": "user_004",
+      "is_active": true,
+      "created_date": "2025-09-01T10:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "program_id": "prog_it_002",
+      "program_code": "IT-BS",
+      "program_name_ar": "بكالوريوس تقنية المعلومات",
+      "program_name_en": "Bachelor of Information Technology",
+      "university_ar": "جامعة تبوك",
+      "university_en": "University of Tabuk",
+      "college_ar": "كلية الحاسبات وتقنية المعلومات",
+      "college_en": "College of Computers and Information Technology",
+      "department_ar": "قسم تقنية المعلومات",
+      "department_en": "Information Technology Department",
+      "description_ar": "برنامج بكالوريوس تقنية المعلومات يركز على تطبيقات التقنية في المؤسسات وإدارة أنظمة المعلومات",
+      "description_en": "Bachelor of Information Technology program focuses on technology applications in organizations and information systems management",
+      "coordinator_id": "user_008",
+      "is_active": true,
+      "created_date": "2025-09-01T10:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "program_id": "prog_004",
+      "program_code": "STAT-BSc001",
+      "program_name_ar": "بكالوريوس علوم الرياضيات",
+      "program_name_en": "Bachelor of Science in Mathematics",
+      "university_ar": "جامعة تبوك",
+      "university_en": "University of Tabuk",
+      "college_ar": "كلية العلوم",
+      "college_en": "Faculty of Science",
+      "department_ar": "قسم الرياضيات",
+      "department_en": "Department of Mathematics",
+      "description_ar": "",
+      "description_en": "",
+      "coordinator_id": "user_004",
+      "created_date": "2026-01-14T01:00:54.015519",
+      "is_active": true,
+      "plos": [],
+      "courses": [],
+      "metadata": {}
+    },
+    {
+      "program_id": "prog_005",
+      "program_code": "STAT-054201",
+      "program_name_ar": "بكالوريوس علوم الاحصاء",
+      "program_name_en": "Bachelor of Science in Statistics",
+      "university_ar": "جامعة تبوك",
+      "university_en": "University of Tabuk",
+      "college_ar": "كلية العلوم",
+      "college_en": "Faculty of Science",
+      "department_ar": "قسم الاحصاء",
+      "department_en": "Department of Statistics",
+      "description_ar": "تقديم تعليم متميز في الإحصاء وتطبيقاته، وتأهيل الكوادر التي يحتاجها المجتمع، في بيئة تشجع البحث العلمي في العلوم البيئية وغيرها من المجالات.\n",
+      "description_en": "To offer distinguished education in statistics and its applications, qualifying cadres needed by the\nTo offer distinguished education in statistics and its applications, qualifying cadres needed by the community, in an environment that promotes scientific research in environmental science and other fields.",
+      "coordinator_id": "user_008",
+      "created_date": "2026-01-14T01:05:38.311094",
+      "is_active": true,
+      "plos": [
+        {
+          "plo_code": "K1",
+          "domain": "المعارف / Knowledge",
+          "description_ar": "sss",
+          "description_en": "Demonstrate deep knowledge of theories, principles, and concepts of statistics and its related disciplines.",
+          "created_date": "2026-01-14T01:57:09.345574"
+        },
+        {
+          "plo_code": "K2",
+          "domain": "المعارف / Knowledge",
+          "description_ar": "sss",
+          "description_en": "Explain the utilization of statistical packages in different applications of statistical methods.",
+          "created_date": "2026-01-14T01:58:41.533637"
+        },
+        {
+          "plo_code": "S1",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Apply fundamental statistical theories and techniques in conducting different types of research.",
+          "created_date": "2026-01-14T01:59:11.659134"
+        },
+        {
+          "plo_code": "S2",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Analyze real-life data sets using statistical packages",
+          "created_date": "2026-01-14T01:59:45.845143"
+        },
+        {
+          "plo_code": "S3",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Interpret the analysis results of research problems and testing of hypothesis",
+          "created_date": "2026-01-14T02:00:04.665568"
+        },
+        {
+          "plo_code": "S4",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Formulate research problems and hypothesis according to different types of research and study designs",
+          "created_date": "2026-01-14T02:00:25.019431"
+        },
+        {
+          "plo_code": "S5",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Argue the results of a statistical analysis effectively via writing, visualizing and orally.",
+          "created_date": "2026-01-14T02:01:22.820687"
+        },
+        {
+          "plo_code": "S6",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Formulate statistical models to solve real-world problems in appropriate contexts.",
+          "created_date": "2026-01-14T02:01:43.233745"
+        },
+        {
+          "plo_code": "S7",
+          "domain": "المهارات / Skills",
+          "description_ar": "sss",
+          "description_en": "Communicate comprehensive statistical ideas, both orally and in writing.",
+          "created_date": "2026-01-14T02:02:03.628633"
+        },
+        {
+          "plo_code": "V1",
+          "domain": "القيم / Values",
+          "description_ar": "sss",
+          "description_en": "Demonstrate self-reliance as a responsible citizen, adhere to academic ethics and maintain analytical integrity in different applications of statistics.",
+          "created_date": "2026-01-14T02:02:30.310321"
+        },
+        {
+          "plo_code": "V2",
+          "domain": "القيم / Values",
+          "description_ar": "sss",
+          "description_en": "Collaborate responsibly to accomplish tasks and activities in a timely manner, whether working individually or in groups and undertake lifelong learning.",
+          "created_date": "2026-01-14T02:02:54.796316"
+        }
+      ],
+      "courses": [],
+      "metadata": {},
+      "assessment_methods": [
+        "First Exam",
+        "Second Exam",
+        "Final Exam",
+        "Mid Exam",
+        "Lab Exam",
+        "Quizzes ",
+        "Assignment",
+        "Lab Activities",
+        "Oral Presentation",
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ]
+    },
+    {
+      "program_id": "prog_006",
+      "program_code": "STAT-BSc-054201",
+      "program_name_ar": "بكالوريوس علوم الحاسب",
+      "program_name_en": "Bachelor of Computer Science",
+      "university_ar": "جامعة تبوك",
+      "university_en": "University of Tabuk",
+      "college_ar": "كلية الحاسبات وتقنية المعلومات",
+      "college_en": "College of Computers and Information Technology",
+      "department_ar": "قسم علوم الحاسب",
+      "department_en": "Computer Science Department",
+      "description_ar": "مقرر تمهيدي يغطي المفاهيم الأساسية للبرمجة باستخدام لغة Python",
+      "description_en": "Introductory course covering fundamental programming concepts using Python",
+      "coordinator_id": "user_004",
+      "created_date": "2026-01-14T01:12:56.342393",
+      "is_active": true,
+      "plos": [],
+      "courses": [],
+      "metadata": {}
+    }
+  ]
+}

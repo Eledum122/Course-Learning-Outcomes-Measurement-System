@@ -1,0 +1,408 @@
+{
+  "clos": [
+    {
+      "clo_id": "clo_6bc12f51aa20",
+      "course_id": "course_009",
+      "clo_code": "K1",
+      "description_ar": "fffff",
+      "description_en": "Describe the fundamental theories and concepts of research methods",
+      "domain": "المعارف / Knowledge",
+      "related_plos": [
+        "K1"
+      ],
+      "assessment_methods": [
+        "Weekly assessments"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:31:50.752558",
+      "last_updated": "2026-01-15T19:20:59.664758",
+      "mark": 10.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_723eb05cb2cd",
+      "course_id": "course_009",
+      "clo_code": "K2",
+      "description_ar": "fffff",
+      "description_en": "Discuss the utilization of statistical packages in different applications of research.",
+      "domain": "المعارف / Knowledge",
+      "related_plos": [
+        "K2"
+      ],
+      "assessment_methods": [
+        "Weekly assessments"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:32:59.157089",
+      "last_updated": "2026-01-15T19:21:12.251132",
+      "mark": 10.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_5e422eec2e3a",
+      "course_id": "course_009",
+      "clo_code": "S3",
+      "description_ar": "fff",
+      "description_en": "Apply fundamental statistical theories and techniques in conducting different types of research.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S3"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:38:01.036777",
+      "last_updated": "2026-01-15T11:14:52.605502",
+      "mark": 15.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_4abebc8bb08a",
+      "course_id": "course_009",
+      "clo_code": "S4",
+      "description_ar": "fff",
+      "description_en": "Analyze real-life data sets using statistical packages.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S4"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:38:50.524997",
+      "last_updated": "2026-01-15T11:14:52.608595",
+      "mark": 15.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_4815d2584608",
+      "course_id": "course_009",
+      "clo_code": "S5",
+      "description_ar": "fff",
+      "description_en": "Analyze real-life data sets using statistical packages.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S5"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:39:13.305701",
+      "last_updated": "2026-01-15T11:14:52.610670",
+      "mark": 15.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_f6895d79808a",
+      "course_id": "course_009",
+      "clo_code": "S6",
+      "description_ar": "fff",
+      "description_en": "Analyze real-life data sets using statistical packages.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S6"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:39:42.415923",
+      "last_updated": "2026-01-15T11:14:52.613142",
+      "mark": 12.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_2b18d0c7f445",
+      "course_id": "course_009",
+      "clo_code": "S7",
+      "description_ar": "fff",
+      "description_en": "Analyze real-life data sets using statistical packages.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S7"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:40:19.729432",
+      "last_updated": "2026-01-15T11:14:52.615418",
+      "mark": 7.0,
+      "criterion_percentage": 70.0,
+      "target_percentage": 70.0
+    },
+    {
+      "clo_id": "clo_f3d88d31503d",
+      "course_id": "course_009",
+      "clo_code": "V1",
+      "description_ar": "fff",
+      "description_en": "Demonstrate self-reliance as a responsible citizen, adhere to academic ethics and maintain analytical integrityin research methods.",
+      "domain": "القيم / Values",
+      "related_plos": [
+        "V1"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:41:28.703823",
+      "last_updated": "2026-01-15T19:36:19.755120",
+      "mark": 8.0,
+      "criterion_percentage": 75.0,
+      "target_percentage": 75.0
+    },
+    {
+      "clo_id": "clo_b3d0cbe4dc89",
+      "course_id": "course_009",
+      "clo_code": "V2",
+      "description_ar": "fff",
+      "description_en": "Collaborate effectively as an individual or in a team on research related issues and undertake lifelong learning.",
+      "domain": "القيم / Values",
+      "related_plos": [
+        "V2"
+      ],
+      "assessment_methods": [
+        "Weekly assessments",
+        "Poster",
+        "Final Report"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-14T02:42:03.378545",
+      "last_updated": "2026-01-15T19:36:43.770173",
+      "mark": 8.0,
+      "criterion_percentage": 75.0,
+      "target_percentage": 75.0
+    },
+    {
+      "clo_id": "clo_39f71c28aca2",
+      "course_id": "course_stat1101",
+      "clo_code": "K1",
+      "description_ar": "احفظ المفاهيم الأساسية للإحصاء الوصفي والاستدلالي، والارتباطات والاحتمالات.",
+      "description_en": "Memorize the basic concepts of descriptive and inferential statistics, associations and probability.",
+      "domain": "المعارف / Knowledge",
+      "related_plos": [
+        "K1"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities",
+        "Quizzes "
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:33:51.320549",
+      "last_updated": "2026-01-22T21:29:39.063472",
+      "mark": 25.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_2b60a3d2985b",
+      "course_id": "course_stat1101",
+      "clo_code": "K2",
+      "description_ar": "التعرف على الوظائف الإحصائية المدمجة في برنامج مايكروسوفت إكسل وكيفية استخدامها.",
+      "description_en": "Recognize the statistical functions that are built into Microsoft Excel and how to use them.",
+      "domain": "المعارف / Knowledge",
+      "related_plos": [
+        "K2"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:35:30.634410",
+      "last_updated": "2026-01-22T20:37:45.469058",
+      "mark": 5.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_c9d7be47d4e2",
+      "course_id": "course_stat1101",
+      "clo_code": "S1",
+      "description_ar": "حساب مقاييس النزعة المركزية والتشتت والارتباط، بالإضافة إلى عرض البيانات في جداول ورسوم بيانية.",
+      "description_en": "Calculate measures of central tendency, dispersion, and association, as well as presenting data in tables and charts.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S1"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities",
+        "Assignment",
+        "Quizzes "
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:37:08.784875",
+      "last_updated": "2026-01-22T21:30:14.617209",
+      "mark": 14.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_0eb8169ae868",
+      "course_id": "course_stat1101",
+      "clo_code": "S3",
+      "description_ar": "تطبيق احتمالية وقوع حدث ما وتوزيع الاحتمالات للمتغيرات العشوائية المنفصلة والمتصلة.",
+      "description_en": "Apply the probability of an event and probability distribution for discrete and continuous random variables.",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S3"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities",
+        "Assignment",
+        "Quizzes "
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:38:36.842236",
+      "last_updated": "2026-01-22T21:30:28.553264",
+      "mark": 15.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_335e6ff50056",
+      "course_id": "course_stat1101",
+      "clo_code": "S4",
+      "description_ar": "ناقش مخرجات الحاسوب للتقنيات الإحصائية",
+      "description_en": "Argue the computer outputs for statistical techniques",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S4"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities",
+        "Assignment",
+        "Quizzes "
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:40:00.156015",
+      "last_updated": "2026-01-22T21:30:45.982167",
+      "mark": 20.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_8216dc8e22a3",
+      "course_id": "course_stat1101",
+      "clo_code": "S5",
+      "description_ar": "تحديد حجم العينة وفترات الثقة للمتوسطات والنسب، بالإضافة إلى إجراء اختبار الفرضيات للمتوسط ​​والنسبة في مجتمع واحدتحديد حجم العينة وفترات الثقة للمتوسطات والنسب، بالإضافة إلى إجراء اختبار الفرضيات للمتوسط ​​والنسبة في مجتمع واحد",
+      "description_en": "Formulate sample size and confidence intervals for means and proportions, as well as performing hypothesis testing for mean and proportion in a single population",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S5"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities",
+        "Assignment",
+        "Quizzes "
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:41:22.239845",
+      "last_updated": "2026-01-22T21:31:11.126729",
+      "mark": 11.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_fb76cdd594b4",
+      "course_id": "course_stat1101",
+      "clo_code": "S6",
+      "description_ar": "توصيل الأفكار الشاملة للإحصاء الوصفي والاستدلالي، شفهياً وكتابياً.",
+      "description_en": "Communicate the comprehensive ideas of descriptive and inferential statistics, both orally and in writing",
+      "domain": "المهارات / Skills",
+      "related_plos": [
+        "S6"
+      ],
+      "assessment_methods": [
+        "Mid Exam",
+        "Final Exam",
+        "Lab Exam",
+        "Lab Activities",
+        "Assignment"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:42:46.838752",
+      "last_updated": "2026-01-22T20:37:45.485854",
+      "mark": 5.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    },
+    {
+      "clo_id": "clo_f95f7b5a18d6",
+      "course_id": "course_stat1101",
+      "clo_code": "V1",
+      "description_ar": "إظهار المسؤوليات الأخلاقية والنزاهة التحليلية باستخدام الأساليب الإحصائية",
+      "description_en": "Demonstrate ethical responsibilities and analytical integrity using statistical methods",
+      "domain": "القيم / Values",
+      "related_plos": [
+        "V1"
+      ],
+      "assessment_methods": [
+        "Lab Activities",
+        "Assignment",
+        "Oral Presentation"
+      ],
+      "is_active": true,
+      "created_by": "admin_001",
+      "created_date": "2026-01-22T19:44:04.232029",
+      "last_updated": "2026-01-22T20:37:45.489108",
+      "mark": 5.0,
+      "criterion_percentage": 60.0,
+      "target_percentage": 62.0
+    }
+  ],
+  "last_updated": "2026-01-22T21:31:11.126729"
+}

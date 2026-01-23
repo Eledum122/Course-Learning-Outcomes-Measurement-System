@@ -1,0 +1,768 @@
+{
+  "courses": [
+    {
+      "course_id": "course_cs101",
+      "course_code": "CS101",
+      "course_title_ar": "مقدمة في البرمجة",
+      "course_title_en": "Introduction to Programming",
+      "program_id": "prog_cs_001",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "course_level": "1",
+      "prerequisites": "",
+      "course_type": "إجباري / Required",
+      "description_ar": "مقرر تمهيدي يغطي المفاهيم الأساسية للبرمجة باستخدام لغة Python",
+      "description_en": "Introductory course covering fundamental programming concepts using Python",
+      "coordinator_id": "user_007",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_cs201",
+      "course_code": "CS201",
+      "course_title_ar": "هياكل البيانات والخوارزميات",
+      "course_title_en": "Data Structures and Algorithms",
+      "program_id": "prog_cs_001",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "course_level": "2",
+      "prerequisites": "CS101",
+      "course_type": "إجباري / Required",
+      "description_ar": "دراسة هياكل البيانات الأساسية والخوارزميات المختلفة وتحليل الأداء",
+      "description_en": "Study of fundamental data structures and various algorithms with performance analysis",
+      "coordinator_id": "",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_cs301",
+      "course_code": "CS301",
+      "course_title_ar": "قواعد البيانات",
+      "course_title_en": "Database Systems",
+      "program_id": "prog_cs_001",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "course_level": "3",
+      "prerequisites": "CS201",
+      "course_type": "إجباري / Required",
+      "description_ar": "تصميم وإدارة قواعد البيانات العلائقية باستخدام SQL",
+      "description_en": "Design and management of relational databases using SQL",
+      "coordinator_id": "user_007",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_it102",
+      "course_code": "IT102",
+      "course_title_ar": "أساسيات الشبكات",
+      "course_title_en": "Network Fundamentals",
+      "program_id": "prog_it_002",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "course_level": "1",
+      "prerequisites": "",
+      "course_type": "إجباري / Required",
+      "description_ar": "المفاهيم الأساسية لشبكات الحاسب وبروتوكولات الإنترنت",
+      "description_en": "Fundamental concepts of computer networks and Internet protocols",
+      "coordinator_id": "",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_se201",
+      "course_code": "SE201",
+      "course_title_ar": "تحليل وتصميم الأنظمة",
+      "course_title_en": "Systems Analysis and Design",
+      "program_id": "prog_se_003",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "course_level": "2",
+      "prerequisites": "CS101",
+      "course_type": "إجباري / Required",
+      "description_ar": "منهجيات تحليل وتصميم الأنظمة البرمجية",
+      "description_en": "Methodologies for software systems analysis and design",
+      "coordinator_id": "",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_se301",
+      "course_code": "SE301",
+      "course_title_ar": "إدارة مشاريع البرمجيات",
+      "course_title_en": "Software Project Management",
+      "program_id": "prog_se_003",
+      "credit_hours": 3,
+      "theory_hours": 3,
+      "practical_hours": 0,
+      "course_level": "3",
+      "prerequisites": "SE201",
+      "course_type": "إجباري / Required",
+      "description_ar": "تخطيط وإدارة مشاريع تطوير البرمجيات",
+      "description_en": "Planning and managing software development projects",
+      "coordinator_id": "",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_cs401",
+      "course_code": "CS401",
+      "course_title_ar": "الذكاء الاصطناعي",
+      "course_title_en": "Artificial Intelligence",
+      "program_id": "prog_cs_001",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "course_level": "4",
+      "prerequisites": "CS201",
+      "course_type": "اختياري / Elective",
+      "description_ar": "مقدمة في مفاهيم وتقنيات الذكاء الاصطناعي والتعلم الآلي",
+      "description_en": "Introduction to artificial intelligence concepts and machine learning techniques",
+      "coordinator_id": "",
+      "is_active": true,
+      "created_date": "2025-09-15T09:00:00",
+      "last_updated": "2026-01-13T10:40:00"
+    },
+    {
+      "course_id": "course_009",
+      "course_code": "STAT1498",
+      "course_title_ar": "مشروع",
+      "course_title_en": "Project",
+      "program_id": "prog_005",
+      "credit_hours": 3,
+      "theory_hours": 3,
+      "practical_hours": 0,
+      "total_hours": 3,
+      "course_level": "8",
+      "prerequisites": "STAT1307",
+      "course_type": "إلزامي",
+      "description_ar": "تقديم تعليم متميز في الإحصاء وتطبيقاته، وتأهيل الكوادر التي يحتاجها المجتمع، في بيئة تشجع البحث العلمي في العلوم البيئية وغيرها من المجالات.\n",
+      "description_en": "To offer distinguished education in statistics and its applications, qualifying cadres are needed by the To offer distinguished education in statistics and its applications, and to qualify cadres needed by the community, in an environment that promotes scientific research in environmental science and other fields.",
+      "coordinator_id": "user_007",
+      "created_date": "2026-01-14T01:21:25.962754",
+      "is_active": true,
+      "clos": [],
+      "topics": [],
+      "assessment_activities": [
+        {
+          "activity_id": "activity_course_009_1_20260115095405",
+          "course_id": "course_009",
+          "assessment_task": "Final Report",
+          "week_due": "At the end of the semester",
+          "percentage": 20.0,
+          "created_date": "2026-01-15T09:54:05.762281",
+          "last_updated": "2026-01-15T10:01:39.297970",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_009_2_20260115095405",
+          "course_id": "course_009",
+          "assessment_task": "Poster",
+          "week_due": "Week 15",
+          "percentage": 20.0,
+          "created_date": "2026-01-15T09:54:05.762281",
+          "last_updated": "2026-01-15T10:00:19.038593",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_009_4_20260115095405",
+          "course_id": "course_009",
+          "assessment_task": "Weekly assessments",
+          "week_due": "During semester",
+          "percentage": 60.0,
+          "created_date": "2026-01-15T09:54:05.762281",
+          "last_updated": "2026-01-15T10:01:03.453573",
+          "imported_from_clos": true
+        }
+      ],
+      "sections": [],
+      "metadata": {},
+      "course_version": "1",
+      "last_updated": "2026-01-16T10:45:34.750468",
+      "total_course_marks": 100.0,
+      "passing_percentage": 60.0,
+      "topics_activities_distribution": {
+        "topic_course_009_1_20260114123251": {
+          "remark": 5.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 5.0
+        },
+        "topic_course_009_2_20260114123251": {
+          "remark": 5.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 5.0
+        },
+        "topic_course_009_3_20260114123251": {
+          "remark": 5.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 5.0
+        },
+        "topic_course_009_4_20260114123251": {
+          "remark": 6.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 6.0
+        },
+        "topic_course_009_5_20260114123251": {
+          "remark": 6.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 6.0
+        },
+        "topic_course_009_6_20260114123251": {
+          "remark": 6.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 6.0
+        },
+        "topic_course_009_7_20260114123251": {
+          "remark": 5.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 5.0
+        },
+        "topic_course_009_8_20260114123251": {
+          "remark": 5.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 5.0
+        },
+        "topic_course_009_9_20260114123251": {
+          "remark": 6.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 6.0
+        },
+        "topic_course_009_10_20260114123251": {
+          "remark": 6.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 6.0
+        },
+        "topic_course_009_11_20260114123251": {
+          "remark": 5.0,
+          "Final Report": 0.0,
+          "Poster": 0.0,
+          "Weekly assessments": 5.0
+        },
+        "topic_course_009_12_20260114123251": {
+          "remark": 10.0,
+          "Final Report": 5.0,
+          "Poster": 5.0,
+          "Weekly assessments": 0.0
+        },
+        "topic_course_009_13_20260114123251": {
+          "remark": 10.0,
+          "Final Report": 5.0,
+          "Poster": 5.0,
+          "Weekly assessments": 0.0
+        },
+        "topic_course_009_14_20260114123251": {
+          "remark": 10.0,
+          "Final Report": 5.0,
+          "Poster": 5.0,
+          "Weekly assessments": 0.0
+        },
+        "topic_course_009_15_20260114123251": {
+          "remark": 10.0,
+          "Final Report": 5.0,
+          "Poster": 5.0,
+          "Weekly assessments": 0.0
+        }
+      },
+      "clos_activities_distribution": {
+        "Final Report": {
+          "K1": 0,
+          "K2": 0,
+          "S3": 2.0,
+          "S4": 10.0,
+          "S5": 6.0,
+          "S6": 0.0,
+          "S7": 0.0,
+          "V1": 0,
+          "V2": 2.0
+        },
+        "Poster": {
+          "K1": 0,
+          "K2": 0,
+          "S3": 0.0,
+          "S4": 5.0,
+          "S5": 0.0,
+          "S6": 0.0,
+          "S7": 5.0,
+          "V1": 5.0,
+          "V2": 5.0
+        },
+        "Weekly assessments": {
+          "K1": 10.0,
+          "K2": 10.0,
+          "S3": 13.0,
+          "S4": 0.0,
+          "S5": 9.0,
+          "S6": 12.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 1.0
+        }
+      },
+      "specifications_table_data": {
+        "topic_course_009_1_20260114123251": {
+          "K1_Weekly assessments": 3.0,
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 2.0
+        },
+        "topic_course_009_2_20260114123251": {
+          "K1_Weekly assessments": 3.0,
+          "S6_Weekly assessments": 2.0
+        },
+        "topic_course_009_3_20260114123251": {
+          "K1_Weekly assessments": 3.0,
+          "S6_Weekly assessments": 2.0
+        },
+        "topic_course_009_9_20260114123251": {
+          "K1_Weekly assessments": 1.0,
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 1.0,
+          "S5_Final Report": 0.0,
+          "S5_Weekly assessments": 2.0,
+          "S6_Weekly assessments": 2.0
+        },
+        "topic_course_009_6_20260114123251": {
+          "K2_Weekly assessments": 2.0,
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 3.0,
+          "S7_Poster": 0.0,
+          "S7_Weekly assessments": 1.0
+        },
+        "topic_course_009_7_20260114123251": {
+          "K2_Weekly assessments": 2.0,
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 2.0,
+          "S7_Poster": 0.0,
+          "S7_Weekly assessments": 1.0
+        },
+        "topic_course_009_8_20260114123251": {
+          "K2_Weekly assessments": 5.0
+        },
+        "topic_course_009_10_20260114123251": {
+          "K2_Weekly assessments": 1.0,
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 1.0,
+          "S5_Final Report": 0.0,
+          "S5_Weekly assessments": 1.0,
+          "S6_Weekly assessments": 1.0,
+          "V1_Poster": 0.0,
+          "V1_Weekly assessments": 2.0
+        },
+        "topic_course_009_4_20260114123251": {
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 2.0,
+          "S5_Final Report": 0.0,
+          "S5_Weekly assessments": 2.0,
+          "S6_Weekly assessments": 2.0
+        },
+        "topic_course_009_5_20260114123251": {
+          "S3_Final Report": 0.0,
+          "S3_Weekly assessments": 2.0,
+          "S5_Final Report": 0.0,
+          "S5_Weekly assessments": 2.0,
+          "S6_Weekly assessments": 2.0
+        },
+        "topic_course_009_15_20260114123251": {
+          "S3_Final Report": 2.0,
+          "S3_Weekly assessments": 0.0,
+          "S4_Final Report": 0.0,
+          "S4_Poster": 2.0,
+          "S5_Final Report": 3.0,
+          "S5_Weekly assessments": 0.0,
+          "V1_Poster": 2.0,
+          "V1_Weekly assessments": 0.0,
+          "V2_Final Report": 0.0,
+          "V2_Poster": 1.0,
+          "V2_Weekly assessments": 0.0
+        },
+        "topic_course_009_12_20260114123251": {
+          "S4_Final Report": 5.0,
+          "S4_Poster": 0.0,
+          "S7_Poster": 2.0,
+          "S7_Weekly assessments": 0.0,
+          "V1_Poster": 1.0,
+          "V1_Weekly assessments": 0.0,
+          "V2_Final Report": 0.0,
+          "V2_Poster": 2.0,
+          "V2_Weekly assessments": 0.0
+        },
+        "topic_course_009_13_20260114123251": {
+          "S4_Final Report": 4.0,
+          "S4_Poster": 1.0,
+          "S7_Poster": 2.0,
+          "S7_Weekly assessments": 0.0,
+          "V1_Poster": 1.0,
+          "V1_Weekly assessments": 0.0,
+          "V2_Final Report": 1.0,
+          "V2_Poster": 1.0,
+          "V2_Weekly assessments": 0.0
+        },
+        "topic_course_009_14_20260114123251": {
+          "S4_Final Report": 1.0,
+          "S4_Poster": 2.0,
+          "S5_Final Report": 3.0,
+          "S5_Weekly assessments": 0.0,
+          "S7_Poster": 1.0,
+          "S7_Weekly assessments": 0.0,
+          "V1_Poster": 1.0,
+          "V1_Weekly assessments": 0.0,
+          "V2_Final Report": 1.0,
+          "V2_Poster": 1.0,
+          "V2_Weekly assessments": 0.0
+        },
+        "topic_course_009_11_20260114123251": {
+          "S5_Final Report": 0.0,
+          "S5_Weekly assessments": 2.0,
+          "S6_Weekly assessments": 1.0,
+          "V1_Poster": 0.0,
+          "V1_Weekly assessments": 1.0,
+          "V2_Final Report": 0.0,
+          "V2_Poster": 0.0,
+          "V2_Weekly assessments": 1.0
+        }
+      }
+    },
+    {
+      "course_id": "course_stat1101",
+      "course_code": "STAT1101",
+      "course_title_ar": "مقدمة في الاحصاء",
+      "course_title_en": "Introduction to Statistics",
+      "program_id": "prog_005",
+      "credit_hours": 3,
+      "theory_hours": 2,
+      "practical_hours": 2,
+      "total_hours": 4,
+      "course_level": "1",
+      "prerequisites": "None",
+      "course_type": "إلزامي",
+      "course_version": "1",
+      "description_ar": "",
+      "description_en": "",
+      "coordinator_id": "user_005",
+      "created_date": "2026-01-19T10:39:43.711665",
+      "is_active": true,
+      "clos": [],
+      "topics": [],
+      "assessment_activities": [
+        {
+          "activity_id": "activity_course_stat1101_7_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Mid Exam",
+          "week_due": "",
+          "percentage": 20.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:38:52.024939",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_stat1101_4_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Final Exam",
+          "week_due": "",
+          "percentage": 40.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:39:03.894929",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_stat1101_6_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Lab Exam",
+          "week_due": "",
+          "percentage": 10.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:39:14.720027",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_stat1101_5_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Quizzes ",
+          "week_due": "",
+          "percentage": 5.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:39:26.417083",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_stat1101_2_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Lab Activities",
+          "week_due": "",
+          "percentage": 15.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:39:37.609117",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_stat1101_3_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Assignment",
+          "week_due": "",
+          "percentage": 5.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:39:47.256284",
+          "imported_from_clos": true
+        },
+        {
+          "activity_id": "activity_course_stat1101_1_20260122213728",
+          "course_id": "course_stat1101",
+          "assessment_task": "Oral Presentation",
+          "week_due": "",
+          "percentage": 5.0,
+          "created_date": "2026-01-22T21:37:28.782233",
+          "last_updated": "2026-01-22T21:39:56.386390",
+          "imported_from_clos": true
+        }
+      ],
+      "sections": [],
+      "metadata": {},
+      "last_updated": "2026-01-22T21:46:06.548184",
+      "total_course_marks": 100.0,
+      "passing_percentage": 60.0,
+      "topics_activities_distribution": {
+        "topic_course_stat1101_1_20260122195027": {
+          "remark": 10.0,
+          "Mid Exam": 7.0,
+          "Final Exam": 0.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 3.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_2_20260122195027": {
+          "remark": 14.0,
+          "Mid Exam": 4.0,
+          "Final Exam": 0.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 10.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_3_20260122195027": {
+          "remark": 10.0,
+          "Mid Exam": 4.0,
+          "Final Exam": 3.0,
+          "Lab Exam": 2.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_4_20260122195027": {
+          "remark": 10.0,
+          "Mid Exam": 3.0,
+          "Final Exam": 3.0,
+          "Lab Exam": 3.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_5_20260122195027": {
+          "remark": 5.0,
+          "Mid Exam": 2.0,
+          "Final Exam": 1.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 1.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_6_20260122195027": {
+          "remark": 6.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 2.0,
+          "Lab Exam": 2.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 2.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_7_20260122195027": {
+          "remark": 8.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 2.0,
+          "Lab Exam": 3.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 3.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_8_20260122195027": {
+          "remark": 8.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 8.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_9_20260122195027": {
+          "remark": 7.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 7.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_10_20260122195027": {
+          "remark": 5.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 3.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 1.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_11_20260122195027": {
+          "remark": 5.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 3.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 2.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_12_20260122195027": {
+          "remark": 3.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 2.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 0.0,
+          "Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_13_20260122195027": {
+          "remark": 3.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 2.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 1.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_14_20260122195027": {
+          "remark": 3.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 2.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 1.0,
+          "Oral Presentation": 0.0
+        },
+        "topic_course_stat1101_15_20260122195027": {
+          "remark": 3.0,
+          "Mid Exam": 0.0,
+          "Final Exam": 2.0,
+          "Lab Exam": 0.0,
+          "Quizzes ": 0.0,
+          "Lab Activities": 0.0,
+          "Assignment": 1.0,
+          "Oral Presentation": 0.0
+        }
+      },
+      "clos_activities_distribution": {
+        "Mid Exam": {
+          "K1": 10.0,
+          "K2": 2.0,
+          "S1": 8.0,
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0,
+          "S6": 0.0,
+          "V1": 0
+        },
+        "Final Exam": {
+          "K1": 12.0,
+          "K2": 3.0,
+          "S1": 5.0,
+          "S3": 12.0,
+          "S4": 0.0,
+          "S5": 8.0,
+          "S6": 0.0,
+          "V1": 0
+        },
+        "Lab Exam": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S1": 0.0,
+          "S3": 0.0,
+          "S4": 10.0,
+          "S5": 0.0,
+          "S6": 0.0,
+          "V1": 0
+        },
+        "Quizzes ": {
+          "K1": 3.0,
+          "K2": 0,
+          "S1": 1.0,
+          "S3": 1.0,
+          "S4": 0.0,
+          "S5": 0.0,
+          "S6": 0,
+          "V1": 0
+        },
+        "Lab Activities": {
+          "K1": 0.0,
+          "K2": 0.0,
+          "S1": 0.0,
+          "S3": 0.0,
+          "S4": 10.0,
+          "S5": 0.0,
+          "S6": 5.0,
+          "V1": 0.0
+        },
+        "Assignment": {
+          "K1": 0,
+          "K2": 0,
+          "S1": 0.0,
+          "S3": 2.0,
+          "S4": 0.0,
+          "S5": 3.0,
+          "S6": 0.0,
+          "V1": 0.0
+        },
+        "Oral Presentation": {
+          "K1": 0,
+          "K2": 0,
+          "S1": 0,
+          "S3": 0,
+          "S4": 0,
+          "S5": 0,
+          "S6": 0,
+          "V1": 5.0
+        }
+      }
+    }
+  ]
+}

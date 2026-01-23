@@ -14,9 +14,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 # استيراد النماذج والوظائف الموجودة
 from models.database import Database, User, UserRole
 from translations import t
-from pages.users_management import show_users_management
-from pages.programs_management import show_programs_management
-from pages.courses_management import show_courses_management
+# تم إزالة الاستيراد من هنا لتجنب مشاكل الـ cache
+# سيتم استيراد الصفحات ديناميكياً عند الحاجة
 
 # إعداد الصفحة
 st.set_page_config(
@@ -246,8 +245,32 @@ def login_page():
             st.markdown("<br>", unsafe_allow_html=True)
 
             # زر تسجيل الدخول
-            if st.button(f"🚀 {t('login', lang)}", use_container_width=True, type='primary'):
+            col_login, col_clear = st.columns([3, 1])
+
+            with col_login:
+                login_clicked = st.button(f"🚀 {t('login', lang)}", use_container_width=True, type='primary')
+
+            with col_clear:
+                clear_clicked = st.button("🔄", use_container_width=True, help="مسح الجلسة / Clear Session")
+
+            if clear_clicked:
+                # مسح جميع بيانات الجلسة بالكامل
+                st.cache_data.clear()
+                st.cache_resource.clear()
+                for key in list(st.session_state.keys()):
+                    del st.session_state[key]
+                st.success("✅ تم مسح الجلسة بالكامل! يرجى تحديث الصفحة / Session completely cleared! Please refresh the page.")
+                st.info("اضغط Ctrl+Shift+R لتحديث كامل / Press Ctrl+Shift+R for full refresh")
+                st.stop()
+
+            if login_clicked:
                 if username and password:
+                    # مسح أي جلسة قديمة
+                    if 'authenticated' in st.session_state:
+                        del st.session_state['authenticated']
+                    if 'user' in st.session_state:
+                        del st.session_state['user']
+
                     # محاولة تسجيل الدخول
                     db = st.session_state.db
                     user = db.authenticate_user(username, password)
@@ -272,6 +295,29 @@ def login_page():
 
 def main_app():
     """التطبيق الرئيسي بعد تسجيل الدخول"""
+    db = st.session_state.db
+
+    # إعادة بناء كائن المستخدم دائماً من قاعدة البيانات لضمان صحة الأدوار
+    users = db.load_users()
+    username = st.session_state.user.username if st.session_state.user else None
+
+    if username:
+        for u_data in users:
+            if u_data.get('username') == username:
+                from models.database import User as DBUser
+                user = DBUser(
+                    user_id=u_data.get('user_id', ''),
+                    username=u_data.get('username', ''),
+                    password_hash=u_data.get('password_hash', ''),
+                    full_name=u_data.get('full_name', ''),
+                    email=u_data.get('email', ''),
+                    roles=u_data.get('roles', []),
+                    employee_id=u_data.get('employee_id', ''),
+                    faculty_id=u_data.get('faculty_id', '')
+                )
+                st.session_state.user = user
+                break
+
     user = st.session_state.user
     lang = st.session_state.language
     is_rtl = lang == 'ar'
@@ -298,9 +344,26 @@ def main_app():
             menu_items = [
                 ("🏠", "dashboard", t("dashboard", lang)),
                 ("👥", "users", t("users_management", lang)),
+                ("👨‍🏫", "faculty", "أعضاء هيئة التدريس / Faculty"),
                 ("🏛️", "programs", t("programs_management", lang)),
                 ("📚", "courses", t("courses_management", lang)),
-                ("📊", "reports", t("reports", lang)),
+                ("🏫", "external_teaching", "التدريس الخارجي / External Teaching"),
+                ("📝", "clos", "مخرجات التعلم / CLOs"),
+                ("📑", "course_topics", "موضوعات المقرر / Course Topics"),
+                ("📊", "assessment_activities", "أنشطة التقييم / Assessment"),
+                ("📖", "sections_mgmt", "الشعب الدراسية / Sections"),
+                ("👥", "section_students", "طلاب الشعبة / Students"),
+                ("📝", "student_grades", "درجات الطلاب / Grades"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
+                ("---", "---", "─── المرحلة 2: قياس المخرجات ───"),
+                ("📊", "stage2_clo_marks", "2.1 درجات CLOs"),
+                ("🎯", "clo_semester_settings", "2.1b إعدادات الفصل"),
+                ("🔗", "stage2_topics_clos", "2.2 ربط الموضوعات بـ CLOs"),
+                ("📝", "stage2_topics_activities", "2.3 ربط الموضوعات بالأنشطة"),
+                ("📊", "stage2_clos_activities", "2.4 المخرجات والأنشطة"),
+                ("📋", "stage2_specs_table", "2.5 جدول المواصفات"),
+                ("📈", "reports", t("reports", lang)),
                 ("⚙️", "settings", t("settings", lang)),
             ]
         elif user.role == UserRole.PROGRAM_COORDINATOR:
@@ -308,14 +371,44 @@ def main_app():
                 ("🏠", "dashboard", t("dashboard", lang)),
                 ("🏛️", "programs", t("my_programs", lang)),
                 ("📚", "courses", t("courses_management", lang)),
-                ("📊", "reports", t("reports", lang)),
+                ("🏫", "external_teaching", "التدريس الخارجي / External Teaching"),
+                ("📝", "clos", "مخرجات التعلم / CLOs"),
+                ("📑", "course_topics", "موضوعات المقرر / Course Topics"),
+                ("📊", "assessment_activities", "أنشطة التقييم / Assessment"),
+                ("📖", "sections_mgmt", "الشعب الدراسية / Sections"),
+                ("👥", "section_students", "طلاب الشعبة / Students"),
+                ("📝", "student_grades", "درجات الطلاب / Grades"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
+                ("---", "---", "─── المرحلة 2: قياس المخرجات ───"),
+                ("📊", "stage2_clo_marks", "2.1 درجات CLOs"),
+                ("🎯", "clo_semester_settings", "2.1b إعدادات الفصل"),
+                ("🔗", "stage2_topics_clos", "2.2 ربط الموضوعات بـ CLOs"),
+                ("📝", "stage2_topics_activities", "2.3 ربط الموضوعات بالأنشطة"),
+                ("📊", "stage2_clos_activities", "2.4 المخرجات والأنشطة"),
+                ("📋", "stage2_specs_table", "2.5 جدول المواصفات"),
+                ("📈", "reports", t("reports", lang)),
             ]
         elif user.role == UserRole.COURSE_COORDINATOR:
             menu_items = [
                 ("🏠", "dashboard", t("dashboard", lang)),
                 ("📚", "my_courses", t("my_courses", lang)),
-                ("📝", "assessment", t("assessment", lang)),
-                ("📊", "reports", t("my_reports", lang)),
+                ("📝", "clos", "مخرجات التعلم / CLOs"),
+                ("📑", "course_topics", "موضوعات المقرر / Course Topics"),
+                ("📊", "assessment_activities", "أنشطة التقييم / Assessment"),
+                ("📖", "sections_mgmt", "الشعب الدراسية / Sections"),
+                ("👥", "section_students", "طلاب الشعبة / Students"),
+                ("📝", "student_grades", "درجات الطلاب / Grades"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
+                ("---", "---", "─── المرحلة 2: قياس المخرجات ───"),
+                ("📊", "stage2_clo_marks", "2.1 درجات CLOs"),
+                ("🎯", "clo_semester_settings", "2.1b إعدادات الفصل"),
+                ("🔗", "stage2_topics_clos", "2.2 ربط الموضوعات بـ CLOs"),
+                ("📝", "stage2_topics_activities", "2.3 ربط الموضوعات بالأنشطة"),
+                ("📊", "stage2_clos_activities", "2.4 المخرجات والأنشطة"),
+                ("📋", "stage2_specs_table", "2.5 جدول المواصفات"),
+                ("📈", "reports", t("my_reports", lang)),
             ]
         else:  # SECTION_INSTRUCTOR
             menu_items = [
@@ -354,19 +447,94 @@ def main_app():
     st.markdown(f"<div class='{'rtl' if is_rtl else 'ltr'}'>", unsafe_allow_html=True)
 
     if selected_page == 'dashboard':
-        show_dashboard(user, lang)
+        show_dashboard(st.session_state.user, lang)
     elif selected_page == 'users':
-        show_users_management(st.session_state.db, user, lang)
+        # استيراد ديناميكي لتجنب مشاكل الـ cache
+        import importlib
+        from pages import users_management
+        importlib.reload(users_management)
+        users_management.show_users_management(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'faculty':
+        # صفحة إدارة أعضاء هيئة التدريس
+        import importlib
+        from pages import faculty_management
+        importlib.reload(faculty_management)
+        faculty_management.show_faculty_management(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'programs':
-        show_programs_management(st.session_state.db, user, lang)
+        # استيراد ديناميكي لتجنب مشاكل الـ cache
+        import importlib
+        from pages import programs_management
+        importlib.reload(programs_management)
+        programs_management.show_programs_management(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'courses' or selected_page == 'my_courses':
-        show_courses_management(st.session_state.db, user, lang)
+        # استيراد ديناميكي لتجنب مشاكل الـ cache
+        import importlib
+        from pages import courses_management
+        importlib.reload(courses_management)
+        courses_management.show_courses_management(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'clos':
+        # استيراد ديناميكي لصفحة CLOs
+        import importlib
+        from pages import clos_management
+        importlib.reload(clos_management)
+        clos_management.show_clos_management(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'course_topics':
+        # استيراد ديناميكي لصفحة موضوعات المقرر
+        import importlib
+        from pages import course_topics
+        importlib.reload(course_topics)
+        course_topics.show_course_topics(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'assessment_activities':
+        # استيراد ديناميكي لصفحة أنشطة التقييم
+        import importlib
+        from pages import assessment_activities
+        importlib.reload(assessment_activities)
+        assessment_activities.show_assessment_activities(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'sections':
         st.title(f"📚 {t('my_sections', lang)}")
         st.info(f"🚧 {t('under_development', lang)}")
+    elif selected_page == 'sections_mgmt':
+        # صفحة إدارة الشعب الدراسية
+        import importlib
+        from pages import sections_management
+        importlib.reload(sections_management)
+        sections_management.show_sections_management(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'section_students':
+        # صفحة إدارة طلاب الشعبة
+        import importlib
+        from pages import section_students
+        importlib.reload(section_students)
+        section_students.show_section_students(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'student_grades':
+        # صفحة إدخال درجات الطلاب
+        import importlib
+        from pages import student_grades
+        importlib.reload(student_grades)
+        student_grades.show_student_grades(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'grades_dashboard':
+        # صفحة لوحة بيانات الدرجات
+        import importlib
+        from pages import grades_dashboard
+        importlib.reload(grades_dashboard)
+        grades_dashboard.show_grades_dashboard(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'external_teaching':
+        # صفحة التدريس الخارجي
+        import importlib
+        from pages import external_teaching
+        importlib.reload(external_teaching)
+        external_teaching.show_external_teaching(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'clo_report':
+        # صفحة تقرير قياس المخرجات
+        import importlib
+        from pages import clo_assessment_report
+        importlib.reload(clo_assessment_report)
+        clo_assessment_report.show_clo_assessment_report(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'reports' or selected_page == 'my_reports' or selected_page == 'section_reports':
-        st.title(f"📊 {t('reports', lang)}")
-        st.info(f"🚧 {t('under_development', lang)}")
+        # استيراد ديناميكي لصفحة التقارير
+        import importlib
+        from pages import reports
+        importlib.reload(reports)
+        reports.show_reports(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'assessment':
         st.title(f"📝 {t('assessment', lang)}")
         st.info(f"🚧 {t('under_development', lang)}")
@@ -374,28 +542,113 @@ def main_app():
         st.title(f"📝 {t('enter_grades', lang)}")
         st.info(f"🚧 {t('under_development', lang)}")
     elif selected_page == 'settings':
-        st.title(f"⚙️ {t('settings', lang)}")
-        st.info(f"🚧 {t('under_development', lang)}")
+        from pages.settings import show_settings
+        show_settings(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'stage2_clo_marks':
+        # المرحلة 2.1: درجات مخرجات التعلم
+        import importlib
+        from pages import stage2_clo_marks
+        importlib.reload(stage2_clo_marks)
+        stage2_clo_marks.show_stage2_clo_marks(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'clo_semester_settings':
+        # المرحلة 2.1b: إعدادات CLOs حسب الفصل الدراسي
+        import importlib
+        from pages import clo_semester_settings
+        importlib.reload(clo_semester_settings)
+        clo_semester_settings.show_clo_semester_settings(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'stage2_topics_clos':
+        # المرحلة 2.2: ربط الموضوعات بمخرجات التعلم
+        import importlib
+        from pages import stage2_topics_to_clos
+        importlib.reload(stage2_topics_to_clos)
+        stage2_topics_to_clos.show_stage2_topics_to_clos(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'stage2_topics_activities':
+        # المرحلة 2.3: ربط الموضوعات بأنشطة التقييم
+        import importlib
+        from pages import stage2_topics_to_activities
+        importlib.reload(stage2_topics_to_activities)
+        stage2_topics_to_activities.show_stage2_topics_to_activities(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'stage2_clos_activities':
+        # المرحلة 2.4: توزيع المخرجات على الأنشطة
+        import importlib
+        from pages import stage2_clos_activities
+        importlib.reload(stage2_clos_activities)
+        stage2_clos_activities.show_stage2_clos_activities(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'stage2_specs_table':
+        # المرحلة 2.5: جدول المواصفات
+        import importlib
+        from pages import stage2_specifications_table
+        importlib.reload(stage2_specifications_table)
+        stage2_specifications_table.show_stage2_specifications_table(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == '---':
+        # عنصر فاصل - لا يفعل شيء
+        pass
 
     st.markdown("</div>", unsafe_allow_html=True)
 
 def show_dashboard(user: User, lang: str):
     """عرض لوحة المعلومات"""
-    is_rtl = lang == 'ar'
+
+    # إعادة بناء كائن المستخدم من قاعدة البيانات لضمان صحة الأدوار
     db = st.session_state.db
+    rebuilt_user = db.get_user_by_username(user.username)
+    if rebuilt_user:
+        user = rebuilt_user
+
+    is_rtl = lang == 'ar'
 
     st.title(f"🏠 {t('dashboard', lang)}")
 
-    # جمع الإحصائيات
-    programs_count = len(db.get_all_programs())
-    courses_count = len(db.get_all_courses())
-    users_count = len(db.get_all_users())
+    # جمع الإحصائيات حسب صلاحيات المستخدم
+    all_programs = db.get_all_programs()
+    all_courses = db.get_all_courses()
+
+    # تصفية البرامج والمقررات حسب دور المستخدم
+    if user.role == UserRole.ADMIN:
+        # المدير يرى كل شيء
+        programs = all_programs
+        courses = all_courses
+        users_count = len(db.get_all_users())
+    elif user.role == UserRole.PROGRAM_COORDINATOR:
+        # منسق البرنامج يرى برامجه فقط والمقررات المرتبطة بها
+        user_data = db.load_users()
+        assigned_programs = []
+        for u in user_data:
+            if u.get('user_id') == user.user_id:
+                assigned_programs = u.get('assigned_programs', [])
+                break
+
+        programs = [p for p in all_programs if p.get('program_id') in assigned_programs]
+        courses = [c for c in all_courses if c.get('program_id') in assigned_programs]
+        users_count = 0  # لا يحتاج لرؤية عدد المستخدمين
+    elif user.role == UserRole.COURSE_COORDINATOR:
+        # منسق المقرر يرى مقرراته فقط
+        user_data = db.load_users()
+        assigned_courses = []
+        for u in user_data:
+            if u.get('user_id') == user.user_id:
+                assigned_courses = u.get('assigned_courses', [])
+                break
+
+        programs = []  # لا يرى البرامج
+        # تصفية المقررات: إما مُسندة له في assigned_courses أو coordinator_id يساوي user_id
+        courses = [c for c in all_courses
+                  if c.get('course_id') in assigned_courses or c.get('coordinator_id') == user.user_id]
+        users_count = 0
+    else:
+        # مدرس الشعبة
+        programs = []
+        courses = []
+        users_count = 0
+
+    programs_count = len(programs)
+    courses_count = len(courses)
 
     # حساب البرامج النشطة
-    active_programs = len([p for p in db.get_all_programs() if p.get('is_active', True)])
+    active_programs = len([p for p in programs if p.get('is_active', True)])
 
     # حساب المقررات النشطة
-    active_courses = len([c for c in db.get_all_courses() if c.get('is_active', True)])
+    active_courses = len([c for c in courses if c.get('is_active', True)])
 
     # بطاقات الإحصائيات
     col1, col2, col3, col4 = st.columns(4)
@@ -419,13 +672,22 @@ def show_dashboard(user: User, lang: str):
         """, unsafe_allow_html=True)
 
     with col3:
-        st.markdown(f"""
-        <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-            <h2 style="color: white;">👥</h2>
-            <h3 style="color: white;">{users_count}</h3>
-            <p style="color: white; font-size: 16px;">{t('users', lang)}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        if user.role == UserRole.ADMIN:
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                <h2 style="color: white;">👥</h2>
+                <h3 style="color: white;">{users_count}</h3>
+                <p style="color: white; font-size: 16px;">{t('users', lang)}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); color: white;">
+                <h2 style="color: white;">📊</h2>
+                <h3 style="color: white;">{active_programs}</h3>
+                <p style="color: white; font-size: 16px;">{t('active_programs', lang) if lang == 'ar' else 'Active Programs'}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
     with col4:
         # حساب نسبة الإنجاز (المقررات النشطة / إجمالي المقررات)
@@ -466,7 +728,7 @@ def show_dashboard(user: User, lang: str):
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # عرض آخر البرامج والمقررات
+    # عرض آخر البرامج والمقررات (استخدام البيانات المصفاة حسب الصلاحيات)
     if user.role in [UserRole.ADMIN, UserRole.PROGRAM_COORDINATOR]:
         st.subheader(f"📌 {t('recent_activity', lang)}")
 
@@ -474,10 +736,11 @@ def show_dashboard(user: User, lang: str):
 
         with col1:
             st.markdown(f"**{t('recent_programs', lang)}**")
-            programs = db.get_all_programs()
+            # استخدام المتغير programs المصفى بدلاً من db.get_all_programs()
             if programs:
-                # عرض آخر 3 برامج
-                for program in programs[-3:]:
+                # عرض آخر 3 برامج من البرامج المصفاة
+                recent_programs = programs[-3:] if len(programs) > 3 else programs
+                for program in recent_programs:
                     program_name = program.get('program_name_ar' if lang == 'ar' else 'program_name_en', '')
                     status = '🟢' if program.get('is_active', True) else '🔴'
                     st.write(f"{status} {program.get('program_code', '')} - {program_name}")
@@ -486,10 +749,11 @@ def show_dashboard(user: User, lang: str):
 
         with col2:
             st.markdown(f"**{t('recent_courses', lang)}**")
-            courses = db.get_all_courses()
+            # استخدام المتغير courses المصفى بدلاً من db.get_all_courses()
             if courses:
-                # عرض آخر 3 مقررات
-                for course in courses[-3:]:
+                # عرض آخر 3 مقررات من المقررات المصفاة
+                recent_courses = courses[-3:] if len(courses) > 3 else courses
+                for course in recent_courses:
                     course_name = course.get('course_title_ar' if lang == 'ar' else 'course_title_en', '')
                     status = '🟢' if course.get('is_active', True) else '🔴'
                     st.write(f"{status} {course.get('course_code', '')} - {course_name}")

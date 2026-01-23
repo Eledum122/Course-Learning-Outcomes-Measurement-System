@@ -2316,5 +2316,218 @@
     "status": "success",
     "details": {},
     "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-14T12:06:05.562992",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-14T12:13:20.343916",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-14T16:58:49.252524",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-14T17:48:14.816107",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-15T10:24:43.819319",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-15T12:52:59.047917",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-15T13:38:05.639951",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-15T14:25:39.998930",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-15T16:35:23.890328",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T10:58:46.442821",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T14:04:45.248168",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T19:40:38.202018",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T20:16:51.205706",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T20:26:25.321451",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "H58227",
+      "roles": [
+        "course_instructor"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T20:29:55.012459",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "O14334",
+      "roles": [
+        "course_instructor"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T20:30:30.958349",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "O14334",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T20:53:29.135251",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T20:56:49.055450",
+    "action": "create_user",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {
+      "new_username": "A13793",
+      "roles": [
+        "course_instructor"
+      ]
+    },
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-16T21:09:21.371034",
+    "action": "logout",
+    "user_id": "user_007",
+    "username": "H58227",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-17T17:35:20.521560",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-18T20:39:50.718068",
+    "action": "login",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
+  },
+  {
+    "timestamp": "2026-01-18T20:52:58.643664",
+    "action": "logout",
+    "user_id": "admin_001",
+    "username": "admin",
+    "status": "success",
+    "details": {},
+    "ip_address": null
   }
 ]

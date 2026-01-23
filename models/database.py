@@ -22,7 +22,11 @@ class User:
 
     def __init__(self, user_id: str, username: str, password_hash: str,
                  full_name: str, email: str, roles: List[str],
-                 employee_id: str = "", faculty_id: str = ""):
+                 employee_id: str = "", faculty_id: str = "",
+                 assigned_programs: List[str] = None,
+                 assigned_courses: List[str] = None,
+                 assigned_sections: Dict = None,
+                 is_active: bool = True):
         self.user_id = user_id
         self.username = username
         self.password_hash = password_hash
@@ -31,6 +35,10 @@ class User:
         self.roles = roles
         self.employee_id = employee_id
         self.faculty_id = faculty_id
+        self.assigned_programs = assigned_programs or []
+        self.assigned_courses = assigned_courses or []
+        self.assigned_sections = assigned_sections or {}
+        self.is_active = is_active
 
         # تحديد الدور الرئيسي
         if "admin" in roles:
@@ -194,7 +202,11 @@ class Database:
                     email=user_data.get('email', ''),
                     roles=user_data.get('roles', []),
                     employee_id=user_data.get('employee_id', ''),
-                    faculty_id=user_data.get('faculty_id', '')
+                    faculty_id=user_data.get('faculty_id', ''),
+                    assigned_programs=user_data.get('assigned_programs', []),
+                    assigned_courses=user_data.get('assigned_courses', []),
+                    assigned_sections=user_data.get('assigned_sections', {}),
+                    is_active=user_data.get('is_active', True)
                 )
 
                 return user
@@ -222,7 +234,11 @@ class Database:
                     email=user_data.get('email', ''),
                     roles=user_data.get('roles', []),
                     employee_id=user_data.get('employee_id', ''),
-                    faculty_id=user_data.get('faculty_id', '')
+                    faculty_id=user_data.get('faculty_id', ''),
+                    assigned_programs=user_data.get('assigned_programs', []),
+                    assigned_courses=user_data.get('assigned_courses', []),
+                    assigned_sections=user_data.get('assigned_sections', {}),
+                    is_active=user_data.get('is_active', True)
                 )
                 return user
 
@@ -242,7 +258,11 @@ class Database:
                 email=user_data.get('email', ''),
                 roles=user_data.get('roles', []),
                 employee_id=user_data.get('employee_id', ''),
-                faculty_id=user_data.get('faculty_id', '')
+                faculty_id=user_data.get('faculty_id', ''),
+                assigned_programs=user_data.get('assigned_programs', []),
+                assigned_courses=user_data.get('assigned_courses', []),
+                assigned_sections=user_data.get('assigned_sections', {}),
+                is_active=user_data.get('is_active', True)
             )
             user_objects.append(user)
 
@@ -678,7 +698,8 @@ class Database:
                   theory_hours: int = 3, practical_hours: int = 0,
                   course_level: str = "", prerequisites: str = "",
                   course_type: str = "", description_ar: str = "",
-                  description_en: str = "", coordinator_id: str = "") -> bool:
+                  description_en: str = "", coordinator_id: str = "",
+                  course_version: str = "") -> bool:
         """
         إضافة مقرر جديد
 
@@ -708,8 +729,19 @@ class Database:
 
         courses = self.load_courses()
 
-        # إنشاء معرف فريد
-        course_id = f"course_{len(courses) + 1:03d}"
+        # إنشاء معرف فريد - استخدام رمز المقرر + timestamp لضمان عدم التكرار
+        import time
+        existing_ids = {c.get('course_id') for c in courses}
+
+        # محاولة إنشاء ID بناءً على رمز المقرر
+        base_id = f"course_{course_code.lower().replace(' ', '_')}"
+        course_id = base_id
+
+        # إذا كان الـ ID موجوداً، أضف رقم تسلسلي
+        counter = 1
+        while course_id in existing_ids:
+            course_id = f"{base_id}_{counter}"
+            counter += 1
 
         # إنشاء المقرر الجديد
         new_course = {
@@ -725,6 +757,7 @@ class Database:
             "course_level": course_level,
             "prerequisites": prerequisites,
             "course_type": course_type,
+            "course_version": course_version,
             "description_ar": description_ar,
             "description_en": description_en,
             "coordinator_id": coordinator_id,
@@ -746,7 +779,8 @@ class Database:
                      practical_hours: int = None, course_level: str = None,
                      prerequisites: str = None, course_type: str = None,
                      description_ar: str = None, description_en: str = None,
-                     coordinator_id: str = None, is_active: bool = None) -> bool:
+                     coordinator_id: str = None, is_active: bool = None,
+                     course_version: str = None) -> bool:
         """
         تحديث بيانات مقرر
 
@@ -795,6 +829,8 @@ class Database:
                     course['prerequisites'] = prerequisites
                 if course_type is not None:
                     course['course_type'] = course_type
+                if course_version is not None:
+                    course['course_version'] = course_version
                 if description_ar is not None:
                     course['description_ar'] = description_ar
                 if description_en is not None:

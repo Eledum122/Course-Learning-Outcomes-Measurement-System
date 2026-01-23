@@ -1,0 +1,119 @@
+{
+  "section_id": "course_20260103_165155_420_1447_1",
+  "course_id": "course_20260103_165155",
+  "section_number": "420",
+  "academic_year": "1447",
+  "semester": "First",
+  "course_coordinator": "58191 - Manahil Ahmed (أستاذ مساعد / Assistant Professor)",
+  "section_instructor": "58227 - Hussein Eledum (أستاذ / Professor)",
+  "beneficiary_department": "",
+  "beneficiary_faculty": "",
+  "gender_section": "Male",
+  "clo_target_levels": {
+    "K1": 70.0,
+    "K2": 70.0,
+    "S3": 70.0,
+    "S4": 70.0,
+    "S5": 70.0,
+    "S6": 70.0,
+    "S7": 70.0,
+    "V1": 70.0,
+    "V2": 70.0
+  },
+  "students": [
+    {
+      "student_id": "47100261",
+      "name": "Ali",
+      "status": "Regular",
+      "seq": 1,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 8.0,
+          "K2": 9.0,
+          "S3": 6.0,
+          "S5": 8.0,
+          "S6": 11.0,
+          "S7": 1.0,
+          "V1": 2.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 2.0,
+          "S7": 5.0,
+          "V1": 3.0,
+          "V2": 5.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 7.0,
+          "S5": 5.0,
+          "V2": 2.0
+        }
+      },
+      "clo_marks": {
+        "K1": 8.0,
+        "K2": 9.0,
+        "S3": 8.0,
+        "S4": 9.0,
+        "S5": 13.0,
+        "S6": 11.0,
+        "S7": 6.0,
+        "V1": 5.0,
+        "V2": 8.0
+      },
+      "total_mark": 77.0,
+      "passed": true
+    },
+    {
+      "student_id": "471005100",
+      "name": "Salih",
+      "status": "Regular",
+      "seq": 2,
+      "activity_marks": {
+        "Weekly assessments": {
+          "K1": 9.0,
+          "K2": 8.0,
+          "S3": 5.0,
+          "S5": 7.0,
+          "S6": 10.0,
+          "S7": 2.0,
+          "V1": 2.0,
+          "V2": 1.0
+        },
+        "Oral Presentation or Poster": {
+          "S4": 5.0,
+          "S7": 2.0,
+          "V1": 3.0,
+          "V2": 3.0
+        },
+        "Final Report": {
+          "S3": 2.0,
+          "S4": 8.0,
+          "S5": 4.0,
+          "V2": 1.0
+        }
+      },
+      "clo_marks": {
+        "K1": 9.0,
+        "K2": 8.0,
+        "S3": 7.0,
+        "S4": 13.0,
+        "S5": 11.0,
+        "S6": 10.0,
+        "S7": 4.0,
+        "V1": 5.0,
+        "V2": 5.0
+      },
+      "total_mark": 72.0,
+      "passed": true
+    }
+  ],
+  "statistics": {},
+  "section_data_completed": true,
+  "students_data_completed": true,
+  "grades_data_completed": true,
+  "created_date": "2026-01-16T21:00:35.335977",
+  "modified_date": "2026-01-17T17:50:26.229542",
+  "created_by": "",
+  "specifications_table_verified": true
+}

@@ -1,0 +1,725 @@
+{
+  "student_grades": [
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Final Report_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Final Report",
+      "clo_code": "S3",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Final Report_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Final Report",
+      "clo_code": "S4",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Final Report_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Final Report",
+      "clo_code": "S5",
+      "mark": 6.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Final Report_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Final Report",
+      "clo_code": "V2",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Poster_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Poster",
+      "clo_code": "S4",
+      "mark": 4.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Poster_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Poster",
+      "clo_code": "S7",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Poster_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Poster",
+      "clo_code": "V1",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Poster_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Poster",
+      "clo_code": "V2",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_K1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K1",
+      "mark": 7.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_K2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K2",
+      "mark": 9.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S3",
+      "mark": 12.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S5",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_S6",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S6",
+      "mark": 11.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S7",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V1",
+      "mark": 3.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009429_Weekly assessments_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009429",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Final Report_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Final Report",
+      "clo_code": "S3",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Final Report_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Final Report",
+      "clo_code": "S4",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Final Report_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Final Report",
+      "clo_code": "S5",
+      "mark": 6.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Final Report_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Final Report",
+      "clo_code": "V2",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Poster_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Poster",
+      "clo_code": "S4",
+      "mark": 4.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Poster_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Poster",
+      "clo_code": "S7",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Poster_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Poster",
+      "clo_code": "V1",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Poster_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Poster",
+      "clo_code": "V2",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_K1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K1",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_K2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K2",
+      "mark": 9.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S3",
+      "mark": 12.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S5",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_S6",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S6",
+      "mark": 11.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S7",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V1",
+      "mark": 3.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009452_Weekly assessments_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009452",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Final Report_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Final Report",
+      "clo_code": "S3",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Final Report_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Final Report",
+      "clo_code": "S4",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Final Report_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Final Report",
+      "clo_code": "S5",
+      "mark": 6.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Final Report_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Final Report",
+      "clo_code": "V2",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Poster_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Poster",
+      "clo_code": "S4",
+      "mark": 4.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Poster_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Poster",
+      "clo_code": "S7",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Poster_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Poster",
+      "clo_code": "V1",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Poster_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Poster",
+      "clo_code": "V2",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_K1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K1",
+      "mark": 7.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_K2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K2",
+      "mark": 9.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S3",
+      "mark": 12.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S5",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_S6",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S6",
+      "mark": 11.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S7",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V1",
+      "mark": 3.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009467_Weekly assessments_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009467",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Final Report_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Final Report",
+      "clo_code": "S3",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Final Report_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Final Report",
+      "clo_code": "S4",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Final Report_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Final Report",
+      "clo_code": "S5",
+      "mark": 6.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Final Report_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Final Report",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Poster_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Poster",
+      "clo_code": "S4",
+      "mark": 4.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Poster_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Poster",
+      "clo_code": "S7",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Poster_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Poster",
+      "clo_code": "V1",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Poster_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Poster",
+      "clo_code": "V2",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_K1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K1",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_K2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K2",
+      "mark": 9.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S3",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S5",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_S6",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S6",
+      "mark": 11.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S7",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V1",
+      "mark": 3.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009469_Weekly assessments_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009469",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Final Report_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Final Report",
+      "clo_code": "S3",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Final Report_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Final Report",
+      "clo_code": "S4",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Final Report_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Final Report",
+      "clo_code": "S5",
+      "mark": 6.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Final Report_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Final Report",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Poster_S4",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Poster",
+      "clo_code": "S4",
+      "mark": 4.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Poster_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Poster",
+      "clo_code": "S7",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Poster_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Poster",
+      "clo_code": "V1",
+      "mark": 5.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Poster_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Poster",
+      "clo_code": "V2",
+      "mark": 3.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_K1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K1",
+      "mark": 7.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_K2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "K2",
+      "mark": 9.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_S3",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S3",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_S5",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S5",
+      "mark": 8.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_S6",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S6",
+      "mark": 11.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_S7",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "S7",
+      "mark": 2.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_V1",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V1",
+      "mark": 3.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    },
+    {
+      "grade_id": "grade_section_course_009_330_20260116142831_stud_section_course_009_330_20260116142831_472009470_Weekly assessments_V2",
+      "section_id": "section_course_009_330_20260116142831",
+      "student_record_id": "stud_section_course_009_330_20260116142831_472009470",
+      "activity_name": "Weekly assessments",
+      "clo_code": "V2",
+      "mark": 1.0,
+      "updated_at": "2026-01-17T18:59:35.297142"
+    }
+  ],
+  "last_updated": "2026-01-17T18:59:35.297142"
+}
