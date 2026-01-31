@@ -626,8 +626,10 @@ def main_app():
         importlib.reload(student_grades)
         student_grades.show_student_grades(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'settings':
-        from pages.settings import show_settings
-        show_settings(st.session_state.db, st.session_state.user, lang)
+        import importlib
+        from pages import settings
+        importlib.reload(settings)
+        settings.show_settings(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'stage2_clo_marks':
         # المرحلة 2.1: درجات مخرجات التعلم
         import importlib

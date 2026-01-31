@@ -341,7 +341,7 @@ class Database:
 
     def update_user(self, user_id: str, full_name: str = None, email: str = None,
                     roles: List[str] = None, employee_id: str = None,
-                    is_active: bool = None) -> bool:
+                    is_active: bool = None, password_hash: str = None) -> bool:
         """
         تحديث بيانات مستخدم
 
@@ -352,6 +352,7 @@ class Database:
             roles: قائمة الأدوار (اختياري)
             employee_id: الرقم الوظيفي (اختياري)
             is_active: حالة التفعيل (اختياري)
+            password_hash: كلمة المرور المشفرة (اختياري)
 
         Returns:
             True إذا نجح التحديث، False إذا فشل
@@ -372,6 +373,8 @@ class Database:
                     user['employee_id'] = employee_id
                 if is_active is not None:
                     user['is_active'] = is_active
+                if password_hash is not None:
+                    user['password_hash'] = password_hash
                 break
 
         if user_found:

@@ -156,7 +156,7 @@ def show_user_profile(db: Database, user: User, lang: str, is_rtl: bool):
             ):
                 st.success(t('email_updated_successfully', lang))
                 # تحديث معلومات المستخدم في الجلسة
-                st.session_state.user = db.get_user_by_id(user.user_id)
+                st.session_state.user = db.get_user_by_username(user.username)
                 st.rerun()
             else:
                 st.error(t('email_update_failed', lang))

@@ -3,9 +3,9 @@
     {
       "user_id": "admin_001",
       "username": "admin",
-      "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "password_hash": "43af03adbc5fbd049727a9c724e147b6ed659634698f2e5fabf1ac4a215b54f6",
       "full_name": "System Administrator",
-      "email": "admin@tabuk.edu.sa",
+      "email": "haladem@ut.edu.sa",
       "roles": [
         "admin"
       ],
@@ -201,6 +201,5 @@
       "is_active": true,
       "metadata": {}
     }
-  ],
-  "last_updated": "2026-01-30T23:34:07.342209"
+  ]
 }
