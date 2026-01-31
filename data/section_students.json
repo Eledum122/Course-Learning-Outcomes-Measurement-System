@@ -45,7 +45,1105 @@
       "student_name": "Salim Nawaf ",
       "status": "Regular",
       "created_at": "2026-01-16T20:49:30.592153"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_441006019",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 1,
+      "student_no": "441006019",
+      "student_name": "يوسف   بن عبدالله   بن عياد العميري الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.983556"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_441009519",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 2,
+      "student_no": "441009519",
+      "student_name": "مثيب  بن بن محمد  بن بن سليم ابودميك العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.983556"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_451006361",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 3,
+      "student_no": "451006361",
+      "student_name": "يوسف  بن بن شهاب  بن بن احمد المكيحلي السبيعي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.983556"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_451007867",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 4,
+      "student_no": "451007867",
+      "student_name": "عبدالله  بن بن احمد  بن بن عوده المضلعاني العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.983556"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461003684",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 5,
+      "student_no": "461003684",
+      "student_name": "معاذ  بن منصور  بن فريج الفحيماني",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.983556"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461004645",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 6,
+      "student_no": "461004645",
+      "student_name": "نواف  بن سعد  بن سليمان البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461006439",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 7,
+      "student_no": "461006439",
+      "student_name": "عمر  بن محمد  بن بن مسلم العمراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461008633",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 8,
+      "student_no": "461008633",
+      "student_name": "أسامه  بن محمد  بن سالم البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461012609",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 9,
+      "student_no": "461012609",
+      "student_name": "فهد  بن سلامه  بن بخيت الجهنى",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461012893",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 10,
+      "student_no": "461012893",
+      "student_name": "طلال  بن محمد  بن سويلم الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461013111",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 11,
+      "student_no": "461013111",
+      "student_name": "فيصل  بن احمد  بن مسيب البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461013271",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 12,
+      "student_no": "461013271",
+      "student_name": "حبيب  بن سليم  بن سالم العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461013847",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 13,
+      "student_no": "461013847",
+      "student_name": "نواف  بن سليمان  بن ناصر الشوامين",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461014047",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 14,
+      "student_no": "461014047",
+      "student_name": "مهند  بن علي  بن مريخان البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461014054",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 15,
+      "student_no": "461014054",
+      "student_name": "عبدالهادي  بن عادل  بن على لغبي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.984629"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461014923",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 16,
+      "student_no": "461014923",
+      "student_name": "عبدالمحسن  بن سعد  بن محسن العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.985701"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461014940",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 17,
+      "student_no": "461014940",
+      "student_name": "عبدالله  بن محمد  بن سلطان البقمي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.985701"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015005",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 18,
+      "student_no": "461015005",
+      "student_name": "صياف  بن صبحي  بن مطير العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.985701"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015008",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 19,
+      "student_no": "461015008",
+      "student_name": "نايف  بن عبدالرازق  بن معوض الجهني",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.985701"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015169",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 20,
+      "student_no": "461015169",
+      "student_name": "احمد  بن عبدالله  بن أعياط العنزي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.985701"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015176",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 21,
+      "student_no": "461015176",
+      "student_name": "عبدالله  بن عطيه  بن احمد الزهراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.985701"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015307",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 22,
+      "student_no": "461015307",
+      "student_name": "يزن  بن صالح  بن ظاهر البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015371",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 23,
+      "student_no": "461015371",
+      "student_name": "محمد  بن سلامه  بن عوده العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015539",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 24,
+      "student_no": "461015539",
+      "student_name": "مهند  بن عاتق  بن مزيد الرشيدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015568",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 25,
+      "student_no": "461015568",
+      "student_name": "مصعب  بن حسين  بن خليل الجابر",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461015737",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 26,
+      "student_no": "461015737",
+      "student_name": "عبدالعزيز  بن سليم  بن سالم البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016041",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 27,
+      "student_no": "461016041",
+      "student_name": "ماجد  بن فريج  بن مطلق العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016200",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 28,
+      "student_no": "461016200",
+      "student_name": "خالد  بن شعبان  بن بن شايق الغامدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016284",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 29,
+      "student_no": "461016284",
+      "student_name": "سعد  بن مسلم  بن سلامه العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016320",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 30,
+      "student_no": "461016320",
+      "student_name": "مشهور  بن سعد  بن مسعد الجهني",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016439",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 31,
+      "student_no": "461016439",
+      "student_name": "خالد  بن فليح  بن كاين الفقيري",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016500",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 32,
+      "student_no": "461016500",
+      "student_name": "مازن  بن علي  بن سليم الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016571",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 33,
+      "student_no": "461016571",
+      "student_name": "عطاالله  بن مساعد  بن عطاالله العنزي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_461016581",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 34,
+      "student_no": "461016581",
+      "student_name": "مقرن  بن زياد  بن عبدالعزيز البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_15_20260124002559_471002018",
+      "section_id": "section_course_stat1101_15_20260124002559",
+      "seq": 35,
+      "student_no": "471002018",
+      "student_name": "احمد  بن عمر  بن محمد صقير",
+      "status": "Regular",
+      "created_at": "2026-01-24T00:42:06.986008"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_421000911",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 1,
+      "student_no": "421000911",
+      "student_name": "عيده عماش مسعد الخضري العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.080715"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_421009406",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 2,
+      "student_no": "421009406",
+      "student_name": "فاطمه علي فريج العقيلي العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.080715"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_431001814",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 3,
+      "student_no": "431001814",
+      "student_name": "رغد عيد حماد الموسي الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_431005558",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 4,
+      "student_no": "431005558",
+      "student_name": "نجد عوض مرزوق سالم العمراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_431008700",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 5,
+      "student_no": "431008700",
+      "student_name": "رهف سعود عيد هرماس العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_441002204",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 6,
+      "student_no": "441002204",
+      "student_name": "بيان خالد محمد بني حسين الشهري",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_441005502",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 7,
+      "student_no": "441005502",
+      "student_name": "وجد مشعل ضيدان النماصي الشمري",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_441005751",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 8,
+      "student_no": "441005751",
+      "student_name": "هديل حسن احمد حسن مهنا",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_441007448",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 9,
+      "student_no": "441007448",
+      "student_name": "أمل علي فالح القرعوطي البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_441007754",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 10,
+      "student_no": "441007754",
+      "student_name": "طيف خالد يحي حسن المغامري الفيفي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451000094",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 11,
+      "student_no": "451000094",
+      "student_name": "ريماس خالد خلف السرحاني البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451000193",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 12,
+      "student_no": "451000193",
+      "student_name": "هاجر سليمان عيد سلمان الموسي الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451000546",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 13,
+      "student_no": "451000546",
+      "student_name": "بدريه محمد سليمان العطيات العطوى",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451002264",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 14,
+      "student_no": "451002264",
+      "student_name": "اصايل خالد حسن آل فروان",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.081723"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451002339",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 15,
+      "student_no": "451002339",
+      "student_name": "ليان علي محمد المحمدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451003102",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 16,
+      "student_no": "451003102",
+      "student_name": "الجوري صالح محمد العليين العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451003687",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 17,
+      "student_no": "451003687",
+      "student_name": "ريم بنيه سلمان الرضمه العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451004137",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 18,
+      "student_no": "451004137",
+      "student_name": "ريما علي نصير هويمل الربيلي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451004200",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 19,
+      "student_no": "451004200",
+      "student_name": "وضحى سعود ا معوض العايضي الرشيدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451004303",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 20,
+      "student_no": "451004303",
+      "student_name": "لمى عايش عيد الضيوفي العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451004361",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 21,
+      "student_no": "451004361",
+      "student_name": "نوره أحمد مسلم رفيع الوابصي البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451007048",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 22,
+      "student_no": "451007048",
+      "student_name": "رغد سالم سليمان السحيمي البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451007842",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 23,
+      "student_no": "451007842",
+      "student_name": "خلود عياد عيد مسعود الوحيشي البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.082989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451008017",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 24,
+      "student_no": "451008017",
+      "student_name": "نوف غريب خلف الايداء العنزي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.083992"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_451008942",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 25,
+      "student_no": "451008942",
+      "student_name": "سديل زياد محمد مدني",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.083992"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_461009051",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 26,
+      "student_no": "461009051",
+      "student_name": "مريم عبدالله عيد البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T17:59:03.083992"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_661_20260124175816_461015751",
+      "section_id": "section_course_stat1101_661_20260124175816",
+      "seq": 27,
+      "student_no": "461015751",
+      "student_name": "ذكرى جمعه راشد العمراني",
+      "status": "Dropped",
+      "created_at": "2026-01-24T17:59:03.083992"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_421000911",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 1,
+      "student_no": "421000911",
+      "student_name": "عيده عماش مسعد الخضري العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_421009406",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 2,
+      "student_no": "421009406",
+      "student_name": "فاطمه علي فريج العقيلي العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_431001814",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 3,
+      "student_no": "431001814",
+      "student_name": "رغد عيد حماد الموسي الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_431005558",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 4,
+      "student_no": "431005558",
+      "student_name": "نجد عوض مرزوق سالم العمراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_431008700",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 5,
+      "student_no": "431008700",
+      "student_name": "رهف سعود عيد هرماس العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_441002204",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 6,
+      "student_no": "441002204",
+      "student_name": "بيان خالد محمد بني حسين الشهري",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_441005502",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 7,
+      "student_no": "441005502",
+      "student_name": "وجد مشعل ضيدان النماصي الشمري",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_441005751",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 8,
+      "student_no": "441005751",
+      "student_name": "هديل حسن احمد حسن مهنا",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_441007448",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 9,
+      "student_no": "441007448",
+      "student_name": "أمل علي فالح القرعوطي البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_441007754",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 10,
+      "student_no": "441007754",
+      "student_name": "طيف خالد يحي حسن المغامري الفيفي",
+      "status": "Dropped",
+      "created_at": "2026-01-24T18:35:49.486792"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451000094",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 11,
+      "student_no": "451000094",
+      "student_name": "ريماس خالد خلف السرحاني البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451000193",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 12,
+      "student_no": "451000193",
+      "student_name": "هاجر سليمان عيد سلمان الموسي الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451000546",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 13,
+      "student_no": "451000546",
+      "student_name": "بدريه محمد سليمان العطيات العطوى",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451002264",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 14,
+      "student_no": "451002264",
+      "student_name": "اصايل خالد حسن آل فروان",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451002339",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 15,
+      "student_no": "451002339",
+      "student_name": "ليان علي محمد المحمدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451003102",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 16,
+      "student_no": "451003102",
+      "student_name": "الجوري صالح محمد العليين العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451003687",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 17,
+      "student_no": "451003687",
+      "student_name": "ريم بنيه سلمان الرضمه العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451004137",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 18,
+      "student_no": "451004137",
+      "student_name": "ريما علي نصير هويمل الربيلي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451004200",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 19,
+      "student_no": "451004200",
+      "student_name": "وضحى سعود ا معوض العايضي الرشيدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_555_20260124183223_451004303",
+      "section_id": "section_course_stat1101_555_20260124183223",
+      "seq": 20,
+      "student_no": "451004303",
+      "student_name": "لمى عايش عيد الضيوفي العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T18:35:49.487805"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_441006019",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 1,
+      "student_no": "441006019",
+      "student_name": "يوسف   بن عبدالله   بن عياد العميري الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_441009519",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 2,
+      "student_no": "441009519",
+      "student_name": "مثيب  بن بن محمد  بن بن سليم ابودميك العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_451006361",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 3,
+      "student_no": "451006361",
+      "student_name": "يوسف  بن بن شهاب  بن بن احمد المكيحلي السبيعي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_451007867",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 4,
+      "student_no": "451007867",
+      "student_name": "عبدالله  بن بن احمد  بن بن عوده المضلعاني العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461003684",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 5,
+      "student_no": "461003684",
+      "student_name": "معاذ  بن منصور  بن فريج الفحيماني",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461004645",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 6,
+      "student_no": "461004645",
+      "student_name": "نواف  بن سعد  بن سليمان البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461006439",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 7,
+      "student_no": "461006439",
+      "student_name": "عمر  بن محمد  بن بن مسلم العمراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461008633",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 8,
+      "student_no": "461008633",
+      "student_name": "أسامه  بن محمد  بن سالم البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461012609",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 9,
+      "student_no": "461012609",
+      "student_name": "فهد  بن سلامه  بن بخيت الجهنى",
+      "status": "Dropped",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461012893",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 10,
+      "student_no": "461012893",
+      "student_name": "طلال  بن محمد  بن سويلم الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.208989"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461013111",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 11,
+      "student_no": "461013111",
+      "student_name": "فيصل  بن احمد  بن مسيب البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461013271",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 12,
+      "student_no": "461013271",
+      "student_name": "حبيب  بن سليم  بن سالم العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461013847",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 13,
+      "student_no": "461013847",
+      "student_name": "نواف  بن سليمان  بن ناصر الشوامين",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461014047",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 14,
+      "student_no": "461014047",
+      "student_name": "مهند  بن علي  بن مريخان البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461014054",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 15,
+      "student_no": "461014054",
+      "student_name": "عبدالهادي  بن عادل  بن على لغبي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461014923",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 16,
+      "student_no": "461014923",
+      "student_name": "عبدالمحسن  بن سعد  بن محسن العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461014940",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 17,
+      "student_no": "461014940",
+      "student_name": "عبدالله  بن محمد  بن سلطان البقمي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015005",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 18,
+      "student_no": "461015005",
+      "student_name": "صياف  بن صبحي  بن مطير العطوي",
+      "status": "Incomplete",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015008",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 19,
+      "student_no": "461015008",
+      "student_name": "نايف  بن عبدالرازق  بن معوض الجهني",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015169",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 20,
+      "student_no": "461015169",
+      "student_name": "احمد  بن عبدالله  بن أعياط العنزي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015176",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 21,
+      "student_no": "461015176",
+      "student_name": "عبدالله  بن عطيه  بن احمد الزهراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015307",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 22,
+      "student_no": "461015307",
+      "student_name": "يزن  بن صالح  بن ظاهر البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015371",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 23,
+      "student_no": "461015371",
+      "student_name": "محمد  بن سلامه  بن عوده العطوي",
+      "status": "Prohibited",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015539",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 24,
+      "student_no": "461015539",
+      "student_name": "مهند  بن عاتق  بن مزيد الرشيدي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_250_20260124193237_461015568",
+      "section_id": "section_course_stat1101_250_20260124193237",
+      "seq": 25,
+      "student_no": "461015568",
+      "student_name": "مصعب  بن حسين  بن خليل الجابر",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:39:26.210492"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_441006019",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 1,
+      "student_no": "441006019",
+      "student_name": "يوسف   بن عبدالله   بن عياد العميري الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_441009519",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 2,
+      "student_no": "441009519",
+      "student_name": "مثيب  بن بن محمد  بن بن سليم ابودميك العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_451006361",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 3,
+      "student_no": "451006361",
+      "student_name": "يوسف  بن بن شهاب  بن بن احمد المكيحلي السبيعي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_451007867",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 4,
+      "student_no": "451007867",
+      "student_name": "عبدالله  بن بن احمد  بن بن عوده المضلعاني العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461003684",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 5,
+      "student_no": "461003684",
+      "student_name": "معاذ  بن منصور  بن فريج الفحيماني",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461004645",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 6,
+      "student_no": "461004645",
+      "student_name": "نواف  بن سعد  بن سليمان البلوي",
+      "status": "Dropped",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461006439",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 7,
+      "student_no": "461006439",
+      "student_name": "عمر  بن محمد  بن بن مسلم العمراني",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461008633",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 8,
+      "student_no": "461008633",
+      "student_name": "أسامه  بن محمد  بن سالم البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461012609",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 9,
+      "student_no": "461012609",
+      "student_name": "فهد  بن سلامه  بن بخيت الجهنى",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.972965"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461012893",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 10,
+      "student_no": "461012893",
+      "student_name": "طلال  بن محمد  بن سويلم الحويطي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.973973"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461013111",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 11,
+      "student_no": "461013111",
+      "student_name": "فيصل  بن احمد  بن مسيب البلوي",
+      "status": "Incomplete",
+      "created_at": "2026-01-24T19:45:00.973973"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461013271",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 12,
+      "student_no": "461013271",
+      "student_name": "حبيب  بن سليم  بن سالم العطوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.973973"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461013847",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 13,
+      "student_no": "461013847",
+      "student_name": "نواف  بن سليمان  بن ناصر الشوامين",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.973973"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461014047",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 14,
+      "student_no": "461014047",
+      "student_name": "مهند  بن علي  بن مريخان البلوي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.973973"
+    },
+    {
+      "student_record_id": "stud_section_course_stat1101_251_20260124193315_461014054",
+      "section_id": "section_course_stat1101_251_20260124193315",
+      "seq": 15,
+      "student_no": "461014054",
+      "student_name": "عبدالهادي  بن عادل  بن على لغبي",
+      "status": "Regular",
+      "created_at": "2026-01-24T19:45:00.973973"
     }
   ],
-  "last_updated": "2026-01-16T20:52:38.673488"
+  "last_updated": "2026-01-24T19:45:00.973973"
 }

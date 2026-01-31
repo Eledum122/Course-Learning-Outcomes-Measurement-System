@@ -467,76 +467,76 @@
           "activity_id": "activity_course_stat1101_7_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Mid Exam",
-          "week_due": "",
+          "week_due": "Week 6",
           "percentage": 20.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:38:52.024939",
+          "last_updated": "2026-01-23T10:38:00.285417",
           "imported_from_clos": true
         },
         {
           "activity_id": "activity_course_stat1101_4_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Final Exam",
-          "week_due": "",
+          "week_due": "Week 16",
           "percentage": 40.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:39:03.894929",
+          "last_updated": "2026-01-23T10:38:17.816974",
           "imported_from_clos": true
         },
         {
           "activity_id": "activity_course_stat1101_6_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Lab Exam",
-          "week_due": "",
+          "week_due": "Week 15",
           "percentage": 10.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:39:14.720027",
+          "last_updated": "2026-01-23T10:38:32.138785",
           "imported_from_clos": true
         },
         {
           "activity_id": "activity_course_stat1101_5_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Quizzes ",
-          "week_due": "",
+          "week_due": "During Semester",
           "percentage": 5.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:39:26.417083",
+          "last_updated": "2026-01-23T10:38:54.203480",
           "imported_from_clos": true
         },
         {
           "activity_id": "activity_course_stat1101_2_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Lab Activities",
-          "week_due": "",
+          "week_due": "During Semester",
           "percentage": 15.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:39:37.609117",
+          "last_updated": "2026-01-23T10:39:09.597300",
           "imported_from_clos": true
         },
         {
           "activity_id": "activity_course_stat1101_3_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Assignment",
-          "week_due": "",
+          "week_due": "During Semester",
           "percentage": 5.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:39:47.256284",
+          "last_updated": "2026-01-23T10:39:17.619208",
           "imported_from_clos": true
         },
         {
           "activity_id": "activity_course_stat1101_1_20260122213728",
           "course_id": "course_stat1101",
           "assessment_task": "Oral Presentation",
-          "week_due": "",
+          "week_due": "During Semester",
           "percentage": 5.0,
           "created_date": "2026-01-22T21:37:28.782233",
-          "last_updated": "2026-01-22T21:39:56.386390",
+          "last_updated": "2026-01-23T10:39:27.953793",
           "imported_from_clos": true
         }
       ],
       "sections": [],
       "metadata": {},
-      "last_updated": "2026-01-22T21:46:06.548184",
+      "last_updated": "2026-01-23T11:26:51.193035",
       "total_course_marks": 100.0,
       "passing_percentage": 60.0,
       "topics_activities_distribution": {
@@ -761,6 +761,128 @@
           "S5": 0,
           "S6": 0,
           "V1": 5.0
+        }
+      },
+      "specifications_table_data": {
+        "topic_course_stat1101_1_20260122195027": {
+          "K1_Mid Exam": 7.0,
+          "K1_Final Exam": 0.0,
+          "K1_Quizzes ": 3.0
+        },
+        "topic_course_stat1101_3_20260122195027": {
+          "K1_Mid Exam": 1.0,
+          "K1_Final Exam": 0.0,
+          "K1_Quizzes ": 0.0,
+          "K2_Mid Exam": 0.0,
+          "K2_Final Exam": 1.0,
+          "S1_Mid Exam": 3.0,
+          "S1_Final Exam": 2.0,
+          "S1_Quizzes ": 0.0,
+          "S4_Lab Exam": 2.0,
+          "S4_Lab Activities": 0.0,
+          "V1_Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_4_20260122195027": {
+          "K1_Mid Exam": 1.0,
+          "K1_Final Exam": 0.0,
+          "K1_Quizzes ": 0.0,
+          "K2_Mid Exam": 0.0,
+          "K2_Final Exam": 1.0,
+          "S1_Mid Exam": 2.0,
+          "S1_Final Exam": 2.0,
+          "S1_Quizzes ": 0.0,
+          "S4_Lab Exam": 3.0,
+          "S4_Lab Activities": 0.0,
+          "V1_Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_5_20260122195027": {
+          "K1_Mid Exam": 1.0,
+          "K1_Final Exam": 0.0,
+          "K1_Quizzes ": 0.0,
+          "K2_Mid Exam": 0.0,
+          "K2_Final Exam": 1.0,
+          "S1_Mid Exam": 1.0,
+          "S1_Final Exam": 0.0,
+          "S1_Quizzes ": 1.0,
+          "V1_Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_6_20260122195027": {
+          "K1_Mid Exam": 0.0,
+          "K1_Final Exam": 2.0,
+          "K1_Quizzes ": 0.0,
+          "S4_Lab Exam": 2.0,
+          "S4_Lab Activities": 0.0,
+          "S6_Lab Activities": 2.0
+        },
+        "topic_course_stat1101_7_20260122195027": {
+          "K1_Mid Exam": 0.0,
+          "K1_Final Exam": 1.0,
+          "K1_Quizzes ": 0.0,
+          "S1_Mid Exam": 0.0,
+          "S1_Final Exam": 1.0,
+          "S1_Quizzes ": 0.0,
+          "S4_Lab Exam": 3.0,
+          "S4_Lab Activities": 0.0,
+          "S6_Lab Activities": 3.0
+        },
+        "topic_course_stat1101_8_20260122195027": {
+          "K1_Mid Exam": 0.0,
+          "K1_Final Exam": 3.0,
+          "K1_Quizzes ": 0.0,
+          "S3_Final Exam": 5.0,
+          "S3_Quizzes ": 0.0,
+          "S3_Assignment": 0.0
+        },
+        "topic_course_stat1101_9_20260122195027": {
+          "K1_Mid Exam": 0.0,
+          "K1_Final Exam": 2.0,
+          "K1_Quizzes ": 0.0,
+          "S3_Final Exam": 5.0,
+          "S3_Quizzes ": 0.0,
+          "S3_Assignment": 0.0
+        },
+        "topic_course_stat1101_10_20260122195027": {
+          "K1_Mid Exam": 0.0,
+          "K1_Final Exam": 2.0,
+          "K1_Quizzes ": 0.0,
+          "S3_Final Exam": 1.0,
+          "S3_Quizzes ": 1.0,
+          "S3_Assignment": 0.0,
+          "V1_Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_11_20260122195027": {
+          "K1_Mid Exam": 0.0,
+          "K1_Final Exam": 2.0,
+          "K1_Quizzes ": 0.0,
+          "S3_Final Exam": 1.0,
+          "S3_Quizzes ": 0.0,
+          "S3_Assignment": 2.0
+        },
+        "topic_course_stat1101_2_20260122195027": {
+          "K2_Mid Exam": 2.0,
+          "K2_Final Exam": 0.0,
+          "S1_Mid Exam": 2.0,
+          "S1_Final Exam": 0.0,
+          "S1_Quizzes ": 0.0,
+          "S4_Lab Exam": 0.0,
+          "S4_Lab Activities": 10.0
+        },
+        "topic_course_stat1101_12_20260122195027": {
+          "S5_Final Exam": 2.0,
+          "S5_Assignment": 0.0,
+          "V1_Oral Presentation": 1.0
+        },
+        "topic_course_stat1101_13_20260122195027": {
+          "S5_Final Exam": 2.0,
+          "S5_Assignment": 1.0
+        },
+        "topic_course_stat1101_14_20260122195027": {
+          "S5_Final Exam": 2.0,
+          "S5_Assignment": 1.0
+        },
+        "topic_course_stat1101_15_20260122195027": {
+          "S5_Final Exam": 2.0,
+          "S5_Assignment": 1.0
         }
       }
     }

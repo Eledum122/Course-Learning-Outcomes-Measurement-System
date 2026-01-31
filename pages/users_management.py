@@ -53,6 +53,54 @@ def load_sections():
         return []
 
 
+def load_course_coordinators():
+    """تحميل منسقي المقررات"""
+    try:
+        with open('data/course_coordinators.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data.get('course_coordinators', [])
+    except:
+        return []
+
+
+def get_faculty_assigned_programs(employee_id: str, programs: list) -> list:
+    """
+    Get programs where the faculty member is assigned as coordinator
+    البرامج التي تم تعيين عضو هيئة التدريس فيها كمنسق
+    """
+    assigned = []
+    for p in programs:
+        # Check if coordinator_id matches (could be user_id or employee_id)
+        coord_id = p.get('coordinator_id', '')
+        if coord_id == employee_id:
+            assigned.append(p)
+    return assigned
+
+
+def get_faculty_assigned_courses(employee_id: str, courses: list, course_coordinators: list) -> list:
+    """
+    Get courses where the faculty member is assigned as coordinator
+    المقررات التي تم تعيين عضو هيئة التدريس فيها كمنسق
+    """
+    assigned_course_ids = set()
+
+    # Check course_coordinators.json for assignments
+    for coord in course_coordinators:
+        if coord.get('coordinator_id') == employee_id:
+            assigned_course_ids.add(coord.get('course_id'))
+
+    # Return matching courses
+    return [c for c in courses if c.get('course_id') in assigned_course_ids]
+
+
+def get_faculty_assigned_sections(employee_id: str, sections: list) -> list:
+    """
+    Get sections where the faculty member is assigned as instructor
+    الشعب التي تم تعيين عضو هيئة التدريس فيها كمدرس
+    """
+    return [s for s in sections if s.get('instructor_id') == employee_id]
+
+
 def generate_username(faculty_member):
     """إنشاء اسم مستخدم تلقائي من عضو هيئة التدريس"""
     name = faculty_member.get('name', '')
@@ -200,6 +248,7 @@ def show_add_user_form(db: Database, lang: str, is_rtl: bool):
     programs = load_programs()
     courses = load_courses()
     sections = load_sections()
+    course_coordinators = load_course_coordinators()
 
     if not faculty_members:
         st.warning("⚠️ لا يوجد أعضاء هيئة تدريس. يرجى إضافة أعضاء هيئة التدريس أولاً / No faculty members found. Please add faculty members first.")
@@ -216,6 +265,12 @@ def show_add_user_form(db: Database, lang: str, is_rtl: bool):
     )
 
     selected_faculty = faculty_options.get(selected_faculty_key)
+
+    # Get pre-assigned roles for the selected faculty member
+    faculty_employee_id = selected_faculty.get('employee_id', '') if selected_faculty else ''
+    faculty_assigned_programs = get_faculty_assigned_programs(faculty_employee_id, programs)
+    faculty_assigned_courses = get_faculty_assigned_courses(faculty_employee_id, courses, course_coordinators)
+    faculty_assigned_sections = get_faculty_assigned_sections(faculty_employee_id, sections)
 
     if selected_faculty:
         # عرض معلومات العضو المختار
@@ -250,75 +305,81 @@ def show_add_user_form(db: Database, lang: str, is_rtl: bool):
         selected_programs = []
         if is_program_coord:
             st.markdown("#### 🏛️ اختيار البرامج / Select Programs")
-            if programs:
-                program_options = {f"{p['program_code']} - {p['program_name_en']}": p['program_id'] for p in programs}
+            # Show only programs where this faculty member is already assigned as coordinator
+            if faculty_assigned_programs:
+                program_options = {f"{p['program_code']} - {p['program_name_en']}": p['program_id'] for p in faculty_assigned_programs}
                 selected_program_keys = st.multiselect(
-                    "اختر البرامج / Select Programs *",
+                    "اختر البرامج المعينة / Select Assigned Programs *",
                     options=list(program_options.keys()),
+                    default=list(program_options.keys()),  # Pre-select all assigned programs
                     key="add_programs_select"
                 )
                 selected_programs = [program_options[k] for k in selected_program_keys]
+                st.info(f"💡 يظهر فقط البرامج التي تم تعيين {selected_faculty.get('name', '')} كمنسق لها")
             else:
-                st.warning("⚠️ لا توجد برامج مسجلة / No programs found")
+                st.warning(f"⚠️ لم يتم تعيين {selected_faculty.get('name', '')} كمنسق لأي برنامج بعد / Not assigned as coordinator for any program yet")
+                st.info("💡 يجب أولاً تعيين عضو هيئة التدريس كمنسق برنامج من صفحة إدارة البرامج")
 
         # اختيار المقررات إذا كان منسق مقرر
         selected_courses = []
         if is_course_coord:
             st.markdown("#### 📚 اختيار المقررات / Select Courses")
-            if courses:
-                course_options = {f"{c['course_code']} - {c['course_title_en']}": c['course_id'] for c in courses}
+            # Show only courses where this faculty member is already assigned as coordinator
+            if faculty_assigned_courses:
+                course_options = {f"{c['course_code']} - {c['course_title_en']}": c['course_id'] for c in faculty_assigned_courses}
                 selected_course_keys = st.multiselect(
-                    "اختر المقررات / Select Courses *",
+                    "اختر المقررات المعينة / Select Assigned Courses *",
                     options=list(course_options.keys()),
+                    default=list(course_options.keys()),  # Pre-select all assigned courses
                     key="add_courses_select"
                 )
                 selected_courses = [course_options[k] for k in selected_course_keys]
+                st.info(f"💡 يظهر فقط المقررات التي تم تعيين {selected_faculty.get('name', '')} كمنسق لها")
             else:
-                st.warning("⚠️ لا توجد مقررات مسجلة / No courses found")
+                st.warning(f"⚠️ لم يتم تعيين {selected_faculty.get('name', '')} كمنسق لأي مقرر بعد / Not assigned as coordinator for any course yet")
+                st.info("💡 يجب أولاً تعيين عضو هيئة التدريس كمنسق مقرر من صفحة إدارة الشعب")
 
         # اختيار الشعب إذا كان مدرس شعبة
         selected_sections = {}
         if is_section_instructor:
             st.markdown("#### 👨‍🏫 اختيار الشعب / Select Sections")
 
-            # تجميع الشعب حسب المقرر
-            sections_by_course = {}
-            for sec in sections:
-                course_id = sec.get('course_id')
-                if course_id not in sections_by_course:
-                    sections_by_course[course_id] = []
-                sections_by_course[course_id].append(sec)
-
-            # عرض الشعب
-            section_options = {}
-            for course_id, secs in sections_by_course.items():
-                course = next((c for c in courses if c['course_id'] == course_id), None)
-                if course:
-                    course_code = course.get('course_code', course_id)
-                    for sec in secs:
+            # Show only sections where this faculty member is already assigned as instructor
+            if faculty_assigned_sections:
+                # عرض الشعب المعينة فقط
+                section_options = {}
+                for sec in faculty_assigned_sections:
+                    course_id = sec.get('course_id')
+                    course = next((c for c in courses if c['course_id'] == course_id), None)
+                    if course:
+                        course_code = course.get('course_code', course_id)
                         sec_num = sec.get('section_number', '')
                         semester = sec.get('semester_code', '')
                         year = sec.get('academic_year', '')
                         key = f"{course_code} - Section {sec_num} ({semester}/{year})"
                         section_options[key] = {'course_id': course_id, 'section_number': sec_num}
 
-            if section_options:
-                selected_section_keys = st.multiselect(
-                    "اختر الشعب / Select Sections *",
-                    options=list(section_options.keys()),
-                    key="add_sections_select"
-                )
+                if section_options:
+                    selected_section_keys = st.multiselect(
+                        "اختر الشعب المعينة / Select Assigned Sections *",
+                        options=list(section_options.keys()),
+                        default=list(section_options.keys()),  # Pre-select all assigned sections
+                        key="add_sections_select"
+                    )
 
-                # تجميع الشعب المختارة
-                for key in selected_section_keys:
-                    sec_info = section_options[key]
-                    course_id = sec_info['course_id']
-                    sec_num = sec_info['section_number']
-                    if course_id not in selected_sections:
-                        selected_sections[course_id] = []
-                    selected_sections[course_id].append(sec_num)
+                    # تجميع الشعب المختارة
+                    for key in selected_section_keys:
+                        sec_info = section_options[key]
+                        course_id = sec_info['course_id']
+                        sec_num = sec_info['section_number']
+                        if course_id not in selected_sections:
+                            selected_sections[course_id] = []
+                        selected_sections[course_id].append(sec_num)
+
+                    st.info(f"💡 يظهر فقط الشعب التي تم تعيين {selected_faculty.get('name', '')} كمدرس لها")
             else:
-                st.warning("⚠️ لا توجد شعب مسجلة / No sections found")
+                st.warning(f"⚠️ لم يتم تعيين {selected_faculty.get('name', '')} كمدرس لأي شعبة بعد / Not assigned as instructor for any section yet")
+                st.info("💡 يجب أولاً تعيين عضو هيئة التدريس كمدرس شعبة من صفحة إدارة الشعب")
 
         # كلمة المرور
         st.markdown("### 🔑 كلمة المرور / Password")

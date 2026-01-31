@@ -342,80 +342,134 @@ def main_app():
 
         if user.role == UserRole.ADMIN:
             menu_items = [
+                # المجموعة 1: الإعدادات والإدارة (أزرق)
+                ("🔷🔷🔷", "sep1", "الإعدادات والإدارة 🔷🔷🔷"),
                 ("🏠", "dashboard", t("dashboard", lang)),
+                ("⚙️", "settings", t("settings", lang)),
                 ("👥", "users", t("users_management", lang)),
                 ("👨‍🏫", "faculty", "أعضاء هيئة التدريس / Faculty"),
                 ("🏛️", "programs", t("programs_management", lang)),
+                # المجموعة 2: المرحلة 1 - معلومات المقررات (أخضر)
+                ("🟩🟩🟩", "sep2", "المرحلة 1: معلومات المقررات 🟩🟩🟩"),
                 ("📚", "courses", t("courses_management", lang)),
                 ("🏫", "external_teaching", "التدريس الخارجي / External Teaching"),
                 ("📝", "clos", "مخرجات التعلم / CLOs"),
                 ("📑", "course_topics", "موضوعات المقرر / Course Topics"),
                 ("📊", "assessment_activities", "أنشطة التقييم / Assessment"),
+                # المجموعة 3: المرحلة 2 - قياس المخرجات (بنفسجي)
+                ("🟪🟪🟪", "sep3", "المرحلة 2: قياس المخرجات 🟪🟪🟪"),
+                ("📊", "stage2_clo_marks", "درجات CLOs"),
+                ("🔗", "stage2_topics_clos", "ربط الموضوعات بـ CLOs"),
+                ("📝", "stage2_topics_activities", "ربط الموضوعات بالأنشطة"),
+                ("📊", "stage2_clos_activities", "المخرجات والأنشطة"),
+                ("📋", "stage2_specs_table", "جدول المواصفات"),
+                # المجموعة 4: المرحلة 3 - إعدادات الفصول والشعب (برتقالي)
+                ("🟧🟧🟧", "sep4", "المرحلة 3: الفصول والشعب 🟧🟧🟧"),
+                ("🎯", "clo_semester_settings", "إعدادات الفصل"),
                 ("📖", "sections_mgmt", "الشعب الدراسية / Sections"),
+                # المجموعة 5: المرحلة 4 - الطلاب والدرجات (أحمر)
+                ("🟥🟥🟥", "sep5", "المرحلة 4: الطلاب والدرجات 🟥🟥🟥"),
                 ("👥", "section_students", "طلاب الشعبة / Students"),
-                ("📝", "student_grades", "درجات الطلاب / Grades"),
-                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📝", "student_grades", "درجات الشعبة / Grades"),
+                # المجموعة 6: المرحلة 5 - التقارير ولوحات البيانات (أصفر)
+                ("🟨🟨🟨", "sep6", "المرحلة 5: التقارير 🟨🟨🟨"),
                 ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
-                ("---", "---", "─── المرحلة 2: قياس المخرجات ───"),
-                ("📊", "stage2_clo_marks", "2.1 درجات CLOs"),
-                ("🎯", "clo_semester_settings", "2.1b إعدادات الفصل"),
-                ("🔗", "stage2_topics_clos", "2.2 ربط الموضوعات بـ CLOs"),
-                ("📝", "stage2_topics_activities", "2.3 ربط الموضوعات بالأنشطة"),
-                ("📊", "stage2_clos_activities", "2.4 المخرجات والأنشطة"),
-                ("📋", "stage2_specs_table", "2.5 جدول المواصفات"),
+                ("📈", "aggregated_clo_report", "التقرير المجمع / Collected Report"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "collected_grades_dashboard", "الدرجات المجمعة / Collected Grades"),
+                ("📝", "activity_sheet_report", "ورقة النشاط / Activity Sheet"),
+                ("📋", "section_progress_report", "متابعة الشعب / Section Progress"),
                 ("📈", "reports", t("reports", lang)),
-                ("⚙️", "settings", t("settings", lang)),
             ]
         elif user.role == UserRole.PROGRAM_COORDINATOR:
             menu_items = [
+                # المجموعة 1: الإدارة (أزرق)
+                ("🔷🔷🔷", "sep1", "الإدارة 🔷🔷🔷"),
                 ("🏠", "dashboard", t("dashboard", lang)),
                 ("🏛️", "programs", t("my_programs", lang)),
+                # المجموعة 2: المرحلة 1 - معلومات المقررات (أخضر)
+                ("🟩🟩🟩", "sep2", "المرحلة 1: معلومات المقررات 🟩🟩🟩"),
                 ("📚", "courses", t("courses_management", lang)),
                 ("🏫", "external_teaching", "التدريس الخارجي / External Teaching"),
                 ("📝", "clos", "مخرجات التعلم / CLOs"),
                 ("📑", "course_topics", "موضوعات المقرر / Course Topics"),
                 ("📊", "assessment_activities", "أنشطة التقييم / Assessment"),
+                # المجموعة 3: المرحلة 2 - قياس المخرجات (بنفسجي)
+                ("🟪🟪🟪", "sep3", "المرحلة 2: قياس المخرجات 🟪🟪🟪"),
+                ("📊", "stage2_clo_marks", "درجات CLOs"),
+                ("🔗", "stage2_topics_clos", "ربط الموضوعات بـ CLOs"),
+                ("📝", "stage2_topics_activities", "ربط الموضوعات بالأنشطة"),
+                ("📊", "stage2_clos_activities", "المخرجات والأنشطة"),
+                ("📋", "stage2_specs_table", "جدول المواصفات"),
+                # المجموعة 4: المرحلة 3 - إعدادات الفصول والشعب (برتقالي)
+                ("🟧🟧🟧", "sep4", "المرحلة 3: الفصول والشعب 🟧🟧🟧"),
+                ("🎯", "clo_semester_settings", "إعدادات الفصل"),
                 ("📖", "sections_mgmt", "الشعب الدراسية / Sections"),
+                # المجموعة 5: المرحلة 4 - الطلاب والدرجات (أحمر)
+                ("🟥🟥🟥", "sep5", "المرحلة 4: الطلاب والدرجات 🟥🟥🟥"),
                 ("👥", "section_students", "طلاب الشعبة / Students"),
                 ("📝", "student_grades", "درجات الطلاب / Grades"),
-                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                # المجموعة 6: المرحلة 5 - التقارير (أصفر)
+                ("🟨🟨🟨", "sep6", "المرحلة 5: التقارير 🟨🟨🟨"),
                 ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
-                ("---", "---", "─── المرحلة 2: قياس المخرجات ───"),
-                ("📊", "stage2_clo_marks", "2.1 درجات CLOs"),
-                ("🎯", "clo_semester_settings", "2.1b إعدادات الفصل"),
-                ("🔗", "stage2_topics_clos", "2.2 ربط الموضوعات بـ CLOs"),
-                ("📝", "stage2_topics_activities", "2.3 ربط الموضوعات بالأنشطة"),
-                ("📊", "stage2_clos_activities", "2.4 المخرجات والأنشطة"),
-                ("📋", "stage2_specs_table", "2.5 جدول المواصفات"),
+                ("📈", "aggregated_clo_report", "التقرير المجمع / Collected Report"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "collected_grades_dashboard", "الدرجات المجمعة / Collected Grades"),
+                ("📝", "activity_sheet_report", "ورقة النشاط / Activity Sheet"),
+                ("📋", "section_progress_report", "متابعة الشعب / Section Progress"),
                 ("📈", "reports", t("reports", lang)),
             ]
         elif user.role == UserRole.COURSE_COORDINATOR:
             menu_items = [
+                # المجموعة 1: الإدارة (أزرق)
+                ("🔷🔷🔷", "sep1", "الإدارة 🔷🔷🔷"),
                 ("🏠", "dashboard", t("dashboard", lang)),
                 ("📚", "my_courses", t("my_courses", lang)),
+                # المجموعة 2: المرحلة 1 - معلومات المقررات (أخضر)
+                ("🟩🟩🟩", "sep2", "المرحلة 1: معلومات المقررات 🟩🟩🟩"),
                 ("📝", "clos", "مخرجات التعلم / CLOs"),
                 ("📑", "course_topics", "موضوعات المقرر / Course Topics"),
                 ("📊", "assessment_activities", "أنشطة التقييم / Assessment"),
+                # المجموعة 3: المرحلة 2 - قياس المخرجات (بنفسجي)
+                ("🟪🟪🟪", "sep3", "المرحلة 2: قياس المخرجات 🟪🟪🟪"),
+                ("📊", "stage2_clo_marks", "درجات CLOs"),
+                ("🔗", "stage2_topics_clos", "ربط الموضوعات بـ CLOs"),
+                ("📝", "stage2_topics_activities", "ربط الموضوعات بالأنشطة"),
+                ("📊", "stage2_clos_activities", "المخرجات والأنشطة"),
+                ("📋", "stage2_specs_table", "جدول المواصفات"),
+                # المجموعة 4: المرحلة 3 - إعدادات الفصول والشعب (برتقالي)
+                ("🟧🟧🟧", "sep4", "المرحلة 3: الفصول والشعب 🟧🟧🟧"),
+                ("🎯", "clo_semester_settings", "إعدادات الفصل"),
                 ("📖", "sections_mgmt", "الشعب الدراسية / Sections"),
+                # المجموعة 5: المرحلة 4 - الطلاب والدرجات (أحمر)
+                ("🟥🟥🟥", "sep5", "المرحلة 4: الطلاب والدرجات 🟥🟥🟥"),
                 ("👥", "section_students", "طلاب الشعبة / Students"),
                 ("📝", "student_grades", "درجات الطلاب / Grades"),
-                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                # المجموعة 6: المرحلة 5 - التقارير (أصفر)
+                ("🟨🟨🟨", "sep6", "المرحلة 5: التقارير 🟨🟨🟨"),
                 ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
-                ("---", "---", "─── المرحلة 2: قياس المخرجات ───"),
-                ("📊", "stage2_clo_marks", "2.1 درجات CLOs"),
-                ("🎯", "clo_semester_settings", "2.1b إعدادات الفصل"),
-                ("🔗", "stage2_topics_clos", "2.2 ربط الموضوعات بـ CLOs"),
-                ("📝", "stage2_topics_activities", "2.3 ربط الموضوعات بالأنشطة"),
-                ("📊", "stage2_clos_activities", "2.4 المخرجات والأنشطة"),
-                ("📋", "stage2_specs_table", "2.5 جدول المواصفات"),
-                ("📈", "reports", t("my_reports", lang)),
+                ("📈", "aggregated_clo_report", "التقرير المجمع / Collected Report"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "collected_grades_dashboard", "الدرجات المجمعة / Collected Grades"),
+                ("📝", "activity_sheet_report", "ورقة النشاط / Activity Sheet"),
+                ("📋", "section_progress_report", "متابعة الشعب / Section Progress"),
             ]
         else:  # SECTION_INSTRUCTOR
             menu_items = [
+                # المجموعة 1: الإدارة (أزرق)
+                ("🔷🔷🔷", "sep1", "الإدارة 🔷🔷🔷"),
                 ("🏠", "dashboard", t("dashboard", lang)),
                 ("📚", "sections", t("my_sections", lang)),
+                # المجموعة 2: الطلاب والدرجات (أحمر)
+                ("🟥🟥🟥", "sep2", "الطلاب والدرجات 🟥🟥🟥"),
+                ("👥", "section_students", "طلاب الشعبة / Section Students"),
                 ("📝", "grades", t("enter_grades", lang)),
-                ("📊", "reports", t("section_reports", lang)),
+                # المجموعة 3: التقارير (أصفر)
+                ("🟨🟨🟨", "sep3", "التقارير 🟨🟨🟨"),
+                ("📊", "grades_dashboard", "لوحة بيانات الدرجات / Grades Dashboard"),
+                ("📊", "clo_report", "تقرير قياس المخرجات / CLO Report"),
+                ("📝", "activity_sheet_report", "ورقة النشاط / Activity Sheet"),
+                ("📈", "reports", t("section_reports", lang)),
             ]
 
         # عرض القائمة
@@ -491,8 +545,11 @@ def main_app():
         importlib.reload(assessment_activities)
         assessment_activities.show_assessment_activities(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'sections':
-        st.title(f"📚 {t('my_sections', lang)}")
-        st.info(f"🚧 {t('under_development', lang)}")
+        # صفحة شعبي للمدرس - توجيه لصفحة إدارة الشعب مع فلترة تلقائية
+        import importlib
+        from pages import sections_management
+        importlib.reload(sections_management)
+        sections_management.show_sections_management(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'sections_mgmt':
         # صفحة إدارة الشعب الدراسية
         import importlib
@@ -517,6 +574,12 @@ def main_app():
         from pages import grades_dashboard
         importlib.reload(grades_dashboard)
         grades_dashboard.show_grades_dashboard(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'collected_grades_dashboard':
+        # صفحة لوحة بيانات الدرجات المجمعة
+        import importlib
+        from pages import collected_grades_dashboard
+        importlib.reload(collected_grades_dashboard)
+        collected_grades_dashboard.show_collected_grades_dashboard(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'external_teaching':
         # صفحة التدريس الخارجي
         import importlib
@@ -529,6 +592,24 @@ def main_app():
         from pages import clo_assessment_report
         importlib.reload(clo_assessment_report)
         clo_assessment_report.show_clo_assessment_report(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'aggregated_clo_report':
+        # صفحة التقرير المجمع لقياس المخرجات
+        import importlib
+        from pages import aggregated_clo_report
+        importlib.reload(aggregated_clo_report)
+        aggregated_clo_report.show_aggregated_clo_report(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'activity_sheet_report':
+        # صفحة تقرير ورقة النشاط
+        import importlib
+        from pages import activity_sheet_report
+        importlib.reload(activity_sheet_report)
+        activity_sheet_report.show_activity_sheet_report(st.session_state.db, st.session_state.user, lang)
+    elif selected_page == 'section_progress_report':
+        # صفحة تقرير متابعة الشعب
+        import importlib
+        from pages import section_progress_report
+        importlib.reload(section_progress_report)
+        section_progress_report.show_section_progress_report(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'reports' or selected_page == 'my_reports' or selected_page == 'section_reports':
         # استيراد ديناميكي لصفحة التقارير
         import importlib
@@ -539,8 +620,11 @@ def main_app():
         st.title(f"📝 {t('assessment', lang)}")
         st.info(f"🚧 {t('under_development', lang)}")
     elif selected_page == 'grades':
-        st.title(f"📝 {t('enter_grades', lang)}")
-        st.info(f"🚧 {t('under_development', lang)}")
+        # صفحة إدخال الدرجات للمدرس - توجيه لصفحة درجات الطلاب مع فلترة تلقائية
+        import importlib
+        from pages import student_grades
+        importlib.reload(student_grades)
+        student_grades.show_student_grades(st.session_state.db, st.session_state.user, lang)
     elif selected_page == 'settings':
         from pages.settings import show_settings
         show_settings(st.session_state.db, st.session_state.user, lang)
@@ -580,7 +664,7 @@ def main_app():
         from pages import stage2_specifications_table
         importlib.reload(stage2_specifications_table)
         stage2_specifications_table.show_stage2_specifications_table(st.session_state.db, st.session_state.user, lang)
-    elif selected_page == '---':
+    elif selected_page.startswith('sep'):
         # عنصر فاصل - لا يفعل شيء
         pass
 
@@ -636,9 +720,21 @@ def show_dashboard(user: User, lang: str):
                   if c.get('course_id') in assigned_courses or c.get('coordinator_id') == user.user_id]
         users_count = 0
     else:
-        # مدرس الشعبة
-        programs = []
-        courses = []
+        # مدرس الشعبة - عرض الشعب المسندة إليه
+        user_data = db.load_users()
+        assigned_sections = {}
+        for u in user_data:
+            if u.get('user_id') == user.user_id:
+                assigned_sections = u.get('assigned_sections', {})
+                break
+
+        # جمع المقررات التي لديه شعب فيها
+        course_ids = list(assigned_sections.keys())
+        courses = [c for c in all_courses if c.get('course_id') in course_ids]
+
+        # جمع البرامج المرتبطة بهذه المقررات
+        program_ids = set(c.get('program_id') for c in courses if c.get('program_id'))
+        programs = [p for p in all_programs if p.get('program_id') in program_ids]
         users_count = 0
 
     programs_count = len(programs)
@@ -650,55 +746,148 @@ def show_dashboard(user: User, lang: str):
     # حساب المقررات النشطة
     active_courses = len([c for c in courses if c.get('is_active', True)])
 
+    # حساب عدد الشعب والطلاب للمدرسين
+    sections_count = 0
+    students_count = 0
+    grades_completion = 0
+    assigned_section_ids = set()
+    if user.role == UserRole.SECTION_INSTRUCTOR:
+        # تحميل بيانات الشعب
+        import json
+        from pathlib import Path
+        sections_file = Path(__file__).parent / 'data' / 'sections.json'
+        section_students_file = Path(__file__).parent / 'data' / 'section_students.json'
+        student_grades_file = Path(__file__).parent / 'data' / 'student_grades.json'
+        try:
+            with open(sections_file, 'r', encoding='utf-8') as f:
+                sections_data = json.load(f).get('sections', [])
+            # احصاء الشعب المسندة للمدرس
+            user_data_list = db.load_users()
+            assigned_sections = {}
+            for u in user_data_list:
+                if u.get('user_id') == user.user_id:
+                    assigned_sections = u.get('assigned_sections', {})
+                    break
+            # حساب عدد الشعب
+            for course_id, section_numbers in assigned_sections.items():
+                sections_count += len(section_numbers)
+
+            # تحميل بيانات طلاب الشعب
+            with open(section_students_file, 'r', encoding='utf-8') as f:
+                students_data = json.load(f).get('section_students', [])
+            # حساب عدد الطلاب في الشعب المسندة
+            # أولاً: جمع section_ids للشعب المسندة
+            for course_id, section_numbers in assigned_sections.items():
+                for section_number in section_numbers:
+                    for section in sections_data:
+                        if section.get('course_id') == course_id and section.get('section_number') == section_number:
+                            assigned_section_ids.add(section.get('section_id'))
+            # ثانياً: حساب عدد الطلاب بناءً على section_id
+            for student in students_data:
+                if student.get('section_id') in assigned_section_ids:
+                    students_count += 1
+
+            # حساب نسبة إدخال الدرجات
+            with open(student_grades_file, 'r', encoding='utf-8') as f:
+                all_grades = json.load(f).get('student_grades', [])
+            sections_with_grades = 0
+            for section_id in assigned_section_ids:
+                section_grades = [g for g in all_grades if g.get('section_id') == section_id]
+                if section_grades:
+                    sections_with_grades += 1
+            grades_completion = int((sections_with_grades / sections_count * 100)) if sections_count > 0 else 0
+        except:
+            pass
+
     # بطاقات الإحصائيات
     col1, col2, col3, col4 = st.columns(4)
 
-    with col1:
-        st.markdown(f"""
-        <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="color: white;">📚</h2>
-            <h3 style="color: white;">{courses_count}</h3>
-            <p style="color: white; font-size: 16px;">{t('courses', lang) if lang == 'ar' else 'Courses'}</p>
-        </div>
-        """, unsafe_allow_html=True)
+    if user.role == UserRole.SECTION_INSTRUCTOR:
+        # بطاقات خاصة بمدرس الشعبة
+        with col1:
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h2 style="color: white;">📖</h2>
+                <h3 style="color: white;">{sections_count}</h3>
+                <p style="color: white; font-size: 16px;">{"شعبي" if lang == 'ar' else 'My Sections'}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
-    with col2:
-        st.markdown(f"""
-        <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
-            <h2 style="color: white;">🏛️</h2>
-            <h3 style="color: white;">{programs_count}</h3>
-            <p style="color: white; font-size: 16px;">{t('programs', lang) if lang == 'ar' else 'Programs'}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        with col2:
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                <h2 style="color: white;">👨‍🎓</h2>
+                <h3 style="color: white;">{students_count}</h3>
+                <p style="color: white; font-size: 16px;">{"طلابي" if lang == 'ar' else 'My Students'}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
-    with col3:
-        if user.role == UserRole.ADMIN:
+        with col3:
             st.markdown(f"""
             <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-                <h2 style="color: white;">👥</h2>
-                <h3 style="color: white;">{users_count}</h3>
-                <p style="color: white; font-size: 16px;">{t('users', lang)}</p>
-            </div>
-            """, unsafe_allow_html=True)
-        else:
-            st.markdown(f"""
-            <div class="card" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); color: white;">
-                <h2 style="color: white;">📊</h2>
-                <h3 style="color: white;">{active_programs}</h3>
-                <p style="color: white; font-size: 16px;">{t('active_programs', lang) if lang == 'ar' else 'Active Programs'}</p>
+                <h2 style="color: white;">📚</h2>
+                <h3 style="color: white;">{courses_count}</h3>
+                <p style="color: white; font-size: 16px;">{"مقرراتي" if lang == 'ar' else 'My Courses'}</p>
             </div>
             """, unsafe_allow_html=True)
 
-    with col4:
-        # حساب نسبة الإنجاز (المقررات النشطة / إجمالي المقررات)
-        completion_rate = int((active_courses / courses_count * 100)) if courses_count > 0 else 0
-        st.markdown(f"""
-        <div class="card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white;">
-            <h2 style="color: white;">✅</h2>
-            <h3 style="color: white;">{completion_rate}%</h3>
-            <p style="color: white; font-size: 16px;">{t('active_courses', lang) if lang == 'ar' else 'Active'}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        with col4:
+            # نسبة إدخال الدرجات (تم حسابها مسبقاً)
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white;">
+                <h2 style="color: white;">✅</h2>
+                <h3 style="color: white;">{grades_completion}%</h3>
+                <p style="color: white; font-size: 16px;">{"الإنجاز" if lang == 'ar' else 'Progress'}</p>
+            </div>
+            """, unsafe_allow_html=True)
+    else:
+        # البطاقات الأصلية للأدوار الأخرى
+        with col1:
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h2 style="color: white;">📚</h2>
+                <h3 style="color: white;">{courses_count}</h3>
+                <p style="color: white; font-size: 16px;">{t('courses', lang) if lang == 'ar' else 'Courses'}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col2:
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                <h2 style="color: white;">🏛️</h2>
+                <h3 style="color: white;">{programs_count}</h3>
+                <p style="color: white; font-size: 16px;">{t('programs', lang) if lang == 'ar' else 'Programs'}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col3:
+            if user.role == UserRole.ADMIN:
+                st.markdown(f"""
+                <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                    <h2 style="color: white;">👥</h2>
+                    <h3 style="color: white;">{users_count}</h3>
+                    <p style="color: white; font-size: 16px;">{t('users', lang)}</p>
+                </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.markdown(f"""
+                <div class="card" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); color: white;">
+                    <h2 style="color: white;">📊</h2>
+                    <h3 style="color: white;">{active_programs}</h3>
+                    <p style="color: white; font-size: 16px;">{t('active_programs', lang) if lang == 'ar' else 'Active Programs'}</p>
+                </div>
+                """, unsafe_allow_html=True)
+
+        with col4:
+            # حساب نسبة الإنجاز (المقررات النشطة / إجمالي المقررات)
+            completion_rate = int((active_courses / courses_count * 100)) if courses_count > 0 else 0
+            st.markdown(f"""
+            <div class="card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white;">
+                <h2 style="color: white;">✅</h2>
+                <h3 style="color: white;">{completion_rate}%</h3>
+                <p style="color: white; font-size: 16px;">{t('active_courses', lang) if lang == 'ar' else 'Active'}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -717,19 +906,148 @@ def show_dashboard(user: User, lang: str):
         """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown(f"""
-        <div class="card {'rtl' if is_rtl else 'ltr'}">
-            <h3>📊 {t('quick_stats', lang)}</h3>
-            <p><strong>{t('active_programs', lang)}:</strong> {active_programs} / {programs_count}</p>
-            <p><strong>{t('active_courses', lang)}:</strong> {active_courses} / {courses_count}</p>
-            <p><strong>{t('total_users', lang)}:</strong> {users_count}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        if user.role == UserRole.SECTION_INSTRUCTOR:
+            st.markdown(f"""
+            <div class="card {'rtl' if is_rtl else 'ltr'}">
+                <h3>📊 {"إحصائيات سريعة" if lang == 'ar' else 'Quick Stats'}</h3>
+                <p><strong>{"عدد الشعب" if lang == 'ar' else 'My Sections'}:</strong> {sections_count}</p>
+                <p><strong>{"عدد الطلاب" if lang == 'ar' else 'My Students'}:</strong> {students_count}</p>
+                <p><strong>{"عدد المقررات" if lang == 'ar' else 'My Courses'}:</strong> {courses_count}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+            <div class="card {'rtl' if is_rtl else 'ltr'}">
+                <h3>📊 {t('quick_stats', lang)}</h3>
+                <p><strong>{t('active_programs', lang)}:</strong> {active_programs} / {programs_count}</p>
+                <p><strong>{t('active_courses', lang)}:</strong> {active_courses} / {courses_count}</p>
+                <p><strong>{t('total_users', lang)}:</strong> {users_count}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     # عرض آخر البرامج والمقررات (استخدام البيانات المصفاة حسب الصلاحيات)
-    if user.role in [UserRole.ADMIN, UserRole.PROGRAM_COORDINATOR]:
+    if user.role == UserRole.SECTION_INSTRUCTOR:
+        # عرض شعب المدرس - عرض شامل ومفصل
+        import json
+        import pandas as pd
+        from pathlib import Path
+
+        sections_file = Path(__file__).parent / 'data' / 'sections.json'
+        section_students_file = Path(__file__).parent / 'data' / 'section_students.json'
+        student_grades_file = Path(__file__).parent / 'data' / 'student_grades.json'
+
+        try:
+            with open(sections_file, 'r', encoding='utf-8') as f:
+                all_sections = json.load(f).get('sections', [])
+            with open(section_students_file, 'r', encoding='utf-8') as f:
+                all_students = json.load(f).get('section_students', [])
+            with open(student_grades_file, 'r', encoding='utf-8') as f:
+                all_grades = json.load(f).get('student_grades', [])
+        except:
+            all_sections = []
+            all_students = []
+            all_grades = []
+
+        user_data_list = db.load_users()
+        assigned_sections = {}
+        for u in user_data_list:
+            if u.get('user_id') == user.user_id:
+                assigned_sections = u.get('assigned_sections', {})
+                break
+
+        # أزرار الإجراءات السريعة
+        st.subheader(f"⚡ {'إجراءات سريعة' if lang == 'ar' else 'Quick Actions'}")
+        action_col1, action_col2, action_col3, action_col4 = st.columns(4)
+
+        with action_col1:
+            if st.button(f"👥 {'إدارة الطلاب' if lang == 'ar' else 'Manage Students'}", use_container_width=True):
+                st.session_state.current_page = 'section_students'
+                st.rerun()
+
+        with action_col2:
+            if st.button(f"📝 {'إدخال الدرجات' if lang == 'ar' else 'Enter Grades'}", use_container_width=True):
+                st.session_state.current_page = 'grades'
+                st.rerun()
+
+        with action_col3:
+            if st.button(f"📊 {'تقرير CLO' if lang == 'ar' else 'CLO Report'}", use_container_width=True):
+                st.session_state.current_page = 'clo_report'
+                st.rerun()
+
+        with action_col4:
+            if st.button(f"📈 {'لوحة الدرجات' if lang == 'ar' else 'Grades Dashboard'}", use_container_width=True):
+                st.session_state.current_page = 'grades_dashboard'
+                st.rerun()
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # جدول تفصيلي للشعب
+        st.subheader(f"📋 {'تفاصيل شعبي الدراسية' if lang == 'ar' else 'My Sections Details'}")
+
+        if not assigned_sections:
+            st.info("لا توجد شعب مسندة حالياً" if lang == 'ar' else "No sections assigned yet")
+        else:
+            sections_data_list = []
+            sections_with_grades = 0
+
+            for course_id, section_numbers in assigned_sections.items():
+                course_info = next((c for c in all_courses if c.get('course_id') == course_id), None)
+                course_code = course_info.get('course_code', '') if course_info else ''
+                course_name = course_info.get('course_title_ar' if lang == 'ar' else 'course_title_en', '') if course_info else ''
+
+                for section_number in section_numbers:
+                    # معلومات الشعبة
+                    section_info = next((s for s in all_sections
+                                        if s.get('course_id') == course_id and s.get('section_number') == section_number), None)
+
+                    # الحصول على section_id
+                    section_id = section_info.get('section_id') if section_info else None
+
+                    # عدد الطلاب باستخدام section_id
+                    if section_id:
+                        section_students = [s for s in all_students if s.get('section_id') == section_id]
+                    else:
+                        section_students = []
+
+                    # التحقق من وجود درجات باستخدام section_id
+                    if section_id:
+                        section_grades = [g for g in all_grades if g.get('section_id') == section_id]
+                    else:
+                        section_grades = []
+                    has_grades = len(section_grades) > 0
+                    if has_grades:
+                        sections_with_grades += 1
+
+                    grades_status = "✅" if has_grades else "❌"
+
+                    sections_data_list.append({
+                        'رمز المقرر': course_code,
+                        'اسم المقرر': course_name,
+                        'رقم الشعبة': section_number,
+                        'الفصل الدراسي': section_info.get('semester', '') if section_info else '',
+                        'عدد الطلاب': len(section_students),
+                        'الدرجات': grades_status
+                    })
+
+            if sections_data_list:
+                df_sections = pd.DataFrame(sections_data_list)
+                st.dataframe(df_sections, use_container_width=True, hide_index=True)
+
+                # ملخص إضافي
+                st.markdown("<br>", unsafe_allow_html=True)
+                total_sections = len(sections_data_list)
+                completion_rate = int((sections_with_grades / total_sections * 100)) if total_sections > 0 else 0
+
+                summary_col1, summary_col2 = st.columns(2)
+                with summary_col1:
+                    st.info(f"📊 {'نسبة إدخال الدرجات' if lang == 'ar' else 'Grades Entry Progress'}: **{completion_rate}%** ({sections_with_grades}/{total_sections})")
+                with summary_col2:
+                    total_students_in_table = sum(row['عدد الطلاب'] for row in sections_data_list)
+                    st.info(f"👨‍🎓 {'إجمالي الطلاب' if lang == 'ar' else 'Total Students'}: **{total_students_in_table}**")
+
+    elif user.role in [UserRole.ADMIN, UserRole.PROGRAM_COORDINATOR]:
         st.subheader(f"📌 {t('recent_activity', lang)}")
 
         col1, col2 = st.columns(2)

@@ -197,10 +197,6 @@ def show_assessment_activities(db: Database, user, lang: str):
         st.markdown("---")
 
     # عرض رسائل النجاح
-    if st.session_state.get('activity_add_success'):
-        st.success(f"✅ تم إضافة النشاط بنجاح / Activity added successfully")
-        st.session_state['activity_add_success'] = False
-
     if st.session_state.get('activity_update_success'):
         st.success(f"✅ تم تحديث النشاط بنجاح / Activity updated successfully")
         st.session_state['activity_update_success'] = False
@@ -213,7 +209,7 @@ def show_assessment_activities(db: Database, user, lang: str):
     if 'editing_activity' not in st.session_state:
         st.session_state.editing_activity = None
 
-    # قسم إضافة/تعديل نشاط
+    # قسم تعديل نشاط - يظهر فقط عند اختيار نشاط للتعديل
     if st.session_state.editing_activity:
         st.markdown("""
         <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -224,96 +220,83 @@ def show_assessment_activities(db: Database, user, lang: str):
             </h3>
         </div>
         """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-            <h3 style="color: white; margin: 0; text-align: center;">
-                ➕ Add Assessment Activity / إضافة نشاط تقييم
-            </h3>
-        </div>
-        """, unsafe_allow_html=True)
 
-    # إنشاء مفتاح ديناميكي للنموذج
-    form_key_suffix = st.session_state.editing_activity.get('activity_id', 'new') if st.session_state.editing_activity else 'new'
+        # إنشاء مفتاح ديناميكي للنموذج
+        form_key_suffix = st.session_state.editing_activity.get('activity_id', 'edit')
 
-    with st.container():
-        col1, col2, col3 = st.columns([2, 1, 1])
+        with st.container():
+            col1, col2, col3 = st.columns([2, 1, 1])
 
-        with col1:
-            st.markdown('<p style="color: #9932CC; font-weight: bold; font-size: 16px;">Assessment Task / مهمة التقييم *</p>', unsafe_allow_html=True)
-            # قائمة أنواع التقييم المحددة مسبقاً
-            assessment_types = [
-                "First Exam / الاختبار الأول",
-                "Second Exam / الاختبار الثاني",
-                "Final Exam / الاختبار النهائي",
-                "Quizzes / اختبارات قصيرة",
-                "Assignments / الواجبات",
-                "Oral Presentation / العرض الشفهي",
-                "Lab Work / العمل المعملي",
-                "Project / المشروع",
-                "Research Paper / البحث",
-                "Participation / المشاركة",
-                "Other / أخرى"
-            ]
+            with col1:
+                st.markdown('<p style="color: #9932CC; font-weight: bold; font-size: 16px;">Assessment Task / مهمة التقييم *</p>', unsafe_allow_html=True)
+                # قائمة أنواع التقييم المحددة مسبقاً
+                assessment_types = [
+                    "First Exam / الاختبار الأول",
+                    "Second Exam / الاختبار الثاني",
+                    "Final Exam / الاختبار النهائي",
+                    "Quizzes / اختبارات قصيرة",
+                    "Assignments / الواجبات",
+                    "Oral Presentation / العرض الشفهي",
+                    "Lab Work / العمل المعملي",
+                    "Project / المشروع",
+                    "Research Paper / البحث",
+                    "Participation / المشاركة",
+                    "Other / أخرى"
+                ]
 
-            if st.session_state.editing_activity:
                 current_task = st.session_state.editing_activity.get('assessment_task', '')
                 if current_task in assessment_types:
                     default_index = assessment_types.index(current_task)
                 else:
                     default_index = len(assessment_types) - 1  # Other
-            else:
-                default_index = 0
 
-            assessment_task = st.selectbox(
-                "Assessment Task",
-                options=assessment_types,
-                index=default_index,
-                key=f'assessment_task_select_{form_key_suffix}',
-                label_visibility='collapsed'
-            )
-
-            # إذا اختار "أخرى" يمكنه إدخال نص مخصص
-            if assessment_task == "Other / أخرى":
-                custom_task = st.text_input(
-                    "Custom Task Name",
-                    value=st.session_state.editing_activity.get('assessment_task', '') if st.session_state.editing_activity and st.session_state.editing_activity.get('assessment_task') not in assessment_types else '',
-                    key=f'custom_task_input_{form_key_suffix}',
-                    placeholder="أدخل اسم النشاط / Enter activity name"
+                assessment_task = st.selectbox(
+                    "Assessment Task",
+                    options=assessment_types,
+                    index=default_index,
+                    key=f'assessment_task_select_{form_key_suffix}',
+                    label_visibility='collapsed'
                 )
-                if custom_task:
-                    assessment_task = custom_task
 
-        with col2:
-            st.markdown('<p style="color: #1E90FF; font-weight: bold; font-size: 16px;">Week Due / أسبوع التسليم</p>', unsafe_allow_html=True)
-            week_due = st.text_input(
-                "Week Due",
-                value=st.session_state.editing_activity.get('week_due', '') if st.session_state.editing_activity else '',
-                key=f'week_due_input_{form_key_suffix}',
-                label_visibility='collapsed',
-                placeholder="Week 6 / الأسبوع 6"
-            )
+                # إذا اختار "أخرى" يمكنه إدخال نص مخصص
+                if assessment_task == "Other / أخرى":
+                    custom_task = st.text_input(
+                        "Custom Task Name",
+                        value=st.session_state.editing_activity.get('assessment_task', '') if st.session_state.editing_activity.get('assessment_task') not in assessment_types else '',
+                        key=f'custom_task_input_{form_key_suffix}',
+                        placeholder="أدخل اسم النشاط / Enter activity name"
+                    )
+                    if custom_task:
+                        assessment_task = custom_task
 
-        with col3:
-            st.markdown('<p style="color: #FF8C00; font-weight: bold; font-size: 16px;">Percentage / النسبة المئوية *</p>', unsafe_allow_html=True)
-            percentage = st.number_input(
-                "Percentage",
-                min_value=0.0,
-                max_value=100.0,
-                step=1.0,
-                value=float(st.session_state.editing_activity.get('percentage', 0)) if st.session_state.editing_activity else 0.0,
-                key=f'percentage_input_{form_key_suffix}',
-                label_visibility='collapsed'
-            )
+            with col2:
+                st.markdown('<p style="color: #1E90FF; font-weight: bold; font-size: 16px;">Week Due / أسبوع التسليم</p>', unsafe_allow_html=True)
+                week_due = st.text_input(
+                    "Week Due",
+                    value=st.session_state.editing_activity.get('week_due', ''),
+                    key=f'week_due_input_{form_key_suffix}',
+                    label_visibility='collapsed',
+                    placeholder="Week 6 / الأسبوع 6"
+                )
 
-        st.markdown("<br>", unsafe_allow_html=True)
+            with col3:
+                st.markdown('<p style="color: #FF8C00; font-weight: bold; font-size: 16px;">Percentage / النسبة المئوية *</p>', unsafe_allow_html=True)
+                percentage = st.number_input(
+                    "Percentage",
+                    min_value=0.0,
+                    max_value=100.0,
+                    step=1.0,
+                    value=float(st.session_state.editing_activity.get('percentage', 0)),
+                    key=f'percentage_input_{form_key_suffix}',
+                    label_visibility='collapsed'
+                )
 
-        # أزرار الإجراءات
-        col1, col2, col3, col4 = st.columns(4)
+            st.markdown("<br>", unsafe_allow_html=True)
 
-        with col1:
-            if st.session_state.editing_activity:
+            # أزرار الإجراءات - تحديث وإلغاء فقط
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
                 if st.button("✏️ Update / تحديث", use_container_width=True, type='primary'):
                     if assessment_task and assessment_task != "Other / أخرى" and percentage > 0:
                         # تحديث النشاط
@@ -332,56 +315,20 @@ def show_assessment_activities(db: Database, user, lang: str):
                             st.rerun()
                     else:
                         st.error("⚠️ الرجاء ملء جميع الحقول المطلوبة / Please fill all required fields")
-            else:
-                if st.button("➕ Add / إضافة", use_container_width=True, type='primary'):
-                    if assessment_task and assessment_task != "Other / أخرى" and percentage > 0:
-                        # إضافة نشاط جديد
-                        new_activity = {
-                            'activity_id': f"activity_{selected_course_id}_{len(course_activities) + 1}_{datetime.now().strftime('%Y%m%d%H%M%S')}",
-                            'course_id': selected_course_id,
-                            'assessment_task': assessment_task,
-                            'week_due': week_due,
-                            'percentage': percentage,
-                            'created_date': datetime.now().isoformat(),
-                            'last_updated': datetime.now().isoformat()
-                        }
 
-                        updated_activities = course_activities + [new_activity]
-                        if save_course_activities(selected_course_id, updated_activities):
-                            st.session_state['activity_add_success'] = True
-                            st.rerun()
-                    else:
-                        st.error("⚠️ الرجاء ملء جميع الحقول المطلوبة / Please fill all required fields")
+            with col2:
+                if st.button("❌ Cancel / إلغاء", use_container_width=True):
+                    st.session_state.editing_activity = None
+                    st.rerun()
 
-        with col2:
-            if st.button("🗑️ Clear / مسح", use_container_width=True):
-                st.session_state.editing_activity = None
-                st.rerun()
+            with col3:
+                # حذف النشاط مباشرة من نموذج التعديل
+                if st.button("🗑️ Delete / حذف", use_container_width=True, type='secondary'):
+                    st.session_state['show_activity_delete_confirmation'] = True
+                    st.session_state['activity_to_delete'] = st.session_state.editing_activity
+                    st.rerun()
 
-        with col3:
-            # تحميل قالب Excel
-            excel_template = create_excel_template()
-            st.download_button(
-                label="📥 Template / قالب",
-                data=excel_template,
-                file_name=f"assessment_template_{selected_course.get('course_code', '')}.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True
-            )
-
-        with col4:
-            # استيراد من Excel
-            uploaded_file = st.file_uploader(
-                "📤 Import / استيراد",
-                type=['xlsx'],
-                key='import_assessment_excel',
-                label_visibility='collapsed'
-            )
-            if uploaded_file:
-                if st.button("📤 Import", use_container_width=True, type='primary'):
-                    import_from_excel(uploaded_file, selected_course_id)
-
-    st.markdown("---")
+        st.markdown("---")
 
     # عرض قائمة أنشطة التقييم
     st.markdown("""
@@ -508,38 +455,6 @@ def show_assessment_activities(db: Database, user, lang: str):
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        # أزرار التعديل والحذف
-        st.subheader("⚙️ إدارة الأنشطة / Manage Activities")
-
-        activity_options = {
-            f"{a.get('assessment_task', '')} ({a.get('percentage', 0)}%)": a
-            for a in course_activities
-        }
-
-        selected_activity_name = st.selectbox(
-            "اختر نشاط / Select Activity:",
-            options=list(activity_options.keys()),
-            key='manage_activity_select'
-        )
-
-        selected_activity = activity_options[selected_activity_name]
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            if st.button("✏️ تعديل / Edit", use_container_width=True, type='primary'):
-                st.session_state.editing_activity = selected_activity
-                st.toast(f"🔄 جاري تحميل النشاط للتعديل...")
-                st.rerun()
-
-        with col2:
-            if st.button("🗑️ حذف / Delete", use_container_width=True, type='secondary'):
-                st.session_state['show_activity_delete_confirmation'] = True
-                st.session_state['activity_to_delete'] = selected_activity
-                st.rerun()
-
         # نافذة تأكيد الحذف
         if st.session_state.get('show_activity_delete_confirmation') and st.session_state.get('activity_to_delete'):
             activity_to_delete = st.session_state['activity_to_delete']
@@ -559,12 +474,14 @@ def show_assessment_activities(db: Database, user, lang: str):
                         st.session_state['activity_delete_success'] = True
                         st.session_state['show_activity_delete_confirmation'] = False
                         st.session_state['activity_to_delete'] = None
+                        st.session_state.editing_activity = None  # إغلاق نموذج التعديل
                         st.rerun()
 
             with col2:
                 if st.button("❌ إلغاء / Cancel", use_container_width=True):
                     st.session_state['show_activity_delete_confirmation'] = False
                     st.session_state['activity_to_delete'] = None
+                    # Keep editing_activity so user can continue editing
                     st.rerun()
 
     else:

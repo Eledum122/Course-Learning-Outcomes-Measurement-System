@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 from models.database import Database, UserRole
+from utils.permissions import get_permissions_helper
 
 
 def load_clos_data():
@@ -115,11 +116,18 @@ def show_clo_semester_settings(db: Database, user, lang: str):
     st.title("CLO Semester Settings / إعدادات المخرجات حسب الفصل")
     st.caption("Adjust Target % and Criterion % for each semester offering")
 
-    # تحميل البيانات
+    # Initialize permissions helper
+    perm = get_permissions_helper(db, user)
+
+    # تحميل البيانات وتطبيق التصفية حسب الصلاحيات
     programs_data = load_programs_data()
-    programs = programs_data.get('programs', [])
+    all_programs = programs_data.get('programs', [])
+    programs = perm.filter_programs(all_programs)
+
     courses_data = load_courses_data()
-    courses = courses_data.get('courses', [])
+    all_courses = courses_data.get('courses', [])
+    courses = perm.filter_courses(all_courses)
+
     settings_data = load_clo_semester_settings()
     settings = settings_data.get('clo_semester_settings', [])
 

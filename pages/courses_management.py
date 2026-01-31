@@ -27,19 +27,24 @@ def show_courses_management(db: Database, user, lang: str):
         st.error(f"⛔ {t('no_permission', lang)}")
         return
 
-    # علامات التبويب
-    tab1, tab2 = st.tabs([
-        f"📋 {t('courses_list', lang)}",
-        f"➕ {t('new_course', lang)}"
-    ])
-
-    # علامة التبويب الأولى: قائمة المقررات
-    with tab1:
+    # علامات التبويب - منسق المقرر لا يمكنه إضافة مقرر جديد
+    if user.role == UserRole.COURSE_COORDINATOR:
+        # منسق المقرر يرى فقط قائمة المقررات
         show_courses_list(db, user, lang, is_rtl)
+    else:
+        # المدير ومنسق البرنامج يمكنهم إضافة مقررات
+        tab1, tab2 = st.tabs([
+            f"📋 {t('courses_list', lang)}",
+            f"➕ {t('new_course', lang)}"
+        ])
 
-    # علامة التبويب الثانية: إضافة مقرر
-    with tab2:
-        show_add_course_form(db, lang, is_rtl)
+        # علامة التبويب الأولى: قائمة المقررات
+        with tab1:
+            show_courses_list(db, user, lang, is_rtl)
+
+        # علامة التبويب الثانية: إضافة مقرر
+        with tab2:
+            show_add_course_form(db, lang, is_rtl)
 
 
 def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
@@ -68,8 +73,22 @@ def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
                 break
         programs = [p for p in all_programs if p.get('program_id') in assigned_programs]
     elif user.role == UserRole.COURSE_COORDINATOR:
-        # منسق المقرر يرى مقرراته فقط (سنصفي المقررات لاحقاً)
-        programs = all_programs
+        # منسق المقرر يرى فقط البرامج التي تحتوي على مقرراته
+        user_data = db.load_users()
+        assigned_courses = []
+        for u in user_data:
+            if u.get('user_id') == user.user_id:
+                assigned_courses = u.get('assigned_courses', [])
+                break
+        # جلب جميع المقررات للحصول على program_ids
+        all_courses = db.get_all_courses()
+        # تصفية المقررات المسندة لمنسق المقرر
+        coordinator_courses = [c for c in all_courses
+                              if c.get('course_id') in assigned_courses or c.get('coordinator_id') == user.user_id]
+        # استخراج program_ids من المقررات
+        coordinator_program_ids = set(c.get('program_id') for c in coordinator_courses if c.get('program_id'))
+        # تصفية البرامج
+        programs = [p for p in all_programs if p.get('program_id') in coordinator_program_ids]
     else:
         # المدير يرى جميع البرامج
         programs = all_programs
@@ -77,6 +96,8 @@ def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
     if not programs:
         if user.role == UserRole.PROGRAM_COORDINATOR:
             st.warning(f"⚠️ {t('no_programs_assigned', lang) if lang == 'ar' else 'No programs assigned to you'}")
+        elif user.role == UserRole.COURSE_COORDINATOR:
+            st.warning("⚠️ لا توجد مقررات مسندة إليك / No courses assigned to you")
         else:
             st.warning(f"⚠️ {t('no_programs_found', lang)}")
             st.info(f"ℹ️ {t('add_program_first', lang)}")
@@ -139,12 +160,10 @@ def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
     courses_data = []
     programs_dict = {p.get('program_id'): p.get('program_name_ar' if lang == 'ar' else 'program_name_en', '')
                      for p in programs}
-    users_dict = {u.user_id: u.full_name for u in db.get_all_users()}
 
     for course in courses:
         course_title = course.get('course_title_ar' if lang == 'ar' else 'course_title_en', '')
         program_name = programs_dict.get(course.get('program_id', ''), t('not_specified', lang))
-        coordinator_name = users_dict.get(course.get('coordinator_id', ''), t('not_specified', lang))
         status_text = t('active', lang) if course.get('is_active', True) else t('inactive', lang)
 
         courses_data.append({
@@ -153,7 +172,6 @@ def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
             t('program', lang): program_name,
             t('credit_hours', lang): course.get('credit_hours', 0),
             "الإصدار / Version": course.get('course_version', '-'),
-            t('course_coordinator', lang): coordinator_name,
             t('status', lang): status_text
         })
 
@@ -314,33 +332,6 @@ def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
             key=f'edit_prerequisites_{course_id}'
         )
 
-        # منسق المقرر
-        st.markdown(f"**{t('course_coordinator', lang)}:**")
-
-        # جلب المستخدمين الذين لديهم صلاحية منسق مقرر
-        all_users = db.get_all_users()
-        coordinators = [u for u in all_users if 'course_coordinator' in u.roles or 'admin' in u.roles]
-
-        coordinator_options = {f"{u.full_name} ({u.username})": u.user_id for u in coordinators}
-        coordinator_options["--- " + t('not_specified', lang) + " ---"] = ""
-
-        current_coordinator = selected_course.get('coordinator_id', '')
-        current_coord_index = 0
-        if current_coordinator:
-            for idx, (name, uid) in enumerate(coordinator_options.items()):
-                if uid == current_coordinator:
-                    current_coord_index = idx
-                    break
-
-        selected_coordinator_name = st.selectbox(
-            t('select_coordinator', lang),
-            options=list(coordinator_options.keys()),
-            index=current_coord_index,
-            key=f'edit_coordinator_{course_id}'
-        )
-
-        new_coordinator_id = coordinator_options[selected_coordinator_name]
-
         # الوصف
         col1, col2 = st.columns(2)
         with col1:
@@ -392,7 +383,6 @@ def show_courses_list(db: Database, user, lang: str, is_rtl: bool):
                     course_type=course_type,
                     description_ar=description_ar,
                     description_en=description_en,
-                    coordinator_id=new_coordinator_id,
                     is_active=is_active,
                     course_version=course_version
                 )
@@ -546,24 +536,6 @@ def show_add_course_form(db: Database, lang: str, is_rtl: bool):
             key='new_prerequisites'
         )
 
-        # منسق المقرر
-        st.markdown(f"**{t('course_coordinator', lang)}:**")
-
-        # جلب المستخدمين الذين لديهم صلاحية منسق مقرر
-        all_users = db.get_all_users()
-        coordinators = [u for u in all_users if 'course_coordinator' in u.roles or 'admin' in u.roles]
-
-        coordinator_options = {f"{u.full_name} ({u.username})": u.user_id for u in coordinators}
-        coordinator_options["--- " + t('not_specified', lang) + " ---"] = ""
-
-        selected_coordinator_name = st.selectbox(
-            t('select_coordinator', lang),
-            options=list(coordinator_options.keys()),
-            key='new_coordinator'
-        )
-
-        coordinator_id = coordinator_options[selected_coordinator_name]
-
         # الوصف
         col1, col2 = st.columns(2)
         with col1:
@@ -611,7 +583,6 @@ def show_add_course_form(db: Database, lang: str, is_rtl: bool):
                     course_type=course_type or "",
                     description_ar=description_ar or "",
                     description_en=description_en or "",
-                    coordinator_id=coordinator_id or "",
                     course_version=course_version or ""
                 )
 

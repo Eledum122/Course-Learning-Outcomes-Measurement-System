@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 from models.database import Database, UserRole
+from utils.permissions import get_permissions_helper
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -50,6 +51,18 @@ def load_courses_data():
         except:
             return {"courses": []}
     return {"courses": []}
+
+
+def load_programs_data():
+    """Load programs data"""
+    programs_file = Path(__file__).parent.parent / 'data' / 'programs.json'
+    if programs_file.exists():
+        try:
+            with open(programs_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return {"programs": []}
+    return {"programs": []}
 
 
 def load_section_students_data():
@@ -149,42 +162,174 @@ def show_grades_dashboard(db: Database, user, lang: str):
     st.title("📊 Student Grades Dashboard / لوحة بيانات الدرجات")
     st.caption("Comprehensive analysis of student performance and grade distribution")
 
-    # Load sections
+    # Initialize permissions helper
+    perm = get_permissions_helper(db, user)
+
+    # Load data and apply permissions filtering
     sections_data = load_sections_data()
-    sections = sections_data.get('sections', [])
+    all_sections = sections_data.get('sections', [])
+    sections = perm.filter_sections(all_sections)
+
+    programs_data = load_programs_data()
+    all_programs = programs_data.get('programs', [])
+    programs = perm.filter_programs(all_programs)
+
+    courses_data_all = load_courses_data()
+    all_courses = courses_data_all.get('courses', [])
+    courses = perm.filter_courses(all_courses)
 
     if not sections:
-        st.warning("No sections found. Please create sections first.")
+        st.warning("No sections assigned to you. Please contact your administrator.")
         return
 
-    # Section Selection
+    # Section Selection with Hierarchical Filters
     st.markdown("### Select Section / اختر الشعبة")
 
-    col1, col2 = st.columns([2, 1])
+    # Row 1: Program and Course
+    col1, col2 = st.columns(2)
 
     with col1:
-        section_options = ["-- Select Section --"]
-        section_map = {}
+        # Program filter
+        program_options = ["-- Select Program / اختر البرنامج --"]
+        program_map = {}
+        for p in programs:
+            if p.get('is_active', True):
+                display = f"{p.get('program_code', '')} - {p.get('program_name_en', '')}"
+                program_options.append(display)
+                program_map[display] = p.get('program_id')
 
-        for s in sections:
-            course_code = s.get('course_code', '')
-            section_num = s.get('section_number', '')
-            semester_code = s.get('semester_code', '')
-            year = s.get('academic_year', '')
-            gender = s.get('gender', '').split(' / ')[0] if ' / ' in s.get('gender', '') else s.get('gender', '')
+        selected_program_display = st.selectbox(
+            "Program / البرنامج",
+            program_options,
+            key="dashboard_program_filter"
+        )
 
-            option_text = f"{course_code} - Sec {section_num} ({year}/{semester_code}) - {gender}"
-            section_options.append(option_text)
-            section_map[option_text] = s
+        selected_program_id = None
+        if selected_program_display != "-- Select Program / اختر البرنامج --":
+            selected_program_id = program_map.get(selected_program_display)
 
-        selected_section_display = st.selectbox("Section / الشعبة", section_options, key="dashboard_section_select")
+    with col2:
+        # Course filter (depends on program)
+        if selected_program_id:
+            program_courses = [c for c in courses if c.get('program_id') == selected_program_id]
+            course_options = ["-- Select Course / اختر المقرر --"]
+            course_map = {}
+            for c in program_courses:
+                display = f"{c.get('course_code', '')} - {c.get('course_title_en', '')}"
+                course_options.append(display)
+                course_map[display] = c.get('course_id')
 
+            selected_course_display = st.selectbox(
+                "Course / المقرر",
+                course_options,
+                key="dashboard_course_filter"
+            )
+
+            selected_course_id = None
+            if selected_course_display != "-- Select Course / اختر المقرر --":
+                selected_course_id = course_map.get(selected_course_display)
+        else:
+            st.selectbox(
+                "Course / المقرر",
+                ["-- Select Program First / اختر البرنامج أولاً --"],
+                disabled=True,
+                key="dashboard_course_filter_disabled"
+            )
+            selected_course_id = None
+
+    # Row 2: Academic Year and Semester
+    col3, col4 = st.columns(2)
+
+    with col3:
+        # Academic Year filter
+        if selected_course_id:
+            # Get available years for this course
+            course_sections = [s for s in sections if s.get('course_id') == selected_course_id]
+            available_years = sorted(list(set(s.get('academic_year', '') for s in course_sections if s.get('academic_year'))), reverse=True)
+
+            year_options = ["-- Select Year / اختر السنة --"] + available_years
+            selected_year = st.selectbox(
+                "Academic Year / السنة الدراسية",
+                year_options,
+                key="dashboard_year_filter"
+            )
+            if selected_year == "-- Select Year / اختر السنة --":
+                selected_year = None
+        else:
+            st.selectbox(
+                "Academic Year / السنة الدراسية",
+                ["-- Select Course First / اختر المقرر أولاً --"],
+                disabled=True,
+                key="dashboard_year_filter_disabled"
+            )
+            selected_year = None
+
+    with col4:
+        # Semester filter
+        if selected_year and selected_course_id:
+            # Get available semesters for this course and year
+            year_sections = [s for s in sections if s.get('course_id') == selected_course_id and s.get('academic_year') == selected_year]
+            available_semesters = list(set(s.get('semester', '') for s in year_sections if s.get('semester')))
+
+            semester_display_options = ["-- Select Semester / اختر الفصل --"] + available_semesters
+            selected_semester = st.selectbox(
+                "Semester / الفصل الدراسي",
+                semester_display_options,
+                key="dashboard_semester_filter"
+            )
+            if selected_semester == "-- Select Semester / اختر الفصل --":
+                selected_semester = None
+        else:
+            st.selectbox(
+                "Semester / الفصل الدراسي",
+                ["-- Select Year First / اختر السنة أولاً --"],
+                disabled=True,
+                key="dashboard_semester_filter_disabled"
+            )
+            selected_semester = None
+
+    # Row 3: Section selection
+    if selected_course_id and selected_year and selected_semester:
+        # Filter sections based on all criteria
+        filtered_sections = [
+            s for s in sections
+            if s.get('course_id') == selected_course_id
+            and s.get('academic_year') == selected_year
+            and s.get('semester') == selected_semester
+        ]
+
+        if filtered_sections:
+            section_options = ["-- Select Section / اختر الشعبة --"]
+            section_map = {}
+
+            for s in filtered_sections:
+                section_num = s.get('section_number', '')
+                gender = s.get('gender', '').split(' / ')[0] if ' / ' in s.get('gender', '') else s.get('gender', '')
+                beneficiary = ""
+                if s.get('beneficiary_type') == 'external':
+                    beneficiary = f" - 🏫 {s.get('beneficiary_department_en', '')[:20]}"
+
+                option_text = f"Section {section_num} - {gender}{beneficiary}"
+                section_options.append(option_text)
+                section_map[option_text] = s
+
+            selected_section_display = st.selectbox(
+                "Section / الشعبة",
+                section_options,
+                key="dashboard_section_select"
+            )
+
+            selected_section = None
+            if selected_section_display != "-- Select Section / اختر الشعبة --":
+                selected_section = section_map.get(selected_section_display)
+        else:
+            st.warning("No sections found for the selected criteria.")
+            selected_section = None
+    else:
+        st.info("💡 Please select Program, Course, Academic Year, and Semester to filter sections")
         selected_section = None
-        if selected_section_display != "-- Select Section --":
-            selected_section = section_map.get(selected_section_display)
 
     if not selected_section:
-        st.info("Please select a section to view the dashboard")
         return
 
     section_id = selected_section.get('section_id')
@@ -199,13 +344,13 @@ def show_grades_dashboard(db: Database, user, lang: str):
     # Count students by status
     total_all_students = len(section_students)
     regular_students = [s for s in section_students if s.get('status') == 'Regular']
-    excused_students = [s for s in section_students if s.get('status') == 'Excused']  # معتذر
-    denied_students = [s for s in section_students if s.get('status') == 'Denied']    # محروم
+    dropped_students = [s for s in section_students if s.get('status') == 'Dropped']  # معتذر
+    prohibited_students = [s for s in section_students if s.get('status') == 'Prohibited']    # محروم
     incomplete_students = [s for s in section_students if s.get('status') == 'Incomplete']  # غير مكمل
 
     regular_count = len(regular_students)
-    excused_count = len(excused_students)
-    denied_count = len(denied_students)
+    dropped_count = len(dropped_students)
+    prohibited_count = len(prohibited_students)
     incomplete_count = len(incomplete_students)
 
     if not regular_students:
@@ -250,7 +395,15 @@ def show_grades_dashboard(db: Database, user, lang: str):
     # ===============================
     # Dashboard Header
     # ===============================
-    st.markdown(f"""
+    # Build beneficiary text if external teaching
+    beneficiary_text = ""
+    if selected_section.get('beneficiary_type') == 'external':
+        ben_college = selected_section.get('beneficiary_college_en', '')
+        ben_dept = selected_section.get('beneficiary_department_en', '')
+        beneficiary_text = f"Beneficiary: {ben_college} / {ben_dept}"
+
+    # Build header HTML
+    header_html = f"""
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 padding: 25px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
         <h2 style="color: white; margin: 0;">📊 Student Performance Dashboard</h2>
@@ -263,8 +416,14 @@ def show_grades_dashboard(db: Database, user, lang: str):
             Semester: {selected_section.get('semester_code')} {selected_section.get('academic_year')} |
             Students: {len(regular_students)}
         </p>
-    </div>
-    """, unsafe_allow_html=True)
+    """
+
+    if beneficiary_text:
+        header_html += f'<p style="color: #ffd700; margin: 5px 0; font-size: 14px;">🏫 {beneficiary_text}</p>'
+
+    header_html += "</div>"
+
+    st.markdown(header_html, unsafe_allow_html=True)
 
     # ===============================
     # Student Status Statistics
@@ -295,8 +454,8 @@ def show_grades_dashboard(db: Database, user, lang: str):
         st.markdown(f"""
         <div style="background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
                     padding: 12px; border-radius: 12px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">Excused / معتذر</p>
-            <p style="color: white; margin: 0; font-size: 36px; font-weight: bold; line-height: 1.2;">{excused_count}</p>
+            <p style="color: white; margin: 0; font-size: 12px;">Dropped / معتذر</p>
+            <p style="color: white; margin: 0; font-size: 36px; font-weight: bold; line-height: 1.2;">{dropped_count}</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -304,8 +463,8 @@ def show_grades_dashboard(db: Database, user, lang: str):
         st.markdown(f"""
         <div style="background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
                     padding: 12px; border-radius: 12px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">Denied / محروم</p>
-            <p style="color: white; margin: 0; font-size: 36px; font-weight: bold; line-height: 1.2;">{denied_count}</p>
+            <p style="color: white; margin: 0; font-size: 12px;">Prohibited / محروم</p>
+            <p style="color: white; margin: 0; font-size: 36px; font-weight: bold; line-height: 1.2;">{prohibited_count}</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -675,130 +834,188 @@ def show_grades_dashboard(db: Database, user, lang: str):
         )
 
     with col2:
-        # Generate PDF Report
+        # Generate PDF Report (English Only)
         def generate_pdf_report():
-            """Generate PDF report with all dashboard data"""
+            """Generate PDF report with all dashboard data - English only"""
             from io import BytesIO
             from reportlab.lib import colors
             from reportlab.lib.pagesizes import A4
             from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
             from reportlab.lib.units import inch, cm
-            from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, Image
-            from reportlab.lib.enums import TA_CENTER, TA_RIGHT
-            from reportlab.pdfbase import pdfmetrics
-            from reportlab.pdfbase.ttfonts import TTFont
+            from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+            from reportlab.lib.enums import TA_CENTER, TA_LEFT
 
             buffer = BytesIO()
             doc = SimpleDocTemplate(buffer, pagesize=A4, rightMargin=1*cm, leftMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
 
             styles = getSampleStyleSheet()
-            title_style = ParagraphStyle('Title', parent=styles['Heading1'], alignment=TA_CENTER, fontSize=18, spaceAfter=20)
-            subtitle_style = ParagraphStyle('Subtitle', parent=styles['Heading2'], alignment=TA_CENTER, fontSize=14, spaceAfter=10)
-            section_style = ParagraphStyle('Section', parent=styles['Heading3'], fontSize=12, spaceAfter=10, spaceBefore=15)
+
+            # Custom styles
+            title_style = ParagraphStyle(
+                'CustomTitle',
+                parent=styles['Heading1'],
+                alignment=TA_CENTER,
+                fontSize=20,
+                spaceAfter=15,
+                textColor=colors.HexColor('#1565c0')
+            )
+            section_style = ParagraphStyle(
+                'CustomSection',
+                parent=styles['Heading3'],
+                fontSize=14,
+                spaceAfter=10,
+                spaceBefore=20,
+                textColor=colors.HexColor('#333333')
+            )
 
             elements = []
 
-            # Title
+            # ===== HEADER =====
             elements.append(Paragraph("Student Grades Dashboard", title_style))
-            elements.append(Paragraph("لوحة بيانات درجات الطلاب", subtitle_style))
+            elements.append(Spacer(1, 0.2*inch))
+
+            # ===== COURSE INFO BOX =====
+            beneficiary_row = []
+            if selected_section.get('beneficiary_type') == 'external':
+                ben_college = selected_section.get('beneficiary_college_en', '')
+                ben_dept = selected_section.get('beneficiary_department_en', '')
+                beneficiary_row = [['Beneficiary', f"{ben_college} / {ben_dept}"]]
+
+            info_data = [
+                ['Course', f"{course_data.get('course_code', '')} - {course_data.get('course_title_en', '')}"],
+                ['Section', str(selected_section.get('section_number', ''))],
+                ['Semester', f"{selected_section.get('semester_code', '')} {selected_section.get('academic_year', '')}"],
+                ['Students', f"{len(regular_students)} Regular"],
+                ['Report Date', datetime.now().strftime('%Y-%m-%d %H:%M')],
+            ] + beneficiary_row
+
+            info_table = Table(info_data, colWidths=[4*cm, 14*cm])
+            info_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (0, -1), colors.HexColor('#f0f0f0')),
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
+                ('ALIGN', (0, 0), (0, -1), 'RIGHT'),
+                ('ALIGN', (1, 0), (1, -1), 'LEFT'),
+                ('TOPPADDING', (0, 0), (-1, -1), 6),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+                ('LEFTPADDING', (0, 0), (-1, -1), 10),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 10),
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor('#1565c0')),
+                ('LINEBELOW', (0, 0), (-1, -2), 0.5, colors.HexColor('#cccccc')),
+            ]))
+            elements.append(info_table)
             elements.append(Spacer(1, 0.3*inch))
 
-            # Course Info
-            course_info = f"""
-            <b>Course:</b> {course_data.get('course_code', '')} - {course_data.get('course_title_en', '')}<br/>
-            <b>Section:</b> {selected_section.get('section_number')}<br/>
-            <b>Semester:</b> {selected_section.get('semester_code')} {selected_section.get('academic_year')}<br/>
-            <b>Report Date:</b> {datetime.now().strftime('%Y-%m-%d %H:%M')}
-            """
-            elements.append(Paragraph(course_info, styles['Normal']))
-            elements.append(Spacer(1, 0.3*inch))
-
-            # Student Status Table
-            elements.append(Paragraph("Student Status / حالة الطلاب", section_style))
+            # ===== STUDENT STATUS =====
+            elements.append(Paragraph("Student Status", section_style))
             status_data = [
-                ['Total', 'Regular', 'Excused', 'Denied', 'Incomplete'],
-                [str(total_all_students), str(regular_count), str(excused_count), str(denied_count), str(incomplete_count)]
+                ['Total', 'Regular', 'Dropped', 'Prohibited', 'Incomplete'],
+                [str(total_all_students), str(regular_count), str(dropped_count), str(prohibited_count), str(incomplete_count)]
             ]
-            status_table = Table(status_data, colWidths=[3*cm]*5)
+            status_colors = ['#2196F3', '#4CAF50', '#FF9800', '#f44336', '#9C27B0']
+            status_table = Table(status_data, colWidths=[3.6*cm]*5)
             status_table.setStyle(TableStyle([
-                ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
+                ('BACKGROUND', (0, 0), (0, 0), colors.HexColor(status_colors[0])),
+                ('BACKGROUND', (1, 0), (1, 0), colors.HexColor(status_colors[1])),
+                ('BACKGROUND', (2, 0), (2, 0), colors.HexColor(status_colors[2])),
+                ('BACKGROUND', (3, 0), (3, 0), colors.HexColor(status_colors[3])),
+                ('BACKGROUND', (4, 0), (4, 0), colors.HexColor(status_colors[4])),
                 ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
                 ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                ('FONTSIZE', (0, 0), (-1, -1), 10),
-                ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
-                ('TOPPADDING', (0, 0), (-1, -1), 8),
-                ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                ('FONTSIZE', (0, 0), (-1, 0), 10),
+                ('FONTSIZE', (0, 1), (-1, 1), 16),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+                ('TOPPADDING', (0, 0), (-1, -1), 10),
+                ('BOX', (0, 0), (-1, -1), 1, colors.black),
+                ('LINEBELOW', (0, 0), (-1, 0), 1, colors.black),
             ]))
             elements.append(status_table)
             elements.append(Spacer(1, 0.3*inch))
 
-            # Statistics Table
-            elements.append(Paragraph("Key Statistics / الإحصائيات الرئيسية", section_style))
+            # ===== KEY STATISTICS =====
+            elements.append(Paragraph("Key Statistics", section_style))
             stats_data = [
                 ['Mean', 'Median', 'Std Dev', 'Min', 'Max', 'Pass Rate'],
                 [f"{mean_pct:.1f}%", f"{median_pct:.1f}%", f"{std_pct:.1f}%", f"{min_pct:.1f}%", f"{max_pct:.1f}%", f"{pass_rate:.1f}%"]
             ]
-            stats_table = Table(stats_data, colWidths=[2.5*cm]*6)
+            stats_table = Table(stats_data, colWidths=[3*cm]*6)
             stats_table.setStyle(TableStyle([
                 ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#667eea')),
                 ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+                ('BACKGROUND', (0, 1), (-1, 1), colors.HexColor('#f8f9fa')),
                 ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                ('FONTSIZE', (0, 0), (-1, -1), 10),
-                ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
-                ('TOPPADDING', (0, 0), (-1, -1), 8),
-                ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                ('FONTSIZE', (0, 0), (-1, 0), 10),
+                ('FONTSIZE', (0, 1), (-1, 1), 12),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+                ('TOPPADDING', (0, 0), (-1, -1), 10),
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor('#667eea')),
+                ('LINEBELOW', (0, 0), (-1, 0), 1, colors.HexColor('#667eea')),
             ]))
             elements.append(stats_table)
             elements.append(Spacer(1, 0.3*inch))
 
-            # Grade Breakdown Table
-            elements.append(Paragraph("Grade Breakdown / توزيع الدرجات", section_style))
+            # ===== GRADE BREAKDOWN =====
+            elements.append(Paragraph("Grade Breakdown", section_style))
             grade_data = [['Grade', 'Code', 'Range', 'Count', '%']]
             for grade in GRADE_SCALE:
                 count = len(df[df['grade_code'] == grade['code']])
                 pct = (count / len(df) * 100) if len(df) > 0 else 0
                 grade_data.append([grade['grade'], grade['code'], f"{grade['min']}-{grade['max']}%", str(count), f"{pct:.1f}%"])
 
-            grade_table = Table(grade_data, colWidths=[4*cm, 1.5*cm, 3*cm, 2*cm, 2*cm])
-            grade_table.setStyle(TableStyle([
+            grade_table = Table(grade_data, colWidths=[4.5*cm, 2*cm, 4*cm, 3*cm, 3*cm])
+            grade_style = [
                 ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#4CAF50')),
                 ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
                 ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
                 ('FONTSIZE', (0, 0), (-1, -1), 9),
-                ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-                ('TOPPADDING', (0, 0), (-1, -1), 6),
-                ('GRID', (0, 0), (-1, -1), 1, colors.black),
-                ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f5f5f5')]),
-            ]))
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 7),
+                ('TOPPADDING', (0, 0), (-1, -1), 7),
+                ('BOX', (0, 0), (-1, -1), 1, colors.black),
+                ('LINEBELOW', (0, 0), (-1, -1), 0.5, colors.HexColor('#dddddd')),
+            ]
+            # Add colored backgrounds for each grade row
+            for i, grade in enumerate(GRADE_SCALE):
+                grade_style.append(('BACKGROUND', (1, i+1), (1, i+1), colors.HexColor(grade['color'])))
+                grade_style.append(('TEXTCOLOR', (1, i+1), (1, i+1), colors.white))
+
+            grade_table.setStyle(TableStyle(grade_style))
             elements.append(grade_table)
             elements.append(Spacer(1, 0.3*inch))
 
-            # Student Results Table
-            elements.append(Paragraph("Student Results / نتائج الطلاب", section_style))
-            results_data = [['#', 'Student No', 'Name', 'Marks', '%', 'Grade']]
+            # ===== STUDENT RESULTS =====
+            elements.append(Paragraph("Student Results", section_style))
+            results_data = [['Rank', 'Student No', 'Student Name', 'Total', '%', 'Grade']]
             sorted_df = df.sort_values('percentage', ascending=False)
             for i, (_, row) in enumerate(sorted_df.iterrows(), 1):
                 results_data.append([
                     str(i),
-                    row['student_no'],
-                    row['student_name'][:20] + '...' if len(str(row['student_name'])) > 20 else row['student_name'],
+                    str(row['student_no']),
+                    str(row['student_name'])[:25],
                     f"{row['total_marks']:.1f}",
                     f"{row['percentage']:.1f}%",
                     row['grade_code']
                 ])
 
-            results_table = Table(results_data, colWidths=[1*cm, 2.5*cm, 5*cm, 2*cm, 2*cm, 1.5*cm])
-            results_table.setStyle(TableStyle([
+            results_table = Table(results_data, colWidths=[1.2*cm, 3*cm, 6*cm, 2.5*cm, 2.5*cm, 2*cm])
+            results_style = [
                 ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
                 ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
                 ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
                 ('ALIGN', (2, 1), (2, -1), 'LEFT'),
-                ('FONTSIZE', (0, 0), (-1, -1), 8),
+                ('FONTSIZE', (0, 0), (-1, 0), 9),
+                ('FONTSIZE', (0, 1), (-1, -1), 8),
                 ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
                 ('TOPPADDING', (0, 0), (-1, -1), 5),
-                ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-                ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f0f0f0')]),
-            ]))
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor('#1565c0')),
+                ('LINEBELOW', (0, 0), (-1, 0), 1, colors.HexColor('#1565c0')),
+                ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f5f5f5')]),
+            ]
+            # Color the grade column based on grade
+            for i, (_, row) in enumerate(sorted_df.iterrows(), 1):
+                grade_info = get_grade_info(row['percentage'])
+                results_style.append(('BACKGROUND', (5, i), (5, i), colors.HexColor(grade_info['color'])))
+                results_style.append(('TEXTCOLOR', (5, i), (5, i), colors.white))
+
+            results_table.setStyle(TableStyle(results_style))
             elements.append(results_table)
 
             doc.build(elements)
@@ -808,7 +1025,7 @@ def show_grades_dashboard(db: Database, user, lang: str):
         try:
             pdf_data = generate_pdf_report()
             st.download_button(
-                label="📄 PDF تحميل",
+                label="Download PDF",
                 data=pdf_data,
                 file_name=f"Grades_Dashboard_{course_data.get('course_code', '')}_{selected_section.get('section_number')}.pdf",
                 mime="application/pdf",

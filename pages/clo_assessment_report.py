@@ -8,7 +8,21 @@ import pandas as pd
 import json
 from pathlib import Path
 from datetime import datetime
+from io import BytesIO
 from models.database import Database, UserRole
+from utils.permissions import get_permissions_helper
+
+# PDF generation imports
+try:
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib import colors
+    from reportlab.lib.units import cm
+    from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.lib.enums import TA_CENTER, TA_LEFT
+    PDF_AVAILABLE = True
+except ImportError:
+    PDF_AVAILABLE = False
 
 
 def load_sections_data():
@@ -33,6 +47,41 @@ def load_courses_data():
         except:
             return {"courses": []}
     return {"courses": []}
+
+
+def load_programs_data():
+    """Load programs data"""
+    programs_file = Path(__file__).parent.parent / 'data' / 'programs.json'
+    if programs_file.exists():
+        try:
+            with open(programs_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return {"programs": []}
+    return {"programs": []}
+
+
+def load_faculty_data():
+    """Load faculty data"""
+    faculty_file = Path(__file__).parent.parent / 'data' / 'faculty.json'
+    if faculty_file.exists():
+        try:
+            with open(faculty_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return {"faculty": []}
+    return {"faculty": []}
+
+
+def get_instructor_name(instructor_id):
+    """Get instructor name by ID"""
+    if not instructor_id:
+        return ""
+    faculty_data = load_faculty_data()
+    for member in faculty_data.get('faculty', []):
+        if member.get('faculty_id') == instructor_id:
+            return member.get('name_en', member.get('name_ar', ''))
+    return ""
 
 
 def load_clos_data():
@@ -249,58 +298,424 @@ def get_assessment_result(actual_level, target_level):
         return "Target not Achieved", "#dc3545"  # Red
 
 
+def generate_pdf_report(course_data, section_data, report_data, instructor_name, beneficiary_text, regular_students_count, summary_stats):
+    """Generate a styled PDF report"""
+    if not PDF_AVAILABLE:
+        return None
+
+    buffer = BytesIO()
+
+    # Create PDF document
+    doc = SimpleDocTemplate(
+        buffer,
+        pagesize=A4,
+        rightMargin=1.5*cm,
+        leftMargin=1.5*cm,
+        topMargin=1.5*cm,
+        bottomMargin=1.5*cm
+    )
+
+    # Create styles
+    styles = getSampleStyleSheet()
+
+    styles.add(ParagraphStyle(
+        name='ReportTitle',
+        fontSize=16,
+        alignment=TA_CENTER,
+        textColor=colors.HexColor('#1565c0'),
+        spaceAfter=10,
+        fontName='Helvetica-Bold'
+    ))
+
+    styles.add(ParagraphStyle(
+        name='ReportSubtitle',
+        fontSize=12,
+        alignment=TA_CENTER,
+        textColor=colors.HexColor('#333333'),
+        spaceAfter=5,
+        fontName='Helvetica'
+    ))
+
+    styles.add(ParagraphStyle(
+        name='SectionHeader',
+        fontSize=12,
+        alignment=TA_LEFT,
+        textColor=colors.HexColor('#1565c0'),
+        spaceBefore=15,
+        spaceAfter=10,
+        fontName='Helvetica-Bold'
+    ))
+
+    styles.add(ParagraphStyle(
+        name='TableCell',
+        fontSize=9,
+        alignment=TA_CENTER,
+        fontName='Helvetica'
+    ))
+
+    styles.add(ParagraphStyle(
+        name='TableCellLeft',
+        fontSize=9,
+        alignment=TA_LEFT,
+        fontName='Helvetica'
+    ))
+
+    story = []
+
+    # Title
+    story.append(Paragraph("Course Learning Outcomes Assessment Results", styles['ReportTitle']))
+    story.append(Spacer(1, 0.3*cm))
+
+    # Course info header
+    header_data = [
+        ["Course:", f"{course_data.get('course_code', '')} - {course_data.get('course_title_en', '')}"],
+        ["Section:", section_data.get('section_number', '')],
+        ["Semester:", f"{section_data.get('semester_code', '')} {section_data.get('academic_year', '')}"],
+        ["Students:", str(regular_students_count)],
+    ]
+
+    if instructor_name:
+        header_data.append(["Instructor:", instructor_name])
+
+    if beneficiary_text:
+        header_data.append(["Beneficiary:", beneficiary_text])
+
+    header_table = Table(header_data, colWidths=[3*cm, 14*cm])
+    header_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (0, -1), colors.HexColor('#E3F2FD')),
+        ('FONTNAME', (0, 0), (0, -1), 'Helvetica-Bold'),
+        ('FONTNAME', (1, 0), (1, -1), 'Helvetica'),
+        ('FONTSIZE', (0, 0), (-1, -1), 10),
+        ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+        ('ALIGN', (1, 0), (1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('GRID', (0, 0), (-1, -1), 1, colors.HexColor('#BBDEFB')),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+    ]))
+    story.append(header_table)
+    story.append(Spacer(1, 0.5*cm))
+
+    # CLO Results section
+    story.append(Paragraph("Assessment Results", styles['SectionHeader']))
+
+    # CLO Results table header
+    clo_header = [
+        Paragraph("<b>CLO</b>", styles['TableCell']),
+        Paragraph("<b>Description</b>", styles['TableCellLeft']),
+        Paragraph("<b>Criterion</b>", styles['TableCell']),
+        Paragraph("<b>Target</b>", styles['TableCell']),
+        Paragraph("<b>Actual</b>", styles['TableCell']),
+        Paragraph("<b>Result</b>", styles['TableCell']),
+    ]
+
+    clo_data = [clo_header]
+
+    for row in report_data:
+        result_text = row.get('Result', '')
+        clo_row = [
+            Paragraph(row.get('CLO Code', ''), styles['TableCell']),
+            Paragraph(row.get('Description', '')[:60] + ('...' if len(row.get('Description', '')) > 60 else ''), styles['TableCellLeft']),
+            Paragraph(row.get('Criterion', ''), styles['TableCell']),
+            Paragraph(row.get('Target', ''), styles['TableCell']),
+            Paragraph(row.get('Actual', ''), styles['TableCell']),
+            Paragraph(result_text, styles['TableCell']),
+        ]
+        clo_data.append(clo_row)
+
+    clo_table = Table(clo_data, colWidths=[1.5*cm, 7*cm, 2*cm, 2*cm, 2*cm, 2.5*cm])
+
+    # Build table style with row coloring
+    table_style_commands = [
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, -1), 9),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('ALIGN', (1, 1), (1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('GRID', (0, 0), (-1, -1), 1, colors.HexColor('#BBDEFB')),
+        ('LEFTPADDING', (0, 0), (-1, -1), 5),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+    ]
+
+    # Color result cells based on achievement
+    for i, row in enumerate(report_data, start=1):
+        if row.get('Result') == 'Target Achieved':
+            table_style_commands.append(('BACKGROUND', (5, i), (5, i), colors.HexColor('#C8E6C9')))
+            table_style_commands.append(('TEXTCOLOR', (5, i), (5, i), colors.HexColor('#2E7D32')))
+        else:
+            table_style_commands.append(('BACKGROUND', (5, i), (5, i), colors.HexColor('#FFCDD2')))
+            table_style_commands.append(('TEXTCOLOR', (5, i), (5, i), colors.HexColor('#C62828')))
+
+    clo_table.setStyle(TableStyle(table_style_commands))
+    story.append(clo_table)
+    story.append(Spacer(1, 0.5*cm))
+
+    # Summary section
+    story.append(Paragraph("Summary", styles['SectionHeader']))
+
+    summary_data = [
+        ["Total CLOs", "Achieved", "Not Achieved", "Achievement Rate"],
+        [
+            str(summary_stats['total']),
+            str(summary_stats['achieved']),
+            str(summary_stats['not_achieved']),
+            f"{summary_stats['rate']:.1f}%"
+        ]
+    ]
+
+    summary_table = Table(summary_data, colWidths=[4.25*cm, 4.25*cm, 4.25*cm, 4.25*cm])
+    summary_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+        ('FONTSIZE', (0, 0), (-1, -1), 11),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('GRID', (0, 0), (-1, -1), 1, colors.HexColor('#BBDEFB')),
+        ('TOPPADDING', (0, 0), (-1, -1), 10),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+    ]))
+    story.append(summary_table)
+    story.append(Spacer(1, 0.5*cm))
+
+    # Overall assessment
+    if summary_stats['rate'] >= 70:
+        assessment_text = f"Overall Assessment: The course learning outcomes are generally achieved ({summary_stats['rate']:.1f}%)"
+        assessment_color = colors.HexColor('#2E7D32')
+    elif summary_stats['rate'] >= 50:
+        assessment_text = f"Overall Assessment: Partial achievement of course learning outcomes ({summary_stats['rate']:.1f}%)"
+        assessment_color = colors.HexColor('#F57C00')
+    else:
+        assessment_text = f"Overall Assessment: Course learning outcomes need improvement ({summary_stats['rate']:.1f}%)"
+        assessment_color = colors.HexColor('#C62828')
+
+    assessment_style = ParagraphStyle(
+        name='Assessment',
+        fontSize=11,
+        alignment=TA_CENTER,
+        textColor=assessment_color,
+        fontName='Helvetica-Bold'
+    )
+    story.append(Paragraph(assessment_text, assessment_style))
+    story.append(Spacer(1, 0.5*cm))
+
+    # Report date
+    date_style = ParagraphStyle(
+        name='DateStyle',
+        fontSize=9,
+        alignment=TA_CENTER,
+        textColor=colors.HexColor('#666666'),
+        fontName='Helvetica'
+    )
+    story.append(Paragraph(f"Report generated on: {datetime.now().strftime('%Y-%m-%d %H:%M')}", date_style))
+
+    # Build PDF
+    doc.build(story)
+    buffer.seek(0)
+    return buffer
+
+
 def show_clo_assessment_report(db: Database, user, lang: str):
     """Display CLO Assessment Report page"""
 
     st.title("CLO Assessment Report / تقرير قياس المخرجات")
     st.caption("Course Learning Outcomes Assessment Results")
 
-    # Load sections
+    # Initialize permissions helper
+    perm = get_permissions_helper(db, user)
+
+    # Load sections and apply permissions filtering
     sections_data = load_sections_data()
-    sections = sections_data.get('sections', [])
+    all_sections = sections_data.get('sections', [])
+    sections = perm.filter_sections(all_sections)
 
     if not sections:
-        st.warning("No sections found. Please create sections first.")
+        st.warning("No sections assigned to you. Please contact your administrator.")
         return
 
     # ===============================
-    # Section 1: Select Section
+    # Section 1: Select Section (with filters)
     # ===============================
     st.markdown("### 1. Select Section / اختر الشعبة")
 
+    # Load additional data for filters and apply permissions
+    programs_data = load_programs_data()
+    all_programs = programs_data.get('programs', [])
+    programs = perm.filter_programs(all_programs)
+
+    courses_data = load_courses_data()
+    all_courses = courses_data.get('courses', [])
+    courses = perm.filter_courses(all_courses)
+
+    # Row 1: Program and Course
     col1, col2 = st.columns(2)
 
     with col1:
-        section_options = ["-- Select Section --"]
-        section_map = {}
+        # Program filter
+        program_options = ["-- Select Program / اختر البرنامج --"]
+        program_map = {}
+        for p in programs:
+            if p.get('is_active', True):
+                display = f"{p.get('program_code', '')} - {p.get('program_name_en', '')}"
+                program_options.append(display)
+                program_map[display] = p.get('program_id')
 
-        for s in sections:
-            course_code = s.get('course_code', '')
-            section_num = s.get('section_number', '')
-            semester_code = s.get('semester_code', '')
-            year = s.get('academic_year', '')
-            gender = s.get('gender', '').split(' / ')[0] if ' / ' in s.get('gender', '') else s.get('gender', '')
+        selected_program_display = st.selectbox(
+            "Program / البرنامج *",
+            program_options,
+            key="report_program_filter"
+        )
 
-            option_text = f"{course_code} - Sec {section_num} ({year}/{semester_code}) - {gender}"
-            section_options.append(option_text)
-            section_map[option_text] = s
-
-        selected_section_display = st.selectbox("Section / الشعبة", section_options, key="report_section_select")
-
-        selected_section = None
-        if selected_section_display != "-- Select Section --":
-            selected_section = section_map.get(selected_section_display)
+        selected_program_id = None
+        if selected_program_display != "-- Select Program / اختر البرنامج --":
+            selected_program_id = program_map.get(selected_program_display)
 
     with col2:
-        if selected_section:
-            st.info(f"""
-            **Course:** {selected_section.get('course_code')}
-            **Section:** {selected_section.get('section_number')}
-            **Semester:** {selected_section.get('semester_code')}
-            """)
+        # Course filter (depends on program)
+        if selected_program_id:
+            program_courses = [c for c in courses if c.get('program_id') == selected_program_id]
+            course_options = ["-- Select Course / اختر المقرر --"]
+            course_map = {}
+            for c in program_courses:
+                display = f"{c.get('course_code', '')} - {c.get('course_title_en', '')}"
+                course_options.append(display)
+                course_map[display] = c.get('course_id')
+
+            selected_course_display = st.selectbox(
+                "Course / المقرر *",
+                course_options,
+                key="report_course_filter"
+            )
+
+            selected_course_id = None
+            if selected_course_display != "-- Select Course / اختر المقرر --":
+                selected_course_id = course_map.get(selected_course_display)
+        else:
+            st.selectbox(
+                "Course / المقرر *",
+                ["-- Select Program First / اختر البرنامج أولاً --"],
+                disabled=True,
+                key="report_course_filter_disabled"
+            )
+            selected_course_id = None
+
+    # Row 2: Academic Year and Semester
+    col3, col4 = st.columns(2)
+
+    with col3:
+        # Academic Year filter
+        if selected_course_id:
+            # Get available years for this course
+            course_sections = [s for s in sections if s.get('course_id') == selected_course_id]
+            available_years = sorted(list(set(s.get('academic_year', '') for s in course_sections if s.get('academic_year'))), reverse=True)
+
+            year_options = ["-- Select Year / اختر السنة --"] + available_years
+            selected_year = st.selectbox(
+                "Academic Year / السنة الدراسية *",
+                year_options,
+                key="report_year_filter"
+            )
+            if selected_year == "-- Select Year / اختر السنة --":
+                selected_year = None
+        else:
+            st.selectbox(
+                "Academic Year / السنة الدراسية *",
+                ["-- Select Course First / اختر المقرر أولاً --"],
+                disabled=True,
+                key="report_year_filter_disabled"
+            )
+            selected_year = None
+
+    with col4:
+        # Semester filter
+        if selected_year and selected_course_id:
+            # Get available semesters for this course and year
+            year_sections = [s for s in sections if s.get('course_id') == selected_course_id and s.get('academic_year') == selected_year]
+            available_semesters = list(set(s.get('semester', '') for s in year_sections if s.get('semester')))
+
+            semester_display_options = ["-- Select Semester / اختر الفصل --"] + available_semesters
+            selected_semester = st.selectbox(
+                "Semester / الفصل الدراسي *",
+                semester_display_options,
+                key="report_semester_filter"
+            )
+            if selected_semester == "-- Select Semester / اختر الفصل --":
+                selected_semester = None
+        else:
+            st.selectbox(
+                "Semester / الفصل الدراسي *",
+                ["-- Select Year First / اختر السنة أولاً --"],
+                disabled=True,
+                key="report_semester_filter_disabled"
+            )
+            selected_semester = None
+
+    # Row 3: Section selection
+    st.markdown("---")
+
+    if selected_course_id and selected_year and selected_semester:
+        # Filter sections based on all criteria
+        filtered_sections = [
+            s for s in sections
+            if s.get('course_id') == selected_course_id
+            and s.get('academic_year') == selected_year
+            and s.get('semester') == selected_semester
+        ]
+
+        if filtered_sections:
+            section_options = ["-- Select Section / اختر الشعبة --"]
+            section_map = {}
+
+            for s in filtered_sections:
+                section_num = s.get('section_number', '')
+                gender = s.get('gender', '').split(' / ')[0] if ' / ' in s.get('gender', '') else s.get('gender', '')
+                beneficiary = ""
+                if s.get('beneficiary_type') == 'external':
+                    beneficiary = f" - 🏫 {s.get('beneficiary_department_en', '')[:20]}"
+
+                option_text = f"Section {section_num} - {gender}{beneficiary}"
+                section_options.append(option_text)
+                section_map[option_text] = s
+
+            col5, col6 = st.columns(2)
+
+            with col5:
+                selected_section_display = st.selectbox(
+                    "Section / الشعبة *",
+                    section_options,
+                    key="report_section_select"
+                )
+
+                selected_section = None
+                if selected_section_display != "-- Select Section / اختر الشعبة --":
+                    selected_section = section_map.get(selected_section_display)
+
+            with col6:
+                if selected_section:
+                    beneficiary_info = ""
+                    if selected_section.get('beneficiary_type') == 'external':
+                        beneficiary_info = f"\n**Beneficiary:** 🏫 {selected_section.get('beneficiary_college_en', '')} / {selected_section.get('beneficiary_department_en', '')}"
+
+                    st.success(f"""
+                    **Course:** {selected_section.get('course_code')}
+                    **Section:** {selected_section.get('section_number')}
+                    **Semester:** {selected_section.get('academic_year')} - {selected_section.get('semester_code')}{beneficiary_info}
+                    """)
+        else:
+            st.warning("No sections found for the selected criteria. Please check your selection.")
+            selected_section = None
+    else:
+        st.info("💡 Please select Program, Course, Academic Year, and Semester to filter sections")
+        selected_section = None
 
     if not selected_section:
-        st.info("Please select a section to generate the report")
         return
 
     section_id = selected_section.get('section_id')
@@ -333,6 +748,21 @@ def show_clo_assessment_report(db: Database, user, lang: str):
     # Count regular students
     regular_students = [s for s in section_students if s.get('status') == 'Regular']
 
+    # Get instructor name
+    instructor_name = get_instructor_name(selected_section.get('instructor_id'))
+
+    # Get beneficiary info
+    beneficiary_text = ""
+    if selected_section.get('beneficiary_type') == 'external':
+        beneficiary_college = selected_section.get('beneficiary_college_en', selected_section.get('beneficiary_college_ar', ''))
+        beneficiary_dept = selected_section.get('beneficiary_department_en', selected_section.get('beneficiary_department_ar', ''))
+        beneficiary_text = f"Beneficiary: {beneficiary_college} - {beneficiary_dept}"
+
+    # Instructor text
+    instructor_text = ""
+    if instructor_name:
+        instructor_text = f"Instructor: {instructor_name}"
+
     st.markdown("---")
 
     # ===============================
@@ -351,6 +781,8 @@ def show_clo_assessment_report(db: Database, user, lang: str):
             Semester: {selected_section.get('semester_code')} {selected_section.get('academic_year')} |
             Students: {len(regular_students)}
         </p>
+        <p style="color: #c8e6c9; margin: 5px 0;">{instructor_text}</p>
+        <p style="color: #ffeb3b; margin: 5px 0; font-weight: bold;">{beneficiary_text}</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -529,7 +961,7 @@ def show_clo_assessment_report(db: Database, user, lang: str):
     # ===============================
     st.markdown("### 4. Export / تصدير")
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         if report_data:
@@ -537,20 +969,49 @@ def show_clo_assessment_report(db: Database, user, lang: str):
             df_export = pd.DataFrame(report_data)
 
             # Convert to Excel
-            from io import BytesIO
             output = BytesIO()
             with pd.ExcelWriter(output, engine='openpyxl') as writer:
                 df_export.to_excel(writer, index=False, sheet_name='CLO Assessment')
             output.seek(0)
 
             st.download_button(
-                label="Download Excel Report / تحميل التقرير",
+                label="📊 Download Excel",
                 data=output,
                 file_name=f"CLO_Assessment_{course_data.get('course_code', '')}_{selected_section.get('section_number')}.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True,
-                type="primary"
+                use_container_width=True
             )
 
     with col2:
+        if report_data and PDF_AVAILABLE:
+            # Prepare summary stats
+            summary_stats = {
+                'total': total_clos,
+                'achieved': achieved_count,
+                'not_achieved': total_clos - achieved_count,
+                'rate': achievement_rate
+            }
+
+            # Generate PDF
+            pdf_buffer = generate_pdf_report(
+                course_data,
+                selected_section,
+                report_data,
+                instructor_text.replace("Instructor: ", "") if instructor_text else "",
+                beneficiary_text.replace("Beneficiary: ", "") if beneficiary_text else "",
+                len(regular_students),
+                summary_stats
+            )
+
+            if pdf_buffer:
+                st.download_button(
+                    label="📄 Download PDF",
+                    data=pdf_buffer,
+                    file_name=f"CLO_Assessment_{course_data.get('course_code', '')}_{selected_section.get('section_number')}.pdf",
+                    mime="application/pdf",
+                    use_container_width=True,
+                    type="primary"
+                )
+
+    with col3:
         st.info("Report generated on: " + datetime.now().strftime("%Y-%m-%d %H:%M"))

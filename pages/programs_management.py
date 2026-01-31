@@ -5,9 +5,23 @@ Academic Programs Management Page
 
 import streamlit as st
 import pandas as pd
+import json
+from pathlib import Path
 from models.database import Database, UserRole
 from translations import t
 from pages.plos_management_section import show_plos_management
+
+
+def load_faculty_data():
+    """Load faculty members data"""
+    faculty_file = Path(__file__).parent.parent / 'data' / 'faculty.json'
+    if faculty_file.exists():
+        try:
+            with open(faculty_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return {'faculty_members': []}
+    return {'faculty_members': []}
 
 
 def show_programs_management(db: Database, user, lang: str):
@@ -21,7 +35,14 @@ def show_programs_management(db: Database, user, lang: str):
 
     is_rtl = lang == 'ar'
 
-    st.title(f"🏛️ {t('academic_programs_management', lang)}")
+    # تحديد صلاحية التعديل - منسق البرنامج للاطلاع فقط
+    can_edit = user.role == UserRole.ADMIN
+
+    if can_edit:
+        st.title(f"🏛️ {t('academic_programs_management', lang)}")
+    else:
+        st.title(f"🏛️ {'برامجي' if lang == 'ar' else 'My Programs'}")
+        st.caption("للاطلاع فقط / View only")
 
     # التحقق من الصلاحيات - يسمح للمديرين ومنسقي البرامج
     if user.role not in [UserRole.ADMIN, UserRole.PROGRAM_COORDINATOR]:
@@ -43,27 +64,43 @@ def show_programs_management(db: Database, user, lang: str):
     else:
         programs = all_programs
 
-    # علامات التبويب
-    tab1, tab2, tab3 = st.tabs([
-        f"📋 {t('programs_list', lang)}",
-        f"➕ {t('new_program', lang)}",
-        f"🎯 مخرجات البرنامج وطرق القياس"
-    ])
+    # علامات التبويب - مختلفة حسب الصلاحية
+    if can_edit:
+        # المدير يرى جميع التبويبات
+        tab1, tab2, tab3 = st.tabs([
+            f"📋 {t('programs_list', lang)}",
+            f"➕ {t('new_program', lang)}",
+            f"🎯 مخرجات البرنامج وطرق القياس"
+        ])
 
-    # علامة التبويب الأولى: قائمة البرامج
-    with tab1:
-        show_programs_list(db, user, lang, is_rtl)
+        # علامة التبويب الأولى: قائمة البرامج
+        with tab1:
+            show_programs_list(db, user, lang, is_rtl, can_edit)
 
-    # علامة التبويب الثانية: إضافة برنامج
-    with tab2:
-        show_add_program_form(db, lang, is_rtl)
+        # علامة التبويب الثانية: إضافة برنامج
+        with tab2:
+            show_add_program_form(db, lang, is_rtl)
 
-    # علامة التبويب الثالثة: إدارة PLOs وطرق القياس
-    with tab3:
-        show_plos_management(db, user, programs, lang, is_rtl)
+        # علامة التبويب الثالثة: إدارة PLOs وطرق القياس
+        with tab3:
+            show_plos_management(db, user, programs, lang, is_rtl)
+    else:
+        # منسق البرنامج يرى فقط قائمة البرامج ومخرجات البرنامج
+        tab1, tab2 = st.tabs([
+            f"📋 {'برامجي' if lang == 'ar' else 'My Programs'}",
+            f"🎯 مخرجات البرنامج وطرق القياس"
+        ])
+
+        # علامة التبويب الأولى: قائمة البرامج (للاطلاع فقط)
+        with tab1:
+            show_programs_list(db, user, lang, is_rtl, can_edit)
+
+        # علامة التبويب الثانية: إدارة PLOs وطرق القياس
+        with tab2:
+            show_plos_management(db, user, programs, lang, is_rtl)
 
 
-def show_programs_list(db: Database, user, lang: str, is_rtl: bool):
+def show_programs_list(db: Database, user, lang: str, is_rtl: bool, can_edit: bool = True):
     """عرض قائمة البرامج الأكاديمية"""
 
     st.subheader(f"📋 {t('programs_list', lang)}")
@@ -129,14 +166,22 @@ def show_programs_list(db: Database, user, lang: str, is_rtl: bool):
 
     st.markdown("---")
 
-    # قسم تعديل/حذف البرنامج
-    st.subheader(f"✏️ تعديل/حذف برنامج / Edit/Delete Program")
+    # قسم تعديل/حذف البرنامج (فقط للمدير)
+    if can_edit:
+        st.subheader(f"✏️ تعديل/حذف برنامج / Edit/Delete Program")
+    else:
+        st.subheader(f"📖 تفاصيل البرنامج / Program Details")
+        st.info("🔒 أنت في وضع الاطلاع فقط / You are in view-only mode")
 
     # اختيار برنامج للتعديل - خارج النموذج لتحديث البيانات عند التغيير
     program_list = [(f"{p.get('program_code', '')} - {p.get('program_name_ar' if lang == 'ar' else 'program_name_en', '')}", p) for p in programs]
     program_names = [name for name, _ in program_list]
 
-    col1, col2 = st.columns([3, 1])
+    if can_edit:
+        col1, col2 = st.columns([3, 1])
+    else:
+        col1 = st.container()
+        col2 = None
 
     # تتبع البرنامج المحدد السابق
     if 'previous_selected_program' not in st.session_state:
@@ -161,194 +206,254 @@ def show_programs_list(db: Database, user, lang: str, is_rtl: bool):
         st.error("❌ خطأ في تحميل البرنامج")
         return
 
-    with col2:
-        st.write("")
-        st.write("")
-        delete_btn = st.button(
-            f"🗑️ {t('delete', lang)}",
-            type='secondary',
-            use_container_width=True,
-            key='delete_program_btn'
-        )
+    if can_edit and col2:
+        with col2:
+            st.write("")
+            st.write("")
+            delete_btn = st.button(
+                f"🗑️ {t('delete', lang)}",
+                type='secondary',
+                use_container_width=True,
+                key='delete_program_btn'
+            )
+    else:
+        delete_btn = False
 
-    # نموذج التعديل - استخدام key ديناميكي لإعادة إنشاء النموذج عند تغيير البرنامج
+    # نموذج التعديل أو العرض - استخدام key ديناميكي لإعادة إنشاء النموذج عند تغيير البرنامج
     program_id = selected_program.get("program_id")
-    with st.form(key=f'edit_program_form_{program_id}'):
-        st.markdown(f"### ✏️ {t('edit_program', lang)}: {selected_program.get('program_code', '')}")
+
+    if can_edit:
+        # نموذج التعديل للمدير
+        with st.form(key=f'edit_program_form_{program_id}'):
+            st.markdown(f"### ✏️ {t('edit_program', lang)}: {selected_program.get('program_code', '')}")
+
+            col1, col2 = st.columns(2)
+
+            with col1:
+                program_name_ar = st.text_input(
+                    t('program_name_ar', lang),
+                    value=selected_program.get('program_name_ar', ''),
+                    key=f'edit_program_name_ar_{program_id}'
+                )
+
+                university_ar = st.text_input(
+                    t('university_ar', lang),
+                    value=selected_program.get('university_ar', ''),
+                    key=f'edit_university_ar_{program_id}'
+                )
+
+                college_ar = st.text_input(
+                    t('college_ar', lang),
+                    value=selected_program.get('college_ar', ''),
+                    key=f'edit_college_ar_{program_id}'
+                )
+
+                department_ar = st.text_input(
+                    t('department_ar', lang),
+                    value=selected_program.get('department_ar', ''),
+                    key=f'edit_department_ar_{program_id}'
+                )
+
+            with col2:
+                program_name_en = st.text_input(
+                    t('program_name_en', lang),
+                    value=selected_program.get('program_name_en', ''),
+                    key=f'edit_program_name_en_{program_id}'
+                )
+
+                university_en = st.text_input(
+                    t('university_en', lang),
+                    value=selected_program.get('university_en', ''),
+                    key=f'edit_university_en_{program_id}'
+                )
+
+                college_en = st.text_input(
+                    t('college_en', lang),
+                    value=selected_program.get('college_en', ''),
+                    key=f'edit_college_en_{program_id}'
+                )
+
+                department_en = st.text_input(
+                    t('department_en', lang),
+                    value=selected_program.get('department_en', ''),
+                    key=f'edit_department_en_{program_id}'
+                )
+
+                # منسق البرنامج
+                st.markdown(f"**{t('program_coordinator', lang)}:**")
+                st.caption("اختر منسق البرنامج من أعضاء القسم" if lang == 'ar' else "Select program coordinator from department members")
+
+                # جلب أعضاء هيئة التدريس من نفس القسم
+                faculty_data = load_faculty_data()
+                faculty_members = faculty_data.get('faculty_members', [])
+                program_department = selected_program.get('department_en', '')
+
+                # تصفية أعضاء القسم
+                department_faculty = [f for f in faculty_members if f.get('department', '') == program_department]
+
+                # إنشاء خيارات المنسق من أعضاء القسم
+                coordinator_options = {}
+                for faculty in department_faculty:
+                    display_name = f"{faculty.get('name', '')} ({faculty.get('employee_id', '')})"
+                    coordinator_options[display_name] = faculty.get('employee_id', '')
+
+                # إضافة خيار "غير محدد"
+                coordinator_options["--- " + t('not_specified', lang) + " ---"] = ""
+
+                current_coordinator = selected_program.get('coordinator_id', '')
+                current_index = len(coordinator_options) - 1  # افتراضياً "غير محدد"
+                if current_coordinator:
+                    for idx, (name, uid) in enumerate(coordinator_options.items()):
+                        if uid == current_coordinator:
+                            current_index = idx
+                            break
+
+                selected_coordinator_name = st.selectbox(
+                    t('select_coordinator_for_program', lang),
+                    options=list(coordinator_options.keys()),
+                    index=current_index,
+                    key=f'edit_coordinator_{program_id}'
+                )
+
+                new_coordinator_id = coordinator_options[selected_coordinator_name]
+
+            # الوصف
+            col1, col2 = st.columns(2)
+            with col1:
+                description_ar = st.text_area(
+                    t('description_ar', lang),
+                    value=selected_program.get('description_ar', ''),
+                    height=100,
+                    key=f'edit_description_ar_{program_id}'
+                )
+
+            with col2:
+                description_en = st.text_area(
+                    t('description_en', lang),
+                    value=selected_program.get('description_en', ''),
+                    height=100,
+                    key=f'edit_description_en_{program_id}'
+                )
+
+            # حالة البرنامج
+            is_active = st.checkbox(
+                t('active', lang),
+                value=selected_program.get('is_active', True),
+                key=f'edit_is_active_{program_id}'
+            )
+
+            # زر الحفظ
+            submit_btn = st.form_submit_button(
+                f"💾 {t('save_changes', lang)}",
+                type='primary',
+                use_container_width=True
+            )
+
+            if submit_btn:
+                # التحقق من الحقول المطلوبة
+                if not program_name_ar or not program_name_en:
+                    st.error(f"⚠️ {t('please_fill_required_fields', lang)}")
+                else:
+                    # تحديث البرنامج
+                    success = db.update_program(
+                        program_id=selected_program.get('program_id'),
+                        program_name_ar=program_name_ar,
+                        program_name_en=program_name_en,
+                        university_ar=university_ar,
+                        university_en=university_en,
+                        college_ar=college_ar,
+                        college_en=college_en,
+                        department_ar=department_ar,
+                        department_en=department_en,
+                        description_ar=description_ar,
+                        description_en=description_en,
+                        coordinator_id=new_coordinator_id,
+                        is_active=is_active
+                    )
+
+                    if success:
+                        st.session_state['program_update_success'] = True
+                        st.session_state['program_update_code'] = selected_program.get('program_code')
+                        st.rerun()
+                    else:
+                        st.error(f"❌ {t('program_update_failed', lang)}")
+
+        # حذف البرنامج
+        if delete_btn:
+            st.session_state['show_delete_confirmation'] = True
+            st.session_state['program_to_delete'] = selected_program
+            st.rerun()
+
+        # عرض نافذة تأكيد الحذف
+        if st.session_state.get('show_delete_confirmation') and st.session_state.get('program_to_delete'):
+            program_to_delete = st.session_state['program_to_delete']
+            st.markdown("---")
+            st.warning(f"⚠️ هل أنت متأكد من حذف البرنامج **{program_to_delete.get('program_code')}**؟")
+            st.info(f"ℹ️ سيتم حذف جميع البيانات المرتبطة بهذا البرنامج بما في ذلك PLOs وطرق القياس.")
+
+            col1, col2, col3 = st.columns([1, 1, 2])
+            with col1:
+                if st.button(f"✅ نعم، احذف البرنامج", type='primary', use_container_width=True, key='confirm_delete_btn'):
+                    success = db.delete_program(program_to_delete.get('program_id'))
+                    if success:
+                        st.session_state['program_delete_success'] = True
+                        st.session_state['program_delete_code'] = program_to_delete.get('program_code')
+                        st.session_state['show_delete_confirmation'] = False
+                        st.session_state['program_to_delete'] = None
+                        st.rerun()
+                    else:
+                        st.error(f"❌ {t('program_delete_failed', lang)}")
+                        st.session_state['show_delete_confirmation'] = False
+                        st.session_state['program_to_delete'] = None
+
+            with col2:
+                if st.button(f"❌ إلغاء", use_container_width=True, key='cancel_delete_btn'):
+                    st.session_state['show_delete_confirmation'] = False
+                    st.session_state['program_to_delete'] = None
+                    st.rerun()
+
+    else:
+        # عرض للقراءة فقط لمنسق البرنامج
+        st.markdown(f"### 📖 {selected_program.get('program_code', '')}")
 
         col1, col2 = st.columns(2)
 
         with col1:
-            program_name_ar = st.text_input(
-                t('program_name_ar', lang),
-                value=selected_program.get('program_name_ar', ''),
-                key=f'edit_program_name_ar_{program_id}'
-            )
-
-            university_ar = st.text_input(
-                t('university_ar', lang),
-                value=selected_program.get('university_ar', ''),
-                key=f'edit_university_ar_{program_id}'
-            )
-
-            college_ar = st.text_input(
-                t('college_ar', lang),
-                value=selected_program.get('college_ar', ''),
-                key=f'edit_college_ar_{program_id}'
-            )
-
-            department_ar = st.text_input(
-                t('department_ar', lang),
-                value=selected_program.get('department_ar', ''),
-                key=f'edit_department_ar_{program_id}'
-            )
+            st.markdown(f"**{t('program_name_ar', lang)}:** {selected_program.get('program_name_ar', '')}")
+            st.markdown(f"**{t('university_ar', lang)}:** {selected_program.get('university_ar', '')}")
+            st.markdown(f"**{t('college_ar', lang)}:** {selected_program.get('college_ar', '')}")
+            st.markdown(f"**{t('department_ar', lang)}:** {selected_program.get('department_ar', '')}")
 
         with col2:
-            program_name_en = st.text_input(
-                t('program_name_en', lang),
-                value=selected_program.get('program_name_en', ''),
-                key=f'edit_program_name_en_{program_id}'
-            )
+            st.markdown(f"**{t('program_name_en', lang)}:** {selected_program.get('program_name_en', '')}")
+            st.markdown(f"**{t('university_en', lang)}:** {selected_program.get('university_en', '')}")
+            st.markdown(f"**{t('college_en', lang)}:** {selected_program.get('college_en', '')}")
+            st.markdown(f"**{t('department_en', lang)}:** {selected_program.get('department_en', '')}")
 
-            university_en = st.text_input(
-                t('university_en', lang),
-                value=selected_program.get('university_en', ''),
-                key=f'edit_university_en_{program_id}'
-            )
-
-            college_en = st.text_input(
-                t('college_en', lang),
-                value=selected_program.get('college_en', ''),
-                key=f'edit_college_en_{program_id}'
-            )
-
-            department_en = st.text_input(
-                t('department_en', lang),
-                value=selected_program.get('department_en', ''),
-                key=f'edit_department_en_{program_id}'
-            )
-
-            # منسق البرنامج
-            st.markdown(f"**{t('program_coordinator', lang)}:**")
-
-            # جلب المستخدمين الذين لديهم صلاحية منسق برنامج
-            all_users = db.get_all_users()
-            coordinators = [u for u in all_users if 'program_coordinator' in u.roles or 'admin' in u.roles]
-
-            coordinator_options = {f"{u.full_name} ({u.username})": u.user_id for u in coordinators}
-            coordinator_options["--- " + t('not_specified', lang) + " ---"] = ""
-
-            current_coordinator = selected_program.get('coordinator_id', '')
-            current_index = 0
-            if current_coordinator:
-                for idx, (name, uid) in enumerate(coordinator_options.items()):
-                    if uid == current_coordinator:
-                        current_index = idx
-                        break
-
-            selected_coordinator_name = st.selectbox(
-                t('select_coordinator_for_program', lang),
-                options=list(coordinator_options.keys()),
-                index=current_index,
-                key=f'edit_coordinator_{program_id}'
-            )
-
-            new_coordinator_id = coordinator_options[selected_coordinator_name]
+        # منسق البرنامج
+        coordinator_id = selected_program.get('coordinator_id', '')
+        coordinator_name = "غير محدد"
+        if coordinator_id:
+            faculty_data = load_faculty_data()
+            for faculty in faculty_data.get('faculty_members', []):
+                if faculty.get('employee_id') == coordinator_id:
+                    coordinator_name = faculty.get('name', '')
+                    break
+        st.markdown(f"**{t('program_coordinator', lang)}:** {coordinator_name}")
 
         # الوصف
         col1, col2 = st.columns(2)
         with col1:
-            description_ar = st.text_area(
-                t('description_ar', lang),
-                value=selected_program.get('description_ar', ''),
-                height=100,
-                key=f'edit_description_ar_{program_id}'
-            )
+            st.markdown(f"**{t('description_ar', lang)}:**")
+            st.write(selected_program.get('description_ar', '') or "لا يوجد وصف")
 
         with col2:
-            description_en = st.text_area(
-                t('description_en', lang),
-                value=selected_program.get('description_en', ''),
-                height=100,
-                key=f'edit_description_en_{program_id}'
-            )
+            st.markdown(f"**{t('description_en', lang)}:**")
+            st.write(selected_program.get('description_en', '') or "No description")
 
         # حالة البرنامج
-        is_active = st.checkbox(
-            t('active', lang),
-            value=selected_program.get('is_active', True),
-            key=f'edit_is_active_{program_id}'
-        )
-
-        # زر الحفظ
-        submit_btn = st.form_submit_button(
-            f"💾 {t('save_changes', lang)}",
-            type='primary',
-            use_container_width=True
-        )
-
-        if submit_btn:
-            # التحقق من الحقول المطلوبة
-            if not program_name_ar or not program_name_en:
-                st.error(f"⚠️ {t('please_fill_required_fields', lang)}")
-            else:
-                # تحديث البرنامج
-                success = db.update_program(
-                    program_id=selected_program.get('program_id'),
-                    program_name_ar=program_name_ar,
-                    program_name_en=program_name_en,
-                    university_ar=university_ar,
-                    university_en=university_en,
-                    college_ar=college_ar,
-                    college_en=college_en,
-                    department_ar=department_ar,
-                    department_en=department_en,
-                    description_ar=description_ar,
-                    description_en=description_en,
-                    coordinator_id=new_coordinator_id,
-                    is_active=is_active
-                )
-
-                if success:
-                    st.session_state['program_update_success'] = True
-                    st.session_state['program_update_code'] = selected_program.get('program_code')
-                    st.rerun()
-                else:
-                    st.error(f"❌ {t('program_update_failed', lang)}")
-
-    # حذف البرنامج
-    if delete_btn:
-        st.session_state['show_delete_confirmation'] = True
-        st.session_state['program_to_delete'] = selected_program
-        st.rerun()
-
-    # عرض نافذة تأكيد الحذف
-    if st.session_state.get('show_delete_confirmation') and st.session_state.get('program_to_delete'):
-        program_to_delete = st.session_state['program_to_delete']
-        st.markdown("---")
-        st.warning(f"⚠️ هل أنت متأكد من حذف البرنامج **{program_to_delete.get('program_code')}**؟")
-        st.info(f"ℹ️ سيتم حذف جميع البيانات المرتبطة بهذا البرنامج بما في ذلك PLOs وطرق القياس.")
-
-        col1, col2, col3 = st.columns([1, 1, 2])
-        with col1:
-            if st.button(f"✅ نعم، احذف البرنامج", type='primary', use_container_width=True, key='confirm_delete_btn'):
-                success = db.delete_program(program_to_delete.get('program_id'))
-                if success:
-                    st.session_state['program_delete_success'] = True
-                    st.session_state['program_delete_code'] = program_to_delete.get('program_code')
-                    st.session_state['show_delete_confirmation'] = False
-                    st.session_state['program_to_delete'] = None
-                    st.rerun()
-                else:
-                    st.error(f"❌ {t('program_delete_failed', lang)}")
-                    st.session_state['show_delete_confirmation'] = False
-                    st.session_state['program_to_delete'] = None
-
-        with col2:
-            if st.button(f"❌ إلغاء", use_container_width=True, key='cancel_delete_btn'):
-                st.session_state['show_delete_confirmation'] = False
-                st.session_state['program_to_delete'] = None
-                st.rerun()
+        status = "✅ نشط" if selected_program.get('is_active', True) else "❌ غير نشط"
+        st.markdown(f"**الحالة:** {status}")
 
 
 def show_add_program_form(db: Database, lang: str, is_rtl: bool):
@@ -418,17 +523,26 @@ def show_add_program_form(db: Database, lang: str, is_rtl: bool):
 
         # منسق البرنامج
         st.markdown(f"**{t('program_coordinator', lang)}:**")
+        st.caption("اختر منسق البرنامج من أعضاء هيئة التدريس" if lang == 'ar' else "Select program coordinator from faculty members")
 
-        # جلب المستخدمين الذين لديهم صلاحية منسق برنامج
-        all_users = db.get_all_users()
-        coordinators = [u for u in all_users if 'program_coordinator' in u.roles or 'admin' in u.roles]
+        # جلب جميع أعضاء هيئة التدريس
+        faculty_data = load_faculty_data()
+        faculty_members = faculty_data.get('faculty_members', [])
 
-        coordinator_options = {f"{u.full_name} ({u.username})": u.user_id for u in coordinators}
+        # إنشاء خيارات المنسق من أعضاء هيئة التدريس
+        coordinator_options = {}
+        for faculty in faculty_members:
+            dept = faculty.get('department', '')
+            display_name = f"{faculty.get('name', '')} ({faculty.get('employee_id', '')}) - {dept}"
+            coordinator_options[display_name] = faculty.get('employee_id', '')
+
+        # إضافة خيار "غير محدد"
         coordinator_options["--- " + t('not_specified', lang) + " ---"] = ""
 
         selected_coordinator_name = st.selectbox(
             t('select_coordinator_for_program', lang),
             options=list(coordinator_options.keys()),
+            index=len(coordinator_options) - 1,  # افتراضياً "غير محدد"
             key='new_coordinator'
         )
 

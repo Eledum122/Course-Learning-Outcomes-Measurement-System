@@ -10,6 +10,7 @@ from pathlib import Path
 from datetime import datetime
 from io import BytesIO
 from models.database import Database, UserRole
+from utils.permissions import get_permissions_helper
 
 
 def load_sections_data():
@@ -34,6 +35,18 @@ def load_courses_data():
         except:
             return {"courses": []}
     return {"courses": []}
+
+
+def load_programs_data():
+    """Load programs data"""
+    programs_file = Path(__file__).parent.parent / 'data' / 'programs.json'
+    if programs_file.exists():
+        try:
+            with open(programs_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return {"programs": []}
+    return {"programs": []}
 
 
 def load_clos_data():
@@ -197,7 +210,8 @@ def generate_grades_template(section_students, grades_structure, activities):
         act_name = activity.get('assessment_task', '')
         if act_name in grades_structure:
             for clo_code, max_mark in grades_structure[act_name].items():
-                col_name = f"{clo_code}\n({max_mark:.0f})"
+                # Include activity name in column to handle duplicate CLO/max combinations
+                col_name = f"{act_name}\n{clo_code} ({max_mark:.0f})"
                 activity_clo_columns.append({
                     'name': col_name,
                     'activity': act_name,
@@ -276,15 +290,25 @@ def show_student_grades(db: Database, user, lang: str):
         st.session_state.grade_version += 1
         st.session_state.force_reload_grades = False
 
-    st.title("Student Grades / درجات الطلاب")
-    st.caption("Enter and manage student grades for each section")
+    # تحديد صلاحية التعديل - منسق البرنامج ومنسق المقرر للاطلاع فقط
+    can_edit = user.role not in [UserRole.PROGRAM_COORDINATOR, UserRole.COURSE_COORDINATOR]
 
-    # Load sections
+    st.title("Student Grades / درجات الطلاب")
+    if can_edit:
+        st.caption("Enter and manage student grades for each section")
+    else:
+        st.caption("View student grades (Read-only) / عرض درجات الطلاب (للاطلاع فقط)")
+
+    # Initialize permissions helper
+    perm = get_permissions_helper(db, user)
+
+    # Load sections and filter by permissions
     sections_data = load_sections_data()
-    sections = sections_data.get('sections', [])
+    all_sections = sections_data.get('sections', [])
+    sections = perm.filter_sections(all_sections)
 
     if not sections:
-        st.warning("No sections found. Please create sections first.")
+        st.warning("No sections assigned to you. Please contact your administrator.")
         return
 
     # Show messages
@@ -299,45 +323,184 @@ def show_student_grades(db: Database, user, lang: str):
         st.session_state.grades_message = None
 
     # ===============================
-    # Section 1: Select Section
+    # Section 1: Select Section (with filters)
     # ===============================
     st.markdown("### 1. Select Section / اختر الشعبة")
 
+    # Load additional data for filters and apply permissions
+    programs_data = load_programs_data()
+    all_programs = programs_data.get('programs', [])
+    programs = perm.filter_programs(all_programs)
+
+    courses_data = load_courses_data()
+    all_courses = courses_data.get('courses', [])
+    courses = perm.filter_courses(all_courses)
+
+    # Row 1: Program and Course
     col1, col2 = st.columns(2)
 
     with col1:
-        section_options = ["-- Select Section --"]
-        section_map = {}
+        # Program filter (filtered by permissions)
+        program_options = ["-- Select Program / اختر البرنامج --"]
+        program_map = {}
+        for p in programs:
+            if p.get('is_active', True):
+                display = f"{p.get('program_code', '')} - {p.get('program_name_en', '')}"
+                program_options.append(display)
+                program_map[display] = p.get('program_id')
 
-        for s in sections:
-            course_code = s.get('course_code', '')
-            section_num = s.get('section_number', '')
-            semester_code = s.get('semester_code', '')
-            year = s.get('academic_year', '')
-            gender = s.get('gender', '').split(' / ')[0] if ' / ' in s.get('gender', '') else s.get('gender', '')
+        selected_program_display = st.selectbox(
+            "Program / البرنامج *",
+            program_options,
+            key="grades_program_filter"
+        )
 
-            option_text = f"{course_code} - Sec {section_num} ({year}/{semester_code}) - {gender}"
-            section_options.append(option_text)
-            section_map[option_text] = s
-
-        selected_section_display = st.selectbox("Section / الشعبة", section_options, key="grades_section_select")
-
-        selected_section = None
-        if selected_section_display != "-- Select Section --":
-            selected_section = section_map.get(selected_section_display)
+        selected_program_id = None
+        if selected_program_display != "-- Select Program / اختر البرنامج --":
+            selected_program_id = program_map.get(selected_program_display)
 
     with col2:
-        if selected_section:
-            course_data = get_course_data(selected_section.get('course_id'))
-            total_marks = course_data.get('total_course_marks', 100)
-            st.info(f"""
-            **Course:** {selected_section.get('course_code')}
-            **Section:** {selected_section.get('section_number')}
-            **Total Marks:** {total_marks}
-            """)
+        # Course filter (depends on program)
+        if selected_program_id:
+            program_courses = [c for c in courses if c.get('program_id') == selected_program_id]
+            course_options = ["-- Select Course / اختر المقرر --"]
+            course_map = {}
+            for c in program_courses:
+                display = f"{c.get('course_code', '')} - {c.get('course_title_en', '')}"
+                course_options.append(display)
+                course_map[display] = c.get('course_id')
+
+            selected_course_display = st.selectbox(
+                "Course / المقرر *",
+                course_options,
+                key="grades_course_filter"
+            )
+
+            selected_course_id = None
+            if selected_course_display != "-- Select Course / اختر المقرر --":
+                selected_course_id = course_map.get(selected_course_display)
+        else:
+            st.selectbox(
+                "Course / المقرر *",
+                ["-- Select Program First / اختر البرنامج أولاً --"],
+                disabled=True,
+                key="grades_course_filter_disabled"
+            )
+            selected_course_id = None
+
+    # Row 2: Academic Year and Semester
+    col3, col4 = st.columns(2)
+
+    with col3:
+        # Academic Year filter
+        if selected_course_id:
+            # Get available years for this course
+            course_sections = [s for s in sections if s.get('course_id') == selected_course_id]
+            available_years = sorted(list(set(s.get('academic_year', '') for s in course_sections if s.get('academic_year'))), reverse=True)
+
+            year_options = ["-- Select Year / اختر السنة --"] + available_years
+            selected_year = st.selectbox(
+                "Academic Year / السنة الدراسية *",
+                year_options,
+                key="grades_year_filter"
+            )
+            if selected_year == "-- Select Year / اختر السنة --":
+                selected_year = None
+        else:
+            st.selectbox(
+                "Academic Year / السنة الدراسية *",
+                ["-- Select Course First / اختر المقرر أولاً --"],
+                disabled=True,
+                key="grades_year_filter_disabled"
+            )
+            selected_year = None
+
+    with col4:
+        # Semester filter
+        if selected_year and selected_course_id:
+            # Get available semesters for this course and year
+            year_sections = [s for s in sections if s.get('course_id') == selected_course_id and s.get('academic_year') == selected_year]
+            available_semesters = list(set(s.get('semester', '') for s in year_sections if s.get('semester')))
+
+            semester_display_options = ["-- Select Semester / اختر الفصل --"] + available_semesters
+            selected_semester = st.selectbox(
+                "Semester / الفصل الدراسي *",
+                semester_display_options,
+                key="grades_semester_filter"
+            )
+            if selected_semester == "-- Select Semester / اختر الفصل --":
+                selected_semester = None
+        else:
+            st.selectbox(
+                "Semester / الفصل الدراسي *",
+                ["-- Select Year First / اختر السنة أولاً --"],
+                disabled=True,
+                key="grades_semester_filter_disabled"
+            )
+            selected_semester = None
+
+    # Row 3: Section selection
+    st.markdown("---")
+
+    if selected_course_id and selected_year and selected_semester:
+        # Filter sections based on all criteria
+        filtered_sections = [
+            s for s in sections
+            if s.get('course_id') == selected_course_id
+            and s.get('academic_year') == selected_year
+            and s.get('semester') == selected_semester
+        ]
+
+        if filtered_sections:
+            section_options = ["-- Select Section / اختر الشعبة --"]
+            section_map = {}
+
+            for s in filtered_sections:
+                section_num = s.get('section_number', '')
+                gender = s.get('gender', '').split(' / ')[0] if ' / ' in s.get('gender', '') else s.get('gender', '')
+                beneficiary = ""
+                if s.get('beneficiary_type') == 'external':
+                    beneficiary = f" - 🏫 {s.get('beneficiary_department_en', '')[:20]}"
+
+                option_text = f"Section {section_num} - {gender}{beneficiary}"
+                section_options.append(option_text)
+                section_map[option_text] = s
+
+            col5, col6 = st.columns(2)
+
+            with col5:
+                selected_section_display = st.selectbox(
+                    "Section / الشعبة *",
+                    section_options,
+                    key="grades_section_select"
+                )
+
+                selected_section = None
+                if selected_section_display != "-- Select Section / اختر الشعبة --":
+                    selected_section = section_map.get(selected_section_display)
+
+            with col6:
+                if selected_section:
+                    course_data_info = get_course_data(selected_section.get('course_id'))
+                    total_marks = course_data_info.get('total_course_marks', 100)
+                    beneficiary_info = ""
+                    if selected_section.get('beneficiary_type') == 'external':
+                        beneficiary_info = f"\n**Beneficiary:** 🏫 {selected_section.get('beneficiary_college_en', '')} / {selected_section.get('beneficiary_department_en', '')}"
+
+                    st.success(f"""
+                    **Course:** {selected_section.get('course_code')}
+                    **Section:** {selected_section.get('section_number')}
+                    **Semester:** {selected_section.get('academic_year')} - {selected_section.get('semester_code')}
+                    **Total Marks:** {total_marks}{beneficiary_info}
+                    """)
+        else:
+            st.warning("No sections found for the selected criteria. Please check your selection.")
+            selected_section = None
+    else:
+        st.info("💡 Please select Program, Course, Academic Year, and Semester to filter sections")
+        selected_section = None
 
     if not selected_section:
-        st.info("Please select a section to enter grades")
         return
 
     section_id = selected_section.get('section_id')
@@ -400,45 +563,48 @@ def show_student_grades(db: Database, user, lang: str):
     """, unsafe_allow_html=True)
 
     # ===============================
-    # Section 3: Upload/Download
+    # Section 3: Upload/Download (only for users with edit permission)
     # ===============================
-    st.markdown("### 2. Upload / Download")
+    if can_edit:
+        st.markdown("### 2. Upload / Download")
 
-    # Activity selection for import
-    activity_names = [act.get('assessment_task', '') for act in course_activities if act.get('assessment_task', '') in grades_structure]
-    activity_options = ["All Activities / جميع الأنشطة"] + activity_names
+        # Activity selection for import
+        activity_names = [act.get('assessment_task', '') for act in course_activities if act.get('assessment_task', '') in grades_structure]
+        activity_options = ["All Activities / جميع الأنشطة"] + activity_names
 
-    col_activity, col_dl, col_ul = st.columns([1.5, 1, 1])
+        col_activity, col_dl, col_ul = st.columns([1.5, 1, 1])
 
-    with col_activity:
-        selected_activity = st.selectbox(
-            "Select Activity / اختر النشاط",
-            activity_options,
-            key="import_activity_select",
-            help="اختر النشاط لاستيراد درجاته فقط، أو جميع الأنشطة لاستيراد كل الدرجات"
-        )
+        with col_activity:
+            selected_activity = st.selectbox(
+                "Select Activity / اختر النشاط",
+                activity_options,
+                key="import_activity_select",
+                help="اختر النشاط لاستيراد درجاته فقط، أو جميع الأنشطة لاستيراد كل الدرجات"
+            )
 
-    with col_dl:
-        template_file, activity_clo_cols = generate_grades_template(
-            section_students, grades_structure, course_activities
-        )
-        st.download_button(
-            label="Download Template / تحميل القالب",
-            data=template_file,
-            file_name=f"grades_{selected_section.get('course_code')}_{selected_section.get('section_number')}.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            use_container_width=True,
-            type="primary"
-        )
+        with col_dl:
+            template_file, activity_clo_cols = generate_grades_template(
+                section_students, grades_structure, course_activities
+            )
+            st.download_button(
+                label="Download Template / تحميل القالب",
+                data=template_file,
+                file_name=f"grades_{selected_section.get('course_code')}_{selected_section.get('section_number')}.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True,
+                type="primary"
+            )
 
-    with col_ul:
-        uploaded_file = st.file_uploader(
-            "Upload Excel / رفع الملف",
-            type=['xlsx', 'xls'],
-            key="grades_upload"
-        )
+        with col_ul:
+            uploaded_file = st.file_uploader(
+                "Upload Excel / رفع الملف",
+                type=['xlsx', 'xls'],
+                key="grades_upload"
+            )
+    else:
+        uploaded_file = None
 
-    if uploaded_file:
+    if can_edit and uploaded_file:
         try:
             df = pd.read_excel(uploaded_file)
             st.markdown("**Preview:**")
@@ -472,37 +638,69 @@ def show_student_grades(db: Database, user, lang: str):
                         student_id = student_map[student_no]
 
                         for col in df.columns:
-                            # Check for CLO columns - can be "K1\n(10)" or "K1 (10)" format
+                            # Check for CLO columns
+                            # New format: "Activity Name\nCLO (max)" e.g., "Lab Exam\nS4 (10)"
+                            # Old format: "CLO\n(max)" or "CLO (max)" e.g., "S4\n(10)" or "S4 (10)"
                             col_str = str(col)
                             if '(' in col_str and col_str not in ['Seq', 'Student No', 'Student Name', 'Status', 'Total']:
-                                # Extract CLO code and max mark from column name
-                                if '\n' in col_str:
-                                    clo_code = col_str.split('\n')[0].strip()
-                                else:
-                                    clo_code = col_str.split('(')[0].strip()
+                                # Parse column header
+                                col_activity = None
+                                clo_code = None
+                                col_max = None
 
-                                # Extract max mark from column (e.g., "S5 (9)" -> 9)
-                                try:
-                                    col_max = float(col_str.split('(')[1].replace(')', '').strip())
-                                except:
-                                    col_max = None
+                                if '\n' in col_str:
+                                    parts = col_str.split('\n')
+                                    if len(parts) == 2 and '(' in parts[1]:
+                                        # New format: "Activity Name\nCLO (max)"
+                                        col_activity = parts[0].strip()
+                                        clo_part = parts[1].strip()
+                                        clo_code = clo_part.split('(')[0].strip()
+                                        try:
+                                            col_max = float(clo_part.split('(')[1].replace(')', '').strip())
+                                        except:
+                                            col_max = None
+                                    else:
+                                        # Old format: "CLO\n(max)"
+                                        clo_code = parts[0].strip()
+                                        try:
+                                            col_max = float(parts[1].replace('(', '').replace(')', '').strip())
+                                        except:
+                                            col_max = None
+                                else:
+                                    # Old format: "CLO (max)"
+                                    clo_code = col_str.split('(')[0].strip()
+                                    try:
+                                        col_max = float(col_str.split('(')[1].replace(')', '').strip())
+                                    except:
+                                        col_max = None
+
+                                if not clo_code:
+                                    continue
 
                                 mark_val = row.get(col, 0)
                                 if pd.notna(mark_val) and mark_val != '':
                                     mark_float = float(mark_val)
 
-                                    # Find activity for this CLO by matching the max mark
+                                    # Find activity for this CLO
                                     matched_activity = None
                                     matched_max = None
 
-                                    for act_name, clo_marks in grades_structure.items():
-                                        if clo_code in clo_marks:
-                                            act_max = clo_marks[clo_code]
-                                            # Match by max mark from column header
-                                            if col_max is not None and abs(act_max - col_max) < 0.01:
-                                                matched_activity = act_name
-                                                matched_max = act_max
-                                                break
+                                    # If activity name is in column header, use it directly
+                                    if col_activity and col_activity in grades_structure:
+                                        if clo_code in grades_structure[col_activity]:
+                                            matched_activity = col_activity
+                                            matched_max = grades_structure[col_activity][clo_code]
+
+                                    # Fall back to matching by CLO code and max mark
+                                    if matched_activity is None:
+                                        for act_name, clo_marks in grades_structure.items():
+                                            if clo_code in clo_marks:
+                                                act_max = clo_marks[clo_code]
+                                                # Match by max mark from column header
+                                                if col_max is not None and abs(act_max - col_max) < 0.01:
+                                                    matched_activity = act_name
+                                                    matched_max = act_max
+                                                    break
 
                                     # If no exact match found, use first activity with this CLO
                                     if matched_activity is None:
@@ -722,7 +920,8 @@ def show_student_grades(db: Database, user, lang: str):
                             value=float(saved_val),
                             step=0.5,
                             key=widget_key,
-                            label_visibility='collapsed'
+                            label_visibility='collapsed',
+                            disabled=not can_edit  # Read-only for program coordinators
                         )
                         all_grades[student_id][key] = val
                         row_total += min(val, max_val)  # Only count up to max for total
@@ -766,63 +965,67 @@ def show_student_grades(db: Database, user, lang: str):
                         })
 
     # ===============================
-    # Section 5: Save/Delete Buttons
+    # Section 5: Save/Delete Buttons (only for users with edit permission)
     # ===============================
-    col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
+    if can_edit:
+        col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
 
-    with col1:
-        if st.button("Save Grades / حفظ الدرجات", type="primary", use_container_width=True):
-            if exceeded_grades:
-                # Show warning about exceeded grades
-                warning_msg = f"⚠️ لا يمكن الحفظ! يوجد {len(exceeded_grades)} درجة تتجاوز الحد الأقصى:\n\n"
-                warning_msg += "| Student | CLO | Entered | Max |\n|---|---|---|---|\n"
-                for w in exceeded_grades[:10]:
-                    warning_msg += f"| {w['student_no']} | {w['clo']} | {w['entered']:.1f} | {w['max']:.1f} |\n"
-                if len(exceeded_grades) > 10:
-                    warning_msg += f"\n... و {len(exceeded_grades) - 10} أخرى"
-                warning_msg += "\n\n**يرجى تصحيح الدرجات الحمراء أولاً**"
-                st.session_state.grades_message = ('error', warning_msg)
-                st.rerun()
-            else:
-                if save_section_grades(section_id, all_grades):
-                    st.session_state.grades_message = ('success', "Grades saved successfully! / تم حفظ الدرجات بنجاح!")
+        with col1:
+            if st.button("Save Grades / حفظ الدرجات", type="primary", use_container_width=True):
+                if exceeded_grades:
+                    # Show warning about exceeded grades
+                    warning_msg = f"⚠️ لا يمكن الحفظ! يوجد {len(exceeded_grades)} درجة تتجاوز الحد الأقصى:\n\n"
+                    warning_msg += "| Student | CLO | Entered | Max |\n|---|---|---|---|\n"
+                    for w in exceeded_grades[:10]:
+                        warning_msg += f"| {w['student_no']} | {w['clo']} | {w['entered']:.1f} | {w['max']:.1f} |\n"
+                    if len(exceeded_grades) > 10:
+                        warning_msg += f"\n... و {len(exceeded_grades) - 10} أخرى"
+                    warning_msg += "\n\n**يرجى تصحيح الدرجات الحمراء أولاً**"
+                    st.session_state.grades_message = ('error', warning_msg)
                     st.rerun()
                 else:
-                    st.session_state.grades_message = ('error', "Error saving grades!")
+                    if save_section_grades(section_id, all_grades):
+                        st.session_state.grades_message = ('success', "Grades saved successfully! / تم حفظ الدرجات بنجاح!")
+                        st.rerun()
+                    else:
+                        st.session_state.grades_message = ('error', "Error saving grades!")
+                        st.rerun()
+
+        with col2:
+            if st.button("Reset / إعادة", use_container_width=True):
+                st.rerun()
+
+        with col3:
+            # Delete button with confirmation
+            if st.session_state.get('confirm_delete_grades') == section_id:
+                if st.button("✓ Confirm / تأكيد", type="primary", use_container_width=True):
+                    # Delete all grades for this section
+                    data = load_student_grades_data()
+                    original_count = len(data.get('student_grades', []))
+                    data['student_grades'] = [
+                        g for g in data.get('student_grades', [])
+                        if g.get('section_id') != section_id
+                    ]
+                    deleted_count = original_count - len(data['student_grades'])
+                    if save_student_grades_data(data):
+                        # Set flag to force reload grades on next run
+                        st.session_state.force_reload_grades = True
+                        st.session_state.grades_message = ('success', f"تم حذف {deleted_count} درجة / Deleted {deleted_count} grades")
+                        st.session_state.confirm_delete_grades = None
+                        st.rerun()
+            else:
+                if st.button("🗑️ Delete / حذف", use_container_width=True):
+                    st.session_state.confirm_delete_grades = section_id
                     st.rerun()
 
-    with col2:
-        if st.button("Reset / إعادة", use_container_width=True):
-            st.rerun()
-
-    with col3:
-        # Delete button with confirmation
-        if st.session_state.get('confirm_delete_grades') == section_id:
-            if st.button("✓ Confirm / تأكيد", type="primary", use_container_width=True):
-                # Delete all grades for this section
-                data = load_student_grades_data()
-                original_count = len(data.get('student_grades', []))
-                data['student_grades'] = [
-                    g for g in data.get('student_grades', [])
-                    if g.get('section_id') != section_id
-                ]
-                deleted_count = original_count - len(data['student_grades'])
-                if save_student_grades_data(data):
-                    # Set flag to force reload grades on next run
-                    st.session_state.force_reload_grades = True
-                    st.session_state.grades_message = ('success', f"تم حذف {deleted_count} درجة / Deleted {deleted_count} grades")
+        with col4:
+            if st.session_state.get('confirm_delete_grades') == section_id:
+                if st.button("✗ Cancel / إلغاء", use_container_width=True):
                     st.session_state.confirm_delete_grades = None
                     st.rerun()
-        else:
-            if st.button("🗑️ Delete / حذف", use_container_width=True):
-                st.session_state.confirm_delete_grades = section_id
-                st.rerun()
-
-    with col4:
-        if st.session_state.get('confirm_delete_grades') == section_id:
-            if st.button("✗ Cancel / إلغاء", use_container_width=True):
-                st.session_state.confirm_delete_grades = None
-                st.rerun()
+    else:
+        # Show read-only notice for program coordinators
+        st.info("🔒 أنت في وضع الاطلاع فقط - لا يمكنك تعديل الدرجات / You are in read-only mode - you cannot modify grades")
 
     # ===============================
     # Section 6: Summary

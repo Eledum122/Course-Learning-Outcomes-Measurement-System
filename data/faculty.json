@@ -39,6 +39,106 @@
       "email": "sisdi@yahoo.com",
       "phone": "000000",
       "created_at": "2026-01-19T10:47:36.094483"
+    },
+    {
+      "employee_id": "13793",
+      "name": "Afaf Alrashidi",
+      "academic_degree": "Associate Professor / استاذ مشارك",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "afaf@ut.edu.sa",
+      "phone": "0535862220",
+      "created_at": "2026-01-23T23:45:51.871371"
+    },
+    {
+      "employee_id": "58191",
+      "name": "Manahil Ahmed",
+      "academic_degree": "Assistant Professor / استاذ مساعد",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "manahil@ut.edu.sa",
+      "phone": "0535863400",
+      "created_at": "2026-01-23T23:46:53.528669"
+    },
+    {
+      "employee_id": "58265",
+      "name": "Dalia Alnajar",
+      "academic_degree": "Associate Professor / استاذ مشارك",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "dalai@ut.edu.sa",
+      "phone": "0555862100",
+      "created_at": "2026-01-23T23:47:52.812170"
+    },
+    {
+      "employee_id": "14334",
+      "name": "Olayan Albuluowi",
+      "academic_degree": "Associate Professor / استاذ مشارك",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "Olyan@ut.edu.sa",
+      "phone": "0525314250",
+      "created_at": "2026-01-23T23:48:54.084575"
+    },
+    {
+      "employee_id": "14355",
+      "name": "Randa Alharbi",
+      "academic_degree": "Associate Professor / استاذ مشارك",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "randa@ut.edu.sa",
+      "phone": "0535862555",
+      "created_at": "2026-01-23T23:49:41.047003"
+    },
+    {
+      "employee_id": "58340",
+      "name": "Sara Elsheikh",
+      "academic_degree": "Assistant Professor / استاذ مساعد",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "sara@ut.edu.sa",
+      "phone": "0535862441",
+      "created_at": "2026-01-23T23:50:22.930217"
+    },
+    {
+      "employee_id": "13933",
+      "name": "Zahrah Althubiati",
+      "academic_degree": "Assistant Professor / استاذ مساعد",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "zhra@ut.edu.sa",
+      "phone": "0535862250",
+      "created_at": "2026-01-23T23:51:10.848122"
+    },
+    {
+      "employee_id": "58061",
+      "name": "Atif Yaseen",
+      "academic_degree": "Assistant Professor / استاذ مساعد",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "atif@ut.edu.sa",
+      "phone": "0585862401",
+      "created_at": "2026-01-23T23:56:59.867950"
+    },
+    {
+      "employee_id": "14339",
+      "name": "Murwan Alhilali",
+      "academic_degree": "Associate Professor / استاذ مشارك",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "murwan@ut.edu.sa",
+      "phone": "0535855100",
+      "created_at": "2026-01-23T23:58:22.908160"
+    },
+    {
+      "employee_id": "15079",
+      "name": "Hajir Aljuhani",
+      "academic_degree": "Lecturer / محاضر",
+      "college": "Faculty of Science",
+      "department": "Department of Statistics",
+      "email": "hajir@yahoo.com",
+      "phone": "050506288",
+      "created_at": "2026-01-24T17:56:18.119474"
     }
   ]
 }

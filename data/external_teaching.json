@@ -21,7 +21,25 @@
       "is_active": true,
       "created_date": "2026-01-19T19:22:01.304739",
       "last_updated": "2026-01-19T19:22:01.304739"
+    },
+    {
+      "assignment_id": "ext_20260124001704",
+      "course_id": "course_stat1101",
+      "course_code": "STAT1101",
+      "source_program_id": "prog_005",
+      "source_college_ar": "كلية العلوم",
+      "source_college_en": "Faculty of Science",
+      "source_department_ar": "قسم الاحصاء",
+      "source_department_en": "Department of Statistics",
+      "target_college_ar": "كلية ادارة الاعمال",
+      "target_college_en": "Faculty of Business Administration ",
+      "target_department_ar": "قسم الاستثمار والتمويل",
+      "target_department_en": "Department of Finance and Investment",
+      "notes": "",
+      "is_active": true,
+      "created_date": "2026-01-24T00:17:04.587144",
+      "last_updated": "2026-01-24T00:17:04.587144"
     }
   ],
-  "last_updated": "2026-01-19T19:22:01.304739"
+  "last_updated": "2026-01-24T00:17:04.589143"
 }

@@ -111,7 +111,96 @@
       "last_login": "2026-01-17T17:35:39.680007",
       "is_active": true,
       "metadata": {}
+    },
+    {
+      "user_id": "user_2e029e",
+      "username": "S200840",
+      "password_hash": "b252cf6959623a959d23fdbb066e5e96a37fa062b0dfafdb7795294b6e9a04e7",
+      "full_name": "Sidig Idriss Mohammed",
+      "email": "sisdi@yahoo.com",
+      "roles": [
+        "section_instructor"
+      ],
+      "employee_id": "200840",
+      "faculty_id": "200840",
+      "assigned_programs": [],
+      "assigned_courses": [],
+      "assigned_sections": {
+        "course_stat1101": [
+          "15"
+        ]
+      },
+      "created_date": "2026-01-27T22:02:04.299598",
+      "last_login": null,
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_4b4dce",
+      "username": "M58191",
+      "password_hash": "71a625e00b9f869d09383787ac03d1c778b9165e53c7ca3f9d54e8569dc73ce2",
+      "full_name": "Manahil Ahmed",
+      "email": "manahil@ut.edu.sa",
+      "roles": [
+        "section_instructor"
+      ],
+      "employee_id": "58191",
+      "faculty_id": "58191",
+      "assigned_programs": [],
+      "assigned_courses": [],
+      "assigned_sections": {
+        "course_stat1101": [
+          "20",
+          "555"
+        ]
+      },
+      "created_date": "2026-01-27T22:04:33.965694",
+      "last_login": null,
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_e2a583",
+      "username": "E200845",
+      "password_hash": "3d648f5ca6c7074a6dc1b0cc5e5a35dd2e186568c95e4184ccdb3b340664275d",
+      "full_name": "Ehab Ahmed",
+      "email": "Ehab@yahoo.com",
+      "roles": [
+        "program_coordinator"
+      ],
+      "employee_id": "200845",
+      "faculty_id": "200845",
+      "assigned_programs": [
+        "prog_005"
+      ],
+      "assigned_courses": [],
+      "assigned_sections": {},
+      "created_date": "2026-01-29T11:11:40.163258",
+      "last_login": null,
+      "is_active": true,
+      "metadata": {}
+    },
+    {
+      "user_id": "user_645019",
+      "username": "A58061",
+      "password_hash": "7e0db5d64edde89058ef348f57b98864e0282a806e2239dea4b15365b4b1935b",
+      "full_name": "Atif Yaseen",
+      "email": "atif@ut.edu.sa",
+      "roles": [
+        "course_coordinator"
+      ],
+      "employee_id": "58061",
+      "faculty_id": "58061",
+      "assigned_programs": [],
+      "assigned_courses": [
+        "course_stat1101"
+      ],
+      "assigned_sections": {},
+      "created_date": "2026-01-30T23:32:14.868269",
+      "last_login": null,
+      "is_active": true,
+      "metadata": {}
     }
   ],
-  "last_updated": "2026-01-19T07:21:16.694588"
+  "last_updated": "2026-01-30T23:34:07.342209"
 }

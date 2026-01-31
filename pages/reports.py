@@ -34,21 +34,39 @@ def show_reports(db: Database, user, lang: str):
 
     st.title(f"📊 {t('reports', lang)}")
 
-    # علامات التبويب للتقارير المختلفة
-    tab1, tab2, tab3 = st.tabs([
-        f"📈 {t('programs_statistics', lang) if lang == 'ar' else 'Programs Statistics'}",
-        f"📚 {t('courses_statistics', lang) if lang == 'ar' else 'Courses Statistics'}",
-        f"🔗 {t('clos_plos_mapping', lang) if lang == 'ar' else 'CLOs-PLOs Mapping'}"
-    ])
+    # تحديد علامات التبويب حسب دور المستخدم
+    if user.role == UserRole.SECTION_INSTRUCTOR:
+        # علامات التبويب لمدرس الشعبة
+        tab1, tab2, tab3 = st.tabs([
+            f"📖 {'شعبي' if lang == 'ar' else 'My Sections'}",
+            f"📊 {'تقرير قياس المخرجات' if lang == 'ar' else 'CLO Assessment Report'}",
+            f"📝 {'ورقة النشاط' if lang == 'ar' else 'Activity Sheet Report'}"
+        ])
 
-    with tab1:
-        show_programs_statistics(db, user, lang, is_rtl)
+        with tab1:
+            show_section_instructor_sections(db, user, lang, is_rtl)
 
-    with tab2:
-        show_courses_statistics(db, user, lang, is_rtl)
+        with tab2:
+            show_section_instructor_clo_report(db, user, lang, is_rtl)
 
-    with tab3:
-        show_clos_plos_mapping(db, user, lang, is_rtl)
+        with tab3:
+            show_section_instructor_activity_sheet(db, user, lang, is_rtl)
+    else:
+        # علامات التبويب للتقارير المختلفة للأدوار الأخرى
+        tab1, tab2, tab3 = st.tabs([
+            f"📈 {t('programs_statistics', lang) if lang == 'ar' else 'Programs Statistics'}",
+            f"📚 {t('courses_statistics', lang) if lang == 'ar' else 'Courses Statistics'}",
+            f"🔗 {t('clos_plos_mapping', lang) if lang == 'ar' else 'CLOs-PLOs Mapping'}"
+        ])
+
+        with tab1:
+            show_programs_statistics(db, user, lang, is_rtl)
+
+        with tab2:
+            show_courses_statistics(db, user, lang, is_rtl)
+
+        with tab3:
+            show_clos_plos_mapping(db, user, lang, is_rtl)
 
 
 def show_programs_statistics(db: Database, user, lang: str, is_rtl: bool):
@@ -414,3 +432,350 @@ def export_to_excel(df: pd.DataFrame, sheet_name: str) -> bytes:
 
     output.seek(0)
     return output.getvalue()
+
+
+# ═══════════════════════════════════════════════════════════════
+# تقارير مدرس الشعبة / Section Instructor Reports
+# ═══════════════════════════════════════════════════════════════
+
+def load_sections_data():
+    """تحميل بيانات الشعب"""
+    sections_file = Path(__file__).parent.parent / 'data' / 'sections.json'
+    try:
+        with open(sections_file, 'r', encoding='utf-8') as f:
+            return json.load(f).get('sections', [])
+    except:
+        return []
+
+
+def load_section_students_data():
+    """تحميل بيانات طلاب الشعب"""
+    students_file = Path(__file__).parent.parent / 'data' / 'section_students.json'
+    try:
+        with open(students_file, 'r', encoding='utf-8') as f:
+            return json.load(f).get('section_students', [])
+    except:
+        return []
+
+
+def load_student_grades_data():
+    """تحميل بيانات درجات الطلاب"""
+    grades_file = Path(__file__).parent.parent / 'data' / 'student_grades.json'
+    try:
+        with open(grades_file, 'r', encoding='utf-8') as f:
+            return json.load(f).get('student_grades', [])
+    except:
+        return []
+
+
+def get_instructor_assigned_sections(db, user):
+    """الحصول على الشعب المسندة للمدرس"""
+    user_data = db.load_users()
+    for u in user_data:
+        if u.get('user_id') == user.user_id:
+            return u.get('assigned_sections', {})
+    return {}
+
+
+def show_section_instructor_sections(db: Database, user, lang: str, is_rtl: bool):
+    """عرض شعب المدرس"""
+
+    st.subheader(f"📖 {'شعبي الدراسية' if lang == 'ar' else 'My Sections'}")
+
+    # الحصول على الشعب المسندة
+    assigned_sections = get_instructor_assigned_sections(db, user)
+
+    if not assigned_sections:
+        st.info("لا توجد شعب مسندة حالياً" if lang == 'ar' else "No sections assigned yet")
+        return
+
+    # تحميل البيانات
+    all_courses = db.get_all_courses()
+    all_sections = load_sections_data()
+    all_students = load_section_students_data()
+    all_grades = load_student_grades_data()
+
+    # إحصائيات عامة
+    total_sections = sum(len(sections) for sections in assigned_sections.values())
+    total_students = 0
+    sections_with_grades = 0
+
+    for course_id, section_numbers in assigned_sections.items():
+        for section_number in section_numbers:
+            # إيجاد section_id للشعبة
+            section_id = None
+            for section in all_sections:
+                if section.get('course_id') == course_id and section.get('section_number') == section_number:
+                    section_id = section.get('section_id')
+                    break
+
+            # حساب عدد الطلاب باستخدام section_id
+            if section_id:
+                section_students = [s for s in all_students if s.get('section_id') == section_id]
+                total_students += len(section_students)
+
+            # التحقق من وجود درجات باستخدام section_id
+            if section_id:
+                section_grades = [g for g in all_grades if g.get('section_id') == section_id]
+            else:
+                section_grades = []
+            if section_grades:
+                sections_with_grades += 1
+
+    # عرض البطاقات
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h2 style="color: white; margin: 0;">📖 {total_sections}</h2>
+            <p style="color: white; margin: 5px 0;">{'عدد الشعب' if lang == 'ar' else 'Total Sections'}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                    padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h2 style="color: white; margin: 0;">👨‍🎓 {total_students}</h2>
+            <p style="color: white; margin: 5px 0;">{'عدد الطلاب' if lang == 'ar' else 'Total Students'}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                    padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h2 style="color: white; margin: 0;">📚 {len(assigned_sections)}</h2>
+            <p style="color: white; margin: 5px 0;">{'عدد المقررات' if lang == 'ar' else 'Courses'}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col4:
+        completion_rate = int((sections_with_grades / total_sections * 100)) if total_sections > 0 else 0
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+                    padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h2 style="color: white; margin: 0;">✅ {completion_rate}%</h2>
+            <p style="color: white; margin: 5px 0;">{'نسبة الإنجاز' if lang == 'ar' else 'Progress'}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # جدول تفصيلي للشعب
+    st.subheader(f"📋 {'تفاصيل الشعب' if lang == 'ar' else 'Sections Details'}")
+
+    sections_data = []
+    for course_id, section_numbers in assigned_sections.items():
+        course_info = next((c for c in all_courses if c.get('course_id') == course_id), None)
+        course_code = course_info.get('course_code', '') if course_info else ''
+        course_name = course_info.get('course_title_ar' if lang == 'ar' else 'course_title_en', '') if course_info else ''
+
+        for section_number in section_numbers:
+            # معلومات الشعبة
+            section_info = next((s for s in all_sections
+                                if s.get('course_id') == course_id and s.get('section_number') == section_number), None)
+
+            # الحصول على section_id
+            section_id = section_info.get('section_id') if section_info else None
+
+            # عدد الطلاب باستخدام section_id
+            if section_id:
+                section_students = [s for s in all_students if s.get('section_id') == section_id]
+            else:
+                section_students = []
+
+            # التحقق من وجود درجات باستخدام section_id
+            if section_id:
+                section_grades = [g for g in all_grades if g.get('section_id') == section_id]
+            else:
+                section_grades = []
+            has_grades = "✅ نعم" if section_grades else "❌ لا"
+
+            sections_data.append({
+                'رمز المقرر / Code': course_code,
+                'اسم المقرر / Course': course_name,
+                'رقم الشعبة / Section': section_number,
+                'الفصل / Semester': section_info.get('semester', '') if section_info else '',
+                'عدد الطلاب / Students': len(section_students),
+                'درجات مدخلة / Has Grades': has_grades
+            })
+
+    if sections_data:
+        df_sections = pd.DataFrame(sections_data)
+        st.dataframe(df_sections, use_container_width=True, hide_index=True)
+
+        # زر تصدير Excel
+        st.markdown("<br>", unsafe_allow_html=True)
+        col1, col2, col3 = st.columns([2, 1, 2])
+        with col2:
+            excel_data = export_to_excel(df_sections, "تقرير شعبي")
+            st.download_button(
+                label="📥 تصدير إلى Excel / Export to Excel",
+                data=excel_data,
+                file_name=f"my_sections_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True
+            )
+
+
+def show_section_instructor_clo_report(db: Database, user, lang: str, is_rtl: bool):
+    """عرض تقرير قياس المخرجات للمدرس"""
+
+    st.subheader(f"📊 {'تقرير قياس مخرجات التعلم' if lang == 'ar' else 'CLO Assessment Report'}")
+
+    # الحصول على الشعب المسندة
+    assigned_sections = get_instructor_assigned_sections(db, user)
+
+    if not assigned_sections:
+        st.info("لا توجد شعب مسندة حالياً" if lang == 'ar' else "No sections assigned yet")
+        return
+
+    # تحميل البيانات
+    all_courses = db.get_all_courses()
+
+    # اختيار المقرر والشعبة
+    course_options = {}
+    for course_id, section_numbers in assigned_sections.items():
+        course_info = next((c for c in all_courses if c.get('course_id') == course_id), None)
+        if course_info:
+            course_code = course_info.get('course_code', '')
+            course_name = course_info.get('course_title_ar' if lang == 'ar' else 'course_title_en', '')
+            course_options[f"{course_code} - {course_name}"] = course_id
+
+    if not course_options:
+        st.warning("لا توجد مقررات متاحة" if lang == 'ar' else "No courses available")
+        return
+
+    selected_course_label = st.selectbox(
+        "📚 اختر المقرر / Select Course:",
+        options=list(course_options.keys()),
+        key='instructor_clo_course'
+    )
+    selected_course_id = course_options[selected_course_label]
+
+    # اختيار الشعبة
+    section_numbers = assigned_sections.get(selected_course_id, [])
+    if section_numbers:
+        selected_section = st.selectbox(
+            "📖 اختر الشعبة / Select Section:",
+            options=section_numbers,
+            key='instructor_clo_section'
+        )
+
+        st.markdown("---")
+
+        # الرابط المباشر لتقرير CLO
+        st.info(f"""
+        ℹ️ **{'ملاحظة' if lang == 'ar' else 'Note'}:**
+        {'لعرض تقرير قياس مخرجات التعلم الكامل، يرجى الانتقال إلى صفحة "تقرير قياس المخرجات" من القائمة الرئيسية.' if lang == 'ar' else 'For the full CLO assessment report, please navigate to the "CLO Assessment Report" page from the main menu.'}
+
+        {'المقرر المحدد' if lang == 'ar' else 'Selected Course'}: {selected_course_label}
+        {'الشعبة المحددة' if lang == 'ar' else 'Selected Section'}: {selected_section}
+        """)
+
+        # عرض ملخص سريع
+        clos_data = load_clos_data()
+        all_clos = clos_data.get('clos', [])
+        course_clos = [clo for clo in all_clos if clo.get('course_id') == selected_course_id]
+
+        if course_clos:
+            st.markdown(f"### {'ملخص مخرجات التعلم للمقرر' if lang == 'ar' else 'Course CLOs Summary'}")
+
+            clos_summary = []
+            for clo in course_clos:
+                clos_summary.append({
+                    'رمز CLO / Code': clo.get('clo_code', ''),
+                    'الوصف / Description': clo.get('description_ar' if lang == 'ar' else 'description_en', '')[:80] + '...',
+                    'PLOs المرتبطة / Related PLOs': ', '.join(clo.get('related_plos', [])) or 'N/A'
+                })
+
+            df_clos = pd.DataFrame(clos_summary)
+            st.dataframe(df_clos, use_container_width=True, hide_index=True)
+        else:
+            st.warning("لا توجد مخرجات تعلم مسجلة لهذا المقرر" if lang == 'ar' else "No CLOs registered for this course")
+
+
+def show_section_instructor_activity_sheet(db: Database, user, lang: str, is_rtl: bool):
+    """عرض تقرير ورقة النشاط للمدرس"""
+
+    st.subheader(f"📝 {'تقرير ورقة النشاط' if lang == 'ar' else 'Activity Sheet Report'}")
+
+    # الحصول على الشعب المسندة
+    assigned_sections = get_instructor_assigned_sections(db, user)
+
+    if not assigned_sections:
+        st.info("لا توجد شعب مسندة حالياً" if lang == 'ar' else "No sections assigned yet")
+        return
+
+    # تحميل البيانات
+    all_courses = db.get_all_courses()
+
+    # اختيار المقرر والشعبة
+    course_options = {}
+    for course_id, section_numbers in assigned_sections.items():
+        course_info = next((c for c in all_courses if c.get('course_id') == course_id), None)
+        if course_info:
+            course_code = course_info.get('course_code', '')
+            course_name = course_info.get('course_title_ar' if lang == 'ar' else 'course_title_en', '')
+            course_options[f"{course_code} - {course_name}"] = course_id
+
+    if not course_options:
+        st.warning("لا توجد مقررات متاحة" if lang == 'ar' else "No courses available")
+        return
+
+    selected_course_label = st.selectbox(
+        "📚 اختر المقرر / Select Course:",
+        options=list(course_options.keys()),
+        key='instructor_activity_course'
+    )
+    selected_course_id = course_options[selected_course_label]
+
+    # اختيار الشعبة
+    section_numbers = assigned_sections.get(selected_course_id, [])
+    if section_numbers:
+        selected_section = st.selectbox(
+            "📖 اختر الشعبة / Select Section:",
+            options=section_numbers,
+            key='instructor_activity_section'
+        )
+
+        st.markdown("---")
+
+        # الرابط المباشر لتقرير ورقة النشاط
+        st.info(f"""
+        ℹ️ **{'ملاحظة' if lang == 'ar' else 'Note'}:**
+        {'لعرض تقرير ورقة النشاط الكامل، يرجى الانتقال إلى صفحة "ورقة النشاط" من القائمة الرئيسية.' if lang == 'ar' else 'For the full activity sheet report, please navigate to the "Activity Sheet" page from the main menu.'}
+
+        {'المقرر المحدد' if lang == 'ar' else 'Selected Course'}: {selected_course_label}
+        {'الشعبة المحددة' if lang == 'ar' else 'Selected Section'}: {selected_section}
+        """)
+
+        # عرض أنشطة المقرر
+        courses_file = Path(__file__).parent.parent / 'data' / 'courses.json'
+        try:
+            with open(courses_file, 'r', encoding='utf-8') as f:
+                courses_data = json.load(f).get('courses', [])
+
+            course_info = next((c for c in courses_data if c.get('course_id') == selected_course_id), None)
+            if course_info:
+                activities = course_info.get('assessment_activities', [])
+                if activities:
+                    st.markdown(f"### {'أنشطة التقييم للمقرر' if lang == 'ar' else 'Course Assessment Activities'}")
+
+                    activities_summary = []
+                    for activity in activities:
+                        activities_summary.append({
+                            'النشاط / Activity': activity.get('assessment_task', ''),
+                            'النسبة / Percentage': f"{activity.get('percentage', 0)}%",
+                            'الدرجة / Marks': activity.get('marks', 0)
+                        })
+
+                    df_activities = pd.DataFrame(activities_summary)
+                    st.dataframe(df_activities, use_container_width=True, hide_index=True)
+                else:
+                    st.warning("لا توجد أنشطة تقييم مسجلة لهذا المقرر" if lang == 'ar' else "No assessment activities registered for this course")
+        except:
+            st.warning("خطأ في تحميل بيانات الأنشطة" if lang == 'ar' else "Error loading activities data")

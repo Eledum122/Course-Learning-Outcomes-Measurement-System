@@ -116,8 +116,6 @@ def show_assignments_list(assignments, courses_dict, programs_dict, lang):
             'source_college': source_program.get('college_en', 'N/A'),
             'target_college': a.get('target_college_en', 'N/A'),
             'target_department': a.get('target_department_en', 'N/A'),
-            'academic_year': a.get('academic_year', ''),
-            'semester': a.get('semester', ''),
             'status': '✅ نشط' if a.get('is_active', True) else '❌ غير نشط'
         })
 
@@ -134,8 +132,6 @@ def show_assignments_list(assignments, courses_dict, programs_dict, lang):
             'source_college': st.column_config.TextColumn('الكلية المصدر / Source College', width='medium'),
             'target_college': st.column_config.TextColumn('الكلية المستهدفة / Target College', width='medium'),
             'target_department': st.column_config.TextColumn('القسم المستهدف / Target Dept.', width='medium'),
-            'academic_year': st.column_config.TextColumn('السنة / Year', width='small'),
-            'semester': st.column_config.TextColumn('الفصل / Semester', width='small'),
             'status': st.column_config.TextColumn('الحالة / Status', width='small')
         },
         hide_index=True,
@@ -276,32 +272,9 @@ def show_add_assignment_form(courses, programs, assignments, lang):
         target_department_en = st.text_input("القسم المستهدف (إنجليزي) / Target Department (English) *", key="target_dept_en")
 
     st.markdown("---")
-    st.markdown("#### 📅 معلومات الفصل الدراسي / Semester Information")
 
-    col1, col2 = st.columns(2)
-
-    with col1:
-        academic_year = st.text_input("السنة الأكاديمية / Academic Year *", value="1447", key="ext_academic_year")
-
-    with col2:
-        semester = st.selectbox(
-            "الفصل الدراسي / Semester *",
-            options=["First / الأول", "Second / الثاني", "Summer / الصيفي"],
-            key="ext_semester"
-        )
-
-    st.markdown("---")
-    st.markdown("#### 📝 معلومات إضافية / Additional Information")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        num_students = st.number_input("عدد الطلاب المتوقع / Expected Students", min_value=0, value=0, key="ext_num_students")
-
-    with col2:
-        num_sections = st.number_input("عدد الشعب / Number of Sections", min_value=1, value=1, key="ext_num_sections")
-
-    notes = st.text_area("ملاحظات / Notes", key="ext_notes")
+    # ملاحظات (اختياري)
+    notes = st.text_area("ملاحظات / Notes (Optional)", key="ext_notes")
 
     # زر الإضافة
     if st.button("➕ إضافة التعيين / Add Assignment", type="primary", use_container_width=True, key="add_ext_assignment_btn"):
@@ -318,17 +291,11 @@ def show_add_assignment_form(courses, programs, assignments, lang):
             st.error("⚠️ يرجى إدخال القسم المستهدف / Please enter target department")
             return
 
-        if not academic_year:
-            st.error("⚠️ يرجى إدخال السنة الأكاديمية / Please enter academic year")
-            return
-
         # التحقق من عدم التكرار
         for a in assignments:
             if (a.get('course_id') == selected_course['course_id'] and
                 a.get('target_college_en') == target_college_en and
-                a.get('target_department_en') == target_department_en and
-                a.get('academic_year') == academic_year and
-                a.get('semester') == semester):
+                a.get('target_department_en') == target_department_en):
                 st.error("⚠️ هذا التعيين موجود مسبقاً / This assignment already exists")
                 return
 
@@ -348,10 +315,6 @@ def show_add_assignment_form(courses, programs, assignments, lang):
             "target_college_en": target_college_en,
             "target_department_ar": target_department_ar,
             "target_department_en": target_department_en,
-            "academic_year": academic_year,
-            "semester": semester,
-            "expected_students": num_students,
-            "num_sections": num_sections,
             "notes": notes,
             "is_active": True,
             "created_date": datetime.now().isoformat(),
@@ -377,8 +340,8 @@ def show_statistics(assignments, courses_dict, programs_dict, lang):
 
     # إحصائيات عامة
     active_assignments = [a for a in assignments if a.get('is_active', True)]
-    total_expected_students = sum(a.get('expected_students', 0) for a in active_assignments)
-    total_sections = sum(a.get('num_sections', 0) for a in active_assignments)
+    unique_courses = len(set(a.get('course_id') for a in active_assignments))
+    unique_colleges = len(set(a.get('target_college_en') for a in active_assignments))
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -404,8 +367,8 @@ def show_statistics(assignments, courses_dict, programs_dict, lang):
         st.markdown(f"""
         <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
                     padding: 15px; border-radius: 12px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">إجمالي الطلاب المتوقع</p>
-            <p style="color: white; margin: 0; font-size: 32px; font-weight: bold; line-height: 1.2;">{total_expected_students}</p>
+            <p style="color: white; margin: 0; font-size: 12px;">عدد المقررات</p>
+            <p style="color: white; margin: 0; font-size: 32px; font-weight: bold; line-height: 1.2;">{unique_courses}</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -413,8 +376,8 @@ def show_statistics(assignments, courses_dict, programs_dict, lang):
         st.markdown(f"""
         <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
                     padding: 15px; border-radius: 12px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">إجمالي الشعب</p>
-            <p style="color: white; margin: 0; font-size: 32px; font-weight: bold; line-height: 1.2;">{total_sections}</p>
+            <p style="color: white; margin: 0; font-size: 12px;">عدد الكليات المستهدفة</p>
+            <p style="color: white; margin: 0; font-size: 32px; font-weight: bold; line-height: 1.2;">{unique_colleges}</p>
         </div>
         """, unsafe_allow_html=True)
 
